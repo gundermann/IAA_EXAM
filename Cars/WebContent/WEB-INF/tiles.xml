@@ -10,6 +10,8 @@
 		<put-attribute name="title" value="Cars"/>
 		<put-attribute name="header" value="/header.jsp"/>
 	</definition>
+	
+	
 
 	<!-- The list screen for all cars. -->
 	<definition name="carList" extends="mainLayout">
@@ -20,5 +22,38 @@
 	<definition name="carForm" extends="mainLayout">
 		<put-attribute name="content" value="/carForm.jsp"/>
 	</definition>
+	
+	<!-- Die Liste der Säumnisse. -->
+	<definition name="failureList" extends="mainLayout">
+		<put-attribute name="content" value="/failureList.jsp"/>
+	</definition>
+	
+	<definition name="searchForm" extends="mainLayout">
+		<put-attribute name="content" value="/searchForm.jsp"/>
+	</definition>
 
+	<!-- Das Menü für die Bestandsverwaltung -->
+	<definition name="inventoryManagement" extends="mainLayout">
+		<put-attribute name="content" value="/inventoryManagement.jsp"/>
+	</definition>
+	
+	<!-- Formular für neue Publikation -->
+	<definition name="publicationForm" extends="mainLayout">
+		<put-attribute name="content" value="/publicationForm.jsp"/>
+	</definition>
+	
+	<!-- Menü für die Stammdatenverwaltung -->
+	<definition name="masterDataManagement" extends="mainLayout">
+		<put-attribute name="content" value="/masterDataManagement.jsp"/>
+	</definition>
+	
+	<!-- Liste der Publikationsarten -->
+	<definition name="kindOfPublicationList" extends="mainLayout">
+		<put-attribute name="content" value="/kindOfPublicationList.jsp"/>
+	</definition>
+	
+	<!-- Liste der Schlüsselwörter -->
+	<definition name="keywordList" extends="mainLayout">
+		<put-attribute name="content" value="/keywordList.jsp"/>
+	</definition>
 </tiles-definitions>
