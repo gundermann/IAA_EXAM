@@ -6,11 +6,10 @@
 <%-- Menü --%>
 <s:form>
 	<s:submit align="left" key="btn.masterDataManagement"
-		action="OpenMasterDataManagement" />
+		action="ShowMasterDataManagement" />
 	<s:submit align="left" key="btn.inventoryManagement"
-		action="OpenInventoryManagement" />
-	<s:submit align="left" key="btn.search" action="OpenSearch" />
-	<s:submit align="left" key="btn.rental" action="OpenRental" />
+		action="ShowInventoryManagement" />
+	<s:submit align="left" key="btn.rental" action="ShowRental" />
 	<s:submit align="left" key="btn.reminderManagement"
-		action="OpenReminderManagement" />
+		action="ShowReminderManagement" />
 </s:form>

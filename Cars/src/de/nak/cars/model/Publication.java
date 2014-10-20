@@ -43,12 +43,12 @@ public class Publication {
 	}
 
 	@Column(length = 100, nullable = false)
-	public String getTitel() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitel(String titel) {
-		this.title = titel;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public List<String> getAuthors() {

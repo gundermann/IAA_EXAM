@@ -8,26 +8,26 @@
 	<package name="default" namespace="/" extends="tiles-default">
 
 		<action name="">
-			<result type="redirect">ShowMainMenu.action</result>
+			<result type="redirect">FailureList.action</result>
 		</action>
 
-		<action name="OpenMasterDataManagement">
+		<action name="ShowMasterDataManagement">
 			<result type="tiles">masterDataManagement</result>
 		</action>
 		
-		<action name="OpenInventoryManagement">
+		<action name="ShowInventoryManagement">
 			<result type="tiles">inventoryManagement</result>
 		</action>
 		
-		<action name="OpenSearch">
+		<action name="SearchForm">
 			<result type="tiles">searchForm</result>
 		</action>
 		
-		<action name="OpenRental">
+		<action name="ShowRental">
 			<result type="tiles">rentalManagement</result>
 		</action>
 		
-		<action name="OpenReminderManagement">
+		<action name="ShowReminderManagement">
 			<result type="tiles">reminderManagement</result>
 		</action>
 		
@@ -44,9 +44,26 @@
 		</action>
 
 		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
-		<action name="ShowMainMenu" class="de.nak.cars.action.ShowMainMenuAction">
+		<action name="FailureList">
 			<result type="tiles">failureList</result>
 		</action>
+		
+		<!-- Action for the cancel button of the formular for new publications. -->
+		<action name="CancelPublication" class="de.nak.cars.action.PublicationAction" method="cancel">
+			<result type="redirect">ShowInventoryManagement.action</result>
+		</action>
+		
+		<!-- Action for the cancel button of the formular for new publications. -->
+		<action name="SavePublication" class="de.nak.cars.action.PublicationAction" method="save">
+			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="tiles" name="input">publicationForm</result>
+		</action>
+
+
+
+
+
+
 
 
 
