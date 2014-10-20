@@ -1,7 +1,8 @@
-package de.nak.cars.service;
+package de.nak.cars.service.impl;
 
 import de.nak.cars.dao.CarDAO;
 import de.nak.cars.model.Car;
+import de.nak.cars.service.CarService;
 
 import java.util.List;
 

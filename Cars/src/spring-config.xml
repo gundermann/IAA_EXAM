@@ -51,8 +51,28 @@
 	</bean>
 
 	<!-- Car Service -->
-	<bean id="carService" class="de.nak.cars.service.CarServiceImpl">
+	<bean id="carService" class="de.nak.cars.service.impl.CarServiceImpl">
 		<property name="carDAO" ref="carDAO"/>
+	</bean>
+
+	<!-- Publication DAO -->
+	<bean id="publicationDAO" class="de.nak.cars.dao.PublicationDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- Publication Service -->
+	<bean id="publicationService" class="de.nak.cars.service.impl.PublicationServiceImpl">
+		<property name="publicationDAO" ref="publicationDAO"/>
+	</bean>
+
+	<!-- Lending DAO -->
+	<bean id="lendingDAO" class="de.nak.cars.dao.LendingDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- Lending Service -->
+	<bean id="lendingService" class="de.nak.cars.service.impl.LendingServiceImpl">
+		<property name="lendingDAO" ref="lendingDAO"/>
 	</bean>
 
 </beans>
