@@ -46,13 +46,11 @@
 		<action name="AddPublication">
 			<result type="tiles">publicationForm</result>
 		</action>
-
 		<!-- Action for the cancel button of the formular for new publications. -->
 		<action name="CancelPublication" class="de.nak.cars.action.PublicationAction"
 			method="cancel">
 			<result type="redirect">ShowInventoryManagement.action</result>
 		</action>
-
 		<!-- Action for the save button of the formular for new publications. -->
 		<action name="SavePublication" class="de.nak.cars.action.PublicationAction"
 			method="save">
@@ -83,13 +81,11 @@
 			<result type="tiles">keywordForm</result>
 			<result type="chain" name="input">ShowKeywordList</result>
 		</action>
-		
 		<!-- Action for the cancel button of the formular for new keywords. -->
 		<action name="CancelKeyword" class="de.nak.cars.action.KeywordAction"
 			method="cancel">
 			<result type="redirect">ShowKeywordList.action</result>
 		</action>
-		
 		<!-- Action for the save button of the formular for new keywords. -->
 		<action name="SaveKeyword" class="de.nak.cars.action.KeywordAction"
 			method="save">
@@ -120,13 +116,11 @@
 			<result type="tiles">publicationTypeForm</result>
 			<result type="chain" name="input">ShowPublicationTypeList</result>
 		</action>
-		
 		<!-- Action for the cancel button of the formular for new publicationstypes. -->
 		<action name="CancelPublicationType" class="de.nak.cars.action.PublicationTypeAction"
 			method="cancel">
 			<result type="redirect">ShowPublicationTypeList.action</result>
 		</action>
-		
 		<!-- Action for the save button of the formular for new publicationstypes. -->
 		<action name="SavePublicationType" class="de.nak.cars.action.PublicationTypeAction"
 			method="save">
@@ -156,13 +150,11 @@
 			<result type="tiles">lenderForm</result>
 			<result type="chain" name="input">ShowLenderList</result>
 		</action>
-		
 		<!-- Action for the cancel button of the formular for new lenders. -->
 		<action name="CancelLender" class="de.nak.cars.action.LenderAction"
 			method="cancel">
 			<result type="redirect">ShowLenderList.action</result>
 		</action>
-		
 		<!-- Action for the save button of the formular for new lenders. -->
 		<action name="SaveLender" class="de.nak.cars.action.LenderAction"
 			method="save">
