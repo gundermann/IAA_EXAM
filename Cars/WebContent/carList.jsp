@@ -25,7 +25,7 @@
 		</s:iterator>
 	</table>
 	<%-- The buttons --%>
-	<s:submit key="btn.add" action="AddCar"/>
+	<s:submit key="btn.main" action="AddCar"/>
 	<s:submit key="btn.edit" action="EditCar"/>
 	<s:submit key="btn.delete" action="DeleteCar"/>
 </s:form>

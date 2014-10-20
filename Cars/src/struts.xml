@@ -5,8 +5,52 @@
 		"http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
-	<package name="default" extends="tiles-default">
+	<package name="default" namespace="/" extends="tiles-default">
 
+		<action name="">
+			<result type="redirect">ShowMainMenu.action</result>
+		</action>
+
+		<action name="OpenMasterDataManagement">
+			<result type="tiles">masterDataManagement</result>
+		</action>
+		
+		<action name="OpenInventoryManagement">
+			<result type="tiles">inventoryManagement</result>
+		</action>
+		
+		<action name="OpenSearch">
+			<result type="tiles">searchForm</result>
+		</action>
+		
+		<action name="OpenRental">
+			<result type="tiles">rentalManagement</result>
+		</action>
+		
+		<action name="OpenReminderManagement">
+			<result type="tiles">reminderManagement</result>
+		</action>
+		
+		<action name="AddPublication">
+			<result type="tiles">publicationForm</result>
+		</action>
+		
+		<action name="KindOfPublicationList">
+			<result type="tiles">kindOfPublicationList</result>
+		</action>
+		
+		<action name="KeywordList">
+			<result type="tiles">keywordList</result>
+		</action>
+
+		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
+		<action name="ShowMainMenu" class="de.nak.cars.action.ShowMainMenuAction">
+			<result type="tiles">failureList</result>
+		</action>
+
+
+
+		<!-- CARS -->
 		<!-- Action that displays the list of cars. -->
 		<action name="ShowCarList" class="de.nak.cars.action.ShowCarListAction">
 			<result type="tiles">carList</result>
