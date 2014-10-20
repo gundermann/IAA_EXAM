@@ -8,7 +8,7 @@
 	<package name="default" namespace="/" extends="tiles-default">
 
 		<action name="">
-			<result type="redirect">FailureList.action</result>
+			<result type="redirect">ShowFailureList.action</result>
 		</action>
 
 		<action name="ShowMasterDataManagement">
@@ -35,7 +35,7 @@
 			<result type="tiles">publicationForm</result>
 		</action>
 		
-		<action name="KindOfPublicationList">
+		<action name="ShowPublicationTypeList" class="de.nak.cars.action.ShowPublicationTypeListAction">
 			<result type="tiles">kindOfPublicationList</result>
 		</action>
 		
@@ -44,7 +44,7 @@
 		</action>
 
 		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
-		<action name="FailureList">
+		<action name="ShowFailureList" class="de.nak.cars.action.ShowFailureListAction">
 			<result type="tiles">failureList</result>
 		</action>
 		

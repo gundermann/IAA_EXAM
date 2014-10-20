@@ -8,16 +8,16 @@
 	<table style="border-collapse: collapse; border: #CCC;" border="1">
 		<tr>
 			<th></th>
-			<th><s:text name="lbl.publication"/></th>
-			<th><s:text name="lbl.rentDate"/></th>
+			<th><s:text name="lbl.publicationId"/></th>
+			<th><s:text name="lbl.outgoDate"/></th>
 			<th><s:text name="lbl.returnDate"/></th>
-			<th><s:text name="lbl.borrower"/></th>
+			<th><s:text name="lbl.lender"/></th>
 			<th><s:text name="lbl.amountOfReminders"/></th>
 		</tr>
-		<s:iterator value="reminderList">
+		<s:iterator value="failureList">
 			<tr>
 				<td><s:radio name="internalId" list="#{id:''}" theme="simple"/></td>
-				<td><s:property value="publication"/></td>
+				<td><s:property value="publicationId"/></td>
 				<td><s:property value="internalOd"/></td>
 				<td><s:property value="rentDate"/></td>
 				<td><s:property value="returnDate"/></td>
