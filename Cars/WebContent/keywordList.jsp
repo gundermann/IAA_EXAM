@@ -8,7 +8,7 @@
 	<table style="border-collapse: collapse; border: #CCC;" border="1">
 		<tr>
 			<th></th>
-			<th><s:text name="btn.keywords"/></th>
+			<th><s:text name="lbl.keywords"/></th>
 		</tr>
 		<s:iterator value="keywordList">
 			<tr>
