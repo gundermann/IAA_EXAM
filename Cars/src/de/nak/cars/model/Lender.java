@@ -1,10 +1,13 @@
 package de.nak.cars.model;
 
+import javax.persistence.Entity;
+
 /**
  * Lender of Publications.
  * 
  * @author Kathrin Kurtz
  */
+@Entity
 public class Lender {
 	
 	/** First Name of the lender. */

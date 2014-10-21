@@ -3,6 +3,9 @@ package de.nak.cars.model;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -10,6 +13,7 @@ import javax.persistence.Id;
  * 
  * @author Christian Leppelt
  */
+@Entity
 public class Lending {
 	/** The identifier. */
 	private Long id;
@@ -19,8 +23,11 @@ public class Lending {
 	private Date outgoDate;
 	/** The ID of the person who lent the publication */
 	private Long lenderID;
+	/** Day when the publication should be returned.*/
+	private Date expectedReturnDate;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -52,12 +59,20 @@ public class Lending {
 	public void setLender(Long lenderID) {
 		this.lenderID = lenderID;
 	}
-
+//TODO: return date anpassen
 	public Date getReturnDate() {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(outgoDate);
 		cal.add(Calendar.DATE, 14);
 		return cal.getTime();
+	}
+
+	public Date getExpectedReturnDate() {
+		return expectedReturnDate;
+	}
+
+	public void setExpectedReturnDate(Date expectedReturnDate) {
+		this.expectedReturnDate = expectedReturnDate;
 	}
 
 }
