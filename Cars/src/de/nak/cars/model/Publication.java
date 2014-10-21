@@ -3,6 +3,7 @@ package de.nak.cars.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  * 
  * @author Christian Leppelt
  */
+@Entity
 public class Publication {
 	/** The identifier. */
 	private Long id;
@@ -43,15 +45,14 @@ public class Publication {
 	}
 
 	@Column(length = 100, nullable = false)
-	public String getTitel() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitel(String titel) {
-		this.title = titel;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	@Column(length = 50, nullable = false)
 	public List<String> getAuthors() {
 		return authors;
 	}
@@ -96,7 +97,6 @@ public class Publication {
 		this.isbn = isbn;
 	}
 
-	@Column(length = 50, nullable = false)
 	public List<String> getBuzzwords() {
 		return buzzwords;
 	}

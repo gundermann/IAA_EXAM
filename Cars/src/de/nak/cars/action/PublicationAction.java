@@ -1,46 +1,47 @@
 package de.nak.cars.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import de.nak.cars.model.Car;
-import de.nak.cars.service.CarService;
+
+import de.nak.cars.model.Publication;
+import de.nak.cars.service.PublicationService;
 
 /**
- * Action for a single car.
+ * Action for a single publication.
  *
- * @author Stephan Anft
+ * @author Niels Gundermann
  */
 public class PublicationAction extends ActionSupport {
 	/** Serial version UID. */
 	private static final long serialVersionUID = -3393497662671380262L;
 
-	/** The current car. */
-	private Car car;
+	/** The current publication. */
+	private Publication publication;
 
-	/** The car's identifier selected by the user. */
-	private Long carId;
+	/** The publication's identifier selected by the user. */
+	private Long publicationId;
 
-	/** The car service. */
-	private CarService carService;
+	/** The publication service. */
+	private PublicationService publicationService;
 
 	/**
-	 * Saves the car to the database.
+	 * Saves the publication to the database.
 	 *
 	 * @return the result string.
 	 */
 	public String save() {
-		carService.saveCar(car);
+		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
 
 	/**
-	 * Deletes the selected car from the database.
+	 * Deletes the selected publication from the database.
 	 *
 	 * @return the result string.
 	 */
 	public String delete() {
-		car = carService.loadCar(carId);
-		if (car != null) {
-			carService.deleteCar(car);
+		publication = publicationService.loadPublication(publicationId);
+		if (publication != null) {
+			publicationService.deletePublication(publication);
 		}
 		return SUCCESS;
 	}
@@ -51,7 +52,7 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String load() {
-		car = carService.loadCar(carId);
+		publication = publicationService.loadPublication(publicationId);
 		return SUCCESS;
 	}
 
@@ -61,29 +62,32 @@ public class PublicationAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// If the car is not set, the car ID has to be set.
-		if (car == null && carId == null) {
-			addActionError(getText("msg.selectCar"));
+		// If the publication is not set, the publication ID has to be set.
+		if (publication == null && publicationId == null) {
+			addActionError(getText("msg.selectPublication"));
 		}
 	}
 
-	public Car getCar() {
-		return car;
+
+	public Publication getPublication() {
+		return publication;
 	}
 
-	public void setCar(Car car) {
-		this.car = car;
+	public void setPublication(Publication publication) {
+		this.publication = publication;
 	}
 
-	public Long getCarId() {
-		return carId;
+	public Long getPublicationId() {
+		return publicationId;
 	}
 
-	public void setCarId(Long carId) {
-		this.carId = carId;
+	public void setPublicationId(Long publicationId) {
+		this.publicationId = publicationId;
 	}
 
-	public void setCarService(CarService carService) {
-		this.carService = carService;
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
 	}
+
+	
 }

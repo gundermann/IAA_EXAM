@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,16 +16,19 @@ import javax.persistence.Id;
  * 
  * @author Christian Leppelt
  */
+@Entity
 public class Lending {
 	/** The identifier. */
 	private Long id;
 	/** The ID of the lended publication. */
 	private Long publicationID;
 	/** The date the publication was lent */
-	private Integer outgoDate;
+	private Date outgoDate;
 	/** The ID of the person who lent the publication */
 	private Long lenderID;
-	/** The dateformat to convert from java.util.date to string */
+	/** Day when the publication should be returned. */
+	private Date expectedReturnDate;
+	/** The dateFormat to convert from java.util.date to String. */
 	private DateFormat dateFormat;
 
 	@Id
@@ -38,7 +41,6 @@ public class Lending {
 		this.id = id;
 	}
 
-	@Column(length = 50, nullable = false)
 	public Long getPublicationID() {
 		return publicationID;
 	}
@@ -47,27 +49,36 @@ public class Lending {
 		this.publicationID = publicationID;
 	}
 
-	@Column(name = "outgo_date", scale = 8)
-	public Integer getOutgoDate() {
+	public Date getOutgoDate() {
 		return outgoDate;
 	}
 
-	public void setOutgoDate(Integer outgoDate) {
+	public void setOutgoDate(Date outgoDate) {
 		this.outgoDate = outgoDate;
 	}
 
-	public void setOutgoDate(Date outgoDate) {
-		String dateString = getDateFormatter().format(outgoDate);
-		this.outgoDate = Integer.valueOf(dateString);
-	}
-
-	@Column(length = 50, nullable = false)
 	public Long getLenderID() {
 		return lenderID;
 	}
 
 	public void setLender(Long lenderID) {
 		this.lenderID = lenderID;
+	}
+
+	// TODO: return date anpassen
+	public Date getReturnDate() {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(outgoDate);
+		cal.add(Calendar.DATE, 14);
+		return cal.getTime();
+	}
+
+	public Date getExpectedReturnDate() {
+		return expectedReturnDate;
+	}
+
+	public void setExpectedReturnDate(Date expectedReturnDate) {
+		this.expectedReturnDate = expectedReturnDate;
 	}
 
 	/**

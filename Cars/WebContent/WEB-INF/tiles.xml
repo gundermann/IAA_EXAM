@@ -48,12 +48,22 @@
 	</definition>
 	
 	<!-- Liste der Publikationsarten -->
-	<definition name="kindOfPublicationList" extends="mainLayout">
-		<put-attribute name="content" value="/kindOfPublicationList.jsp"/>
+	<definition name="publicationTypeList" extends="mainLayout">
+		<put-attribute name="content" value="/publicationTypeList.jsp"/>
 	</definition>
 	
 	<!-- Liste der Schlüsselwörter -->
 	<definition name="keywordList" extends="mainLayout">
 		<put-attribute name="content" value="/keywordList.jsp"/>
+	</definition>
+	
+	<!-- Liste der Ausleiher -->
+	<definition name="lenderList" extends="mainLayout">
+		<put-attribute name="content" value="/lenderList.jsp"/>
+	</definition>
+	
+	<!-- Formular für neues Schlüsselwort -->
+	<definition name="keywordForm" extends="mainLayout">
+		<put-attribute name="content" value="/keywordForm.jsp"/>
 	</definition>
 </tiles-definitions>

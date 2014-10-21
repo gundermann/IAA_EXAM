@@ -8,45 +8,162 @@
 	<package name="default" namespace="/" extends="tiles-default">
 
 		<action name="">
-			<result type="redirect">ShowMainMenu.action</result>
+			<result type="redirect">ShowFailureList.action</result>
 		</action>
 
-		<action name="OpenMasterDataManagement">
+		<action name="ShowMasterDataManagement">
 			<result type="tiles">masterDataManagement</result>
 		</action>
-		
-		<action name="OpenInventoryManagement">
+
+		<action name="ShowInventoryManagement">
 			<result type="tiles">inventoryManagement</result>
 		</action>
-		
-		<action name="OpenSearch">
+
+		<action name="SearchForm">
 			<result type="tiles">searchForm</result>
 		</action>
-		
-		<action name="OpenRental">
+
+		<action name="ShowRental">
 			<result type="tiles">rentalManagement</result>
 		</action>
-		
-		<action name="OpenReminderManagement">
+
+		<action name="ShowReminderManagement">
 			<result type="tiles">reminderManagement</result>
 		</action>
-		
+
+
+
+
+
+		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
+		<action name="ShowFailureList" class="de.nak.cars.action.ShowFailureListAction">
+			<result type="tiles">failureList</result>
+		</action>
+
+
+		<!-- PUBLICATION -->
+
 		<action name="AddPublication">
 			<result type="tiles">publicationForm</result>
 		</action>
-		
-		<action name="KindOfPublicationList">
-			<result type="tiles">kindOfPublicationList</result>
+		<!-- Action for the cancel button of the formular for new publications. -->
+		<action name="CancelPublication" class="de.nak.cars.action.PublicationAction"
+			method="cancel">
+			<result type="redirect">ShowInventoryManagement.action</result>
 		</action>
-		
-		<action name="KeywordList">
+		<!-- Action for the save button of the formular for new publications. -->
+		<action name="SavePublication" class="de.nak.cars.action.PublicationAction"
+			method="save">
+			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="tiles" name="input">publicationForm</result>
+		</action>
+
+
+
+		<!-- KEYWORD -->
+
+		<action name="ShowKeywordList">
 			<result type="tiles">keywordList</result>
 		</action>
 
-		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
-		<action name="ShowMainMenu" class="de.nak.cars.action.ShowMainMenuAction">
-			<result type="tiles">failureList</result>
+		<action name="AddKeyword">
+			<result type="tiles">keywordForm</result>
 		</action>
+
+		<action name="DeleteKeyword" class="de.nak.cars.action.KeywordAction"
+			method="delete">
+			<result type="redirect">ShowKeywordList.action</result>
+			<result type="chain" name="input">ShowKeywordList</result>
+		</action>
+
+		<action name="EditKeyword" class="de.nak.cars.action.KeywordAction"
+			method="load">
+			<result type="tiles">keywordForm</result>
+			<result type="chain" name="input">ShowKeywordList</result>
+		</action>
+		<!-- Action for the cancel button of the formular for new keywords. -->
+		<action name="CancelKeyword" class="de.nak.cars.action.KeywordAction"
+			method="cancel">
+			<result type="redirect">ShowKeywordList.action</result>
+		</action>
+		<!-- Action for the save button of the formular for new keywords. -->
+		<action name="SaveKeyword" class="de.nak.cars.action.KeywordAction"
+			method="save">
+			<result type="redirect">ShowKeywordList.action</result>
+			<result type="tiles" name="input">keywordForm</result>
+		</action>
+
+
+
+		<!-- PUBLICATIONTYPE -->
+
+		<action name="ShowPublicationTypeList" class="de.nak.cars.action.ShowPublicationTypeListAction">
+			<result type="tiles">publicationTypeList</result>
+		</action>
+
+		<action name="AddPublicationType">
+			<result type="tiles">publicationTypeForm</result>
+		</action>
+
+		<action name="DeletePublicationType" class="de.nak.cars.action.PublicationTypeAction"
+			method="delete">
+			<result type="redirect">ShowPublicationTypeList.action</result>
+			<result type="chain" name="input">ShowPublicationTypeList</result>
+		</action>
+
+		<action name="EditPublicationType" class="de.nak.cars.action.PublicationTypeAction"
+			method="load">
+			<result type="tiles">publicationTypeForm</result>
+			<result type="chain" name="input">ShowPublicationTypeList</result>
+		</action>
+		<!-- Action for the cancel button of the formular for new publicationstypes. -->
+		<action name="CancelPublicationType" class="de.nak.cars.action.PublicationTypeAction"
+			method="cancel">
+			<result type="redirect">ShowPublicationTypeList.action</result>
+		</action>
+		<!-- Action for the save button of the formular for new publicationstypes. -->
+		<action name="SavePublicationType" class="de.nak.cars.action.PublicationTypeAction"
+			method="save">
+			<result type="redirect">ShowPublicationTypeList.action</result>
+			<result type="tiles" name="input">publicationTypeForm</result>
+		</action>
+
+
+		<!-- LENDER -->
+
+		<action name="ShowLenderList" class="de.nak.cars.action.ShowLenderListAction">
+			<result type="tiles">lenderList</result>
+		</action>
+
+		<action name="AddLender">
+			<result type="tiles">lenderForm</result>
+		</action>
+
+		<action name="DeleteLender" class="de.nak.cars.action.LenderAction"
+			method="delete">
+			<result type="redirect">ShowLenderList.action</result>
+			<result type="chain" name="input">ShowLenderList</result>
+		</action>
+
+		<action name="EditLender" class="de.nak.cars.action.LenderAction"
+			method="load">
+			<result type="tiles">lenderForm</result>
+			<result type="chain" name="input">ShowLenderList</result>
+		</action>
+		<!-- Action for the cancel button of the formular for new lenders. -->
+		<action name="CancelLender" class="de.nak.cars.action.LenderAction"
+			method="cancel">
+			<result type="redirect">ShowLenderList.action</result>
+		</action>
+		<!-- Action for the save button of the formular for new lenders. -->
+		<action name="SaveLender" class="de.nak.cars.action.LenderAction"
+			method="save">
+			<result type="redirect">ShowLenderList.action</result>
+			<result type="tiles" name="input">lenderForm</result>
+		</action>
+
+
+
 
 
 
@@ -61,26 +178,32 @@
 			<result type="tiles">carForm</result>
 		</action>
 
-		<!-- Saves the new or updated car into the database and shows the car list again. -->
-		<action name="SaveCar" class="de.nak.cars.action.CarAction" method="save">
+		<!-- Saves the new or updated car into the database and shows the car list 
+			again. -->
+		<action name="SaveCar" class="de.nak.cars.action.CarAction"
+			method="save">
 			<result type="redirect">ShowCarList.action</result>
 			<result type="tiles" name="input">carForm</result>
 		</action>
 
 		<!-- Loads a existing car and shows it in the car form. -->
-		<action name="EditCar" class="de.nak.cars.action.CarAction" method="load">
+		<action name="EditCar" class="de.nak.cars.action.CarAction"
+			method="load">
 			<result type="tiles">carForm</result>
 			<result type="chain" name="input">ShowCarList</result>
 		</action>
 
 		<!-- Deletes the selected car and shows the car list again. -->
-		<action name="DeleteCar" class="de.nak.cars.action.CarAction" method="delete">
+		<action name="DeleteCar" class="de.nak.cars.action.CarAction"
+			method="delete">
 			<result type="redirect">ShowCarList.action</result>
 			<result type="chain" name="input">ShowCarList</result>
 		</action>
 
-		<!-- Action for the cancel button. Is required to avoid stack traces in log. -->
-		<action name="CancelCar" class="de.nak.cars.action.CarAction" method="cancel">
+		<!-- Action for the cancel button. Is required to avoid stack traces in 
+			log. -->
+		<action name="CancelCar" class="de.nak.cars.action.CarAction"
+			method="cancel">
 			<result type="redirect">ShowCarList.action</result>
 		</action>
 

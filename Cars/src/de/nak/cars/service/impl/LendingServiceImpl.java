@@ -58,4 +58,5 @@ public class LendingServiceImpl implements LendingService {
 		String datumString = dateFormat.format(calendar.getTime());
 		return Integer.valueOf(datumString);
 	}
+
 }
