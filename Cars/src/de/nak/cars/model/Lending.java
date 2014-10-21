@@ -3,6 +3,8 @@ package de.nak.cars.model;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Id;
+
 /**
  * Lending entity.
  * 
@@ -18,6 +20,7 @@ public class Lending {
 	/** The ID of the person who lent the publication */
 	private Long lenderID;
 
+	@Id
 	public Long getId() {
 		return id;
 	}
