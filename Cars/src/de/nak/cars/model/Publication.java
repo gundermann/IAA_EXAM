@@ -51,6 +51,7 @@ public class Publication {
 		this.title = titel;
 	}
 
+	@Column(length = 50, nullable = false)
 	public List<String> getAuthors() {
 		return authors;
 	}
@@ -95,6 +96,7 @@ public class Publication {
 		this.isbn = isbn;
 	}
 
+	@Column(length = 50, nullable = false)
 	public List<String> getBuzzwords() {
 		return buzzwords;
 	}
