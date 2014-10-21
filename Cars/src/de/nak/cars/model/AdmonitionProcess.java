@@ -21,7 +21,7 @@ public class AdmonitionProcess {
 	/** The identifier. */
 	private Long admonitionProcessId;
 	/** The ID of the lending. */
-	private long lendingId;
+	private Lending lending;
 	/** List of the admonitions created in this admonation process. Max number is 3. */
 	private List<Admonition> admonitions;
 	
@@ -35,12 +35,13 @@ public class AdmonitionProcess {
 		this.admonitionProcessId = id;
 	}
 	
-	public long getLendingId() {
-		return lendingId;
+	public Lending getLendingId() {
+		return lending;
 	}
-	public void setLendingId(long lendingId) {
-		this.lendingId = lendingId;
+	public void setLendingId(Lending lending) {
+		this.lending = lending;
 	}
+	
 	@OneToMany(mappedBy = "admonitionprocess")
 	public List<Admonition> getAdmonitions() {
 		return admonitions;
