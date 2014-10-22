@@ -1,5 +1,6 @@
 package de.nak.cars.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +29,7 @@ public class Keyword {
 		this.keywordId = keywordId;
 	}
 
+	@Column(length = 50, nullable = false)
 	public String getKeyword() {
 		return keyword;
 	}
