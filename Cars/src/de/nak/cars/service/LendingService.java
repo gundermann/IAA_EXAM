@@ -43,4 +43,11 @@ public interface LendingService {
 	 */
 	List<Lending> loadAllLendings();
 
+	/**
+	 * Search all open lendings.
+	 * 
+	 * @return a list which is empty if no lending was found.
+	 */
+	List<Lending> loadOpenLendings();
+
 }

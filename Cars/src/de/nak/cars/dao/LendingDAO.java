@@ -60,6 +60,20 @@ public class LendingDAO {
 				.list();
 	}
 
+	/**
+	 * Searches lendings y a specific outgo date.
+	 * 
+	 * @param outgoDate
+	 *            The date the publication was lent.
+	 * @return a list of lendings which is empty if no lending was found.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Lending> searchByOutgoDate(Integer outgoDate) {
+		return sessionFactory.getCurrentSession()
+				.createQuery("from Lending where outgo_date > " + outgoDate)
+				.list();
+	}
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

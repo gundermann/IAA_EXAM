@@ -1,11 +1,9 @@
-package de.nak.cars.action;
+ de.nak.cars.action;
 
 import com.opensymphony.xwork2.Action;
-
 import de.nak.cars.model.Car;
 import de.nak.cars.service.CarService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,11 +13,11 @@ import java.util.List;
  */
 public class ShowCarListAction implements Action {
 	/** The list of cars. */
-	private List<Car> carList = new ArrayList<Car>();
+	private List<Car> carList;
 
 	/** The car service. */
 	private CarService carService;
-	
+
 	@Override
 	public String execute() throws Exception {
 		carList = carService.loadAllCars();
