@@ -19,9 +19,6 @@
 			<result type="tiles">inventoryManagement</result>
 		</action>
 
-		<action name="SearchForm">
-			<result type="tiles">searchForm</result>
-		</action>
 
 		<action name="ShowRental">
 			<result type="tiles">rentalManagement</result>
@@ -42,7 +39,16 @@
 
 
 		<!-- PUBLICATION -->
-
+		<!-- Action that displays the publications in a List -->
+		<action name="ShowPublicationList" class="de.nak.cars.action.ShowPublicationListAction">
+			<result type="tiles">publicationList</result>
+		</action>
+		<!-- Action for the search of a publication  -->
+		<action name="FindPublication" class="de.nak.cars.action.PublicationAction"
+			method="search">
+			<result type="tiles">publicationList</result>
+			<result type="chain" name="input">ShowPublicationList</result>
+		</action>
 		<action name="AddPublication">
 			<result type="tiles">publicationForm</result>
 		</action>
@@ -190,7 +196,7 @@
 		<action name="EditCar" class="de.nak.cars.action.CarAction"
 			method="load">
 			<result type="tiles">carForm</result>
-			<result type="chain" name="input">ShowCarList</result>
+	 		<result type="chain" name="input">ShowCarList</result>
 		</action>
 
 		<!-- Deletes the selected car and shows the car list again. -->

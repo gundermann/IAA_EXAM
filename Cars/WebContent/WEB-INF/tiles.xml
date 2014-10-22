@@ -23,47 +23,49 @@
 		<put-attribute name="content" value="/carForm.jsp"/>
 	</definition>
 	
+	
+	
+	
 	<!-- Die Liste der Säumnisse. -->
 	<definition name="failureList" extends="mainLayout">
 		<put-attribute name="content" value="/failureList.jsp"/>
 	</definition>
 	
-	<definition name="searchForm" extends="mainLayout">
-		<put-attribute name="content" value="/searchForm.jsp"/>
-	</definition>
 
+	<!-- INVENTORYMANAGEMENT -->
 	<!-- Das Menü für die Bestandsverwaltung -->
 	<definition name="inventoryManagement" extends="mainLayout">
-		<put-attribute name="content" value="/inventoryManagement.jsp"/>
+		<put-attribute name="content" value="/InventoryManagement/inventoryManagement.jsp"/>
 	</definition>
-	
 	<!-- Formular für neue Publikation -->
 	<definition name="publicationForm" extends="mainLayout">
-		<put-attribute name="content" value="/publicationForm.jsp"/>
+		<put-attribute name="content" value="/InventoryManagement/publicationForm.jsp"/>
+	</definition>
+	<!-- Formular für die Publikationssuche -->
+	<definition name="publicationSearchForm" extends="mainLayout">
+		<put-attribute name="content" value="/InventoryManagement/publicationSearchForm.jsp"/>
 	</definition>
 	
+
+	<!-- MASTERDATAMANAGEMENT -->	
 	<!-- Menü für die Stammdatenverwaltung -->
 	<definition name="masterDataManagement" extends="mainLayout">
-		<put-attribute name="content" value="/masterDataManagement.jsp"/>
+		<put-attribute name="content" value="/MasterDataManagement/masterDataManagement.jsp"/>
 	</definition>
-	
 	<!-- Liste der Publikationsarten -->
 	<definition name="publicationTypeList" extends="mainLayout">
-		<put-attribute name="content" value="/publicationTypeList.jsp"/>
+		<put-attribute name="content" value="/MasterDataManagement/publicationTypeList.jsp"/>
 	</definition>
-	
 	<!-- Liste der Schlüsselwörter -->
 	<definition name="keywordList" extends="mainLayout">
-		<put-attribute name="content" value="/keywordList.jsp"/>
+		<put-attribute name="content" value="/MasterDataManagement/keywordList.jsp"/>
 	</definition>
-	
 	<!-- Liste der Ausleiher -->
 	<definition name="lenderList" extends="mainLayout">
-		<put-attribute name="content" value="/lenderList.jsp"/>
+		<put-attribute name="content" value="/MasterDataManagement/lenderList.jsp"/>
 	</definition>
-	
 	<!-- Formular für neues Schlüsselwort -->
 	<definition name="keywordForm" extends="mainLayout">
-		<put-attribute name="content" value="/keywordForm.jsp"/>
+		<put-attribute name="content" value="/MasterDataManagement/keywordForm.jsp"/>
 	</definition>
 </tiles-definitions>
