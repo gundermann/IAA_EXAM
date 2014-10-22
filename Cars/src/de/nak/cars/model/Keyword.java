@@ -7,23 +7,24 @@ import javax.persistence.Id;
 
 /**
  * Keyword entity.
+ * 
  * @author Kathrin Kurtz
- *
+ * 
  */
 @Entity
 public class Keyword {
 	/** The identifier. */
-	private long keywordId;
+	private Long keywordId;
 	/** The keyword String. */
 	private String keyword;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long getKeywordId() {
+	public Long getKeywordId() {
 		return keywordId;
 	}
 
-	public void setKeywordId(long keywordId) {
+	public void setKeywordId(Long keywordId) {
 		this.keywordId = keywordId;
 	}
 

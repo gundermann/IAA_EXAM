@@ -2,6 +2,8 @@ package de.nak.cars.service;
 
 import java.util.List;
 
+import de.nak.cars.model.Author;
+import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
 
 /**
@@ -56,13 +58,13 @@ public interface PublicationService {
 	 *            The publisher you search for.
 	 * @param type
 	 *            The publication type you search for.
-	 * @param buzzwords
-	 *            The buzzwords you search for.
+	 * @param keywords
+	 *            The keywords you search for.
 	 * @return a list which is empty if no publication was found.
 	 */
-	List<Publication> searchPublications(String title, List<String> authors,
+	List<Publication> searchPublications(String title, List<Author> authors,
 			Integer yearOfPublication, String publisher, String type,
-			List<String> buzzwords);
+			List<Keyword> keywords);
 
 	/**
 	 * Search a publication.

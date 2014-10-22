@@ -1,7 +1,5 @@
 package de.nak.cars.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,18 +17,18 @@ public class Publication {
 	private Long id;
 	/** The publications title. */
 	private String title;
-	/** The publications authors. */
-	private List<String> authors;
+	// /** The publications authors. */
+	// private List<Author> authors;
 	/** The year the publication was published. */
 	private Integer yearOfPublication;
 	/** The publications publisher. */
 	private String publisher;
-	/** The publication type. */
-	private String type;
+	// /** The publication type. */
+	// private PublicationType type;
 	/** The publications isbn. */
 	private Integer isbn;
-	/** The buzzwords to find the publication. */
-	private List<String> buzzwords;
+	// /** The buzzwords to find the publication. */
+	// private List<Keyword> keywords;
 	/** The quantity we own of this publication. */
 	private Integer quantity;
 
@@ -53,13 +51,13 @@ public class Publication {
 		this.title = title;
 	}
 
-	public List<String> getAuthors() {
-		return authors;
-	}
-
-	public void setAuthors(List<String> authors) {
-		this.authors = authors;
-	}
+	// public List<Author> getAuthors() {
+	// return authors;
+	// }
+	//
+	// public void setAuthors(List<Author> authors) {
+	// this.authors = authors;
+	// }
 
 	@Column(name = "year_of_publication", scale = 4)
 	public Integer getYearOfPublication() {
@@ -79,14 +77,14 @@ public class Publication {
 		this.publisher = publisher;
 	}
 
-	@Column(length = 50, nullable = false)
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
+	// @Column(nullable = false)
+	// public PublicationType getType() {
+	// return type;
+	// }
+	//
+	// public void setType(PublicationType type) {
+	// this.type = type;
+	// }
 
 	@Column(length = 13, nullable = false)
 	public Integer getIsbn() {
@@ -97,13 +95,13 @@ public class Publication {
 		this.isbn = isbn;
 	}
 
-	public List<String> getBuzzwords() {
-		return buzzwords;
-	}
-
-	public void setBuzzwords(List<String> buzzwords) {
-		this.buzzwords = buzzwords;
-	}
+	// public List<Keyword> getKeywords() {
+	// return keywords;
+	// }
+	//
+	// public void setKeywords(List<Keyword> keywords) {
+	// this.keywords = keywords;
+	// }
 
 	@Column(length = 3, nullable = false)
 	public Integer getQuantity() {

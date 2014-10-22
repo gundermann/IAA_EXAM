@@ -14,29 +14,34 @@ import de.nak.cars.model.Lender;
 public class LenderDAO {
 	/** The Hibernate session factory. */
 	private SessionFactory sessionFactory;
-	
+
 	/**
 	 * Persists or merges the car into the database.
-	 *
-	 * @param lender The car to persist. The given entity can be transient or detached.
+	 * 
+	 * @param lender
+	 *            The car to persist. The given entity can be transient or
+	 *            detached.
 	 */
 	public void save(Lender lender) {
 		sessionFactory.getCurrentSession().saveOrUpdate(lender);
 	}
+
 	/**
 	 * Loads a single Lender entity from the database.
 	 * 
 	 * @param matrikelnumber
 	 * @return a Lender or null if no car was found with the given identifier.
 	 */
-	public Lender load(int matrikelnumber){
-		return (Lender) sessionFactory.getCurrentSession().get(Lender.class, matrikelnumber);
+	public Lender load(Integer matrikelnumber) {
+		return (Lender) sessionFactory.getCurrentSession().get(Lender.class,
+				matrikelnumber);
 	}
-	
+
 	/**
 	 * Deletes the Lender from the database.
-	 *
-	 * @param lender The Lender to be deleted.
+	 * 
+	 * @param lender
+	 *            The Lender to be deleted.
 	 */
 	public void delete(Lender lender) {
 		sessionFactory.getCurrentSession().delete(lender);
@@ -44,14 +49,15 @@ public class LenderDAO {
 
 	/**
 	 * Loads all Lenders from the database.
-	 *
+	 * 
 	 * @return a list of lenders which is empty if no lender was found.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Lender> loadAll() {
-		return sessionFactory.getCurrentSession().createQuery("from Lender").list();
+		return sessionFactory.getCurrentSession().createQuery("from Lender")
+				.list();
 	}
-	
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

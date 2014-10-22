@@ -50,4 +50,12 @@ public interface LendingService {
 	 */
 	List<Lending> loadOpenLendings();
 
+	/**
+	 * Recalculates and sets the return date for the given lending.
+	 * 
+	 * @param lending
+	 *            The lending.
+	 */
+	void adjustReturnDate(Lending lending);
+
 }
