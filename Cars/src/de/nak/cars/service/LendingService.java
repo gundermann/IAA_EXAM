@@ -44,10 +44,18 @@ public interface LendingService {
 	List<Lending> loadAllLendings();
 
 	/**
-	 * Search all open lendings.
+	 * Search all lendings with a return delay.
 	 * 
 	 * @return a list which is empty if no lending was found.
 	 */
-	List<Lending> loadOpenLendings();
+	List<Lending> loadDelayedLendings();
+
+	/**
+	 * Recalculates and sets the return date for the given lending.
+	 * 
+	 * @param lending
+	 *            The lending.
+	 */
+	void adjustReturnDate(Lending lending);
 
 }

@@ -1,4 +1,4 @@
- de.nak.cars.action;
+package de.nak.cars.action;
 
 import com.opensymphony.xwork2.Action;
 import de.nak.cars.model.Car;

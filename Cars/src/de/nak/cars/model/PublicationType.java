@@ -7,27 +7,31 @@ import javax.persistence.Id;
 
 /**
  * Typ for publications.
+ * 
  * @author Kathrin Kurtz
- *
+ * 
  */
 @Entity
 public class PublicationType {
 	/** The identifier. */
-	private long publicationTypeId;
+	private Long publicationTypeId;
 	/** The name of the publication type. */
 	private String name;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long getPublicationTypeId() {
+	public Long getPublicationTypeId() {
 		return publicationTypeId;
 	}
-	public void setPublicationTypeId(long publicationTypeId) {
+
+	public void setPublicationTypeId(Long publicationTypeId) {
 		this.publicationTypeId = publicationTypeId;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

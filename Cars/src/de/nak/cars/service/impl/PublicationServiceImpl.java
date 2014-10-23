@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.nak.cars.dao.PublicationDAO;
+import de.nak.cars.model.Author;
+import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
 import de.nak.cars.service.PublicationService;
 
@@ -38,28 +40,28 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> searchPublications(String title,
-			List<String> authors, Integer yearOfPublication, String publisher,
-			String type, List<String> buzzwords) {
+			List<Author> authors, Integer yearOfPublication, String publisher,
+			String type, List<Keyword> keywords) {
 		ArrayList<String> queryParts = new ArrayList<String>();
 		if (title != null && !title.equals(""))
-			queryParts.add("title = " + title);
+			queryParts.add("title like '%" + title + "%'");
 		if (authors != null && !authors.isEmpty())
 			;// TODO
 		if (yearOfPublication != null)
 			queryParts.add("year_of_publication = " + yearOfPublication);
 		if (publisher != null && !publisher.equals(""))
-			queryParts.add("publisher = " + publisher);
+			queryParts.add("publisher like '%" + publisher + "%'");
 		if (type != null && !type.equals(""))
 			queryParts.add("type = " + type);
-		if (buzzwords != null && !buzzwords.isEmpty())
+		if (keywords != null && !keywords.isEmpty())
 			;// TODO
 		String whereCondition = createWhereCondition(queryParts);
-		return publicationDAO.searchPublications(whereCondition);
+		return publicationDAO.findPublications(whereCondition);
 	}
 
 	@Override
 	public Publication searchPublicationByIsbn(Integer isbn) {
-		return publicationDAO.searchPublicationByIsbn(isbn);
+		return publicationDAO.findPublicationByIsbn(isbn);
 	}
 
 	public void setPublicationDAO(PublicationDAO publicationDAO) {

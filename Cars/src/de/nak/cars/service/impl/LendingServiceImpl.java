@@ -40,23 +40,27 @@ public class LendingServiceImpl implements LendingService {
 		return lendingDAO.loadAll();
 	}
 
-	public void setLendingDAO(LendingDAO lendingDAO) {
-		this.lendingDAO = lendingDAO;
+	@Override
+	public List<Lending> loadDelayedLendings() {
+		Date now = new GregorianCalendar().getTime();
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		String todayString = dateFormat.format(now);
+		return lendingDAO.findDelayed(Integer.valueOf(todayString));
 	}
 
 	@Override
-	public List<Lending> loadOpenLendings() {
-		return lendingDAO.searchByOutgoDate(calculateDate2WeeksAgo());
+	public void adjustReturnDate(Lending lending) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(lending.getOutgoDate());
+		calendar.add(Calendar.DATE, 28);
+		for (int i = 0; i < lending.getNumberOfLendingExtensions(); i++) {
+			calendar.add(Calendar.DATE, 14);
+		}
+		lending.setExpectedReturnDate(calendar.getTime());
 	}
 
-	private Integer calculateDate2WeeksAgo() {
-		Date now = new GregorianCalendar().getTime();
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(now);
-		calendar.add(Calendar.DATE, -14);
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		String datumString = dateFormat.format(calendar.getTime());
-		return Integer.valueOf(datumString);
+	public void setLendingDAO(LendingDAO lendingDAO) {
+		this.lendingDAO = lendingDAO;
 	}
 
 }

@@ -61,16 +61,16 @@ public class LendingDAO {
 	}
 
 	/**
-	 * Searches lendings y a specific outgo date.
+	 * Searches lendings with a return date smaller then the delivered date.
 	 * 
-	 * @param outgoDate
-	 *            The date the publication was lent.
+	 * @param currentDate
+	 *            Todays date.
 	 * @return a list of lendings which is empty if no lending was found.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Lending> searchByOutgoDate(Integer outgoDate) {
+	public List<Lending> findDelayed(Integer currentDate) {
 		return sessionFactory.getCurrentSession()
-				.createQuery("from Lending where outgo_date > " + outgoDate)
+				.createQuery("from Lending where return_date < " + currentDate)
 				.list();
 	}
 
