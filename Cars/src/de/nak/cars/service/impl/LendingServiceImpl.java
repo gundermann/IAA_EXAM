@@ -41,13 +41,17 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	@Override
-	public List<Lending> loadOpenLendings() {
-		return lendingDAO.searchByOutgoDate(calculateDate4WeeksAgo());
+	public List<Lending> loadDelayedLendings() {
+		Date now = new GregorianCalendar().getTime();
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		String todayString = dateFormat.format(now);
+		return lendingDAO.findDelayed(Integer.valueOf(todayString));
 	}
 
 	@Override
 	public void adjustReturnDate(Lending lending) {
-		Calendar calendar = getCalendar(lending.getOutgoDate());
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(lending.getOutgoDate());
 		calendar.add(Calendar.DATE, 28);
 		for (int i = 0; i < lending.getNumberOfLendingExtensions(); i++) {
 			calendar.add(Calendar.DATE, 14);
@@ -57,33 +61,6 @@ public class LendingServiceImpl implements LendingService {
 
 	public void setLendingDAO(LendingDAO lendingDAO) {
 		this.lendingDAO = lendingDAO;
-	}
-
-	private Integer calculateDate4WeeksAgo() {
-		Calendar calendar = getCalendar(null);
-		calendar.add(Calendar.DATE, -28);
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		String datumString = dateFormat.format(calendar.getTime());
-		return Integer.valueOf(datumString);
-	}
-
-	/**
-	 * Returns an instance of Calendar.class with the delivered date as date. If
-	 * the date parameter is null the current system date will be used.
-	 * 
-	 * @param initialDate
-	 *            The initial date of the created calendar.
-	 * @return an instance of Calendar.class with the delivered date as date
-	 */
-	private Calendar getCalendar(Date initialDate) {
-		Calendar calendar = Calendar.getInstance();
-		if (initialDate == null) {
-			Date now = new GregorianCalendar().getTime();
-			calendar.setTime(now);
-		} else {
-			calendar.setTime(initialDate);
-		}
-		return calendar;
 	}
 
 }

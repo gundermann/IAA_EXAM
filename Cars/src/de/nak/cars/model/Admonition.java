@@ -1,5 +1,8 @@
 package de.nak.cars.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +20,9 @@ public class Admonition {
 	/** The identifier. */
 	private Long admonitionId;
 
-	//
-	// /** Day when the admonition has been created. */
-	// private Date creationDay;
+	/** Day when the admonition has been created. */
+	private Date creationDay;
+
 	//
 	// /** Admonition Procss containing this admonition. */
 	// @ManyToOne
@@ -36,12 +39,13 @@ public class Admonition {
 		this.admonitionId = id;
 	}
 
-	// @Column(name = "CREATION_DAY")
-	// public Date getCreationDay() {
-	// return creationDay;
-	// }
-	// public void setCreationDay(Date creationDay) {
-	// this.creationDay = creationDay;
-	// }
+	@Column(name = "CREATION_DAY")
+	public Date getCreationDay() {
+		return creationDay;
+	}
+
+	public void setCreationDay(Date creationDay) {
+		this.creationDay = creationDay;
+	}
 
 }

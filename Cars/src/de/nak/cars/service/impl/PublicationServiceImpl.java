@@ -56,12 +56,12 @@ public class PublicationServiceImpl implements PublicationService {
 		if (keywords != null && !keywords.isEmpty())
 			;// TODO
 		String whereCondition = createWhereCondition(queryParts);
-		return publicationDAO.searchPublications(whereCondition);
+		return publicationDAO.findPublications(whereCondition);
 	}
 
 	@Override
 	public Publication searchPublicationByIsbn(Integer isbn) {
-		return publicationDAO.searchPublicationByIsbn(isbn);
+		return publicationDAO.findPublicationByIsbn(isbn);
 	}
 
 	public void setPublicationDAO(PublicationDAO publicationDAO) {

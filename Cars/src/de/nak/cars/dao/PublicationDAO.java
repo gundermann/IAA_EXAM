@@ -71,7 +71,7 @@ public class PublicationDAO {
 	 *         found.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Publication> searchPublications(String whereCondition) {
+	public List<Publication> findPublications(String whereCondition) {
 		return sessionFactory.getCurrentSession()
 				.createQuery("from Publication" + whereCondition).list();
 	}
@@ -83,7 +83,7 @@ public class PublicationDAO {
 	 *            The isbn you search for.
 	 * @return a publication which is null if no publication was found.
 	 */
-	public Publication searchPublicationByIsbn(Integer isbn) {
+	public Publication findPublicationByIsbn(Integer isbn) {
 		return (Publication) sessionFactory.getCurrentSession()
 				.createQuery("from Publication where isbn = " + isbn)
 				.uniqueResult();

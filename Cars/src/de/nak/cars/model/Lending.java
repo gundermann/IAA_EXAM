@@ -2,6 +2,7 @@ package de.nak.cars.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -61,6 +62,7 @@ public class Lending {
 		this.lenderID = lenderID;
 	}
 
+	@Column(name = "return_date")
 	public Date getExpectedReturnDate() {
 		return expectedReturnDate;
 	}
