@@ -6,6 +6,11 @@ import de.nak.cars.dao.LenderDAO;
 import de.nak.cars.model.Lender;
 import de.nak.cars.service.LenderService;
 
+/**
+ * The lender service implementation class.
+ * 
+ * @author Christian Leppelt
+ */
 public class LenderServiceImpl implements LenderService {
 	/** The lender DAO. */
 	private LenderDAO lenderDAO;

@@ -14,10 +14,10 @@ import de.nak.cars.service.LenderService;
  */
 public class ShowLenderListAction implements Action {
 	/** The list of Lenders. */
-	private List<Lender> LenderList;
+	private List<Lender> lenderList;
 
 	/** The Lender service. */
-	private LenderService LenderService;
+	private LenderService lenderService;
 
 	@Override
 	public String execute() throws Exception {
@@ -26,10 +26,10 @@ public class ShowLenderListAction implements Action {
 	}
 
 	public List<Lender> getLenderList() {
-		return LenderList;
+		return lenderList;
 	}
 
-	public void setLenderService(LenderService LenderService) {
-		this.LenderService = LenderService;
+	public void setLenderService(LenderService lenderService) {
+		this.lenderService = lenderService;
 	}
 }

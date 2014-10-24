@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Author entity.
+ * 
+ * @author Christian Leppelt
+ */
 public class Author {
 	/** The identifier. */
 	private Long authorId;

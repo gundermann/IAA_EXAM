@@ -19,7 +19,7 @@ public class AdmonitionProcess {
 	/** The identifier. */
 	private Long admonitionProcessId;
 
-	// /** The ID of the lending. */
+	// /** The lending. */
 	// private Lending lending;
 	// /** List of the admonitions created in this admonation process. Max
 	// number is 3. */

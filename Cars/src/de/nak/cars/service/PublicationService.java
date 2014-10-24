@@ -5,6 +5,7 @@ import java.util.List;
 import de.nak.cars.model.Author;
 import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
+import de.nak.cars.model.PublicationType;
 
 /**
  * Publication service interface.
@@ -63,7 +64,7 @@ public interface PublicationService {
 	 * @return a list which is empty if no publication was found.
 	 */
 	List<Publication> searchPublications(String title, List<Author> authors,
-			Integer yearOfPublication, String publisher, String type,
+			Integer yearOfPublication, String publisher, PublicationType type,
 			List<Keyword> keywords);
 
 	/**

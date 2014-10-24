@@ -9,7 +9,7 @@ import de.nak.cars.model.PublicationType;
 /**
  * PublicationType data access object.
  * 
- * @author Christian Leppelt
+ * @author Kathrin Kurtz
  */
 public class PublicationTypeDAO {
 

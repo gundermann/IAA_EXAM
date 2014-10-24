@@ -7,6 +7,7 @@ import de.nak.cars.dao.PublicationDAO;
 import de.nak.cars.model.Author;
 import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
+import de.nak.cars.model.PublicationType;
 import de.nak.cars.service.PublicationService;
 
 /**
@@ -41,7 +42,7 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public List<Publication> searchPublications(String title,
 			List<Author> authors, Integer yearOfPublication, String publisher,
-			String type, List<Keyword> keywords) {
+			PublicationType type, List<Keyword> keywords) {
 		ArrayList<String> queryParts = new ArrayList<String>();
 		if (title != null && !title.equals(""))
 			queryParts.add("title like '%" + title + "%'");

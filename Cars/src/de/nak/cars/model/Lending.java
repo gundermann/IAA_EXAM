@@ -21,8 +21,8 @@ public class Lending {
 	// private Publication publication;
 	/** The date the publication was lent */
 	private Date outgoDate;
-	/** The ID of the person who lent the publication */
-	private Long lenderID;
+	// /** The person who lent the publication */
+	// private Lender lender;
 	/** Day when the publication should be returned. */
 	private Date expectedReturnDate;
 	/** Indicates how often the lending has been extended. */
@@ -54,13 +54,13 @@ public class Lending {
 		this.outgoDate = outgoDate;
 	}
 
-	public Long getLenderID() {
-		return lenderID;
-	}
-
-	public void setLenderID(Long lenderID) {
-		this.lenderID = lenderID;
-	}
+	// public Lender getLender() {
+	// return lender;
+	// }
+	//
+	// public void setLender(Lender lender) {
+	// this.lender = lender;
+	// }
 
 	@Column(name = "return_date")
 	public Date getExpectedReturnDate() {

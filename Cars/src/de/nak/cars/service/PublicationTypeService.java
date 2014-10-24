@@ -4,6 +4,11 @@ import java.util.List;
 
 import de.nak.cars.model.PublicationType;
 
+/**
+ * Publication type service interface.
+ * 
+ * @author Christian Leppelt
+ */
 public interface PublicationTypeService {
 
 	/**

@@ -9,6 +9,7 @@ import java.util.List;
 
 import de.nak.cars.dao.LendingDAO;
 import de.nak.cars.model.Lending;
+import de.nak.cars.model.Publication;
 import de.nak.cars.service.LendingService;
 
 /**
@@ -41,11 +42,17 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	@Override
-	public List<Lending> loadDelayedLendings() {
+	public List<Lending> searchDelayedLendings() {
 		Date now = new GregorianCalendar().getTime();
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 		String todayString = dateFormat.format(now);
 		return lendingDAO.findDelayed(Integer.valueOf(todayString));
+	}
+
+	@Override
+	public List<Lending> searchByPublication(Publication publication) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
