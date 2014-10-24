@@ -13,15 +13,15 @@ import de.nak.cars.service.AuthorService;
  * @author Niels Gundermann
  */
 public class ShowAuthorListAction implements Action {
-	/** The list of PublicationTypes. */
+	/** The list of authors. */
 	private List<Author> authorList;
 
-	/** The PublicationType service. */
+	/** The Author service. */
 	private AuthorService authorService;
 
 	@Override
 	public String execute() throws Exception {
-		authorList = authorService.loadAllAuthors();
+//		authorList = authorService.loadAllAuthors();
 		return SUCCESS;
 	}
 
