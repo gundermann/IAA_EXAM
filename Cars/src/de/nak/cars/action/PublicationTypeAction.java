@@ -18,7 +18,7 @@ public class PublicationTypeAction extends ActionSupport {
 	private PublicationType publicationType;
 
 	/** The publication's identifier selected by the user. */
-	private Long publicatioTypenId;
+	private Long publicationTypeId;
 
 	/** The publicationtype service. */
 	private PublicationTypeService publicationTypeService;
@@ -39,7 +39,7 @@ public class PublicationTypeAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String delete() {
-		publicationType = publicationTypeService.loadPublicationType(publicatioTypenId);
+		publicationType = publicationTypeService.loadPublicationType(publicationTypeId);
 		if (publicationType != null) {
 			publicationTypeService.deletePublicationType(publicationType);
 		}
@@ -52,7 +52,7 @@ public class PublicationTypeAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String load() {
-		publicationType = publicationTypeService.loadPublicationType(publicatioTypenId);
+		publicationType = publicationTypeService.loadPublicationType(publicationTypeId);
 		return SUCCESS;
 	}
 
@@ -63,7 +63,7 @@ public class PublicationTypeAction extends ActionSupport {
 	@Override
 	public void validate() {
 //		 If the publicationtype is not set, the publication ID has to be set.
-		if (publicationType == null && publicatioTypenId == null) {
+		if (publicationType == null && publicationTypeId == null) {
 			addActionError(getText("msg.selectPublication"));
 		}
 	}
@@ -76,12 +76,12 @@ public class PublicationTypeAction extends ActionSupport {
 		this.publicationType = publicationType;
 	}
 
-	public Long getPublicatioTypenId() {
-		return publicatioTypenId;
+	public Long getPublicationTypeId() {
+		return publicationTypeId;
 	}
 
-	public void setPublicatioTypenId(Long publicatioTypenId) {
-		this.publicatioTypenId = publicatioTypenId;
+	public void setPublicationTypeId(Long publicationTypeId) {
+		this.publicationTypeId = publicationTypeId;
 	}
 
 	public void setPublicationTypeService(
