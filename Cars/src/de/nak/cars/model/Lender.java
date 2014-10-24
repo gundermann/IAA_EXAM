@@ -2,6 +2,8 @@ package de.nak.cars.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -12,6 +14,8 @@ import javax.persistence.Id;
 @Entity
 public class Lender {
 
+	/**The id of the lender. */
+	private Long lenderId;
 	/** The Matrikelnumber of the lender. */
 	private Integer matrikelnumber;
 	/** First Name of the lender. */
@@ -19,12 +23,23 @@ public class Lender {
 	/** Last Name of the lender. */
 	private String lastName;
 
+	
 	@Id
-	public int getMatrikelnumber() {
+	@GeneratedValue(strategy = GenerationType.AUTO )
+	public Long getLenderId() {
+		return lenderId;
+	}
+
+	public void setLenderId(Long lenderId) {
+		this.lenderId = lenderId;
+	}
+
+	@Column(unique = true)
+	public Integer getMatrikelnumber() {
 		return matrikelnumber;
 	}
 
-	public void setMatrikelnumber(int matrikelnumber) {
+	public void setMatrikelnumber(Integer matrikelnumber) {
 		this.matrikelnumber = matrikelnumber;
 	}
 

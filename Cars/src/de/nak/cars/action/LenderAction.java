@@ -18,17 +18,18 @@ public class LenderAction extends ActionSupport {
 	private Lender lender;
 
 	/** The lender's identifier selected by the user. */
-	private Integer matrikelnumber;
+	private Long lenderId;
 
 	/** The lender service. */
 	private LenderService lenderService;
 
 	/**
-	 * Saves the Lender to the database.
-	 *
+	 * Saves the Lender to the database if possible.
+	 * 
 	 * @return the result string.
 	 */
 	public String save() {
+		// TODO Matnr abfragen
 		lenderService.saveLender(lender);
 		return SUCCESS;
 	}
@@ -39,7 +40,7 @@ public class LenderAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String delete() {
-		lender = lenderService.loadLender(matrikelnumber);
+		lender = lenderService.loadLender(lenderId);
 		if (lender != null) {
 			lenderService.deleteLender(lender);
 		}
@@ -52,7 +53,7 @@ public class LenderAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String load() {
-		lender = lenderService.loadLender(matrikelnumber);
+		lender = lenderService.loadLender(lenderId);
 		return SUCCESS;
 	}
 
@@ -62,8 +63,8 @@ public class LenderAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-//		 If the Lender is not set, the publication ID has to be set.
-		if (lender == null && matrikelnumber == null) {
+		// If the Lender is not set, the publication ID has to be set.
+		if (lender == null && lenderId == null) {
 			addActionError(getText("msg.selectPublication"));
 		}
 	}
@@ -75,22 +76,17 @@ public class LenderAction extends ActionSupport {
 	public void setLender(Lender lender) {
 		this.lender = lender;
 	}
-	
 
-	public Integer getMatrikelnumber() {
-		return matrikelnumber;
-	}
-
-	public void setMatrikelnumber(Integer matrikelnumber) {
-		this.matrikelnumber = matrikelnumber;
-	}
-
-	public void setLenderService(
-			LenderService lenderService) {
+	public void setLenderService(LenderService lenderService) {
 		this.lenderService = lenderService;
 	}
 
+	public Long getLenderId() {
+		return lenderId;
+	}
 
+	public void setLenderId(Long lenderId) {
+		this.lenderId = lenderId;
+	}
 
-	
 }

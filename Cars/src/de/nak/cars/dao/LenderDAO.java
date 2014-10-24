@@ -29,12 +29,12 @@ public class LenderDAO {
 	/**
 	 * Loads a single Lender entity from the database.
 	 * 
-	 * @param matrikelnumber
+	 * @param lenderId
 	 * @return a Lender or null if no car was found with the given identifier.
 	 */
-	public Lender load(Integer matrikelnumber) {
+	public Lender load(Long lenderId) {
 		return (Lender) sessionFactory.getCurrentSession().get(Lender.class,
-				matrikelnumber);
+				lenderId);
 	}
 
 	/**

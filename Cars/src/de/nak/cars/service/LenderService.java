@@ -26,7 +26,7 @@ public interface LenderService {
 	 *            The identifier.
 	 * @return a lender or null.
 	 */
-	Lender loadLender(Integer matrikelnumber);
+	Lender loadLender(Long matrikelnumber);
 
 	/**
 	 * Deletes the given lender.

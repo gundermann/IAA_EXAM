@@ -10,7 +10,7 @@
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
-			<input type="radio" name="matrikelnumber" value="${lenderTable.matrikelnumber}" />
+			<input type="radio" name="lenderId" value="${lenderTable.lenderId}" />
 		</display:column>
 		<display:column titleKey="lender.matrikelnumber" property="matrikelnumber" sortable="true"/>
 		<display:column titleKey="lender.firstname" property="firstName" sortable="true"/>
