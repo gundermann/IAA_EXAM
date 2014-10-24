@@ -22,6 +22,15 @@ public interface LenderService {
 	/**
 	 * Loads a single lender.
 	 * 
+	 * @param lenderId
+	 *            The identifier.
+	 * @return a lender or null.
+	 */
+	Lender loadLender(Long lenderId);
+
+	/**
+	 * Loads a single lender.
+	 * 
 	 * @param matriculationNumber
 	 *            The identifier.
 	 * @return a lender or null.
