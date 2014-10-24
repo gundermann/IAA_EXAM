@@ -98,6 +98,40 @@
 			<result type="redirect">ShowKeywordList.action</result>
 			<result type="tiles" name="input">keywordForm</result>
 		</action>
+		
+		
+			<!-- AUTHOR -->
+
+		<action name="ShowAuthorList" class="de.nak.cars.action.ShowAuthorListAction">
+			<result type="tiles">authorList</result>
+		</action>
+
+		<action name="AddAuthor">
+			<result type="tiles">authorForm</result>
+		</action>
+
+		<action name="DeleteAuthor" class="de.nak.cars.action.AuthorAction"
+			method="delete">
+			<result type="redirect">ShowAuthorList.action</result>
+			<result type="chain" name="input">ShowAuthorList</result>
+		</action>
+
+		<action name="EditAuthor" class="de.nak.cars.action.AuthorAction"
+			method="load">
+			<result type="tiles">authorForm</result>
+			<result type="chain" name="input">ShowAuthorList</result>
+		</action>
+		<!-- Action for the cancel button of the formular for new authors. -->
+		<action name="CancelAuthor" class="de.nak.cars.action.AuthorAction"
+			method="cancel">
+			<result type="redirect">ShowAuthorList.action</result>
+		</action>
+		<!-- Action for the save button of the formular for new authors. -->
+		<action name="SaveAuthor" class="de.nak.cars.action.AuthorAction"
+			method="save">
+			<result type="redirect">ShowAuthorList.action</result>
+			<result type="tiles" name="input">authorForm</result>
+		</action>
 
 
 

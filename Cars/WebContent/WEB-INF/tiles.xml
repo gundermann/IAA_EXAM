@@ -109,7 +109,20 @@
 		<put-attribute name="content"
 			value="/MasterDataManagement/lenderForm.jsp" />
 	</definition>
-	
+	<!-- list of authors -->
+	<definition name="authorList" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/authorHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/authorList.jsp" />
+	</definition>
+	<!-- Form for author -->
+	<definition name="authorForm" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/authorHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/authorForm.jsp" />
+	</definition>
 	
 	<!-- ADMONITIONMANAGEMENT -->
 	<!-- The main layout for admonition management. -->
