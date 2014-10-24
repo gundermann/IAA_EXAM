@@ -3,6 +3,7 @@ package de.nak.cars.service;
 import java.util.List;
 
 import de.nak.cars.model.Lending;
+import de.nak.cars.model.Publication;
 
 /**
  * Lending service interface.
@@ -48,7 +49,14 @@ public interface LendingService {
 	 * 
 	 * @return a list which is empty if no lending was found.
 	 */
-	List<Lending> loadDelayedLendings();
+	List<Lending> searchDelayedLendings();
+
+	/**
+	 * Search all lendings which belong to a publication.
+	 * 
+	 * @return a list which is empty if no lending was found.
+	 */
+	List<Lending> searchByPublication(Publication publication);
 
 	/**
 	 * Recalculates and sets the return date for the given lending.

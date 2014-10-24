@@ -9,7 +9,7 @@ import de.nak.cars.model.Publication;
 /**
  * Publication data access object.
  * 
- * @author Christian Leppelt
+ * @author Kathrin Kurtz
  */
 public class PublicationDAO {
 	/** The Hibernate session factory. */

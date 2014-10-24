@@ -6,6 +6,11 @@ import de.nak.cars.dao.PublicationTypeDAO;
 import de.nak.cars.model.PublicationType;
 import de.nak.cars.service.PublicationTypeService;
 
+/**
+ * The publication type service implementation class.
+ * 
+ * @author Christian Leppelt
+ */
 public class PublicationTypeServiceImpl implements PublicationTypeService {
 	/** The publication type DAO. */
 	private PublicationTypeDAO publicationTypeDAO;

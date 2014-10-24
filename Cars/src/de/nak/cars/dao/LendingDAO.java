@@ -9,7 +9,7 @@ import de.nak.cars.model.Lending;
 /**
  * Lending data access object.
  * 
- * @author Christian Leppelt
+ * @author Kathrin Kurtz
  */
 public class LendingDAO {
 	/** The Hibernate session factory. */
