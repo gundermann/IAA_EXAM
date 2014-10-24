@@ -22,11 +22,11 @@ public interface LenderService {
 	/**
 	 * Loads a single lender.
 	 * 
-	 * @param matrikelnumber
+	 * @param matriculationNumber
 	 *            The identifier.
 	 * @return a lender or null.
 	 */
-	Lender loadLender(Integer matrikelnumber);
+	Lender loadLender(Integer matriculationNumber);
 
 	/**
 	 * Deletes the given lender.

@@ -3,6 +3,7 @@ package de.nak.cars.service.impl;
 import java.util.List;
 
 import de.nak.cars.model.AdmonitionProcess;
+import de.nak.cars.model.Lending;
 import de.nak.cars.service.AdmonitionProcessService;
 
 /**
@@ -32,6 +33,12 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 
 	@Override
 	public List<AdmonitionProcess> loadAllAdmonitionProcesss() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<AdmonitionProcess> searchByLending(Lending lending) {
 		// TODO Auto-generated method stub
 		return null;
 	}

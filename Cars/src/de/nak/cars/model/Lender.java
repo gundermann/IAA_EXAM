@@ -12,20 +12,20 @@ import javax.persistence.Id;
 @Entity
 public class Lender {
 
-	/** The Matrikelnumber of the lender. */
-	private Integer matrikelnumber;
+	/** The matriculation number of the lender. */
+	private Integer matriculationNumber;
 	/** First Name of the lender. */
 	private String firstName;
 	/** Last Name of the lender. */
 	private String lastName;
 
 	@Id
-	public int getMatrikelnumber() {
-		return matrikelnumber;
+	public int getMatriculationNumber() {
+		return matriculationNumber;
 	}
 
-	public void setMatrikelnumber(int matrikelnumber) {
-		this.matrikelnumber = matrikelnumber;
+	public void setMatriculationNumber(int matriculationNumber) {
+		this.matriculationNumber = matriculationNumber;
 	}
 
 	@Column

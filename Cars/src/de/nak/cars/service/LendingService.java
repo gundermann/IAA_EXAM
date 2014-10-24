@@ -59,13 +59,19 @@ public interface LendingService {
 	List<Lending> searchByPublication(Publication publication);
 
 	/**
-	 * Recalculates and sets the return date for the given lending.
+	 * Recalculates and sets the return date for a given lending.
 	 * 
 	 * @param lending
 	 *            The lending.
 	 */
 	void adjustReturnDate(Lending lending);
 
-	List<Lending> loadAllLateLendings();
+	/**
+	 * Tells whether an admonition process exists for a given lending.
+	 * 
+	 * @param lending
+	 *            The lending.
+	 */
+	boolean hasAdmonitionProcess(Lending lending);
 
 }

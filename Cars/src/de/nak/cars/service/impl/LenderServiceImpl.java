@@ -21,8 +21,8 @@ public class LenderServiceImpl implements LenderService {
 	}
 
 	@Override
-	public Lender loadLender(Integer matrikelnumber) {
-		return lenderDAO.load(matrikelnumber);
+	public Lender loadLender(Integer matriculationNumber) {
+		return lenderDAO.load(matriculationNumber);
 	}
 
 	@Override

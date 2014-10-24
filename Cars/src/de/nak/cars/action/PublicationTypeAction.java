@@ -7,7 +7,7 @@ import de.nak.cars.service.PublicationTypeService;
 
 /**
  * Action for a single publication.
- *
+ * 
  * @author Niels Gundermann
  */
 public class PublicationTypeAction extends ActionSupport {
@@ -20,12 +20,12 @@ public class PublicationTypeAction extends ActionSupport {
 	/** The publication's identifier selected by the user. */
 	private Long publicationTypeId;
 
-	/** The publicationtype service. */
+	/** The publication type service. */
 	private PublicationTypeService publicationTypeService;
 
 	/**
-	 * Saves the publicationtype to the database.
-	 *
+	 * Saves the publication type to the database.
+	 * 
 	 * @return the result string.
 	 */
 	public String save() {
@@ -35,11 +35,12 @@ public class PublicationTypeAction extends ActionSupport {
 
 	/**
 	 * Deletes the selected publicationtype from the database.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String delete() {
-		publicationType = publicationTypeService.loadPublicationType(publicationTypeId);
+		publicationType = publicationTypeService
+				.loadPublicationType(publicationTypeId);
 		if (publicationType != null) {
 			publicationTypeService.deletePublicationType(publicationType);
 		}
@@ -48,11 +49,12 @@ public class PublicationTypeAction extends ActionSupport {
 
 	/**
 	 * Displays the selected publication in the publicaitontype form.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String load() {
-		publicationType = publicationTypeService.loadPublicationType(publicationTypeId);
+		publicationType = publicationTypeService
+				.loadPublicationType(publicationTypeId);
 		return SUCCESS;
 	}
 
@@ -62,7 +64,7 @@ public class PublicationTypeAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-//		 If the publicationtype is not set, the publication ID has to be set.
+		// If the publicationtype is not set, the publication ID has to be set.
 		if (publicationType == null && publicationTypeId == null) {
 			addActionError(getText("msg.selectPublication"));
 		}
@@ -89,7 +91,4 @@ public class PublicationTypeAction extends ActionSupport {
 		this.publicationTypeService = publicationTypeService;
 	}
 
-
-
-	
 }

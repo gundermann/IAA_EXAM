@@ -8,6 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import de.nak.cars.dao.LendingDAO;
+import de.nak.cars.model.AdmonitionProcess;
 import de.nak.cars.model.Lending;
 import de.nak.cars.model.Publication;
 import de.nak.cars.service.LendingService;
@@ -20,6 +21,8 @@ import de.nak.cars.service.LendingService;
 public class LendingServiceImpl implements LendingService {
 	/** The lending DAO. */
 	private LendingDAO lendingDAO;
+	/** The admonition process service. */
+	private AdmonitionProcessServiceImpl admonitionProcessService;
 
 	@Override
 	public void saveLending(Lending lending) {
@@ -66,14 +69,15 @@ public class LendingServiceImpl implements LendingService {
 		lending.setExpectedReturnDate(calendar.getTime());
 	}
 
-	public void setLendingDAO(LendingDAO lendingDAO) {
-		this.lendingDAO = lendingDAO;
+	@Override
+	public boolean hasAdmonitionProcess(Lending lending) {
+		List<AdmonitionProcess> processes = admonitionProcessService
+				.searchByLending(lending);
+		return !processes.isEmpty();
 	}
 
-	@Override
-	public List<Lending> loadAllLateLendings() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setLendingDAO(LendingDAO lendingDAO) {
+		this.lendingDAO = lendingDAO;
 	}
 
 }
