@@ -11,7 +11,6 @@ import javax.persistence.Id;
  * 
  * @author Christian Leppelt
  */
-@Entity
 public class Publication {
 	/** The identifier. */
 	private Long id;
@@ -32,8 +31,6 @@ public class Publication {
 	/** The quantity we own of this publication. */
 	private Integer quantity;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -42,7 +39,6 @@ public class Publication {
 		this.id = id;
 	}
 
-	@Column(length = 100, nullable = false)
 	public String getTitle() {
 		return title;
 	}
@@ -59,7 +55,6 @@ public class Publication {
 	// this.authors = authors;
 	// }
 
-	@Column(name = "year_of_publication", scale = 4)
 	public Integer getYearOfPublication() {
 		return yearOfPublication;
 	}
@@ -68,7 +63,6 @@ public class Publication {
 		this.yearOfPublication = yearOfPublication;
 	}
 
-	@Column(length = 100, nullable = false)
 	public String getPublisher() {
 		return publisher;
 	}
@@ -85,7 +79,6 @@ public class Publication {
 	// public void setType(PublicationType type) {
 	// this.type = type;
 	// }
-
 	@Column(length = 13, nullable = false)
 	public Integer getIsbn() {
 		return isbn;

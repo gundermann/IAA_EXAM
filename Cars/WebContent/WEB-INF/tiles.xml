@@ -7,65 +7,125 @@
 <tiles-definitions>
 	<!-- The main layout. -->
 	<definition name="mainLayout" template="/layout/mainLayout.jsp">
-		<put-attribute name="title" value="Cars"/>
-		<put-attribute name="header" value="/header.jsp"/>
+		<put-attribute name="title" value="Library" />
+		<put-attribute name="header" value="/header.jsp" />
 	</definition>
-	
-	
+
+
 
 	<!-- The list screen for all cars. -->
 	<definition name="carList" extends="mainLayout">
-		<put-attribute name="content" value="/carList.jsp"/>
+		<put-attribute name="content" value="/carList.jsp" />
 	</definition>
 
 	<!-- The form for a single car. -->
 	<definition name="carForm" extends="mainLayout">
-		<put-attribute name="content" value="/carForm.jsp"/>
+		<put-attribute name="content" value="/carForm.jsp" />
 	</definition>
+
+
+
+
 	
-	
-	
-	
-	<!-- Die Liste der Säumnisse. -->
-	<definition name="failureList" extends="mainLayout">
-		<put-attribute name="content" value="/failureList.jsp"/>
-	</definition>
-	
+
 
 	<!-- INVENTORYMANAGEMENT -->
-	<!-- Das Menü für die Bestandsverwaltung -->
-	<definition name="inventoryManagement" extends="mainLayout">
-		<put-attribute name="content" value="/InventoryManagement/inventoryManagement.jsp"/>
+	<!-- The main layout for master data management. -->
+	<definition name="inventoryManagementLayout" template="/layout/inventoryManagementLayout.jsp">
+		<put-attribute name="title" value="InventoryManagement" />
+		<put-attribute name="inventoryManagementHeader"
+			value="/InventoryManagement/inventoryManagementHeader.jsp" />
+		<put-attribute name="header" value="/header.jsp" />
 	</definition>
-	<!-- Formular für neue Publikation -->
-	<definition name="publicationForm" extends="mainLayout">
-		<put-attribute name="content" value="/InventoryManagement/publicationForm.jsp"/>
+	<!-- The menu of the inventory management -->
+	<definition name="inventoryManagement" extends="inventoryManagementLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/inventoryManagement.jsp" />
 	</definition>
-	<!-- Formular für die Publikationssuche -->
-	<definition name="publicationSearchForm" extends="mainLayout">
-		<put-attribute name="content" value="/InventoryManagement/publicationSearchForm.jsp"/>
+	<!-- form for publications -->
+	<definition name="publicationForm" extends="inventoryManagementLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publicationForm.jsp" />
 	</definition>
-	
+	<!-- form for common publication search -->
+	<definition name="publicationSearchForm" extends="inventoryManagementLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publicationSearchForm.jsp" />
+	</definition>
 
-	<!-- MASTERDATAMANAGEMENT -->	
-	<!-- Menü für die Stammdatenverwaltung -->
-	<definition name="masterDataManagement" extends="mainLayout">
-		<put-attribute name="content" value="/MasterDataManagement/masterDataManagement.jsp"/>
+
+	<!-- MASTERDATAMANAGEMENT -->
+	<!-- The main layout for master data management. -->
+	<definition name="masterDataManagementLayout" template="/layout/masterDataManagementLayout.jsp">
+		<put-attribute name="title" value="MasterDataManagement" />
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/masterDataManagementHeader.jsp" />
+		<put-attribute name="header" value="/header.jsp" />
 	</definition>
-	<!-- Liste der Publikationsarten -->
-	<definition name="publicationTypeList" extends="mainLayout">
-		<put-attribute name="content" value="/MasterDataManagement/publicationTypeList.jsp"/>
+	<!-- Menü für die Stammdatenverwaltung -->
+	<definition name="masterDataManagement" extends="masterDataManagementLayout">
+		<put-attribute name="content"
+			value="/MasterDataManagement/masterDataManagement.jsp" />
+	</definition>
+	<!-- List of publicationstypes -->
+	<definition name="publicationTypeList" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/publicationTypeHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/publicationTypeList.jsp" />
+	</definition>
+	<!-- Formular for new publicationtype -->
+	<definition name="publicationTypeForm" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/publicationTypeHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/publicationTypeForm.jsp" />
 	</definition>
 	<!-- Liste der Schlüsselwörter -->
-	<definition name="keywordList" extends="mainLayout">
-		<put-attribute name="content" value="/MasterDataManagement/keywordList.jsp"/>
-	</definition>
-	<!-- Liste der Ausleiher -->
-	<definition name="lenderList" extends="mainLayout">
-		<put-attribute name="content" value="/MasterDataManagement/lenderList.jsp"/>
+	<definition name="keywordList" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/keywordHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/keywordList.jsp" />
 	</definition>
 	<!-- Formular für neues Schlüsselwort -->
-	<definition name="keywordForm" extends="mainLayout">
-		<put-attribute name="content" value="/MasterDataManagement/keywordForm.jsp"/>
+	<definition name="keywordForm" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/keywordHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/keywordForm.jsp" />
 	</definition>
+	<!-- Liste der Ausleiher -->
+	<definition name="lenderList" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/lenderHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/lenderList.jsp" />
+	</definition>
+	<!-- Formular for lender -->
+	<definition name="lenderForm" extends="masterDataManagementLayout">
+		<put-attribute name="masterDataManagementHeader"
+			value="/MasterDataManagement/lenderHeader.jsp" />
+		<put-attribute name="content"
+			value="/MasterDataManagement/lenderForm.jsp" />
+	</definition>
+	
+	
+	<!-- ADMONITIONMANAGEMENT -->
+	<!-- The main layout for admonition management. -->
+	<definition name="admontionManagementLayout" template="/layout/admonitionManagementLayout.jsp">
+		<put-attribute name="title" value="AdmonitionManagement" />
+		<put-attribute name="admonitionManagementHeader"
+			value="/AdmonitionManagement/admonitionManagementHeader.jsp" />
+		<put-attribute name="header" value="/header.jsp" />
+	</definition>
+	<!-- the main menu for admonition management -->
+	<definition name="admonitionManagement" extends="admontionManagementLayout">
+		<put-attribute name="content" value="/AdmonitionManagement/admonitionManagement.jsp" />
+	</definition>
+	<!-- list of delayed lending -->
+	<definition name="delayedLendingList" extends="admontionManagementLayout">
+		<put-attribute name="content" value="/AdmonitionManagement/delayedLendingList.jsp" />
+	</definition>
+	
 </tiles-definitions>

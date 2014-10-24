@@ -13,7 +13,6 @@ import javax.persistence.Id;
  * 
  * @author Christian Leppelt
  */
-@Entity
 public class Lending {
 	/** The identifier. */
 	private Long lendingId;
@@ -28,8 +27,6 @@ public class Lending {
 	/** Indicates how often the lending has been extended. */
 	private Integer numberOfLendingExtensions;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return lendingId;
 	}

@@ -8,7 +8,6 @@ import javax.persistence.Id;
  * 
  * @author Kathrin Kurtz
  */
-@Entity
 public class Lender {
 
 	/** The Matrikelnumber of the lender. */

@@ -2,7 +2,6 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
-<%-- The application's main template --%>
 <html>
 <head>
 <title><tiles:insertAttribute name="title" /></title>
@@ -12,8 +11,11 @@
 <body>
 	<!-- Header -->
 	<tiles:insertAttribute name="header" />
+	<!-- MasterDataManagementHeader -->
+	<tiles:insertAttribute name="masterDataManagementHeader" />
 	<hr />
 	<!-- Content -->
 	<tiles:insertAttribute name="content" />
 </body>
 </html>
+

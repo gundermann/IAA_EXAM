@@ -8,7 +8,7 @@
 	<package name="default" namespace="/" extends="tiles-default">
 
 		<action name="">
-			<result type="redirect">ShowFailureList.action</result>
+			<result type="redirect">ShowDelayedLendingList.action</result>
 		</action>
 
 		<action name="ShowMasterDataManagement">
@@ -24,17 +24,17 @@
 			<result type="tiles">rentalManagement</result>
 		</action>
 
-		<action name="ShowReminderManagement">
-			<result type="tiles">reminderManagement</result>
+		<action name="ShowAdmonitionManagement">
+			<result type="tiles">admonitionManagement</result>
 		</action>
 
-
+		
 
 
 
 		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
-		<action name="ShowFailureList" class="de.nak.cars.action.ShowFailureListAction">
-			<result type="tiles">failureList</result>
+		<action name="ShowDelayedLendingList" class="de.nak.cars.action.ShowDelayedLendingListAction">
+			<result type="tiles">delayedLendingList</result>
 		</action>
 
 
@@ -68,7 +68,7 @@
 
 		<!-- KEYWORD -->
 
-		<action name="ShowKeywordList">
+		<action name="ShowKeywordList" class="de.nak.cars.action.ShowKeywordListAction">
 			<result type="tiles">keywordList</result>
 		</action>
 

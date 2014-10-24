@@ -13,7 +13,6 @@ import javax.persistence.Id;
  * @author Kathrin Kurtz
  * 
  */
-@Entity
 public class AdmonitionProcess {
 
 	/** The identifier. */

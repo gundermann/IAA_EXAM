@@ -63,4 +63,10 @@ public class LendingServiceImpl implements LendingService {
 		this.lendingDAO = lendingDAO;
 	}
 
+	@Override
+	public List<Lending> loadAllLateLendings() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

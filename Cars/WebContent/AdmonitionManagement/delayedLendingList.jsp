@@ -1,9 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<h3><s:text name="lbl.failureList"/></h3>
 <s:form>
 	<s:actionerror/>
+	<%-- list of delayed lendings --%>
+	<display:table id="lendingTable" name="lendingList" pagesize="5"
+		cellpadding="5px;" cellspacing="5px;"
+		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:column>
+			<input type="radio" name="lendingId" value="${lendingTable.lendingId}" />
+		</display:column>
+		<display:column titleKey="lending.publication" property="publication" sortable="true"/>
+		<display:column titleKey="lending.outGoDate" property="outGoDate" sortable="true"/>
+		<display:column titleKey="lending.expectedReturnDate" property="expectedReturnDate" sortable="true"/>
+	</display:table>
+	
+	<!-- 
 	<%-- Liste von Säumnissen --%>
 	<table style="border-collapse: collapse; border: #CCC;" border="1">
 		<tr>
@@ -26,5 +40,6 @@
 			</tr>
 		</s:iterator>
 	</table>
+	 -->
 	
 </s:form>

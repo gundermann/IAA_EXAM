@@ -11,5 +11,5 @@
 		action="ShowInventoryManagement" />
 	<s:submit align="left" key="btn.rental" action="ShowRental" />
 	<s:submit align="left" key="btn.reminderManagement"
-		action="ShowReminderManagement" />
+		action="ShowAdmonitionManagement" />
 </s:form>

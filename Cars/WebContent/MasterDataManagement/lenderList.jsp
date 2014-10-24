@@ -1,9 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+	<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<h3><s:text name="lbl.kindOfPublicationList"/></h3>
 <s:form>
 	<s:actionerror/>
+	<%-- list of lenders --%>
+	<display:table id="lenderTable" name="lenderList" pagesize="5"
+		cellpadding="5px;" cellspacing="5px;"
+		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:column>
+			<input type="radio" name="lenderId" value="${lenderTable.lenderId}" />
+		</display:column>
+		<display:column titleKey="lender.firstname" property="firstname" sortable="true"/>
+		<display:column titleKey="lender.lastname" property="lastname" sortable="true"/>
+	</display:table>
+	
+	<!-- 
 	<%-- Liste von Publikationsarten --%>
 	<table style="border-collapse: collapse; border: #CCC;" border="1">
 		<tr>
@@ -17,8 +30,9 @@
 			</tr>
 		</s:iterator>
 	</table>
+	 -->
 	
-	<s:submit key="btn.add" action="AddPublicationType"/>
-	<s:submit key="btn.delete" action="DeletePublicationType"/>
-	<s:submit key="btn.edit" action="EditPublicationType"/>
+	<s:submit key="btn.add" action="AddLender"/>
+	<s:submit key="btn.delete" action="DeleteLender"/>
+	<s:submit key="btn.edit" action="EditLender"/>
 </s:form>

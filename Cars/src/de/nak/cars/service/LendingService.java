@@ -58,4 +58,6 @@ public interface LendingService {
 	 */
 	void adjustReturnDate(Lending lending);
 
+	List<Lending> loadAllLateLendings();
+
 }

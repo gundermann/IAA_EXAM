@@ -1,9 +1,9 @@
 package de.nak.cars.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 /**
  * Typ for publications.
@@ -11,7 +11,6 @@ import javax.persistence.Id;
  * @author Kathrin Kurtz
  * 
  */
-@Entity
 public class PublicationType {
 	/** The identifier. */
 	private Long publicationTypeId;

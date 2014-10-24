@@ -47,7 +47,7 @@ public class PublicationAction extends ActionSupport {
 	}
 
 	/**
-	 * Displays the selected car in the car form.
+	 * Displays the selected publication in the publicaiton form.
 	 *
 	 * @return the result string.
 	 */

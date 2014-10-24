@@ -14,10 +14,10 @@ import de.nak.cars.service.PublicationTypeService;
  */
 public class ShowPublicationTypeListAction implements Action {
 	/** The list of PublicationTypes. */
-	private List<PublicationType> PublicationTypeList;
+	private List<PublicationType> publicationTypeList;
 
 	/** The PublicationType service. */
-	private PublicationTypeService PublicationTypeService;
+	private PublicationTypeService publicationTypeService;
 
 	@Override
 	public String execute() throws Exception {
@@ -26,10 +26,10 @@ public class ShowPublicationTypeListAction implements Action {
 	}
 
 	public List<PublicationType> getPublicationTypeList() {
-		return PublicationTypeList;
+		return publicationTypeList;
 	}
 
 	public void setPublicationTypeService(PublicationTypeService PublicationTypeService) {
-		this.PublicationTypeService = PublicationTypeService;
+		this.publicationTypeService = PublicationTypeService;
 	}
 }
