@@ -20,39 +20,39 @@ public class PublicationTypeAction extends ActionSupport {
 	/** The publication's identifier selected by the user. */
 	private Long publicatioTypenId;
 
-	/** The publication service. */
+	/** The publicationtype service. */
 	private PublicationTypeService publicationTypeService;
 
 	/**
-	 * Saves the publication to the database.
+	 * Saves the publicationtype to the database.
 	 *
 	 * @return the result string.
 	 */
 	public String save() {
-//		publicationTypeService.savePublication(publicationType);
+		publicationTypeService.savePublicationType(publicationType);
 		return SUCCESS;
 	}
 
 	/**
-	 * Deletes the selected publication from the database.
+	 * Deletes the selected publicationtype from the database.
 	 *
 	 * @return the result string.
 	 */
 	public String delete() {
-//		publicationType = publicationTypeService.loadPublication(publicatioTypenId);
-//		if (publicationType != null) {
-//			publicationTypeService.deletePublication(publicationType);
-//		}
+		publicationType = publicationTypeService.loadPublicationType(publicatioTypenId);
+		if (publicationType != null) {
+			publicationTypeService.deletePublicationType(publicationType);
+		}
 		return SUCCESS;
 	}
 
 	/**
-	 * Displays the selected publication in the publicaiton form.
+	 * Displays the selected publication in the publicaitontype form.
 	 *
 	 * @return the result string.
 	 */
 	public String load() {
-//		publicationType = publicationTypeService.loadPublication(publicatioTypenId);
+		publicationType = publicationTypeService.loadPublicationType(publicatioTypenId);
 		return SUCCESS;
 	}
 
@@ -62,10 +62,10 @@ public class PublicationTypeAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// If the publication is not set, the publication ID has to be set.
-//		if (publicationType == null && publicatioTypenId == null) {
-//			addActionError(getText("msg.selectPublication"));
-//		}
+//		 If the publicationtype is not set, the publication ID has to be set.
+		if (publicationType == null && publicatioTypenId == null) {
+			addActionError(getText("msg.selectPublication"));
+		}
 	}
 
 	public PublicationType getPublicationType() {
