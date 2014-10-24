@@ -1,5 +1,6 @@
 package de.nak.cars.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,6 +9,7 @@ import javax.persistence.Id;
  * 
  * @author Kathrin Kurtz
  */
+@Entity
 public class Lender {
 
 	/** The Matrikelnumber of the lender. */
@@ -26,6 +28,7 @@ public class Lender {
 		this.matrikelnumber = matrikelnumber;
 	}
 
+	@Column
 	public String getFirstName() {
 		return firstName;
 	}
@@ -34,6 +37,7 @@ public class Lender {
 		this.firstName = firstName;
 	}
 
+	@Column
 	public String getLastName() {
 		return lastName;
 	}

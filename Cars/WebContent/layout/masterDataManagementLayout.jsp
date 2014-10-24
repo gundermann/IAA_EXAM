@@ -5,7 +5,7 @@
 <html>
 <head>
 <title><tiles:insertAttribute name="title" /></title>
-<link type="text/css" rel="stylesheet" href="../css/stlye.css" />
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
 <s:head />
 </head>
 <body>

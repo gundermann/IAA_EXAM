@@ -10,27 +10,12 @@
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
-			<input type="radio" name="lenderId" value="${lenderTable.lenderId}" />
+			<input type="radio" name="matrikelnumber" value="${lenderTable.matrikelnumber}" />
 		</display:column>
-		<display:column titleKey="lender.firstname" property="firstname" sortable="true"/>
-		<display:column titleKey="lender.lastname" property="lastname" sortable="true"/>
+		<display:column titleKey="lender.matrikelnumber" property="matrikelnumber" sortable="true"/>
+		<display:column titleKey="lender.firstname" property="firstName" sortable="true"/>
+		<display:column titleKey="lender.lastname" property="lastName" sortable="true"/>
 	</display:table>
-	
-	<!-- 
-	<%-- Liste von Publikationsarten --%>
-	<table style="border-collapse: collapse; border: #CCC;" border="1">
-		<tr>
-			<th></th>
-			<th><s:text name="lbl.publicationType"/></th>
-		</tr>
-		<s:iterator value="publicationTypeList">
-			<tr>
-				<td><s:radio name="publicationTypeId" list="#{id:''}" theme="simple"/></td>
-				<td><s:property value="publicationType"/></td>
-			</tr>
-		</s:iterator>
-	</table>
-	 -->
 	
 	<s:submit key="btn.add" action="AddLender"/>
 	<s:submit key="btn.delete" action="DeleteLender"/>

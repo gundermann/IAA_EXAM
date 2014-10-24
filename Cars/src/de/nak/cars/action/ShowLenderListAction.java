@@ -21,7 +21,7 @@ public class ShowLenderListAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-//		LenderList = LenderService.loadAllLenders();
+		lenderList = lenderService.loadAllLenders();
 		return SUCCESS;
 	}
 

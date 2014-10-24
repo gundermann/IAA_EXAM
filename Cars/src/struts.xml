@@ -136,7 +136,6 @@
 
 
 		<!-- LENDER -->
-
 		<action name="ShowLenderList" class="de.nak.cars.action.ShowLenderListAction">
 			<result type="tiles">lenderList</result>
 		</action>
@@ -144,13 +143,13 @@
 		<action name="AddLender">
 			<result type="tiles">lenderForm</result>
 		</action>
-
+		<!-- Action for the delete button of the formular for lenders. -->
 		<action name="DeleteLender" class="de.nak.cars.action.LenderAction"
 			method="delete">
 			<result type="redirect">ShowLenderList.action</result>
 			<result type="chain" name="input">ShowLenderList</result>
 		</action>
-
+		<!-- Action for the edit button of the formular for lenders. -->
 		<action name="EditLender" class="de.nak.cars.action.LenderAction"
 			method="load">
 			<result type="tiles">lenderForm</result>

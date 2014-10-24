@@ -2,12 +2,12 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <s:form>
-	<%-- Form fields for the keyword's attributes --%>
-	<s:textfield name="lender.matrikelnummer" key="lender.matrikelnummer" requiredLabel="true"/>
-	<s:textfield name="lender.firstname" key="lender.firstname" requiredLabel="true"/>
-	<s:textfield name="lender.lasstname" key="lender.lastname" requiredLabel="true"/>
+	<%-- Form fields for the lender's attributes --%>
+	<s:textfield name="lender.matrikelnumber" key="lender.matrikelnumber" requiredLabel="true"/>
+	<s:textfield name="lender.firstName" key="lender.firstname" requiredLabel="true"/>
+	<s:textfield name="lender.lastName" key="lender.lastname" requiredLabel="true"/>
 	
 	<%-- The buttons --%>
-	<s:submit key="btn.save" action="SaveKeyword"/>
-	<s:submit key="btn.cancel" action="CancelKeyword"/>
+	<s:submit key="btn.save" action="SaveLender"/>
+	<s:submit key="btn.cancel" action="CancelLender"/>
 </s:form>
