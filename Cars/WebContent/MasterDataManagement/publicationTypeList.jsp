@@ -15,22 +15,6 @@
 		<display:column titleKey="lbl.publicationType.name" property="name" sortable="true"/>
 	</display:table>
 	
-	
-	<!-- 
-	<table style="border-collapse: collapse; border: #CCC;" border="1">
-		<tr>
-			<th></th>
-			<th><s:text name="lbl.publicationType"/></th>
-		</tr>
-		<s:iterator value="publicationTypeList">
-			<tr>
-				<td><s:radio name="publicationTypeId" list="#{id:''}" theme="simple"/></td>
-				<td><s:property value="publicationType"/></td>
-			</tr>
-		</s:iterator>
-	</table>
-	 -->
-	
 	<s:submit key="btn.add" action="AddPublicationType"/>
 	<s:submit key="btn.delete" action="DeletePublicationType"/>
 	<s:submit key="btn.edit" action="EditPublicationType"/>

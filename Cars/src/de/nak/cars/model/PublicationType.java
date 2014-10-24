@@ -1,8 +1,11 @@
 package de.nak.cars.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 
 /**
@@ -11,6 +14,7 @@ import javax.persistence.Id;
  * @author Kathrin Kurtz
  * 
  */
+@Entity
 public class PublicationType {
 	/** The identifier. */
 	private Long publicationTypeId;
@@ -27,6 +31,7 @@ public class PublicationType {
 		this.publicationTypeId = publicationTypeId;
 	}
 
+	@Column
 	public String getName() {
 		return name;
 	}

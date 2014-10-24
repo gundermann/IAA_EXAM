@@ -21,7 +21,7 @@ public class ShowPublicationTypeListAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-//		PublicationTypeList = PublicationTypeService.loadAllPublicationTypes();
+		publicationTypeList = publicationTypeService.loadAllPublicationTypes();
 		return SUCCESS;
 	}
 
