@@ -2,15 +2,13 @@ package de.nak.cars.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * Publication entity.
  * 
  * @author Christian Leppelt
  */
+@Entity
 public class Publication {
 	/** The identifier. */
 	private Long id;

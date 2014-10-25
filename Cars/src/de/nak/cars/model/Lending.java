@@ -10,6 +10,7 @@ import javax.persistence.Entity;
  * 
  * @author Christian Leppelt
  */
+@Entity
 public class Lending {
 	/** The identifier. */
 	private Long lendingId;

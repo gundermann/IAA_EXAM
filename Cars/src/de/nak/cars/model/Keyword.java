@@ -12,6 +12,7 @@ import javax.persistence.Id;
  * @author Kathrin Kurtz
  * 
  */
+@Entity
 public class Keyword {
 	/** The identifier. */
 	private Long keywordId;
