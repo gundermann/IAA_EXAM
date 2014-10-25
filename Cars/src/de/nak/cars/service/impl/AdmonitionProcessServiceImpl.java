@@ -43,4 +43,10 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		return null;
 	}
 
+	@Override
+	public void addAdmonition(AdmonitionProcess admonitionProcess) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

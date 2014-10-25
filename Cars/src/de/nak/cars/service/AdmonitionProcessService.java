@@ -51,4 +51,6 @@ public interface AdmonitionProcessService {
 	 */
 	List<AdmonitionProcess> searchByLending(Lending lending);
 
+	void addAdmonition(AdmonitionProcess admonitionProcess);
+
 }

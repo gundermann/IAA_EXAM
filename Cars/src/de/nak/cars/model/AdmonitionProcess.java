@@ -1,7 +1,6 @@
 package de.nak.cars.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,6 +32,11 @@ public class AdmonitionProcess {
 
 	public void setAdmonitionProcessId(Long id) {
 		this.admonitionProcessId = id;
+	}
+
+	public int getAdmonitionCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	// public Lending getLendingId() {

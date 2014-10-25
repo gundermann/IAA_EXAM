@@ -3,7 +3,6 @@ package de.nak.cars.model;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 
 /**
  * Lending entity.
