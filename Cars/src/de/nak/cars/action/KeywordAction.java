@@ -29,7 +29,7 @@ public class KeywordAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-//		publicationTypeService.savePublication(publicationType);
+		keywordService.saveKeyword(keyword);
 		return SUCCESS;
 	}
 
@@ -39,10 +39,10 @@ public class KeywordAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String delete() {
-//		publicationType = publicationTypeService.loadPublication(publicatioTypenId);
-//		if (publicationType != null) {
-//			publicationTypeService.deletePublication(publicationType);
-//		}
+		keyword = keywordService.loadKeyword(keywordId);
+		if (keyword != null) {
+			keywordService.deleteKeyword(keyword);
+		}
 		return SUCCESS;
 	}
 
@@ -52,7 +52,7 @@ public class KeywordAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String load() {
-//		publicationType = publicationTypeService.loadPublication(publicatioTypenId);
+		keyword = keywordService.loadKeyword(keywordId);
 		return SUCCESS;
 	}
 
@@ -62,10 +62,9 @@ public class KeywordAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// If the publication is not set, the publication ID has to be set.
-//		if (publicationType == null && publicatioTypenId == null) {
-//			addActionError(getText("msg.selectPublication"));
-//		}
+		if (keyword == null && keywordId == null) {
+			addActionError(getText("msg.selectPublication"));
+		}
 	}
 
 	public Keyword getKeyword() {
