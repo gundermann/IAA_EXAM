@@ -2,6 +2,9 @@ package de.nak.cars.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Publication entity.
@@ -29,6 +32,8 @@ public class Publication {
 	/** The quantity we own of this publication. */
 	private Integer quantity;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
