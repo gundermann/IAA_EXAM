@@ -16,10 +16,10 @@ public class LenderDAO {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * Persists or merges the car into the database.
+	 * Persists or merges the lender into the database.
 	 * 
 	 * @param lender
-	 *            The car to persist. The given entity can be transient or
+	 *            The lender to persist. The given entity can be transient or
 	 *            detached.
 	 */
 	public void save(Lender lender) {
@@ -31,7 +31,8 @@ public class LenderDAO {
 	 * 
 	 * @param lenderId
 	 *            The identifier.
-	 * @return a Lender or null if no car was found with the given identifier.
+	 * @return a Lender or null if no lender was found with the given
+	 *         identifier.
 	 */
 	public Lender load(Long lenderId) {
 		return (Lender) sessionFactory.getCurrentSession().get(Lender.class,

@@ -11,6 +11,7 @@ import javax.persistence.Id;
  * 
  * @author Christian Leppelt
  */
+@Entity
 public class Publication {
 	/** The identifier. */
 	private Long id;
@@ -31,6 +32,8 @@ public class Publication {
 	/** The quantity we own of this publication. */
 	private Integer quantity;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}

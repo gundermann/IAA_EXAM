@@ -53,4 +53,6 @@ public interface AdmonitionProcessService {
 
 	void addAdmonition(AdmonitionProcess admonitionProcess);
 
+	int getAdmonitionCount(Long admonitionProcessId);
+
 }

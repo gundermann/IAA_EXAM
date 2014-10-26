@@ -3,12 +3,17 @@ package de.nak.cars.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Lending entity.
  * 
  * @author Christian Leppelt
  */
+@Entity
 public class Lending {
 	/** The identifier. */
 	private Long lendingId;
@@ -23,6 +28,8 @@ public class Lending {
 	/** Indicates how often the lending has been extended. */
 	private Integer numberOfLendingExtensions;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return lendingId;
 	}

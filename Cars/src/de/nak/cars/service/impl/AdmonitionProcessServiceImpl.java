@@ -49,4 +49,10 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		
 	}
 
+	@Override
+	public int getAdmonitionCount(Long admonitionProcessId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

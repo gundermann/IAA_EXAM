@@ -1,6 +1,7 @@
 package de.nak.cars.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  * @author Kathrin Kurtz
  * 
  */
+@Entity
 public class AdmonitionProcess {
 
 	/** The identifier. */
@@ -34,11 +36,6 @@ public class AdmonitionProcess {
 		this.admonitionProcessId = id;
 	}
 
-	public int getAdmonitionCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	// public Lending getLendingId() {
 	// return lending;
 	// }
@@ -55,4 +52,5 @@ public class AdmonitionProcess {
 	// this.admonitions = admonitions;
 	// }
 
+	
 }
