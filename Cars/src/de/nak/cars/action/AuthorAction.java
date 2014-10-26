@@ -29,7 +29,7 @@ public class AuthorAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-//		authorService.saveAuthor(author);
+		authorService.saveAuthor(author);
 		return SUCCESS;
 	}
 
@@ -39,10 +39,10 @@ public class AuthorAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String delete() {
-//		author = authorService.loadAuthor(authorId);
-//		if (author != null) {
-//			authorService.deleteAuthor(author);
-//		}
+		author = authorService.loadAuthor(authorId);
+		if (author != null) {
+			authorService.deleteAuthor(author);
+		}
 		return SUCCESS;
 	}
 
@@ -52,7 +52,7 @@ public class AuthorAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String load() {
-//		author = authorService.loadAuthor(authorId);
+		author = authorService.loadAuthor(authorId);
 		return SUCCESS;
 	}
 
@@ -63,9 +63,29 @@ public class AuthorAction extends ActionSupport {
 	@Override
 	public void validate() {
 		// If the author is not set, the author ID has to be set.
-//		if (author == null && authorId == null) {
-//			addActionError(getText("msg.selectauthor"));
-//		}
+		if (author == null && authorId == null) {
+			addActionError(getText("msg.selectauthor"));
+		}
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
+	public Long getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(Long authorId) {
+		this.authorId = authorId;
+	}
+
+	public void setAuthorService(AuthorService authorService) {
+		this.authorService = authorService;
 	}
 
 	

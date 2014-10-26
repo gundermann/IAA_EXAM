@@ -21,7 +21,7 @@ public class ShowKeywordListAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-//		PublicationTypeList = PublicationTypeService.loadAllPublicationTypes();
+		keywordList = keywordService.loadAllKeywords();
 		return SUCCESS;
 	}
 

@@ -21,7 +21,7 @@ public class ShowAuthorListAction implements Action {
 
 	@Override
 	public String execute() throws Exception {
-//		authorList = authorService.loadAllAuthors();
+		authorList = authorService.loadAllAuthors();
 		return SUCCESS;
 	}
 

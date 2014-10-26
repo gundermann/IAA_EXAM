@@ -51,4 +51,8 @@ public interface AdmonitionProcessService {
 	 */
 	List<AdmonitionProcess> searchByLending(Lending lending);
 
+	void addAdmonition(AdmonitionProcess admonitionProcess);
+
+	int getAdmonitionCount(Long admonitionProcessId);
+
 }

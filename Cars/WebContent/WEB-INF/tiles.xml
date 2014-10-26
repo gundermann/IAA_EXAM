@@ -42,6 +42,16 @@
 		<put-attribute name="content"
 			value="/InventoryManagement/inventoryManagement.jsp" />
 	</definition>
+	<!-- form for publications to set up the type-->
+	<definition name="publicationFormForType" extends="inventoryManagementLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publicationFormForType.jsp" />
+	</definition>
+	<!-- form for publications to set up the authors-->
+	<definition name="publicationFormForType" extends="inventoryManagementLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publicationFormForAuthors.jsp" />
+	</definition>
 	<!-- form for publications -->
 	<definition name="publicationForm" extends="inventoryManagementLayout">
 		<put-attribute name="content"
