@@ -49,13 +49,27 @@
 			<result type="tiles">publicationList</result>
 			<result type="chain" name="input">ShowPublicationList</result>
 		</action>
-		<action name="AddPublication">
+		
+		<action name="AddPublication" class="de.nak.cars.action.ShowPublicationSetupAction">
 			<result type="tiles">publicationForm</result>
 		</action>
+		
+		<!-- TODO Kann wahrscheinlich weg -->
+		<action name="SetupPublicationType" class="de.nak.cars.action.PublicationAction" method="loadPublicationTypes">
+			<result type="tiles">publicationFormForType</result>
+			<result type="chain" name="input">AddPublication</result>
+		</action>
+		<action name="SavePublicationAndGoToAuthor" class="de.nak.cars.action.PublicationAction" method="loadAuthors">
+			<result type="tiles">publicationFormForAuthors</result>
+			<result type="chain" name="input">publicationFormForType</result>
+		</action>
+		<!-- kann wahrscheinlich weg ende -->
+		
 		<!-- Action for the cancel button of the formular for new publications. -->
 		<action name="CancelPublication" class="de.nak.cars.action.PublicationAction"
 			method="cancel">
 			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="tiles" name="input">publicationForm</result>
 		</action>
 		<!-- Action for the save button of the formular for new publications. -->
 		<action name="SavePublication" class="de.nak.cars.action.PublicationAction"

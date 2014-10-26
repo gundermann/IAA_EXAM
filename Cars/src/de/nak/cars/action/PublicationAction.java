@@ -68,7 +68,6 @@ public class PublicationAction extends ActionSupport {
 		}
 	}
 
-
 	public Publication getPublication() {
 		return publication;
 	}
@@ -89,5 +88,4 @@ public class PublicationAction extends ActionSupport {
 		this.publicationService = publicationService;
 	}
 
-	
 }
