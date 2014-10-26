@@ -1,7 +1,5 @@
 package de.nak.cars.model;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +23,7 @@ public class AdmonitionProcess {
 	// private Lending lending;
 	// /** List of the admonitions created in this admonation process. Max
 	// number is 3. */
-	private Set<Admonition> admonitions;
+	// private Set<Admonition> admonitions;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,13 +46,12 @@ public class AdmonitionProcess {
 	//
 	// TODO: Mapping korrigieren
 	// @OneToMany(mappedBy = "admonitionprocess")
-	public Set<Admonition> getAdmonitions() {
-		return admonitions;
-	}
+	// public Set<Admonition> getAdmonitions() {
+	// return admonitions;
+	// }
+	//
+	// public void setAdmonitions(Set<Admonition> admonitions) {
+	// this.admonitions = admonitions;
+	// }
 
-	public void setAdmonitions(Set<Admonition> admonitions) {
-		this.admonitions = admonitions;
-	}
-
-	
 }
