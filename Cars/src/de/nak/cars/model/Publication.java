@@ -22,7 +22,7 @@ public class Publication {
 	/** The year the publication was published. */
 	private Integer yearOfPublication;
 	/** The publications publisher. */
-	private String publisher;
+	// private Publisher publisher;
 	// /** The publication type. */
 	// private PublicationType type;
 	/** The publications isbn. */
@@ -66,13 +66,13 @@ public class Publication {
 		this.yearOfPublication = yearOfPublication;
 	}
 
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
+	// public Publisher getPublisher() {
+	// return publisher;
+	// }
+	//
+	// public void setPublisher(Publisher publisher) {
+	// this.publisher = publisher;
+	// }
 
 	// @Column(nullable = false)
 	// public PublicationType getType() {
