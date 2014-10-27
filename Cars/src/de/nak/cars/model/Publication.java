@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * Publication entity.
@@ -22,7 +24,7 @@ public class Publication {
 	/** The year the publication was published. */
 	private Integer yearOfPublication;
 	/** The publications publisher. */
-	// private Publisher publisher;
+	private Publisher publisher;
 	// /** The publication type. */
 	// private PublicationType type;
 	/** The publications isbn. */
@@ -66,14 +68,6 @@ public class Publication {
 		this.yearOfPublication = yearOfPublication;
 	}
 
-	// public Publisher getPublisher() {
-	// return publisher;
-	// }
-	//
-	// public void setPublisher(Publisher publisher) {
-	// this.publisher = publisher;
-	// }
-
 	// @Column(nullable = false)
 	// public PublicationType getType() {
 	// return type;
@@ -106,6 +100,16 @@ public class Publication {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	@ManyToOne
+	@PrimaryKeyJoinColumn
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 }
