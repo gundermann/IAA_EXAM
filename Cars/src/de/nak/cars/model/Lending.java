@@ -23,8 +23,8 @@ public class Lending {
 	private Publication publication;
 	/** The date the publication was lent */
 	private Date outgoDate;
-	// /** The person who lent the publication */
-	// private Lender lender;
+	/** The person who lent the publication */
+	private Lender lender;
 	/** Day when the publication should be returned. */
 	private Date expectedReturnDate;
 	/** Indicates how often the lending has been extended. */
@@ -74,6 +74,16 @@ public class Lending {
 
 	public void setPublication(Publication publication) {
 		this.publication = publication;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public Lender getLender() {
+		return lender;
+	}
+
+	public void setLender(Lender lender) {
+		this.lender = lender;
 	}
 
 }
