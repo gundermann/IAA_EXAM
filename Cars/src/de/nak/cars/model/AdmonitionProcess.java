@@ -23,8 +23,8 @@ public class AdmonitionProcess {
 	// private Lending lending;
 	// /** List of the admonitions created in this admonation process. Max
 	// number is 3. */
-	// private List<Admonition> admonitions;
-	//
+	// private Set<Admonition> admonitions;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ADMONITION_PROCESS_ID")
@@ -44,13 +44,14 @@ public class AdmonitionProcess {
 	// this.lending = lending;
 	// }
 	//
+	// TODO: Mapping korrigieren
 	// @OneToMany(mappedBy = "admonitionprocess")
-	// public List<Admonition> getAdmonitions() {
+	// public Set<Admonition> getAdmonitions() {
 	// return admonitions;
 	// }
-	// public void setAdmonitions(List<Admonition> admonitions) {
+	//
+	// public void setAdmonitions(Set<Admonition> admonitions) {
 	// this.admonitions = admonitions;
 	// }
 
-	
 }

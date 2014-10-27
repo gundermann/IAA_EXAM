@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Admonition entity. Part of the Admonition Process.
@@ -23,12 +25,9 @@ public class Admonition {
 	/** Day when the admonition has been created. */
 	private Date creationDay;
 
-	//
-	// /** Admonition Procss containing this admonition. */
-	// @ManyToOne
-	// @JoinColumn(name = "ADMONITION_PROCESS_ID")
-	// private AdmonitionProcess process;
-	//
+	/** The admonition process this admonition belongs to. */
+	private AdmonitionProcess admonitionprocess;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getAdmonitionId() {
@@ -46,6 +45,17 @@ public class Admonition {
 
 	public void setCreationDay(Date creationDay) {
 		this.creationDay = creationDay;
+	}
+
+	// TODO: Mapping korrigieren
+	@ManyToOne
+	@JoinColumn(name = "ADMONITION_PROCESS_ID")
+	public AdmonitionProcess getAdmonitionProcess() {
+		return admonitionprocess;
+	}
+
+	public void setAdmonitionProcess(AdmonitionProcess admonitionprocess) {
+		this.admonitionprocess = admonitionprocess;
 	}
 
 }
