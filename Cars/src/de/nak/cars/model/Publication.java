@@ -1,10 +1,13 @@
 package de.nak.cars.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -29,8 +32,8 @@ public class Publication {
 	private PublicationType publicationType;
 	/** The publications isbn. */
 	private Integer isbn;
-	// /** The buzzwords to find the publication. */
-	// private List<Keyword> keywords;
+	/** The buzzwords to find the publication. */
+	private Set<Keyword> keywords;
 	/** The quantity we own of this publication. */
 	private Integer quantity;
 
@@ -77,14 +80,6 @@ public class Publication {
 		this.isbn = isbn;
 	}
 
-	// public List<Keyword> getKeywords() {
-	// return keywords;
-	// }
-	//
-	// public void setKeywords(List<Keyword> keywords) {
-	// this.keywords = keywords;
-	// }
-
 	@Column(length = 3, nullable = false)
 	public Integer getQuantity() {
 		return quantity;
@@ -112,6 +107,16 @@ public class Publication {
 
 	public void setPublicationType(PublicationType publicationType) {
 		this.publicationType = publicationType;
+	}
+
+	@ManyToMany
+	@PrimaryKeyJoinColumn
+	public Set<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(Set<Keyword> keywords) {
+		this.keywords = keywords;
 	}
 
 }
