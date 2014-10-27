@@ -25,8 +25,8 @@ public class Publication {
 	private Integer yearOfPublication;
 	/** The publications publisher. */
 	private Publisher publisher;
-	// /** The publication type. */
-	// private PublicationType type;
+	/** The publication type. */
+	private PublicationType publicationType;
 	/** The publications isbn. */
 	private Integer isbn;
 	// /** The buzzwords to find the publication. */
@@ -68,14 +68,6 @@ public class Publication {
 		this.yearOfPublication = yearOfPublication;
 	}
 
-	// @Column(nullable = false)
-	// public PublicationType getType() {
-	// return type;
-	// }
-	//
-	// public void setType(PublicationType type) {
-	// this.type = type;
-	// }
 	@Column(length = 13, nullable = false)
 	public Integer getIsbn() {
 		return isbn;
@@ -110,6 +102,16 @@ public class Publication {
 
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
+	}
+
+	@ManyToOne
+	@PrimaryKeyJoinColumn
+	public PublicationType getPublicationType() {
+		return publicationType;
+	}
+
+	public void setPublicationType(PublicationType publicationType) {
+		this.publicationType = publicationType;
 	}
 
 }
