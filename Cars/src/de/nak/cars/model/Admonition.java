@@ -47,14 +47,13 @@ public class Admonition {
 		this.creationDay = creationDay;
 	}
 
-	// TODO: Mapping korrigieren
 	@ManyToOne
 	@JoinColumn(name = "ADMONITION_PROCESS_ID")
-	public AdmonitionProcess getAdmonitionProcess() {
+	public AdmonitionProcess getAdmonitionprocess() {
 		return admonitionprocess;
 	}
 
-	public void setAdmonitionProcess(AdmonitionProcess admonitionprocess) {
+	public void setAdmonitionprocess(AdmonitionProcess admonitionprocess) {
 		this.admonitionprocess = admonitionprocess;
 	}
 
