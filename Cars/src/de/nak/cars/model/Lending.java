@@ -21,6 +21,8 @@ public class Lending {
 	// private Publication publication;
 	/** The date the publication was lent */
 	private Date outgoDate;
+	// TODO: kann entfert werden, Lending kennt dann aber seinen eventuellen
+	// Admonition Process nicht!
 	// /** The person who lent the publication */
 	// private Lender lender;
 	/** Day when the publication should be returned. */
@@ -30,6 +32,7 @@ public class Lending {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "LENDING_ID")
 	public Long getId() {
 		return lendingId;
 	}

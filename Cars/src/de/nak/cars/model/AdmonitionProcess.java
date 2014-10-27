@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * Admonition entity. Is created when a lended Publication ist not returned in
@@ -22,10 +24,13 @@ public class AdmonitionProcess {
 	/** The identifier. */
 	private Long admonitionProcessId;
 
-	// /** The lending. */
-	// private Lending lending;
-	// /** List of the admonitions created in this admonation process. Max
-	// number is 3. */
+	/** The lending that this admonition process belongs to */
+	private Lending lending;
+
+	/**
+	 * Set of the admonitions created in this admonition process. Maximum number
+	 * is 3.
+	 */
 	private Set<Admonition> admonitions;
 
 	@Id
@@ -39,15 +44,6 @@ public class AdmonitionProcess {
 		this.admonitionProcessId = id;
 	}
 
-	// public Lending getLendingId() {
-	// return lending;
-	// }
-	//
-	// public void setLendingId(Lending lending) {
-	// this.lending = lending;
-	// }
-	//
-
 	@OneToMany(mappedBy = "admonitionprocess")
 	public Set<Admonition> getAdmonitions() {
 		return admonitions;
@@ -55,6 +51,16 @@ public class AdmonitionProcess {
 
 	public void setAdmonitions(Set<Admonition> admonitions) {
 		this.admonitions = admonitions;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public Lending getLending() {
+		return lending;
+	}
+
+	public void setLending(Lending lending) {
+		this.lending = lending;
 	}
 
 }
