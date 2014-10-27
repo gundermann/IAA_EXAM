@@ -3,7 +3,7 @@
 
 <s:form>
 	<%-- Form fields for the lender's attributes --%>
-	<s:textfield name="lender.matrikelnumber" key="lender.matrikelnumber" requiredLabel="true"/>
+	<s:textfield name="lender.matriculationNumber" key="lender.matriculationNumber" requiredLabel="true"/>
 	<s:textfield name="lender.firstName" key="lender.firstname" requiredLabel="true"/>
 	<s:textfield name="lender.lastName" key="lender.lastname" requiredLabel="true"/>
 	

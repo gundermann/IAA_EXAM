@@ -3,6 +3,11 @@
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
 <s:form>
+	<s:text name="txt.masterDataManagement.publicationTypes"/>
+	<s:submit align="left" key="btn.add" action="AddPublicationType"/>
+	<s:submit align="left" key="btn.delete" action="DeletePublicationType"/>
+	<s:submit align="left" key="btn.edit" action="EditPublicationType"/>
+
 	<s:actionerror/>
 	<%-- Liste von Publikationsarten --%>
 	<display:table id="publicationTypeTable" name="publicationTypeList" pagesize="5"
@@ -15,7 +20,4 @@
 		<display:column titleKey="lbl.publicationType.name" property="name" sortable="true"/>
 	</display:table>
 	
-	<s:submit key="btn.add" action="AddPublicationType"/>
-	<s:submit key="btn.delete" action="DeletePublicationType"/>
-	<s:submit key="btn.edit" action="EditPublicationType"/>
 </s:form>

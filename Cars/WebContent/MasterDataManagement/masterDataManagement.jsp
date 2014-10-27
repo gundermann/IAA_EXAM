@@ -2,6 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <s:form>
+	<s:text name="txt.masterDataManagement" />
 	<s:submit key="btn.publicationType" action="ShowPublicationTypeList"/>
 	<s:submit key="btn.keywords" action="ShowKeywordList"/>
 	<s:submit key="btn.lender" action="ShowLenderList"/>

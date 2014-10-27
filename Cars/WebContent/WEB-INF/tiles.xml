@@ -65,71 +65,48 @@
 
 
 	<!-- MASTERDATAMANAGEMENT -->
-	<!-- The main layout for master data management. -->
-	<definition name="masterDataManagementLayout" template="/layout/masterDataManagementLayout.jsp">
-		<put-attribute name="title" value="MasterDataManagement" />
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/masterDataManagementHeader.jsp" />
-		<put-attribute name="header" value="/header.jsp" />
-	</definition>
 	<!-- Menü für die Stammdatenverwaltung -->
-	<definition name="masterDataManagement" extends="masterDataManagementLayout">
+	<definition name="masterDataManagement" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/masterDataManagement.jsp" />
 	</definition>
 	<!-- List of publicationstypes -->
-	<definition name="publicationTypeList" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/publicationTypeHeader.jsp" />
+	<definition name="publicationTypeList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/publicationTypeList.jsp" />
 	</definition>
 	<!-- Formular for new publicationtype -->
-	<definition name="publicationTypeForm" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/publicationTypeHeader.jsp" />
+	<definition name="publicationTypeForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/publicationTypeForm.jsp" />
 	</definition>
 	<!-- Liste der Schlüsselwörter -->
-	<definition name="keywordList" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/keywordHeader.jsp" />
+	<definition name="keywordList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/keywordList.jsp" />
 	</definition>
 	<!-- Formular für neues Schlüsselwort -->
-	<definition name="keywordForm" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/keywordHeader.jsp" />
+	<definition name="keywordForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/keywordForm.jsp" />
 	</definition>
 	<!-- Liste der Ausleiher -->
-	<definition name="lenderList" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/lenderHeader.jsp" />
+	<definition name="lenderList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/lenderList.jsp" />
 	</definition>
 	<!-- Formular for lender -->
-	<definition name="lenderForm" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/lenderHeader.jsp" />
+	<definition name="lenderForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/lenderForm.jsp" />
 	</definition>
 	<!-- list of authors -->
-	<definition name="authorList" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/authorHeader.jsp" />
+	<definition name="authorList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/authorList.jsp" />
 	</definition>
 	<!-- Form for author -->
-	<definition name="authorForm" extends="masterDataManagementLayout">
-		<put-attribute name="masterDataManagementHeader"
-			value="/MasterDataManagement/authorHeader.jsp" />
+	<definition name="authorForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/authorForm.jsp" />
 	</definition>
