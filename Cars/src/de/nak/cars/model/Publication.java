@@ -22,8 +22,8 @@ public class Publication {
 	private Long id;
 	/** The publications title. */
 	private String title;
-	// /** The publications authors. */
-	// private List<Author> authors;
+	/** The publications authors. */
+	private Set<Author> authors;
 	/** The year the publication was published. */
 	private Integer yearOfPublication;
 	/** The publications publisher. */
@@ -54,14 +54,6 @@ public class Publication {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-	// public List<Author> getAuthors() {
-	// return authors;
-	// }
-	//
-	// public void setAuthors(List<Author> authors) {
-	// this.authors = authors;
-	// }
 
 	public Integer getYearOfPublication() {
 		return yearOfPublication;
@@ -117,6 +109,16 @@ public class Publication {
 
 	public void setKeywords(Set<Keyword> keywords) {
 		this.keywords = keywords;
+	}
+
+	@ManyToMany
+	@PrimaryKeyJoinColumn
+	public Set<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Set<Author> authors) {
+		this.authors = authors;
 	}
 
 }
