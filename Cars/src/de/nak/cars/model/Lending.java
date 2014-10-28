@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * Lending entity.
@@ -17,12 +19,12 @@ import javax.persistence.Id;
 public class Lending {
 	/** The identifier. */
 	private Long lendingId;
-	// /** The lended publication. */
-	// private Publication publication;
+	/** The lended publication. */
+	private Publication publication;
 	/** The date the publication was lent */
 	private Date outgoDate;
-	// /** The person who lent the publication */
-	// private Lender lender;
+	/** The person who lent the publication */
+	private Lender lender;
 	/** Day when the publication should be returned. */
 	private Date expectedReturnDate;
 	/** Indicates how often the lending has been extended. */
@@ -30,6 +32,7 @@ public class Lending {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "LENDING_ID")
 	public Long getId() {
 		return lendingId;
 	}
@@ -38,14 +41,6 @@ public class Lending {
 		this.lendingId = id;
 	}
 
-	// public Publication getPublication() {
-	// return publication;
-	// }
-	//
-	// public void setPublication(Publication publication) {
-	// this.publication = publication;
-	// }
-
 	public Date getOutgoDate() {
 		return outgoDate;
 	}
@@ -53,14 +48,6 @@ public class Lending {
 	public void setOutgoDate(Date outgoDate) {
 		this.outgoDate = outgoDate;
 	}
-
-	// public Lender getLender() {
-	// return lender;
-	// }
-	//
-	// public void setLender(Lender lender) {
-	// this.lender = lender;
-	// }
 
 	@Column(name = "return_date")
 	public Date getExpectedReturnDate() {
@@ -77,6 +64,26 @@ public class Lending {
 
 	public void setNumberOfLendingExtensions(Integer numberOfLendingExtensions) {
 		this.numberOfLendingExtensions = numberOfLendingExtensions;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
+	}
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	public Lender getLender() {
+		return lender;
+	}
+
+	public void setLender(Lender lender) {
+		this.lender = lender;
 	}
 
 }

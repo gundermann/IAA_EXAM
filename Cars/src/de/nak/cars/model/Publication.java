@@ -1,10 +1,15 @@
 package de.nak.cars.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * Publication entity.
@@ -17,18 +22,18 @@ public class Publication {
 	private Long id;
 	/** The publications title. */
 	private String title;
-	// /** The publications authors. */
-	// private List<Author> authors;
+	/** The publications authors. */
+	private Set<Author> authors;
 	/** The year the publication was published. */
 	private Integer yearOfPublication;
 	/** The publications publisher. */
-	// private Publisher publisher;
-	// /** The publication type. */
-	// private PublicationType type;
+	private Publisher publisher;
+	/** The publication type. */
+	private PublicationType publicationType;
 	/** The publications isbn. */
 	private Integer isbn;
-	// /** The buzzwords to find the publication. */
-	// private List<Keyword> keywords;
+	/** The buzzwords to find the publication. */
+	private Set<Keyword> keywords;
 	/** The quantity we own of this publication. */
 	private Integer quantity;
 
@@ -50,14 +55,6 @@ public class Publication {
 		this.title = title;
 	}
 
-	// public List<Author> getAuthors() {
-	// return authors;
-	// }
-	//
-	// public void setAuthors(List<Author> authors) {
-	// this.authors = authors;
-	// }
-
 	public Integer getYearOfPublication() {
 		return yearOfPublication;
 	}
@@ -66,22 +63,6 @@ public class Publication {
 		this.yearOfPublication = yearOfPublication;
 	}
 
-	// public Publisher getPublisher() {
-	// return publisher;
-	// }
-	//
-	// public void setPublisher(Publisher publisher) {
-	// this.publisher = publisher;
-	// }
-
-	// @Column(nullable = false)
-	// public PublicationType getType() {
-	// return type;
-	// }
-	//
-	// public void setType(PublicationType type) {
-	// this.type = type;
-	// }
 	@Column(length = 13, nullable = false)
 	public Integer getIsbn() {
 		return isbn;
@@ -91,14 +72,6 @@ public class Publication {
 		this.isbn = isbn;
 	}
 
-	// public List<Keyword> getKeywords() {
-	// return keywords;
-	// }
-	//
-	// public void setKeywords(List<Keyword> keywords) {
-	// this.keywords = keywords;
-	// }
-
 	@Column(length = 3, nullable = false)
 	public Integer getQuantity() {
 		return quantity;
@@ -106,6 +79,46 @@ public class Publication {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	@ManyToOne
+	@PrimaryKeyJoinColumn
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
+
+	@ManyToOne
+	@PrimaryKeyJoinColumn
+	public PublicationType getPublicationType() {
+		return publicationType;
+	}
+
+	public void setPublicationType(PublicationType publicationType) {
+		this.publicationType = publicationType;
+	}
+
+	@ManyToMany
+	@PrimaryKeyJoinColumn
+	public Set<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(Set<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+
+	@ManyToMany
+	@PrimaryKeyJoinColumn
+	public Set<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Set<Author> authors) {
+		this.authors = authors;
 	}
 
 }
