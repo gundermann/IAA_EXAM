@@ -11,6 +11,6 @@
 	<s:checkbox name="car.isDieselEngine" key="lbl.isDieselEngine"/>
 
 	<%-- The buttons --%>
-	<s:submit key="btn.save" action="SaveCar"/>
+	<s:submit key="btn.save" action="SaveCarGoOn"/>
 	<s:submit key="btn.cancel" action="CancelCar"/>
 </s:form>

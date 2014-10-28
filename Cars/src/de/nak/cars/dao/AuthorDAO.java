@@ -59,7 +59,7 @@ public class AuthorDAO {
 	@SuppressWarnings("unchecked")
 	public List<Author> loadAll() {
 		return sessionFactory.getCurrentSession()
-				.createQuery("from author").list();
+				.createQuery("from Author").list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

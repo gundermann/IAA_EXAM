@@ -22,7 +22,7 @@ public class PublicationAction extends ActionSupport {
 
 	/** The publication service. */
 	private PublicationService publicationService;
-
+	
 	/**
 	 * Saves the publication to the database.
 	 *

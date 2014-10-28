@@ -2,8 +2,12 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<h3><s:text name="lbl.keywordList"/></h3>
+<h3><s:text name="txt.masterDataManagement.keywords"/></h3>
 <s:form>
+	<s:submit key="btn.add" action="AddKeyword"/>
+	<s:submit key="btn.delete" action="DeleteKeyword"/>
+	<s:submit key="btn.edit" action="EditKeyword"/>
+
 	<s:actionerror/>
 	<%-- List of keywords --%>
 	<display:table id="keywordTable" name="keywordList" pagesize="5"
@@ -13,27 +17,7 @@
 		<display:column>
 			<input type="radio" name="keywordId" value="${keywordTable.keywordId}" />
 		</display:column>
-		<display:column titleKey="keyword.name" property="name" sortable="true"/>
+		<display:column titleKey="keyword.keywordId" property="keyword" sortable="true"/>
 	</display:table>
 	
-	<!-- 
-	
-	<%-- Liste von Schlüsselwörtern --%>
-	<table style="border-collapse: collapse; border: #CCC;" border="1">
-		<tr>
-			<th></th>
-			<th><s:text name="lbl.keywords"/></th>
-		</tr>
-		<s:iterator value="keywordList">
-			<tr>
-				<td><s:radio name="keywordId" list="#{id:''}" theme="simple"/></td>
-				<td><s:property value="keyword"/></td>
-			</tr>
-		</s:iterator>
-	</table>
-	-->
-	
-	<s:submit key="btn.add" action="AddKeyword"/>
-	<s:submit key="btn.delete" action="DeleteKeyword"/>
-	<s:submit key="btn.edit" action="EditKeyword"/>
 </s:form>

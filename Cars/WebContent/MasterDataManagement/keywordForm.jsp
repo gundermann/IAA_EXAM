@@ -3,8 +3,8 @@
 
 <s:form>
 	<%-- Form fields for the keyword's attributes --%>
-	<s:hidden name="keyword.id"/>
-	<s:textfield name="keyword.name" key="lbl.name" />
+	<s:hidden name="keyword.keywordId"/>
+	<s:textfield name="keyword.keyword" key="keyword" />
 	
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveKeyword"/>

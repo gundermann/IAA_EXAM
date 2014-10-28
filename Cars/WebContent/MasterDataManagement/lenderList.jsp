@@ -16,7 +16,7 @@
 		<display:column>
 			<input type="radio" name="lenderId" value="${lenderTable.lenderId}" />
 		</display:column>
-		<display:column titleKey="lender.matrikelnumber" property="matrikelnumber" sortable="true"/>
+		<display:column titleKey="lender.matriculationNumber" property="matriculationNumber" sortable="true"/>
 		<display:column titleKey="lender.firstname" property="firstName" sortable="true"/>
 		<display:column titleKey="lender.lastname" property="lastName" sortable="true"/>
 	</display:table>
