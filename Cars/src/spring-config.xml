@@ -134,5 +134,15 @@
 	<bean id="publicationTypeService" class="de.nak.cars.service.impl.PublicationTypeServiceImpl">
 		<property name="publicationTypeDAO" ref="publicationTypeDAO"/>
 	</bean>
+
+	<!-- Publisher DAO -->
+	<bean id="publisherDAO" class="de.nak.cars.dao.PublisherDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- Publisher Service -->
+	<bean id="publisherService" class="de.nak.cars.service.impl.PublisherServiceImpl">
+		<property name="publisherDAO" ref="publisherDAO"/>
+	</bean>
 	
 </beans>
