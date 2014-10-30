@@ -2,6 +2,7 @@ package de.nak.cars.service.impl;
 
 import java.util.List;
 
+import de.nak.cars.dao.AdmonitionProcessDAO;
 import de.nak.cars.model.AdmonitionProcess;
 import de.nak.cars.model.Lending;
 import de.nak.cars.service.AdmonitionProcessService;
@@ -9,32 +10,30 @@ import de.nak.cars.service.AdmonitionProcessService;
 /**
  * The admonition process service implementation class.
  * 
- * @author Christian Leppelt
+ * @admonitionProcess Christian Leppelt
  */
 public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
+	/** The admonitionProcess DAO. */
+	private AdmonitionProcessDAO admonitionProcessDAO;
 
 	@Override
 	public void saveAdmonitionProcess(AdmonitionProcess admonitionProcess) {
-		// TODO Auto-generated method stub
-
+		admonitionProcessDAO.save(admonitionProcess);
 	}
 
 	@Override
-	public AdmonitionProcess loadAdmonitionProcess(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public AdmonitionProcess loadAdmonitionProcess(Long admonitionProcessId) {
+		return admonitionProcessDAO.load(admonitionProcessId);
 	}
 
 	@Override
 	public void deleteAdmonitionProcess(AdmonitionProcess admonitionProcess) {
-		// TODO Auto-generated method stub
-
+		admonitionProcessDAO.delete(admonitionProcess);
 	}
 
 	@Override
 	public List<AdmonitionProcess> loadAllAdmonitionProcesss() {
-		// TODO Auto-generated method stub
-		return null;
+		return admonitionProcessDAO.loadAll();
 	}
 
 	@Override
@@ -46,13 +45,18 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 	@Override
 	public void addAdmonition(AdmonitionProcess admonitionProcess) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public int getAdmonitionCount(Long admonitionProcessId) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public void setAdmonitionProcessDAO(
+			AdmonitionProcessDAO admonitionProcessDAO) {
+		this.admonitionProcessDAO = admonitionProcessDAO;
 	}
 
 }

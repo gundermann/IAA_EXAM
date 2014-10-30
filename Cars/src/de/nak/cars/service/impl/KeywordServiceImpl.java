@@ -2,6 +2,7 @@ package de.nak.cars.service.impl;
 
 import java.util.List;
 
+import de.nak.cars.dao.KeywordDAO;
 import de.nak.cars.model.Keyword;
 import de.nak.cars.service.KeywordService;
 
@@ -11,29 +12,31 @@ import de.nak.cars.service.KeywordService;
  * @author Christian Leppelt
  */
 public class KeywordServiceImpl implements KeywordService {
+	/** The keyword DAO. */
+	private KeywordDAO keywordDAO;
 
 	@Override
 	public void saveKeyword(Keyword keyword) {
-		// TODO Auto-generated method stub
-
+		keywordDAO.save(keyword);
 	}
 
 	@Override
 	public Keyword loadKeyword(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return keywordDAO.load(id);
 	}
 
 	@Override
 	public void deleteKeyword(Keyword keyword) {
-		// TODO Auto-generated method stub
-
+		keywordDAO.delete(keyword);
 	}
 
 	@Override
 	public List<Keyword> loadAllKeywords() {
-		// TODO Auto-generated method stub
-		return null;
+		return keywordDAO.loadAll();
+	}
+
+	public void setKeywordDAO(KeywordDAO keywordDAO) {
+		this.keywordDAO = keywordDAO;
 	}
 
 }

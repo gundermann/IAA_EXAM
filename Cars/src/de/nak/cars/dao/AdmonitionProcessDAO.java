@@ -18,10 +18,10 @@ public class AdmonitionProcessDAO {
 	private SessionFactory sessionFactory;
 
 	/**
-	 * Persists or merges the admonitionprocess into the database.
+	 * Persists or merges the admonition process into the database.
 	 * 
 	 * @param admonitionProcess
-	 *            The admonitionprocess to persist. The given entity can be
+	 *            The admonition process to persist. The given entity can be
 	 *            transient or detached.
 	 */
 	public void save(AdmonitionProcess admonitionProcess) {
@@ -29,11 +29,11 @@ public class AdmonitionProcessDAO {
 	}
 
 	/**
-	 * Loads a single admonitionprocess entity from the database.
+	 * Loads a single admonition process entity from the database.
 	 * 
 	 * @param id
 	 *            The identifier.
-	 * @return a admonitionprocess or null if no admonitionprocess was found
+	 * @return a admonition process or null if no admonition process was found
 	 *         with the given identifier.
 	 */
 	public AdmonitionProcess load(Long id) {
@@ -42,20 +42,20 @@ public class AdmonitionProcessDAO {
 	}
 
 	/**
-	 * Deletes the admonitionprocess from the database.
+	 * Deletes the admonition process from the database.
 	 * 
 	 * @param admonitionProcess
-	 *            The admonitionprocess to be deleted.
+	 *            The admonition process to be deleted.
 	 */
 	public void delete(AdmonitionProcess admonitionProcess) {
 		sessionFactory.getCurrentSession().delete(admonitionProcess);
 	}
 
 	/**
-	 * Loads all admonitionprocesses from the database.
+	 * Loads all admonition processes from the database.
 	 * 
-	 * @return a list or admonitionprocesses which is empty if no
-	 *         admonitionprocess was found.
+	 * @return a list or admonition processes which is empty if no admonition
+	 *         process was found.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<AdmonitionProcess> loadAll() {
