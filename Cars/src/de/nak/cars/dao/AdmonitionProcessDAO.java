@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 
 import de.nak.cars.model.AdmonitionProcess;
+import de.nak.cars.model.Lending;
 
 /**
  * AdmonitionProcess data access object.
@@ -65,6 +66,22 @@ public class AdmonitionProcessDAO {
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+	public List<AdmonitionProcess> load(Lending lending) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void createAdmonition() {
+		// TODO Auto-generated method stub
+		// ist diese Methode hier so wirklich richtig?
+
+	}
+
+	public int loadAdmonitionCount(Long admonitionProcessId) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -54,8 +54,7 @@ public class LendingServiceImpl implements LendingService {
 
 	@Override
 	public List<Lending> searchByPublication(Publication publication) {
-		// TODO Auto-generated method stub
-		return null;
+		return lendingDAO.loadByPublication(publication);
 	}
 
 	@Override

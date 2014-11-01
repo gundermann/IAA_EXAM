@@ -38,20 +38,17 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 
 	@Override
 	public List<AdmonitionProcess> searchByLending(Lending lending) {
-		// TODO Auto-generated method stub
-		return null;
+		return admonitionProcessDAO.load(lending);
 	}
 
 	@Override
 	public void addAdmonition(AdmonitionProcess admonitionProcess) {
-		// TODO Auto-generated method stub
-
+		admonitionProcessDAO.createAdmonition();
 	}
 
 	@Override
 	public int getAdmonitionCount(Long admonitionProcessId) {
-		// TODO Auto-generated method stub
-		return 0;
+		return admonitionProcessDAO.loadAdmonitionCount(admonitionProcessId);
 	}
 
 	public void setAdmonitionProcessDAO(
