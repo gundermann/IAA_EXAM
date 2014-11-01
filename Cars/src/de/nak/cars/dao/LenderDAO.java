@@ -64,4 +64,9 @@ public class LenderDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	public Lender loadLenderByMatriculationNumber(Integer matriculationNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

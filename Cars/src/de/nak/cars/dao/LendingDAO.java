@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 
 import de.nak.cars.model.Lending;
+import de.nak.cars.model.Publication;
 
 /**
  * Lending data access object.
@@ -76,6 +77,11 @@ public class LendingDAO {
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+	public List<Lending> loadByPublication(Publication publication) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

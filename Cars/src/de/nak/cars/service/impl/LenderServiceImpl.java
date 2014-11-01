@@ -27,8 +27,7 @@ public class LenderServiceImpl implements LenderService {
 
 	@Override
 	public Lender loadLender(Integer matriculationNumber) {
-		// TODO Auto-generated method stub
-		return null;
+		return lenderDAO.loadLenderByMatriculationNumber(matriculationNumber);
 	}
 
 	@Override
