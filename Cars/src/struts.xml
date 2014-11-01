@@ -38,6 +38,20 @@
 		</action>
 
 
+		<!-- LENDING -->
+		<action name="AddLending" class="de.nak.cars.action.ShowLendingSetupAction">
+			<result type="tiles">lendingForm</result>
+		</action>
+		<action name="SaveLending" class="de.nak.cars.action.LendingAction" method="save">
+			<result type="redirect">ShowLendingManagement.action</result>
+			<result type="tiles" name="input">lendingForm</result>
+		</action>
+		<action name="CancelLending" class="de.nak.cars.action.LendingAction" method="cancel">
+			<result type="redirect">ShowLendingManagement.action</result>
+		</action>
+		
+
+
 		<!-- PUBLICATION -->
 		<!-- Action that displays the publications in a List -->
 		<action name="ShowPublicationList" class="de.nak.cars.action.ShowPublicationListAction">

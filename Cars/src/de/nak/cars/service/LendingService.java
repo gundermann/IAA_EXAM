@@ -74,4 +74,6 @@ public interface LendingService {
 	 */
 	boolean hasAdmonitionProcess(Lending lending);
 
+	Lending setup(Lending lending, Long lenderId, Long publicationId);
+
 }
