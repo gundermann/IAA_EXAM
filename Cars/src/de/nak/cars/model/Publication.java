@@ -20,6 +20,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Publication {
 	/** The identifier. */
 	private Long id;
+	/** The NAK-intern identifier. */
+	// private Long nakId;
 	/** The publications title. */
 	private String title;
 	/** The publications authors. */
@@ -120,5 +122,14 @@ public class Publication {
 	public void setAuthors(Set<Author> authors) {
 		this.authors = authors;
 	}
+
+	// @Column(nullable = false)
+	// public Long getNakId() {
+	// return nakId;
+	// }
+	//
+	// public void setNakId(Long nakId) {
+	// this.nakId = nakId;
+	// }
 
 }
