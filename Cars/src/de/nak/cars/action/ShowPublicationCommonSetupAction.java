@@ -60,24 +60,8 @@ public class ShowPublicationCommonSetupAction implements Action {
 		return authorList;
 	}
 
-	public void setAuthorList(List<Author> authorList) {
-		this.authorList = authorList;
-	}
-
 	public List<Keyword> getKeywordList() {
 		return keywordList;
-	}
-
-	public void setKeywordList(List<Keyword> keywordList) {
-		this.keywordList = keywordList;
-	}
-
-	public void setAuthorService(AuthorService authorService) {
-		this.authorService = authorService;
-	}
-
-	public void setKeywordService(KeywordService keywordService) {
-		this.keywordService = keywordService;
 	}
 
 	public Publication getPublication() {
@@ -86,6 +70,30 @@ public class ShowPublicationCommonSetupAction implements Action {
 
 	public void setPublication(Publication publication) {
 		this.publication = publication;
+	}
+
+
+
+	public void setAuthorList(List<Author> authorList) {
+		this.authorList = authorList;
+	}
+
+
+
+	public void setKeywordList(List<Keyword> keywordList) {
+		this.keywordList = keywordList;
+	}
+
+
+
+	public void setAuthorService(AuthorService authorService) {
+		this.authorService = authorService;
+	}
+
+
+
+	public void setKeywordService(KeywordService keywordService) {
+		this.keywordService = keywordService;
 	}
 	
 	
