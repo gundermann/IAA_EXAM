@@ -25,7 +25,7 @@
 	</display:table>
 
 	<%-- The buttons --%>
-	<s:submit key="btn.main" action="AddCar" />
+	<s:submit key="btn.main" action="SetCar" />
 	<s:submit key="btn.edit" action="EditCar" />
 	<s:submit key="btn.delete" action="DeleteCar" />
 </s:form>

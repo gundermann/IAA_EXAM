@@ -22,13 +22,55 @@ public class PublicationAction extends ActionSupport {
 
 	/** The publication service. */
 	private PublicationService publicationService;
-	
+
+	private String[] authorId;
+
+	private String[] keywordId;
+
+	private Long publicationTypeId;
+
+	private Long publisherId;
+
+	public Long getPublisherId() {
+		return publisherId;
+	}
+
+	public void setPublisherId(Long publisherId) {
+		this.publisherId = publisherId;
+	}
+
+	public String[] getKeywordId() {
+		return keywordId;
+	}
+
+	public void setKeywordId(String[] keywordId) {
+		this.keywordId = keywordId;
+	}
+
+	public Long getPublicationTypeId() {
+		return publicationTypeId;
+	}
+
+	public void setPublicationTypeId(Long publicationTypeId) {
+		this.publicationTypeId = publicationTypeId;
+	}
+
+	public String[] getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(String[] authorId) {
+		this.authorId = authorId;
+	}
+
 	/**
 	 * Saves the publication to the database.
 	 *
 	 * @return the result string.
 	 */
 	public String save() {
+		publication = publicationService.setupPublication(publication,
+				authorId, keywordId, publicationTypeId, publisherId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}

@@ -2,38 +2,41 @@ package de.nak.cars.service.impl;
 
 import java.util.List;
 
+import de.nak.cars.dao.AdmonitionDAO;
 import de.nak.cars.model.Admonition;
 import de.nak.cars.service.AdmonitionService;
 
 /**
  * The admonition service implementation class.
  * 
- * @author Christian Leppelt
+ * @admonition Christian Leppelt
  */
 public class AdmonitionServiceImpl implements AdmonitionService {
+	/** The admonition DAO. */
+	private AdmonitionDAO admonitionDAO;
 
 	@Override
 	public void saveAdmonition(Admonition admonition) {
-		// TODO Auto-generated method stub
-
+		admonitionDAO.save(admonition);
 	}
 
 	@Override
-	public Admonition loadAdmonition(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Admonition loadAdmonition(Long admonitionId) {
+		return admonitionDAO.load(admonitionId);
 	}
 
 	@Override
 	public void deleteAdmonition(Admonition admonition) {
-		// TODO Auto-generated method stub
-
+		admonitionDAO.delete(admonition);
 	}
 
 	@Override
 	public List<Admonition> loadAllAdmonitions() {
-		// TODO Auto-generated method stub
-		return null;
+		return admonitionDAO.loadAll();
+	}
+
+	public void setAdmonitionDAO(AdmonitionDAO admonitionDAO) {
+		this.admonitionDAO = admonitionDAO;
 	}
 
 }

@@ -76,4 +76,7 @@ public interface PublicationService {
 	 */
 	Publication searchPublicationByIsbn(Integer isbn);
 
+	Publication setupPublication(Publication publication, String[] authorId,
+			String[] keywordId, Long publicationTypeId, Long publisherId);
+
 }

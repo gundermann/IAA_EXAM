@@ -12,17 +12,17 @@ import de.nak.cars.service.AuthorService;
  * @author Christian Leppelt
  */
 public class AuthorServiceImpl implements AuthorService {
+	/** The author DAO. */
+	private AuthorDAO authorDAO;
 
-	private AuthorDAO authorDAO = new AuthorDAO();
-	
 	@Override
 	public void saveAuthor(Author author) {
 		authorDAO.save(author);
 	}
 
 	@Override
-	public Author loadAuthor(Long id) {
-		return authorDAO.load(id);
+	public Author loadAuthor(Long authorId) {
+		return authorDAO.load(authorId);
 	}
 
 	@Override

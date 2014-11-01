@@ -6,17 +6,18 @@ import com.opensymphony.xwork2.Action;
 
 import de.nak.cars.model.Author;
 import de.nak.cars.model.Keyword;
+import de.nak.cars.model.Publication;
 import de.nak.cars.model.PublicationType;
 import de.nak.cars.service.AuthorService;
 import de.nak.cars.service.KeywordService;
 import de.nak.cars.service.PublicationTypeService;
 
 /**
- * Action that shows a list of failures.
  *
  * @author Niels Gundermann
  */
-public class ShowPublicationSetupAction implements Action {
+public class ShowPublicationCommonSetupAction implements Action {
+	
 
 	private List<PublicationType> publicationTypeList;
 	
@@ -29,15 +30,19 @@ public class ShowPublicationSetupAction implements Action {
 	private List<Keyword> keywordList;
 	
 	private KeywordService keywordService;
-
+	
+	private Publication publication;
+	
 	@Override
 	public String execute() throws Exception {
 		publicationTypeList = publicationTypeService.loadAllPublicationTypes();
-//		authorList = authorService.loadAllAuthors();
-//		keywordList = keywordService.loadAllKeywords();
+		authorList = authorService.loadAllAuthors();
+		keywordList = keywordService.loadAllKeywords();
 		return SUCCESS;
 	}
 
+	
+	
 	public List<PublicationType> getPublicationTypeList() {
 		return publicationTypeList;
 	}
@@ -73,6 +78,14 @@ public class ShowPublicationSetupAction implements Action {
 
 	public void setKeywordService(KeywordService keywordService) {
 		this.keywordService = keywordService;
+	}
+
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
 	}
 	
 	

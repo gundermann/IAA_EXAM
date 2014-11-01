@@ -63,7 +63,7 @@ public class Publication {
 		this.yearOfPublication = yearOfPublication;
 	}
 
-	@Column(length = 13, nullable = false)
+	@Column(length = 13, nullable = true)
 	public Integer getIsbn() {
 		return isbn;
 	}

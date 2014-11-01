@@ -1,16 +1,60 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="/struts-tags" prefix="s" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 <s:form>
-	<%-- Form fields for the publication's attributes --%>
-	<s:hidden name="publication.id"/>
+
+	<s:textfield name="publication.id" />
 	<s:textfield name="publication.title" key="lbl.title" />
-	<s:textfield name="publication.yearOfPublication" key="lbl.yearOfPublication" size="4" maxlength="4"/>
-	<s:textfield name="publication.isbn" key="lbl.isbn" size="13" maxlength="13"/>
-	<s:select list="publicationTypeList" name="publication.publicationType" listValue="name"/>
-	<s:textfield name="publication.quantity" key="lbl.quantity"/>
+	<s:textfield name="publication.yearOfPublication"
+		key="lbl.yearOfPublication" size="4" maxlength="4" />
+	<s:textfield name="publication.isbn" key="lbl.isbn" size="13"
+		maxlength="13" />
+
+<!-- 
+	<s:select list="%{publicationTypeList}"
+		id="publication.publicationType.publicationTypeId"
+		name="publication.publicationType" required="true"
+		listValue="name" title="publication.publicationType" />
+ -->
+
+
+	<s:textfield name="publication.quantity" key="lbl.quantity" />
+
+	<display:table id="publicationTypeTable" name="publicationTypeList" pagesize="5"
+		cellpadding="5px;" cellspacing="5px;"
+		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:column>
+			<input type="radio" name="publicationTypeId"
+				value="${publicationTypeTable.publicationTypeId}" />
+		</display:column>
+		<display:column titleKey="publicationType.name" property="name"/>
+	</display:table>
+
+	<display:table id="authorTable" name="authorList" pagesize="5"
+		cellpadding="5px;" cellspacing="5px;"
+		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:column>
+			<input type="checkbox" name="authorId"
+				value="${authorTable.authorId}" />
+		</display:column>
+		<display:column titleKey="author.name" property="name"/>
+	</display:table>
 	
+	<display:table id="keywordTable" name="keywordList" pagesize="5"
+		cellpadding="5px;" cellspacing="5px;"
+		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:column>
+			<input type="checkbox" name="keywordId"
+				value="${keywordTable.keywordId}" />
+		</display:column>
+		<display:column titleKey="keyword" property="keyword"/>
+	</display:table>
+
 	<%-- The buttons --%>
-	<s:submit key="btn.setupPublicationType" action="SetupPublicationType"/>
-	<s:submit key="btn.cancel" action="CancelPublication"/>
+	<s:submit key="btn.setupAuthors" action="SavePublication" />
+	<s:submit key="btn.cancel" action="CancelPublication" />
 </s:form>

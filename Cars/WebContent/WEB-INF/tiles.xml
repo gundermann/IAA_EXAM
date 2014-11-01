@@ -23,7 +23,10 @@
 		<put-attribute name="content" value="/carForm.jsp" />
 	</definition>
 
-
+<!-- The form for a single car. -->
+	<definition name="carForm2" extends="mainLayout">
+		<put-attribute name="content" value="/carForm2.jsp" />
+	</definition>
 
 
 	
@@ -43,12 +46,7 @@
 			value="/InventoryManagement/inventoryManagement.jsp" />
 	</definition>
 	<!-- form for publications to set up the type-->
-	<definition name="publicationFormForType" extends="inventoryManagementLayout">
-		<put-attribute name="content"
-			value="/InventoryManagement/publicationFormForType.jsp" />
-	</definition>
-	<!-- form for publications to set up the authors-->
-	<definition name="publicationFormForType" extends="inventoryManagementLayout">
+	<definition name="publicationFormForAuthors" extends="inventoryManagementLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationFormForAuthors.jsp" />
 	</definition>

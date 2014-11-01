@@ -28,7 +28,7 @@
 			<result type="tiles">admonitionManagement</result>
 		</action>
 
-		
+
 
 
 
@@ -43,28 +43,36 @@
 		<action name="ShowPublicationList" class="de.nak.cars.action.ShowPublicationListAction">
 			<result type="tiles">publicationList</result>
 		</action>
-		<!-- Action for the search of a publication  -->
+		<!-- Action for the search of a publication -->
 		<action name="FindPublication" class="de.nak.cars.action.PublicationAction"
 			method="search">
 			<result type="tiles">publicationList</result>
 			<result type="chain" name="input">ShowPublicationList</result>
 		</action>
-		
-		<action name="AddPublication" class="de.nak.cars.action.ShowPublicationSetupAction">
+
+		<action name="AddPublication" class="de.nak.cars.action.ShowPublicationCommonSetupAction">
 			<result type="tiles">publicationForm</result>
 		</action>
-		
-		<!-- TODO Kann wahrscheinlich weg -->
-		<action name="SetupPublicationType" class="de.nak.cars.action.PublicationAction" method="loadPublicationTypes">
-			<result type="tiles">publicationFormForType</result>
+
+		<action name="SavePublication"
+			class="de.nak.cars.action.PublicationAction" method="save">
+			<result type="redirect">ShowPublicationList.action</result>
 			<result type="chain" name="input">AddPublication</result>
 		</action>
-		<action name="SavePublicationAndGoToAuthor" class="de.nak.cars.action.PublicationAction" method="loadAuthors">
+
+		<action name="SetupAuthors"
+			class="de.nak.cars.action.ShowPublicationAuthorSetupAction">
+			<result type="tiles">publicationFormForAuthors</result>
+			<result type="chain" name="input">AddPublication</result>
+		</action>
+
+		<action name="SavePublicationAndGoToAuthor" class="de.nak.cars.action.PublicationAction"
+			method="loadAuthors">
 			<result type="tiles">publicationFormForAuthors</result>
 			<result type="chain" name="input">publicationFormForType</result>
 		</action>
 		<!-- kann wahrscheinlich weg ende -->
-		
+
 		<!-- Action for the cancel button of the formular for new publications. -->
 		<action name="CancelPublication" class="de.nak.cars.action.PublicationAction"
 			method="cancel">
@@ -77,7 +85,12 @@
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="tiles" name="input">publicationForm</result>
 		</action>
-
+		<!-- Action to add an author to a publication -->
+		<action name="AddAuthorToPublication" class="de.nak.cars.action.PublicationAction"
+			method="addAuthor">
+			<result type="redirect">ShowPublicationSetup.action</result>
+			<result type="chain" name="input">ShowPublicationSetup</result>
+		</action>
 
 
 		<!-- KEYWORD -->
@@ -112,9 +125,9 @@
 			<result type="redirect">ShowKeywordList.action</result>
 			<result type="tiles" name="input">keywordForm</result>
 		</action>
-		
-		
-			<!-- AUTHOR -->
+
+
+		<!-- AUTHOR -->
 
 		<action name="ShowAuthorList" class="de.nak.cars.action.ShowAuthorListAction">
 			<result type="tiles">authorList</result>
@@ -228,22 +241,30 @@
 
 		<!-- Shows the empty form for a new car. -->
 		<action name="AddCar">
+			<result type="tiles">carForm2</result>
+			<result type="chain" name="input">SetCar</result>
+		</action>
+
+		<!-- Shows the empty form for a new car. -->
+		<action name="SetCar">
 			<result type="tiles">carForm</result>
 		</action>
+
+
 
 		<!-- Saves the new or updated car into the database and shows the car list 
 			again. -->
 		<action name="SaveCar" class="de.nak.cars.action.CarAction"
 			method="save">
 			<result type="redirect">ShowCarList.action</result>
-			<result type="tiles" name="input">carForm</result>
+			<result type="tiles" name="input">carForm2</result>
 		</action>
 
 		<!-- Loads a existing car and shows it in the car form. -->
 		<action name="EditCar" class="de.nak.cars.action.CarAction"
 			method="load">
 			<result type="tiles">carForm</result>
-	 		<result type="chain" name="input">ShowCarList</result>
+			<result type="chain" name="input">ShowCarList</result>
 		</action>
 
 		<!-- Deletes the selected car and shows the car list again. -->

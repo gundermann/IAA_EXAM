@@ -9,41 +9,4 @@
 			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
-	<field name="authors">
-		<field-validator type="requiredstring">
-			<message key="msg.validator.required"/>
-		</field-validator>
-	</field>
-	<field name="publisher">
-		<field-validator type="string">
-			<message key="msg.validator.string"/>
-		</field-validator>
-	</field>
-	<field name="yearOfPublication">
-		<field-validator type="int">
-			<param name="min">1000</param>
-			<param name="max">2099</param>
-			<message key="msg.validator.intRange"/>
-		</field-validator>
-	</field>
-	<field name="type">
-		<field-validator type="string">
-			<message key="msg.validator.string"/>
-		</field-validator>
-	</field>
-	<field name="isbn">
-		<field-validator type="int">
-			<message key="msg.validator.int"/>
-		</field-validator>
-	</field>
-	<field name="buzzwords">
-		<field-validator type="string">
-			<message key="msg.validator.string"/>
-		</field-validator>
-	</field>
-	<field name="quantity">
-		<field-validator type="int">
-			<message key="msg.validator.int"/>
-		</field-validator>
-	</field>
 </validators>

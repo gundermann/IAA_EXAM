@@ -80,4 +80,13 @@ public class PublicationServiceImpl implements PublicationService {
 		}
 		return whereCondition;
 	}
+
+	@Override
+	public Publication setupPublication(Publication publication,
+			String[] authorId, String[] keywordId, Long publicationTypeId,
+			Long publisherId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

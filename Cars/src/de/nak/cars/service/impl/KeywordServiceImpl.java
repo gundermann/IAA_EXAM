@@ -12,9 +12,9 @@ import de.nak.cars.service.KeywordService;
  * @author Christian Leppelt
  */
 public class KeywordServiceImpl implements KeywordService {
-	
-	private KeywordDAO keywordDAO = new KeywordDAO();
-	
+	/** The keyword DAO. */
+	private KeywordDAO keywordDAO;
+
 	@Override
 	public void saveKeyword(Keyword keyword) {
 		keywordDAO.save(keyword);
@@ -35,10 +35,9 @@ public class KeywordServiceImpl implements KeywordService {
 		return keywordDAO.loadAll();
 	}
 
-	public void setKeywordDAO(KeywordDAO keywordDao) {
-		this.keywordDAO = keywordDao;
+	public void setKeywordDAO(KeywordDAO keywordDAO) {
+		this.keywordDAO = keywordDAO;
 	}
-	
-	
+
 
 }
