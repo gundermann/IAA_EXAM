@@ -129,6 +129,42 @@
 		</action>
 
 
+<!-- PUBLISHER -->
+
+		<action name="ShowPublisherList" class="de.nak.cars.action.ShowPublisherListAction">
+			<result type="tiles">publisherList</result>
+		</action>
+
+		<action name="AddPublisher">
+			<result type="tiles">publisherForm</result>
+		</action>
+
+		<action name="DeletePublisher" class="de.nak.cars.action.PublisherAction"
+			method="delete">
+			<result type="redirect">ShowPublisherList.action</result>
+			<result type="chain" name="input">ShowPublisherList</result>
+		</action>
+
+		<action name="EditPublisher" class="de.nak.cars.action.PublisherAction"
+			method="load">
+			<result type="tiles">publisherForm</result>
+			<result type="chain" name="input">ShowPublisherList</result>
+		</action>
+		<!-- Action for the cancel button of the formular for new publisher. -->
+		<action name="CancelPublisher" class="de.nak.cars.action.PublisherAction"
+			method="cancel">
+			<result type="redirect">ShowPublisherList.action</result>
+		</action>
+		<!-- Action for the save button of the formular for new publisher. -->
+		<action name="SavePublisher" class="de.nak.cars.action.PublisherAction"
+			method="save">
+			<result type="redirect">ShowPublisherList.action</result>
+			<result type="tiles" name="input">publisherForm</result>
+		</action>
+
+
+
+
 		<!-- AUTHOR -->
 
 		<action name="ShowAuthorList" class="de.nak.cars.action.ShowAuthorListAction">

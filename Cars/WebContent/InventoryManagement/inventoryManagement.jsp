@@ -17,8 +17,8 @@
 		</display:column>
 		<display:column titleKey="publication.title" property="title" sortable="true"/>
 		<display:column titleKey="publication.yearOfPublication" property="yearOfPublication" sortable="true"/>
-		<display:column titleKey="publication.publisher" property="publisher" sortable="true"/>
-		<display:column titleKey="publication.publicationType" property="publicationType" sortable="true"/>
+		<display:column titleKey="publication.publisher" property="publisher.publisherName" sortable="true"/>
+		<display:column titleKey="publication.publicationType" property="publicationType.name" sortable="true"/>
 		<display:column titleKey="publication.isbn" property="isbn" sortable="true"/>
 		<display:column titleKey="publication.quantity" property="quantity" sortable="true"/>
 	</display:table>

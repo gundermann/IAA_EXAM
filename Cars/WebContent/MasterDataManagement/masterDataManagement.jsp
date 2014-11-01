@@ -7,4 +7,5 @@
 	<s:submit key="btn.keywords" action="ShowKeywordList"/>
 	<s:submit key="btn.lender" action="ShowLenderList"/>
 	<s:submit key="btn.author" action="ShowAuthorList"/>
+	<s:submit key="btn.publisher" action="ShowPublisherList"/>
 </s:form>

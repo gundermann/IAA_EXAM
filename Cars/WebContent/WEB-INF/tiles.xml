@@ -93,6 +93,16 @@
 		<put-attribute name="content"
 			value="/MasterDataManagement/keywordForm.jsp" />
 	</definition>
+	<!-- list of publisher -->
+	<definition name="publisherList" extends="mainLayout">
+		<put-attribute name="content"
+			value="/MasterDataManagement/publisherList.jsp" />
+	</definition>
+	<!-- Form for publisher -->
+	<definition name="publisherForm" extends="mainLayout">
+		<put-attribute name="content"
+			value="/MasterDataManagement/publisherForm.jsp" />
+	</definition>
 	<!-- Liste der Ausleiher -->
 	<definition name="lenderList" extends="mainLayout">
 		<put-attribute name="content"
