@@ -18,7 +18,7 @@ import de.nak.cars.service.PublicationService;
 public class PublicationServiceImpl implements PublicationService {
 	/** The publication DAO. */
 	private PublicationDAO publicationDAO;
-
+	
 	@Override
 	public void savePublication(Publication publication) {
 		publicationDAO.save(publication);
@@ -39,6 +39,7 @@ public class PublicationServiceImpl implements PublicationService {
 		return publicationDAO.loadAll();
 	}
 
+	//TODO Bei Publisher darf kein String übergeben werden, sondern der Publisher
 	@Override
 	public List<Publication> searchPublications(String title,
 			List<Author> authors, Integer yearOfPublication, String publisher,
@@ -62,6 +63,7 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public Publication searchPublicationByIsbn(Integer isbn) {
+		//TODO lieber eine Liste mit der entsprechenden Publikation zurückgeben
 		return publicationDAO.findPublicationByIsbn(isbn);
 	}
 
@@ -85,7 +87,6 @@ public class PublicationServiceImpl implements PublicationService {
 	public Publication setupPublication(Publication publication,
 			String[] authorId, String[] keywordId, Long publicationTypeId,
 			Long publisherId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

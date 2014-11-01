@@ -84,6 +84,8 @@ public class PublicationDAO {
 	 * @return a publication which is null if no publication was found.
 	 */
 	public Publication findPublicationByIsbn(Integer isbn) {
+		//TODO lieber eine Liste mit der entsprechenden Publikation zurückgeben
+		//uniqueResult ist null, wenn nicht gefunden wird.
 		return (Publication) sessionFactory.getCurrentSession()
 				.createQuery("from Publication where isbn = " + isbn)
 				.uniqueResult();

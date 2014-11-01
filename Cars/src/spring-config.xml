@@ -65,16 +65,6 @@
 		<property name="admonitionDAO" ref="admonitionDAO"/>
 	</bean>
 	
-	<!-- Author DAO -->
-	<bean id="authorDAO" class="de.nak.cars.dao.AuthorDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-
-	<!-- Author Service -->
-	<bean id="authorService" class="de.nak.cars.service.impl.AuthorServiceImpl">
-		<property name="authorDAO" ref="authorDAO"/>
-	</bean>
-
 	<!-- Car DAO -->
 	<bean id="carDAO" class="de.nak.cars.dao.CarDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
@@ -83,16 +73,6 @@
 	<!-- Car Service -->
 	<bean id="carService" class="de.nak.cars.service.impl.CarServiceImpl">
 		<property name="carDAO" ref="carDAO"/>
-	</bean>
-
-	<!-- Keyword DAO -->
-	<bean id="keywordDAO" class="de.nak.cars.dao.KeywordDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-
-	<!-- Keyword Service -->
-	<bean id="keywordService" class="de.nak.cars.service.impl.KeywordServiceImpl">
-		<property name="keywordDAO" ref="keywordDAO"/>
 	</bean>
 
 	<!-- Lender DAO -->

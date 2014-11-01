@@ -14,5 +14,5 @@
 	<s:textfield name="publication.keyword" key="lbl.keywords"/>
 
 	<%-- The buttons --%>
-	<s:submit key="btn.search" action="SearchPublication"/>
+	<s:submit key="btn.search" action="FindPublication"/>
 </s:form>

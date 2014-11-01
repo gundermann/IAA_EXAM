@@ -101,7 +101,7 @@ public class PublicationAction extends ActionSupport {
 	public String cancel() {
 		return SUCCESS;
 	}
-
+	
 	@Override
 	public void validate() {
 		// If the publication is not set, the publication ID has to be set.

@@ -9,7 +9,7 @@
 		action="ShowMasterDataManagement" />
 	<s:submit align="left" key="btn.inventoryManagement"
 		action="ShowInventoryManagement" />
-	<s:submit align="left" key="btn.rental" action="ShowRental" />
+	<s:submit align="left" key="btn.rental" action="ShowLendingManagement" />
 	<s:submit align="left" key="btn.reminderManagement"
 		action="ShowAdmonitionManagement" />
 </s:form>

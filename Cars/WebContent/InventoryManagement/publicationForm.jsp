@@ -11,14 +11,6 @@
 	<s:textfield name="publication.isbn" key="lbl.isbn" size="13"
 		maxlength="13" />
 
-<!-- 
-	<s:select list="%{publicationTypeList}"
-		id="publication.publicationType.publicationTypeId"
-		name="publication.publicationType" required="true"
-		listValue="name" title="publication.publicationType" />
- -->
-
-
 	<s:textfield name="publication.quantity" key="lbl.quantity" />
 
 	<display:table id="publicationTypeTable" name="publicationTypeList" pagesize="5"

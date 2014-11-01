@@ -23,13 +23,18 @@
 		<put-attribute name="content" value="/carForm.jsp" />
 	</definition>
 
-<!-- The form for a single car. -->
+	<!-- The form for a single car. -->
 	<definition name="carForm2" extends="mainLayout">
 		<put-attribute name="content" value="/carForm2.jsp" />
 	</definition>
 
 
-	
+
+	<!-- LENDINGMANAGEMENT -->
+	<definition name="lendingManagement" extends="mainLayout">
+		<put-attribute name="content"
+			value="/LendingManagement/lendingManagement.jsp" />
+	</definition>
 
 
 	<!-- INVENTORYMANAGEMENT -->
@@ -45,7 +50,7 @@
 		<put-attribute name="content"
 			value="/InventoryManagement/inventoryManagement.jsp" />
 	</definition>
-	<!-- form for publications to set up the type-->
+	<!-- form for publications to set up the type -->
 	<definition name="publicationFormForAuthors" extends="inventoryManagementLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationFormForAuthors.jsp" />
@@ -108,7 +113,7 @@
 		<put-attribute name="content"
 			value="/MasterDataManagement/authorForm.jsp" />
 	</definition>
-	
+
 	<!-- ADMONITIONMANAGEMENT -->
 	<!-- The main layout for admonition management. -->
 	<definition name="admontionManagementLayout" template="/layout/admonitionManagementLayout.jsp">
@@ -119,11 +124,13 @@
 	</definition>
 	<!-- the main menu for admonition management -->
 	<definition name="admonitionManagement" extends="admontionManagementLayout">
-		<put-attribute name="content" value="/AdmonitionManagement/admonitionManagement.jsp" />
+		<put-attribute name="content"
+			value="/AdmonitionManagement/admonitionManagement.jsp" />
 	</definition>
 	<!-- list of delayed lending -->
 	<definition name="delayedLendingList" extends="admontionManagementLayout">
-		<put-attribute name="content" value="/AdmonitionManagement/delayedLendingList.jsp" />
+		<put-attribute name="content"
+			value="/AdmonitionManagement/delayedLendingList.jsp" />
 	</definition>
-	
+
 </tiles-definitions>

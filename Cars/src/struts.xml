@@ -15,13 +15,13 @@
 			<result type="tiles">masterDataManagement</result>
 		</action>
 
-		<action name="ShowInventoryManagement">
+		<action name="ShowInventoryManagement" class="de.nak.cars.action.ShowPublicationListAction">
 			<result type="tiles">inventoryManagement</result>
 		</action>
 
 
-		<action name="ShowRental">
-			<result type="tiles">rentalManagement</result>
+		<action name="ShowLendingManagement">
+			<result type="tiles">lendingManagement</result>
 		</action>
 
 		<action name="ShowAdmonitionManagement">
@@ -43,19 +43,22 @@
 		<action name="ShowPublicationList" class="de.nak.cars.action.ShowPublicationListAction">
 			<result type="tiles">publicationList</result>
 		</action>
+		<action name="SearchForm">
+			<result type="tiles">publicationSearchForm</result>
+		</action>
 		<!-- Action for the search of a publication -->
-		<action name="FindPublication" class="de.nak.cars.action.PublicationAction"
-			method="search">
-			<result type="tiles">publicationList</result>
-			<result type="chain" name="input">ShowPublicationList</result>
+		<action name="FindPublication" class="de.nak.cars.action.ShowPublicationSearchResultListAction">
+			<result type="tiles">inventoryManagement</result>
+			<result type="chain" name="input">publicationSearchForm</result>
 		</action>
 
-		<action name="AddPublication" class="de.nak.cars.action.ShowPublicationCommonSetupAction">
+		<action name="AddPublication"
+			class="de.nak.cars.action.ShowPublicationCommonSetupAction">
 			<result type="tiles">publicationForm</result>
 		</action>
 
-		<action name="SavePublication"
-			class="de.nak.cars.action.PublicationAction" method="save">
+		<action name="SavePublication" class="de.nak.cars.action.PublicationAction"
+			method="save">
 			<result type="redirect">ShowPublicationList.action</result>
 			<result type="chain" name="input">AddPublication</result>
 		</action>
@@ -91,7 +94,6 @@
 			<result type="redirect">ShowPublicationSetup.action</result>
 			<result type="chain" name="input">ShowPublicationSetup</result>
 		</action>
-
 
 		<!-- KEYWORD -->
 
