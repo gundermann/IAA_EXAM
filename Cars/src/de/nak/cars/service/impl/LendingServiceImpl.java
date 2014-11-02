@@ -11,6 +11,7 @@ import de.nak.cars.dao.LendingDAO;
 import de.nak.cars.model.AdmonitionProcess;
 import de.nak.cars.model.Lending;
 import de.nak.cars.model.Publication;
+import de.nak.cars.service.AdmonitionProcessService;
 import de.nak.cars.service.LendingService;
 
 /**
@@ -22,7 +23,7 @@ public class LendingServiceImpl implements LendingService {
 	/** The lending DAO. */
 	private LendingDAO lendingDAO;
 	/** The admonition process service. */
-	private AdmonitionProcessServiceImpl admonitionProcessService;
+	private AdmonitionProcessService admonitionProcessService;
 
 	@Override
 	public void saveLending(Lending lending) {
@@ -75,14 +76,19 @@ public class LendingServiceImpl implements LendingService {
 		return !processes.isEmpty();
 	}
 
-	public void setLendingDAO(LendingDAO lendingDAO) {
-		this.lendingDAO = lendingDAO;
-	}
-
 	@Override
 	public Lending setup(Lending lending, Long lenderId, Long publicationId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setLendingDAO(LendingDAO lendingDAO) {
+		this.lendingDAO = lendingDAO;
+	}
+
+	public void setAdmonitionProcessService(
+			AdmonitionProcessService admonitionProcessService) {
+		this.admonitionProcessService = admonitionProcessService;
 	}
 
 }

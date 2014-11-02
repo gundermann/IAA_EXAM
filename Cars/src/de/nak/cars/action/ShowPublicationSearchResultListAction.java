@@ -10,7 +10,7 @@ import de.nak.cars.service.PublicationService;
 
 /**
  * Action that shows a list of PublicationTypes.
- *
+ * 
  * @author Niels Gundermann
  */
 public class ShowPublicationSearchResultListAction implements Action {
@@ -29,12 +29,14 @@ public class ShowPublicationSearchResultListAction implements Action {
 			publicationList = publicationService.loadAllPublications();
 		} else if (publication.getIsbn() != null) {
 			publicationList = new ArrayList<Publication>();
-			publicationList.add(publicationService
-					.searchPublicationByIsbn(publication.getIsbn()));
+			publicationList = publicationService
+					.searchPublicationByIsbn(publication.getIsbn());
 		} else {
-//			 publicationList =
-//			 publicationService.searchPublications(publication.getTitle(),
-//			 null, publication.getYearOfPublication(), publication.getPublisher(), publication.getPublicationType(), null);
+			// publicationList =
+			// publicationService.searchPublications(publication.getTitle(),
+			// null, publication.getYearOfPublication(),
+			// publication.getPublisher(), publication.getPublicationType(),
+			// null);
 		}
 		return SUCCESS;
 	}
