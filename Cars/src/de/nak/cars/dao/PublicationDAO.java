@@ -2,7 +2,9 @@ package de.nak.cars.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import de.nak.cars.model.Publication;
 
@@ -83,11 +85,12 @@ public class PublicationDAO {
 	 *            The isbn you search for.
 	 * @return a publication which is null if no publication was found.
 	 */
-	public Publication findPublicationByIsbn(Integer isbn) {
+	public Publication load(Integer isbn) {
 		// TODO uniqueResult ist null, wenn nicht gefunden wird.
-		return (Publication) sessionFactory.getCurrentSession()
-				.createQuery("from Publication where isbn = " + isbn)
-				.uniqueResult();
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publication.class);
+		criteria.add(Restrictions.eq("isbn", isbn));
+		return (Publication) criteria.uniqueResult();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
