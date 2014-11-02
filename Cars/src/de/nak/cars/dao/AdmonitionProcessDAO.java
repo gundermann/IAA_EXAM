@@ -2,7 +2,9 @@ package de.nak.cars.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import de.nak.cars.model.AdmonitionProcess;
 import de.nak.cars.model.Lending;
@@ -55,7 +57,7 @@ public class AdmonitionProcessDAO {
 	/**
 	 * Loads all admonition processes from the database.
 	 * 
-	 * @return a list or admonition processes which is empty if no admonition
+	 * @return a list of admonition processes which is empty if no admonition
 	 *         process was found.
 	 */
 	@SuppressWarnings("unchecked")
@@ -68,9 +70,19 @@ public class AdmonitionProcessDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	/**
+	 * Loads a admonition processes from the database that belongs to the given
+	 * lending.
+	 * 
+	 * @return a list of one admonition process which is empty if no admonition
+	 *         process was found.
+	 */
+	@SuppressWarnings("unchecked")
 	public List<AdmonitionProcess> load(Lending lending) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				AdmonitionProcess.class);
+		criteria.add(Restrictions.eq("lending", lending));
+		return criteria.list();
 	}
 
 }
