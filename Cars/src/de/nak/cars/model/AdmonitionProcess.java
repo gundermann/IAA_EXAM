@@ -2,6 +2,7 @@ package de.nak.cars.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * Admonition entity. Is created when a lended Publication ist not returned in
@@ -44,7 +44,7 @@ public class AdmonitionProcess {
 		this.admonitionProcessId = id;
 	}
 
-	@OneToMany(mappedBy = "admonitionprocess")
+	@OneToMany
 	public Set<Admonition> getAdmonitions() {
 		return admonitions;
 	}
@@ -53,8 +53,7 @@ public class AdmonitionProcess {
 		this.admonitions = admonitions;
 	}
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
+	@OneToOne(cascade = CascadeType.ALL)
 	public Lending getLending() {
 		return lending;
 	}

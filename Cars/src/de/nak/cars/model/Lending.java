@@ -33,12 +33,12 @@ public class Lending {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "LENDING_ID")
-	public Long getId() {
+	public Long getLendingId() {
 		return lendingId;
 	}
 
-	public void setId(Long id) {
-		this.lendingId = id;
+	public void setLendingId(Long lendingId) {
+		this.lendingId = lendingId;
 	}
 
 	public Date getOutgoDate() {

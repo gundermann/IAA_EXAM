@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * Publication entity.
@@ -57,6 +56,7 @@ public class Publication {
 		this.title = title;
 	}
 
+	@Column(length = 4, nullable = true)
 	public Integer getYearOfPublication() {
 		return yearOfPublication;
 	}
@@ -84,7 +84,6 @@ public class Publication {
 	}
 
 	@ManyToOne
-	@PrimaryKeyJoinColumn
 	public Publisher getPublisher() {
 		return publisher;
 	}
@@ -94,7 +93,6 @@ public class Publication {
 	}
 
 	@ManyToOne
-	@PrimaryKeyJoinColumn
 	public PublicationType getPublicationType() {
 		return publicationType;
 	}
@@ -104,7 +102,6 @@ public class Publication {
 	}
 
 	@ManyToMany
-	@PrimaryKeyJoinColumn
 	public Set<Keyword> getKeywords() {
 		return keywords;
 	}
@@ -114,7 +111,6 @@ public class Publication {
 	}
 
 	@ManyToMany
-	@PrimaryKeyJoinColumn
 	public Set<Author> getAuthors() {
 		return authors;
 	}
