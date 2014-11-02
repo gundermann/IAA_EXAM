@@ -1,5 +1,6 @@
 package de.nak.cars.model;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -25,8 +26,8 @@ public class Publication {
 	private String title;
 	/** The publications authors. */
 	private Set<Author> authors;
-	/** The year the publication was published. */
-	private Integer yearOfPublication;
+	/** The date when the publication was published. */
+	private Date dateOfPublication;
 	/** The publications publisher. */
 	private Publisher publisher;
 	/** The publication type. */
@@ -54,15 +55,6 @@ public class Publication {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	@Column(length = 4, nullable = true)
-	public Integer getYearOfPublication() {
-		return yearOfPublication;
-	}
-
-	public void setYearOfPublication(Integer yearOfPublication) {
-		this.yearOfPublication = yearOfPublication;
 	}
 
 	@Column(length = 13, nullable = true)
@@ -126,6 +118,15 @@ public class Publication {
 
 	public void setNakId(Long nakId) {
 		this.nakId = nakId;
+	}
+
+	@Column
+	public Date getDateOfPublication() {
+		return dateOfPublication;
+	}
+
+	public void setDateOfPublication(Date dateOfPublication) {
+		this.dateOfPublication = dateOfPublication;
 	}
 
 }
