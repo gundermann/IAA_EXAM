@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * Lending entity.
@@ -67,7 +66,6 @@ public class Lending {
 	}
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
 	public Publication getPublication() {
 		return publication;
 	}
@@ -77,7 +75,6 @@ public class Lending {
 	}
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
 	public Lender getLender() {
 		return lender;
 	}
