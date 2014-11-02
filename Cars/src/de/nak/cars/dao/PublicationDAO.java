@@ -86,7 +86,6 @@ public class PublicationDAO {
 	 * @return a publication which is null if no publication was found.
 	 */
 	public Publication load(Integer isbn) {
-		// TODO uniqueResult ist null, wenn nicht gefunden wird.
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
 		criteria.add(Restrictions.eq("isbn", isbn));
