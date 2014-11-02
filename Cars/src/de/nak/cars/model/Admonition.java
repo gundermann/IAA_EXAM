@@ -26,7 +26,7 @@ public class Admonition {
 	private Date creationDay;
 
 	/** The admonition process this admonition belongs to. */
-	private AdmonitionProcess admonitionprocess;
+	private AdmonitionProcess admonitionProcess;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,12 +49,12 @@ public class Admonition {
 
 	@ManyToOne
 	@JoinColumn(name = "ADMONITION_PROCESS_ID")
-	public AdmonitionProcess getAdmonitionprocess() {
-		return admonitionprocess;
+	public AdmonitionProcess getAdmonitionProcess() {
+		return admonitionProcess;
 	}
 
-	public void setAdmonitionprocess(AdmonitionProcess admonitionprocess) {
-		this.admonitionprocess = admonitionprocess;
+	public void setAdmonitionprocess(AdmonitionProcess admonitionProcess) {
+		this.admonitionProcess = admonitionProcess;
 	}
 
 }

@@ -47,12 +47,29 @@ public interface AdmonitionProcessService {
 	/**
 	 * Search all admonition processes which belong to a given lending.
 	 * 
+	 * @param lending
+	 *            The given lending to search by.
 	 * @return a list which is empty if no admonition process was found.
 	 */
 	List<AdmonitionProcess> searchByLending(Lending lending);
 
-	void addAdmonition(AdmonitionProcess admonitionProcess);
+	/**
+	 * Adds an admonition with the current time to the given admonition process.
+	 * 
+	 * @param admonitionProcess
+	 *            The admonition process.
+	 * @return the admonition process with the added admonition.
+	 */
+	AdmonitionProcess addAdmonition(AdmonitionProcess admonitionProcess);
 
-	int getAdmonitionCount(Long admonitionProcessId);
+	/**
+	 * Returns the number of admonitions connected to the admonition process
+	 * with a given admonition process id.
+	 * 
+	 * @param admonitionProcessId
+	 *            The data base id of the admonition process.
+	 * @return the number of admonitions.
+	 */
+	Integer getAdmonitionCount(Long admonitionProcessId);
 
 }
