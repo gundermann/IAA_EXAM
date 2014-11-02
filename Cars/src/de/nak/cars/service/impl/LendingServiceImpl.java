@@ -61,7 +61,7 @@ public class LendingServiceImpl implements LendingService {
 
 	@Override
 	public List<Lending> searchByPublication(Publication publication) {
-		return lendingDAO.loadByPublication(publication);
+		return lendingDAO.load(publication);
 	}
 
 	@Override

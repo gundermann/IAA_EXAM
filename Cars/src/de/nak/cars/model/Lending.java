@@ -37,8 +37,8 @@ public class Lending {
 		return lendingId;
 	}
 
-	public void setLendingId(Long id) {
-		this.lendingId = id;
+	public void setLendingId(Long lendingId) {
+		this.lendingId = lendingId;
 	}
 
 	public Date getOutgoDate() {

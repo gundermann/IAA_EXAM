@@ -2,7 +2,9 @@ package de.nak.cars.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import de.nak.cars.model.Lender;
 
@@ -64,9 +66,20 @@ public class LenderDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public Lender loadLenderByMatriculationNumber(Integer matriculationNumber) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Loads a single Lender entity from the database.
+	 * 
+	 * @param matriculationNumber
+	 *            The matriculation number.
+	 * @return a Lender or null if no lender was found with the given
+	 *         matriculationNumber.
+	 */
+	public Lender load(Integer matriculationNumber) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Lender.class);
+		criteria.add(Restrictions
+				.eq("matriculationNumber", matriculationNumber));
+		return (Lender) criteria.list().get(0);
 	}
 
 }

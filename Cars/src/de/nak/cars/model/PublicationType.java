@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
 /**
  * Typ for publications.
  * 
@@ -31,7 +29,7 @@ public class PublicationType {
 		this.publicationTypeId = publicationTypeId;
 	}
 
-	@Column
+	@Column(nullable = false)
 	public String getName() {
 		return name;
 	}
