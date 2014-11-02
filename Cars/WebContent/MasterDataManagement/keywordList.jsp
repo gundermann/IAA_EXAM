@@ -17,7 +17,7 @@
 		<display:column>
 			<input type="radio" name="keywordId" value="${keywordTable.keywordId}" />
 		</display:column>
-		<display:column titleKey="keyword.keywordId" property="keyword" sortable="true"/>
+		<display:column titleKey="keyword" property="keyword" sortable="true"/>
 	</display:table>
 	
 </s:form>

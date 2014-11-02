@@ -19,7 +19,7 @@
 	</field>
 	<field name="lastName">
 		<field-validator type="requiredstring">
-			<message key="msg.validator.requierd"/>
+			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
 </validators>
