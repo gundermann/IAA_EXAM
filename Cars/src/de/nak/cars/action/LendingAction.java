@@ -18,20 +18,21 @@ public class LendingAction extends ActionSupport {
 	private Long lenderId;
 
 	private Long lendingId;
-	
+
 	private Lending lending;
-	
+
 	private LendingService lendingService;
-	
+
 	private Long publicationId;
-	
+
 	/**
 	 * Saves the Lending to the database if possible.
 	 * 
 	 * @return the result string.
 	 */
 	public String save() {
-		lending = lendingService.setup(lending, lenderId, publicationId);
+		lending = lendingService.setup(lending, lending.getLender()
+				.getLenderId(), lending.getPublication().getId());
 		lendingService.saveLending(lending);
 		return SUCCESS;
 	}
@@ -65,10 +66,7 @@ public class LendingAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// If the Lender is not set, the publication ID has to be set.
-		if (lending == null && lendingId == null) {
-			addActionError(getText("msg.selectPublication"));
-		}
+		// TODO
 	}
 
 	public Long getLenderId() {
@@ -106,6 +104,5 @@ public class LendingAction extends ActionSupport {
 	public void setLendingService(LendingService lendingService) {
 		this.lendingService = lendingService;
 	}
-
 
 }

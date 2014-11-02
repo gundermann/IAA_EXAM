@@ -31,13 +31,13 @@ public class Lending {
 	private Integer numberOfLendingExtensions;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "LENDING_ID")
-	public Long getId() {
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getLendingId() {
 		return lendingId;
 	}
 
-	public void setId(Long id) {
+	public void setLendingId(Long id) {
 		this.lendingId = id;
 	}
 

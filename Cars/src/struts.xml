@@ -20,7 +20,7 @@
 		</action>
 
 
-		<action name="ShowLendingManagement">
+		<action name="ShowLendingManagement" class="de.nak.cars.action.ShowLendingListAction">
 			<result type="tiles">lendingManagement</result>
 		</action>
 
@@ -41,6 +41,10 @@
 		<!-- LENDING -->
 		<action name="AddLending" class="de.nak.cars.action.ShowLendingSetupAction">
 			<result type="tiles">lendingForm</result>
+		</action>
+		<action name="DeleteLending" class="de.nak.cars.action.LendingAction" method="delete">
+			<result type="redirect">ShowLendingManagement.action</result>
+			<result type="chain" name="input">ShowLendingManagement</result>
 		</action>
 		<action name="SaveLending" class="de.nak.cars.action.LendingAction"
 			method="save">

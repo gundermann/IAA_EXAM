@@ -5,12 +5,14 @@
 <h3><s:text name="txt.lendingManagement"/></h3>
 
 <s:form>
+<s:hidden name="lendingId"/>
+
 <display:table id="publicationTable" name="publicationList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
-			<input type="radio" name="id"
+			<input type="radio" name="lending.publication.id"
 				value="${publicationTable.id}" />
 		</display:column>
 		<display:column titleKey="publication.title" property="title" sortable="true"/>
@@ -26,7 +28,7 @@
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
-			<input type="radio" name="lenderId" value="${lenderTable.lenderId}" />
+			<input type="radio" name="lending.lender.lenderId" value="${lenderTable.lenderId}" />
 		</display:column>
 		<display:column titleKey="lender.matriculationNumber" property="matriculationNumber" sortable="true"/>
 		<display:column titleKey="lender.firstname" property="firstName" sortable="true"/>
