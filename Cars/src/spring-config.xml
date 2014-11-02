@@ -114,6 +114,8 @@
 	<bean id="lendingService" class="de.nak.cars.service.impl.LendingServiceImpl">
 		<property name="lendingDAO" ref="lendingDAO"/>
 		<property name="admonitionProcessService" ref="admonitionProcessService"/>
+		<property name="lenderService" ref="lenderService"/>
+		<property name="publicationService" ref="publicationService"/>
 	</bean>
 
 	<!-- Publication DAO -->
