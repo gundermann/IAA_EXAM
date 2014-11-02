@@ -53,7 +53,7 @@ public class Admonition {
 		return admonitionProcess;
 	}
 
-	public void setAdmonitionprocess(AdmonitionProcess admonitionProcess) {
+	public void setAdmonitionProcess(AdmonitionProcess admonitionProcess) {
 		this.admonitionProcess = admonitionProcess;
 	}
 

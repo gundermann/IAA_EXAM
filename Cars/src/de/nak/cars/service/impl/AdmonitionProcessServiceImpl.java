@@ -47,7 +47,7 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 	@Override
 	public AdmonitionProcess addAdmonition(AdmonitionProcess admonitionProcess) {
 		Admonition admonition = new Admonition();
-		admonition.setAdmonitionprocess(admonitionProcess);
+		admonition.setAdmonitionProcess(admonitionProcess);
 		admonition.setCreationDay(Calendar.getInstance().getTime());
 		Set<Admonition> admonitions = admonitionProcess.getAdmonitions();
 		admonitions.add(admonition);

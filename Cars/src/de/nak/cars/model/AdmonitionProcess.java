@@ -44,7 +44,7 @@ public class AdmonitionProcess {
 		this.admonitionProcessId = id;
 	}
 
-	@OneToMany(mappedBy = "admonitionprocess")
+	@OneToMany(mappedBy = "admonitionProcess")
 	public Set<Admonition> getAdmonitions() {
 		return admonitions;
 	}
