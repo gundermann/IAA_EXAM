@@ -33,7 +33,7 @@ public class Publication {
 	/** The publication type. */
 	private PublicationType publicationType;
 	/** The publications isbn. */
-	private Integer isbn;
+	private Long isbn;
 	/** The buzzwords to find the publication. */
 	private Set<Keyword> keywords;
 	/** The quantity we own of this publication. */
@@ -58,11 +58,11 @@ public class Publication {
 	}
 
 	@Column(length = 13, nullable = true)
-	public Integer getIsbn() {
+	public Long getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(Integer isbn) {
+	public void setIsbn(Long isbn) {
 		this.isbn = isbn;
 	}
 

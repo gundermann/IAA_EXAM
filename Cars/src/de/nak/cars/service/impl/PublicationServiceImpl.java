@@ -76,14 +76,14 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public List<Publication> searchPublicationByIsbn(Integer isbn) {
+	public List<Publication> searchPublicationByIsbn(Long isbn) {
 		List<Publication> foundPublication = new ArrayList<Publication>();
 		// TODO: null werte abfangen
 		foundPublication.add(publicationDAO.load(isbn));
 		return foundPublication;
 	}
 
-	//TODO hier kann auch Long[] übergeben werden anstatt String[]
+	// TODO hier kann auch Long[] übergeben werden anstatt String[]
 	@Override
 	public Publication setupPublication(Publication publication,
 			String[] authorIds, String[] keywordIds, Long publicationTypeId,

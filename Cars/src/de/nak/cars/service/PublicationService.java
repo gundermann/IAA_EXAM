@@ -76,7 +76,7 @@ public interface PublicationService {
 	 * @return a List containing one publication which is null if no publication
 	 *         was found.
 	 */
-	List<Publication> searchPublicationByIsbn(Integer isbn);
+	List<Publication> searchPublicationByIsbn(Long isbn);
 
 	/**
 	 * Completes a given publication by adding the attributes which are
