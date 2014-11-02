@@ -84,6 +84,9 @@ public class LendingServiceImpl implements LendingService {
 
 	@Override
 	public Lending setup(Lending lending, Long lenderId, Long publicationId) {
+		// TODO kann auch nur lending übergeben werden. Die anderen Werte stehen
+		// dort drin.
+		// vgl. LendingAction.save()
 		lending.setLender(lenderService.loadLender(lenderId));
 		lending.setPublication(publicationService
 				.loadPublication(publicationId));

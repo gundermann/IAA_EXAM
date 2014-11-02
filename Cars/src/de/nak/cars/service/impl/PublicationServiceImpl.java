@@ -83,6 +83,7 @@ public class PublicationServiceImpl implements PublicationService {
 		return foundPublication;
 	}
 
+	//TODO hier kann auch Long[] übergeben werden anstatt String[]
 	@Override
 	public Publication setupPublication(Publication publication,
 			String[] authorIds, String[] keywordIds, Long publicationTypeId,

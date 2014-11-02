@@ -31,8 +31,8 @@ public class Lending {
 	private Integer numberOfLendingExtensions;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "LENDING_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getLendingId() {
 		return lendingId;
 	}

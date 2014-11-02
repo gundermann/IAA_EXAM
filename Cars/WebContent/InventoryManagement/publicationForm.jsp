@@ -3,8 +3,8 @@
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 <s:form>
-
-	<s:textfield name="publication.id" />
+	<s:hidden name="publication.id" />
+	<s:textfield name="publication.nakId" key="publication.nakId"/>
 	<s:textfield name="publication.title" key="lbl.title" />
 	<s:textfield name="publication.yearOfPublication"
 		key="lbl.yearOfPublication" size="4" maxlength="4" />
@@ -46,6 +46,16 @@
 		<display:column titleKey="keyword" property="keyword"/>
 	</display:table>
 
+	<display:table id="publisherTable" name="publisherList" pagesize="5"
+		cellpadding="5px;" cellspacing="5px;"
+		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:column>
+			<input type="radio" name="publisherId"
+				value="${publisherTable.publisherId}" />
+		</display:column>
+		<display:column titleKey="publisher.name" property="publisherName"/>
+	</display:table>
 	<%-- The buttons --%>
 	<s:submit key="btn.setupAuthors" action="SavePublication" />
 	<s:submit key="btn.cancel" action="CancelPublication" />
