@@ -33,7 +33,7 @@ public class Lender {
 		this.lenderId = lenderId;
 	}
 
-	@Column(unique = true, nullable = false)
+	@Column(unique = true, nullable = false, length = 4)
 	public int getMatriculationNumber() {
 		return matriculationNumber;
 	}
