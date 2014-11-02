@@ -20,15 +20,6 @@ public class Publisher {
 	/** Name of the publisher. */
 	private String publisherName;
 
-	@Column
-	public String getPublisherName() {
-		return publisherName;
-	}
-
-	public void setPublisherName(String publisherName) {
-		this.publisherName = publisherName;
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getPublisherId() {
@@ -37,6 +28,15 @@ public class Publisher {
 
 	public void setPublisherId(Long publisherId) {
 		this.publisherId = publisherId;
+	}
+
+	@Column(nullable = false)
+	public String getPublisherName() {
+		return publisherName;
+	}
+
+	public void setPublisherName(String publisherName) {
+		this.publisherName = publisherName;
 	}
 
 }
