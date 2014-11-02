@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Publication {
 	/** The identifier. */
-	private Long id;
+	private Long publicationId;
 	/** The NAK-intern identifier. */
 	private Long nakId;
 	/** The publications title. */
@@ -40,12 +40,12 @@ public class Publication {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long getId() {
-		return id;
+	public Long getPublicationId() {
+		return publicationId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setPublicationId(Long publicationId) {
+		this.publicationId = publicationId;
 	}
 
 	public String getTitle() {

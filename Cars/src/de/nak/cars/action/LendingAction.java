@@ -7,7 +7,7 @@ import de.nak.cars.service.LendingService;
 
 /**
  * Action for a single lending.
- *
+ * 
  * @author Niels Gundermann
  */
 public class LendingAction extends ActionSupport {
@@ -32,14 +32,14 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String save() {
 		lending = lendingService.setup(lending, lending.getLender()
-				.getLenderId(), lending.getPublication().getId());
+				.getLenderId(), lending.getPublication().getPublicationId());
 		lendingService.saveLending(lending);
 		return SUCCESS;
 	}
 
 	/**
 	 * Deletes the selected lending from the database.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String delete() {
@@ -52,7 +52,7 @@ public class LendingAction extends ActionSupport {
 
 	/**
 	 * Displays the selected publication in the lending form.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String load() {
