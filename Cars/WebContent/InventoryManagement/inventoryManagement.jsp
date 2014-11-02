@@ -6,13 +6,13 @@
 
 <s:form>
 	<s:submit key="btn.search" action="SearchForm"/>
-
+<s:actionerror/>
 <display:table id="publicationTable" name="publicationList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
-			<input type="radio" name="id"
+			<input type="radio" name="publicationId"
 				value="${publicationTable.id}" />
 		</display:column>
 		<display:column titleKey="publication.title" property="title" sortable="true"/>
@@ -24,5 +24,6 @@
 	</display:table>
 
 	<s:submit key="btn.add" action="AddPublication"/>
-	<s:submit key="btn.add" action="EditPublication"/>
+	<s:submit key="btn.edit" action="EditPublication"/>
+	<s:submit key="btn.delete" action="DeletePublication"/>
 </s:form>

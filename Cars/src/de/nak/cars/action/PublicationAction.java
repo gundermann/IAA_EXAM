@@ -23,9 +23,9 @@ public class PublicationAction extends ActionSupport {
 	/** The publication service. */
 	private PublicationService publicationService;
 
-	private Long[] authorId;
+	private String[] authorId;
 
-	private Long[] keywordId;
+	private String[] keywordId;
 
 	private Long publicationTypeId;
 
@@ -39,11 +39,11 @@ public class PublicationAction extends ActionSupport {
 		this.publisherId = publisherId;
 	}
 
-	public Long[] getKeywordId() {
+	public String[] getKeywordId() {
 		return keywordId;
 	}
 
-	public void setKeywordId(Long[] keywordId) {
+	public void setKeywordId(String[] keywordId) {
 		this.keywordId = keywordId;
 	}
 
@@ -55,11 +55,11 @@ public class PublicationAction extends ActionSupport {
 		this.publicationTypeId = publicationTypeId;
 	}
 
-	public Long[] getAuthorId() {
+	public String[] getAuthorId() {
 		return authorId;
 	}
 
-	public void setAuthorId(Long[] authorId) {
+	public void setAuthorId(String[] authorId) {
 		this.authorId = authorId;
 	}
 
@@ -69,8 +69,8 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-//		publication = publicationService.setupPublication(publication,
-//				authorId, keywordId, publicationTypeId, publisherId);
+		publication = publicationService.setupPublication(publication,
+				authorId, keywordId, publicationTypeId, publisherId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}

@@ -8,41 +8,57 @@ import de.nak.cars.model.Author;
 import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
 import de.nak.cars.model.PublicationType;
+import de.nak.cars.model.Publisher;
 import de.nak.cars.service.AuthorService;
 import de.nak.cars.service.KeywordService;
 import de.nak.cars.service.PublicationTypeService;
+import de.nak.cars.service.PublisherService;
 
 /**
  *
  * @author Niels Gundermann
  */
-public class ShowPublicationCommonSetupAction implements Action {
-	
+public class ShowPublicationSetupAction implements Action {
 
 	private List<PublicationType> publicationTypeList;
-	
+
 	private PublicationTypeService publicationTypeService;
-	
+
 	private List<Author> authorList;
-	
+
 	private AuthorService authorService;
-	
+
 	private List<Keyword> keywordList;
-	
+
 	private KeywordService keywordService;
-	
+
+	private List<Publisher> publisherList;
+
+	private PublisherService publisherService;
+
 	private Publication publication;
-	
+
 	@Override
 	public String execute() throws Exception {
 		publicationTypeList = publicationTypeService.loadAllPublicationTypes();
 		authorList = authorService.loadAllAuthors();
 		keywordList = keywordService.loadAllKeywords();
+		publisherList = publisherService.loadAllPublishers();
 		return SUCCESS;
 	}
 
-	
-	
+	public List<Publisher> getPublisherList() {
+		return publisherList;
+	}
+
+	public void setPublisherList(List<Publisher> publisherList) {
+		this.publisherList = publisherList;
+	}
+
+	public void setPublisherService(PublisherService publisherService) {
+		this.publisherService = publisherService;
+	}
+
 	public List<PublicationType> getPublicationTypeList() {
 		return publicationTypeList;
 	}
@@ -72,30 +88,20 @@ public class ShowPublicationCommonSetupAction implements Action {
 		this.publication = publication;
 	}
 
-
-
 	public void setAuthorList(List<Author> authorList) {
 		this.authorList = authorList;
 	}
-
-
 
 	public void setKeywordList(List<Keyword> keywordList) {
 		this.keywordList = keywordList;
 	}
 
-
-
 	public void setAuthorService(AuthorService authorService) {
 		this.authorService = authorService;
 	}
 
-
-
 	public void setKeywordService(KeywordService keywordService) {
 		this.keywordService = keywordService;
 	}
-	
-	
-	
+
 }

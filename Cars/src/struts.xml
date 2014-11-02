@@ -42,14 +42,16 @@
 		<action name="AddLending" class="de.nak.cars.action.ShowLendingSetupAction">
 			<result type="tiles">lendingForm</result>
 		</action>
-		<action name="SaveLending" class="de.nak.cars.action.LendingAction" method="save">
+		<action name="SaveLending" class="de.nak.cars.action.LendingAction"
+			method="save">
 			<result type="redirect">ShowLendingManagement.action</result>
 			<result type="tiles" name="input">lendingForm</result>
 		</action>
-		<action name="CancelLending" class="de.nak.cars.action.LendingAction" method="cancel">
+		<action name="CancelLending" class="de.nak.cars.action.LendingAction"
+			method="cancel">
 			<result type="redirect">ShowLendingManagement.action</result>
 		</action>
-		
+
 
 
 		<!-- PUBLICATION -->
@@ -61,35 +63,22 @@
 			<result type="tiles">publicationSearchForm</result>
 		</action>
 		<!-- Action for the search of a publication -->
-		<action name="FindPublication" class="de.nak.cars.action.ShowPublicationSearchResultListAction">
+		<action name="FindPublication"
+			class="de.nak.cars.action.ShowPublicationSearchResultListAction">
 			<result type="tiles">inventoryManagement</result>
 			<result type="chain" name="input">publicationSearchForm</result>
 		</action>
 
 		<action name="AddPublication"
-			class="de.nak.cars.action.ShowPublicationCommonSetupAction">
+			class="de.nak.cars.action.ShowPublicationSetupAction">
 			<result type="tiles">publicationForm</result>
 		</action>
 
-		<action name="SavePublication" class="de.nak.cars.action.PublicationAction"
-			method="save">
-			<result type="redirect">ShowPublicationList.action</result>
-			<result type="chain" name="input">AddPublication</result>
+		<action name="DeletePublication" class="de.nak.cars.action.PublicationAction"
+			method="delete">
+			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="chain" name="input">ShowInventoryManagement</result>
 		</action>
-
-		<action name="SetupAuthors"
-			class="de.nak.cars.action.ShowPublicationAuthorSetupAction">
-			<result type="tiles">publicationFormForAuthors</result>
-			<result type="chain" name="input">AddPublication</result>
-		</action>
-
-		<action name="SavePublicationAndGoToAuthor" class="de.nak.cars.action.PublicationAction"
-			method="loadAuthors">
-			<result type="tiles">publicationFormForAuthors</result>
-			<result type="chain" name="input">publicationFormForType</result>
-		</action>
-		<!-- kann wahrscheinlich weg ende -->
-
 		<!-- Action for the cancel button of the formular for new publications. -->
 		<action name="CancelPublication" class="de.nak.cars.action.PublicationAction"
 			method="cancel">
@@ -100,13 +89,7 @@
 		<action name="SavePublication" class="de.nak.cars.action.PublicationAction"
 			method="save">
 			<result type="redirect">ShowInventoryManagement.action</result>
-			<result type="tiles" name="input">publicationForm</result>
-		</action>
-		<!-- Action to add an author to a publication -->
-		<action name="AddAuthorToPublication" class="de.nak.cars.action.PublicationAction"
-			method="addAuthor">
-			<result type="redirect">ShowPublicationSetup.action</result>
-			<result type="chain" name="input">ShowPublicationSetup</result>
+			<result type="chain" name="input">AddPublication</result>
 		</action>
 
 		<!-- KEYWORD -->
@@ -143,7 +126,7 @@
 		</action>
 
 
-<!-- PUBLISHER -->
+		<!-- PUBLISHER -->
 
 		<action name="ShowPublisherList" class="de.nak.cars.action.ShowPublisherListAction">
 			<result type="tiles">publisherList</result>
