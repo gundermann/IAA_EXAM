@@ -2,7 +2,9 @@ package de.nak.cars.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import de.nak.cars.model.Lending;
 import de.nak.cars.model.Publication;
@@ -79,9 +81,19 @@ public class LendingDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public List<Lending> loadByPublication(Publication publication) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Searches lendings that belong to a given publication.
+	 * 
+	 * @param publication
+	 *            Publication that was lended.
+	 * @return a list of lendings which is empty if no lending was found.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Lending> load(Publication publication) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Lending.class);
+		criteria.add(Restrictions.eq("publication", publication));
+		return criteria.list();
 	}
 
 }
