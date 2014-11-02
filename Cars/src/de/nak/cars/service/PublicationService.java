@@ -93,7 +93,7 @@ public interface PublicationService {
 	 *            The data base id of the publication type.
 	 * @param publisherId
 	 *            The data base id of the publisher.
-	 * @return the completed publication
+	 * @return the completed publication.
 	 */
 	Publication setupPublication(Publication publication, String[] authorIds,
 			String[] keywordIds, Long publicationTypeId, Long publisherId);

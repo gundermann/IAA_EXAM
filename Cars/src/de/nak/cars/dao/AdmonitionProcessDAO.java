@@ -73,15 +73,4 @@ public class AdmonitionProcessDAO {
 		return null;
 	}
 
-	public void createAdmonition() {
-		// TODO Auto-generated method stub
-		// ist diese Methode hier so wirklich richtig?
-
-	}
-
-	public int loadAdmonitionCount(Long admonitionProcessId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
