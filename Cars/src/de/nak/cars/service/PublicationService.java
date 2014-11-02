@@ -6,6 +6,7 @@ import de.nak.cars.model.Author;
 import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
 import de.nak.cars.model.PublicationType;
+import de.nak.cars.model.Publisher;
 
 /**
  * Publication service interface.
@@ -64,19 +65,37 @@ public interface PublicationService {
 	 * @return a list which is empty if no publication was found.
 	 */
 	List<Publication> searchPublications(String title, List<Author> authors,
-			Integer yearOfPublication, String publisher, PublicationType type,
-			List<Keyword> keywords);
+			Integer yearOfPublication, Publisher publisher,
+			PublicationType type, List<Keyword> keywords);
 
 	/**
 	 * Search a publication.
 	 * 
 	 * @param isbn
 	 *            The isbn you search for.
-	 * @return a publication which is null if no publication was found.
+	 * @return a List containing one publication which is null if no publication
+	 *         was found.
 	 */
-	Publication searchPublicationByIsbn(Integer isbn);
+	List<Publication> searchPublicationByIsbn(Integer isbn);
 
-	Publication setupPublication(Publication publication, String[] authorId,
-			String[] keywordId, Long publicationTypeId, Long publisherId);
+	/**
+	 * Completes a given publication by adding the attributes which are
+	 * connected to other data base objects.
+	 * 
+	 * @param publication
+	 *            The publication to complete.
+	 * @param authorIds
+	 *            String array containing all the data base ids of the authors.
+	 * @param keywordIds
+	 *            String array containing all the data base ids of the
+	 *            buzzwords.
+	 * @param publicationTypeId
+	 *            The data base id of the publication type.
+	 * @param publisherId
+	 *            The data base id of the publisher.
+	 * @return the completed publication
+	 */
+	Publication setupPublication(Publication publication, String[] authorIds,
+			String[] keywordIds, Long publicationTypeId, Long publisherId);
 
 }

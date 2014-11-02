@@ -64,6 +64,16 @@
 	<bean id="admonitionService" class="de.nak.cars.service.impl.AdmonitionServiceImpl">
 		<property name="admonitionDAO" ref="admonitionDAO"/>
 	</bean>
+
+	<!-- Author DAO -->
+	<bean id="authorDAO" class="de.nak.cars.dao.AuthorDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- Author Service -->
+	<bean id="authorService" class="de.nak.cars.service.impl.AuthorServiceImpl">
+		<property name="authorDAO" ref="authorDAO"/>
+	</bean>
 	
 	<!-- Car DAO -->
 	<bean id="carDAO" class="de.nak.cars.dao.CarDAO">
@@ -73,6 +83,16 @@
 	<!-- Car Service -->
 	<bean id="carService" class="de.nak.cars.service.impl.CarServiceImpl">
 		<property name="carDAO" ref="carDAO"/>
+	</bean>
+	
+	<!-- Keyword DAO -->
+	<bean id="keywordDAO" class="de.nak.cars.dao.KeywordDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- Keyword Service -->
+	<bean id="keywordService" class="de.nak.cars.service.impl.KeywordServiceImpl">
+		<property name="keywordDAO" ref="keywordDAO"/>
 	</bean>
 
 	<!-- Lender DAO -->
@@ -85,28 +105,6 @@
 		<property name="lenderDAO" ref="lenderDAO"/>
 	</bean>
 
-	<!-- Author DAO -->
-	<bean id="authorDAO" class="de.nak.cars.dao.AuthorDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-
-	<!-- Author Service -->
-	<bean id="authorService" class="de.nak.cars.service.impl.AuthorServiceImpl">
-		<property name="authorDAO" ref="authorDAO"/>
-	</bean>
-	
-	<!-- Keyword DAO -->
-	<bean id="keywordDAO" class="de.nak.cars.dao.KeywordDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-
-	<!-- Keyword Service -->
-	<bean id="keywordService" class="de.nak.cars.service.impl.KeywordServiceImpl">
-		<property name="keywordDAO" ref="keywordDAO"/>
-	</bean>
-	
-
-
 	<!-- Lending DAO -->
 	<bean id="lendingDAO" class="de.nak.cars.dao.LendingDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
@@ -115,6 +113,7 @@
 	<!-- Lending Service -->
 	<bean id="lendingService" class="de.nak.cars.service.impl.LendingServiceImpl">
 		<property name="lendingDAO" ref="lendingDAO"/>
+		<property name="admonitionProcessService" ref="admonitionProcessService"/>
 	</bean>
 
 	<!-- Publication DAO -->
@@ -125,6 +124,10 @@
 	<!-- Publication Service -->
 	<bean id="publicationService" class="de.nak.cars.service.impl.PublicationServiceImpl">
 		<property name="publicationDAO" ref="publicationDAO"/>
+		<property name="authorService" ref="authorService"/>
+		<property name="keywordService" ref="keywordService"/>
+		<property name="publicationTypeService" ref="publicationTypeService"/>
+		<property name="publisherService" ref="publisherService"/>
 	</bean>
 	
 	<!-- PublicationType DAO -->
