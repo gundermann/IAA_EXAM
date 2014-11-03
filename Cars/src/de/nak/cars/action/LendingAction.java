@@ -32,7 +32,7 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String save() {
 		lending = new Lending();
-		lending = lendingService.setup(lending, lenderId, publicationId);
+		lending = lendingService.initializeLending(lending, lenderId, publicationId);
 		lendingService.saveLending(lending);
 		return SUCCESS;
 	}

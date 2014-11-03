@@ -77,22 +77,31 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> searchPublicationByIsbn(Long isbn) {
-		List<Publication> foundPublication = new ArrayList<Publication>();
-		// TODO: null werte abfangen
-		foundPublication.add(publicationDAO.load(isbn));
-		return foundPublication;
+		List<Publication> publicationList = new ArrayList<Publication>();
+		Publication publication = publicationDAO.load(isbn);
+		if (publication != null)
+			publicationList.add(publication);
+		return publicationList;
 	}
 
-	// TODO hier kann auch Long[] übergeben werden anstatt String[]
 	@Override
 	public Publication setupPublication(Publication publication,
-			String[] authorIds, String[] keywordIds, Long publicationTypeId,
+			Long[] authorIds, Long[] keywordIds, Long publicationTypeId,
 			Long publisherId) {
 		addAuthorValues(publication, authorIds);
 		addKeywordValues(publication, keywordIds);
 		addPublicaionTypeValue(publication, publicationTypeId);
 		addPublisherValue(publication, publisherId);
 		return publication;
+	}
+
+	// TODO kannst du hier eine Liste zurückgeben, in der nur Publikationen
+	// sind, die auch noch ausleihbar sind. (Wenn wir vom Publikation A nur 3
+	// Exemplare haben, können wir Publikation A auch nur 3 mal ausleihen)
+	@Override
+	public List<Publication> loadAllAvailablePublications() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public void setPublicationDAO(PublicationDAO publicationDAO) {
@@ -128,20 +137,18 @@ public class PublicationServiceImpl implements PublicationService {
 		return whereCondition;
 	}
 
-	private void addAuthorValues(Publication publication, String[] authorIds) {
+	private void addAuthorValues(Publication publication, Long[] authorIds) {
 		Set<Author> authors = new HashSet<Author>();
-		for (String authorIdString : authorIds) {
-			Long authorId = Long.valueOf(authorIdString);
+		for (Long authorId : authorIds) {
 			authors.add(authorService.loadAuthor(authorId));
 		}
 		publication.setAuthors(authors);
 	}
 
-	private void addKeywordValues(Publication publication, String[] keywordIds) {
+	private void addKeywordValues(Publication publication, Long[] keywordIds) {
 		Set<Keyword> keywords = new HashSet<Keyword>();
-		for (String keywordIdString : keywordIds) {
-			Long authorId = Long.valueOf(keywordIdString);
-			keywords.add(keywordService.loadKeyword(authorId));
+		for (Long keywordId : keywordIds) {
+			keywords.add(keywordService.loadKeyword(keywordId));
 		}
 		publication.setKeywords(keywords);
 	}
@@ -156,14 +163,5 @@ public class PublicationServiceImpl implements PublicationService {
 	private void addPublisherValue(Publication publication, Long publisherId) {
 		Publisher publisher = publisherService.loadPublisher(publisherId);
 		publication.setPublisher(publisher);
-	}
-
-	// TODO kannst du hier eine Liste zurückgeben, in der nur Publikationen
-	// sind, die auch noch ausleihbar sind. (Wenn wir vom Publikation A nur 3
-	// Exemplare haben, können wir Publikation A auch nur 3 mal ausleihen)
-	@Override
-	public List<Publication> loadAllAvailablePublications() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

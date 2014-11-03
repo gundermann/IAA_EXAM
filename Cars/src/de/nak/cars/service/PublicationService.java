@@ -85,19 +85,23 @@ public interface PublicationService {
 	 * @param publication
 	 *            The publication to complete.
 	 * @param authorIds
-	 *            String array containing all the data base ids of the authors.
+	 *            Array containing all the data base ids of the authors.
 	 * @param keywordIds
-	 *            String array containing all the data base ids of the
-	 *            buzzwords.
+	 *            Array containing all the data base ids of the buzzwords.
 	 * @param publicationTypeId
 	 *            The data base id of the publication type.
 	 * @param publisherId
 	 *            The data base id of the publisher.
 	 * @return the completed publication.
 	 */
-	Publication setupPublication(Publication publication, String[] authorIds,
-			String[] keywordIds, Long publicationTypeId, Long publisherId);
+	Publication setupPublication(Publication publication, Long[] authorIds,
+			Long[] keywordIds, Long publicationTypeId, Long publisherId);
 
+	/**
+	 * Search all publications without a lending.
+	 * 
+	 * @return a list which is empty if no publication was found.
+	 */
 	List<Publication> loadAllAvailablePublications();
 
 }

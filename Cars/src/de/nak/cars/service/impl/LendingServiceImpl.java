@@ -82,15 +82,17 @@ public class LendingServiceImpl implements LendingService {
 		return !processes.isEmpty();
 	}
 
-	// TODO Hier gibt es doch noch ein Problem. Das übergebene Lending ist in
-	// jedem Fall null. Hier müsste eine neue Instanz erst erzeugt werden. Das
-	// geschieht derzeit in der Action. Auch müssten hier die anderen Werte des
-	// Lending gesetzt werden. (Nicht nur Lender und Publication)
 	@Override
-	public Lending setup(Lending lending, Long lenderId, Long publicationId) {
+	public Lending initializeLending(Lending lending, Long lenderId,
+			Long publicationId) {
 		lending.setLender(lenderService.loadLender(lenderId));
 		lending.setPublication(publicationService
 				.loadPublication(publicationId));
+		Calendar calendar = Calendar.getInstance();
+		lending.setOutgoDate(calendar.getTime());
+		calendar.add(Calendar.DAY_OF_MONTH, 28);
+		lending.setExpectedReturnDate(calendar.getTime());
+		lending.setNumberOfLendingExtensions(0);
 		return lending;
 	}
 
