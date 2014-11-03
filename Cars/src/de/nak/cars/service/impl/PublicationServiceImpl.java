@@ -11,11 +11,7 @@ import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
 import de.nak.cars.model.PublicationType;
 import de.nak.cars.model.Publisher;
-import de.nak.cars.service.AuthorService;
-import de.nak.cars.service.KeywordService;
 import de.nak.cars.service.PublicationService;
-import de.nak.cars.service.PublicationTypeService;
-import de.nak.cars.service.PublisherService;
 
 /**
  * The publication service implementation class.
@@ -26,13 +22,13 @@ public class PublicationServiceImpl implements PublicationService {
 	/** The publication DAO. */
 	private PublicationDAO publicationDAO;
 	/** The author service. */
-	private AuthorService authorService;
+	private AuthorServiceImpl authorService;
 	/** The keyword service. */
-	private KeywordService keywordService;
+	private KeywordServiceImpl keywordService;
 	/** The publication type service. */
-	private PublicationTypeService publicationTypeService;
+	private PublicationTypeServiceImpl publicationTypeService;
 	/** The publisher service. */
-	private PublisherService publisherService;
+	private PublisherServiceImpl publisherService;
 
 	@Override
 	public void savePublication(Publication publication) {
@@ -105,20 +101,20 @@ public class PublicationServiceImpl implements PublicationService {
 		this.publicationDAO = publicationDAO;
 	}
 
-	public void setAuthorService(AuthorService authorService) {
+	public void setAuthorService(AuthorServiceImpl authorService) {
 		this.authorService = authorService;
 	}
 
-	public void setKeywordService(KeywordService keywordService) {
+	public void setKeywordService(KeywordServiceImpl keywordService) {
 		this.keywordService = keywordService;
 	}
 
 	public void setPublicationTypeService(
-			PublicationTypeService publicationTypeService) {
+			PublicationTypeServiceImpl publicationTypeService) {
 		this.publicationTypeService = publicationTypeService;
 	}
 
-	public void setPublisherService(PublisherService publisherService) {
+	public void setPublisherService(PublisherServiceImpl publisherService) {
 		this.publisherService = publisherService;
 	}
 

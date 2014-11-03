@@ -70,6 +70,6 @@ public interface AdmonitionProcessService {
 	 *            The data base id of the admonition process.
 	 * @return the number of admonitions.
 	 */
-	Integer getAdmonitionCount(Long admonitionProcessId);
+	Integer countAdmonitions(Long admonitionProcessId);
 
 }

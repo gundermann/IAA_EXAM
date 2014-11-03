@@ -34,14 +34,14 @@ public class AdmonitionProcessAction extends ActionSupport {
 	}
 	
 	public String deleteLastAdmonitionProcess(){
-		if(admonitionProcessService.getAdmonitionCount(admonitionProcessId) == 0 ){
+		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 0 ){
 			//FEHLERMELDUNG
 		}
 		return SUCCESS;
 	}
 
 	public String addAdmonitionProcess(){
-		if(admonitionProcessService.getAdmonitionCount(admonitionProcessId) == 3){
+		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 3){
 			//TODO FEHLERMELDUNG
 		}
 		admonitionProcessService.addAdmonition(admonitionProcess);

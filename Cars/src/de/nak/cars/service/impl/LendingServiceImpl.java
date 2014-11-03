@@ -11,10 +11,7 @@ import de.nak.cars.dao.LendingDAO;
 import de.nak.cars.model.AdmonitionProcess;
 import de.nak.cars.model.Lending;
 import de.nak.cars.model.Publication;
-import de.nak.cars.service.AdmonitionProcessService;
-import de.nak.cars.service.LenderService;
 import de.nak.cars.service.LendingService;
-import de.nak.cars.service.PublicationService;
 
 /**
  * The lending service implementation class.
@@ -25,11 +22,11 @@ public class LendingServiceImpl implements LendingService {
 	/** The lending DAO. */
 	private LendingDAO lendingDAO;
 	/** The admonition process service. */
-	private AdmonitionProcessService admonitionProcessService;
+	private AdmonitionProcessServiceImpl admonitionProcessService;
 	/** The lender service. */
-	private LenderService lenderService;
+	private LenderServiceImpl lenderService;
 	/** The publication service. */
-	private PublicationService publicationService;
+	private PublicationServiceImpl publicationService;
 
 	@Override
 	public void saveLending(Lending lending) {
@@ -101,15 +98,15 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	public void setAdmonitionProcessService(
-			AdmonitionProcessService admonitionProcessService) {
+			AdmonitionProcessServiceImpl admonitionProcessService) {
 		this.admonitionProcessService = admonitionProcessService;
 	}
 
-	public void setLenderService(LenderService lenderService) {
+	public void setLenderService(LenderServiceImpl lenderService) {
 		this.lenderService = lenderService;
 	}
 
-	public void setPublicationService(PublicationService publicationService) {
+	public void setPublicationService(PublicationServiceImpl publicationService) {
 		this.publicationService = publicationService;
 	}
 
