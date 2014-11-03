@@ -9,4 +9,19 @@
 			<message key="msg.validator.required"/>
 		</field-validator>
 	</field>
+	<field name="nakId">
+		<field-validator type="required">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="dateOfPublication">
+		<field-validator type="required">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
+	<field name="quantity">
+		<field-validator type="required">
+			<message key="msg.validator.required"/>
+		</field-validator>
+	</field>
 </validators>

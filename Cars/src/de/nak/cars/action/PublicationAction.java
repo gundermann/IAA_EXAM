@@ -69,10 +69,36 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		publication = publicationService.setupPublication(publication,
-				authorId, keywordId, publicationTypeId, publisherId);
-		publicationService.savePublication(publication);
-		return SUCCESS;
+		if (inputValid()) {
+			publication = publicationService.setupPublication(publication,
+					authorId, keywordId, publicationTypeId, publisherId);
+			publicationService.savePublication(publication);
+			return SUCCESS;
+		} else
+			return INPUT;
+	}
+
+	/**
+	 * Validates if the input for a new publication is valid
+	 * 
+	 * @return
+	 */
+	private boolean inputValid() {
+		boolean isValid = true;
+		if (authorId == null || authorId.length == 0) {
+			addActionError("msg.selectAuthor");
+			isValid = false;
+		}
+		if (publicationTypeId == null) {
+			addActionError("msg.selectPublicationType");
+			isValid = false;
+		}
+		if (publisherId == null) {
+			addActionError("msg.selectPublisher");
+			isValid = false;
+		}
+
+		return isValid;
 	}
 
 	/**
@@ -101,7 +127,7 @@ public class PublicationAction extends ActionSupport {
 	public String cancel() {
 		return SUCCESS;
 	}
-	
+
 	@Override
 	public void validate() {
 		// If the publication is not set, the publication ID has to be set.
