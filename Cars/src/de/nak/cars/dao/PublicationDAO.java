@@ -95,4 +95,10 @@ public class PublicationDAO {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
+	// TODO kannst du hier eine Liste zurückgeben, in der nur Publikationen
+	// sind, die auch noch ausleihbar sind (Wenn wir vom Publikation A nur 3
+	// Exemplare haben, können wir Publikation A auch nur 3 mal ausleihen)? In
+	// PublicationService gibt es dazu die Methode
+	// loadAllAvailablePublications()
 }
