@@ -36,6 +36,18 @@ public class LendingAction extends ActionSupport {
 		lendingService.saveLending(lending);
 		return SUCCESS;
 	}
+	
+	/**
+	 * Recalculates the returning date of the lending.
+	 * 
+	 * @return the result string.
+	 */
+	public String extend(){
+		load();
+		lendingService.adjustReturnDate(lending);
+		lendingService.saveLending(lending);
+		return SUCCESS;
+	}
 
 	/**
 	 * Deletes the selected lending from the database.
@@ -67,7 +79,10 @@ public class LendingAction extends ActionSupport {
 	@Override
 	public void validate() {
 		// TODO
-		if(lendingId == null){
+		if(lendingId != null){
+			return;
+		}
+		else if(lendingId == null){
 			addActionError("msg.selectLending");
 		}else if(lenderId == null){
 			addActionError("msg.selectLender");

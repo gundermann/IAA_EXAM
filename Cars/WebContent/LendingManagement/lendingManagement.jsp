@@ -22,4 +22,5 @@
 	</display:table>
 <s:submit key="btn.add" action="AddLending"/>
 <s:submit key="btn.delete" action="DeleteLending"/>
+<s:submit key="btn.extend" action="ExtendLending"/>
 </s:form>
