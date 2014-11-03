@@ -5,13 +5,13 @@
 <s:form>
 	<s:actionerror/>
 	<%-- Form fields for the publication's attributes --%>
-	<s:textfield name="publication.id" key="lbl.id"/>
+	<s:textfield name="publication.nakId" key="lbl.nakId"/>
 	<s:textfield name="publication.title" key="lbl.title" />
 	<s:textfield name="publication.authors" key="lbl.authors" />
-	<s:textfield name="publication.yearOfPublication" key="lbl.yearOfPublication" size="4" maxlength="4"/>
-	<s:textfield name="publication.kindOfPublication" key="lbl.kindOfPublication"/>
+	<s:textfield name="publication.dateOfPublication" key="lbl.dateOfPublication" size="4" maxlength="4"/>
+	<s:textfield name="publication.publicationType" key="lbl.publicationType"/>
 	<s:textfield name="publication.isbn" key="lbl.isbn" size="13" maxlength="13"/>
-	<s:textfield name="publication.keyword" key="lbl.keywords"/>
+	<s:textfield name="publication.keywords" key="lbl.keywords"/>
 
 	<%-- The buttons --%>
 	<s:submit key="btn.search" action="FindPublication"/>

@@ -32,11 +32,11 @@ public class ShowPublicationSearchResultListAction implements Action {
 			publicationList = publicationService
 					.searchPublicationByIsbn(publication.getIsbn());
 		} else {
-			// publicationList =
-			// publicationService.searchPublications(publication.getTitle(),
-			// null, publication.getYearOfPublication(),
-			// publication.getPublisher(), publication.getPublicationType(),
-			// null);
+			 publicationList =
+			 publicationService.searchPublications(publication.getTitle(),
+			 null, publication.getDateOfPublication(),
+			 publication.getPublisher(), publication.getPublicationType(),
+			 null);
 		}
 		return SUCCESS;
 	}
