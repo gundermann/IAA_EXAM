@@ -85,7 +85,10 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> loadAllAvailablePublications() {
-		return this.publicationDAO.loadAvailablePublications();
+		// TODO: muss in einen eigenen service
+		// da dieser service nicht die LendingDAO kennt
+		// und der lending service nicht die publicationDAO
+		return null;
 	}
 
 	public void setPublicationDAO(PublicationDAO publicationDAO) {

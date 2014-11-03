@@ -102,6 +102,7 @@ public class PublicationDAO {
 	}
 
 	/**
+	 * Search publication by multiple value from the database.
 	 * 
 	 * @param title
 	 * @param authors
@@ -109,7 +110,7 @@ public class PublicationDAO {
 	 * @param publisher
 	 * @param type
 	 * @param keywords
-	 * @return
+	 * @return List of all publications that correspond to the given values.
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Publication> load(String title, List<Author> authors,
@@ -137,15 +138,4 @@ public class PublicationDAO {
 		return criteria.list();
 	}
 
-	public List<Publication> loadAvailablePublications() {
-		return null;
-		// TODO Auto-generated method stub
-
-	}
-
-	// TODO kannst du hier eine Liste zurückgeben, in der nur Publikationen
-	// sind, die auch noch ausleihbar sind (Wenn wir vom Publikation A nur 3
-	// Exemplare haben, können wir Publikation A auch nur 3 mal ausleihen)? In
-	// PublicationService gibt es dazu die Methode
-	// loadAllAvailablePublications()
 }
