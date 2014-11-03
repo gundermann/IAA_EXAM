@@ -1,12 +1,17 @@
 package de.nak.cars.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
+import de.nak.cars.model.Author;
+import de.nak.cars.model.Keyword;
 import de.nak.cars.model.Publication;
+import de.nak.cars.model.PublicationType;
+import de.nak.cars.model.Publisher;
 
 /**
  * Publication data access object.
@@ -73,7 +78,7 @@ public class PublicationDAO {
 	 *         found.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Publication> findPublications(String whereCondition) {
+	public List<Publication> load(String whereCondition) {
 		return sessionFactory.getCurrentSession()
 				.createQuery("from Publication" + whereCondition).list();
 	}
@@ -94,6 +99,48 @@ public class PublicationDAO {
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+	/**
+	 * 
+	 * @param title
+	 * @param authors
+	 * @param dateOfPublication
+	 * @param publisher
+	 * @param type
+	 * @param keywords
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Publication> load(String title, List<Author> authors,
+			Date dateOfPublication, Publisher publisher,
+			PublicationType publicationType, List<Keyword> keywords) {
+
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publication.class);
+
+		if (title != null && !title.equals(""))
+			criteria.add(Restrictions.like("title", "%" + title + "%"));
+		if (authors != null && !authors.isEmpty())
+			// TODO: geht das mit den Autoren so?
+			criteria.add(Restrictions.like("authors", "%" + authors + "%"));
+		if (dateOfPublication != null)
+			criteria.add(Restrictions
+					.eq("dateOfPublication", dateOfPublication));
+		if (publisher != null)
+			criteria.add(Restrictions.eq("publisher", publisher));
+		if (publicationType != null)
+			criteria.add(Restrictions.eq("publicationType", publicationType));
+		if (keywords != null && !keywords.isEmpty())
+			criteria.add(Restrictions.eq("keywords", keywords));
+
+		return criteria.list();
+	}
+
+	public List<Publication> loadAvailablePublications() {
+		return null;
+		// TODO Auto-generated method stub
+
 	}
 
 	// TODO kannst du hier eine Liste zurückgeben, in der nur Publikationen

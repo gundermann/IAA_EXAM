@@ -1,5 +1,6 @@
 package de.nak.cars.service;
 
+import java.util.Date;
 import java.util.List;
 
 import de.nak.cars.model.Author;
@@ -65,8 +66,8 @@ public interface PublicationService {
 	 * @return a list which is empty if no publication was found.
 	 */
 	List<Publication> searchPublications(String title, List<Author> authors,
-			Integer yearOfPublication, Publisher publisher,
-			PublicationType type, List<Keyword> keywords);
+			Date dateOfPublication, Publisher publisher, PublicationType type,
+			List<Keyword> keywords);
 
 	/**
 	 * Search a publication.

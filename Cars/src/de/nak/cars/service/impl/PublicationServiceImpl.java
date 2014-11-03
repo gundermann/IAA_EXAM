@@ -1,6 +1,7 @@
 package de.nak.cars.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -56,23 +57,10 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> searchPublications(String title,
-			List<Author> authors, Integer yearOfPublication,
-			Publisher publisher, PublicationType type, List<Keyword> keywords) {
-		ArrayList<String> queryParts = new ArrayList<String>();
-		if (title != null && !title.equals(""))
-			queryParts.add("title like '%" + title + "%'");
-		if (authors != null && !authors.isEmpty())
-			;// TODO
-		if (yearOfPublication != null)
-			queryParts.add("year_of_publication = " + yearOfPublication);
-		if (publisher != null)
-			queryParts.add("publisher like '%" + publisher + "%'");
-		if (type != null)
-			queryParts.add("type = " + type);
-		if (keywords != null && !keywords.isEmpty())
-			;// TODO
-		String whereCondition = createWhereCondition(queryParts);
-		return publicationDAO.findPublications(whereCondition);
+			List<Author> authors, Date dateOfPublication, Publisher publisher,
+			PublicationType publicationType, List<Keyword> keywords) {
+		return publicationDAO.load(title, authors, dateOfPublication,
+				publisher, publicationType, keywords);
 	}
 
 	@Override
@@ -97,8 +85,7 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> loadAllAvailablePublications() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.publicationDAO.loadAvailablePublications();
 	}
 
 	public void setPublicationDAO(PublicationDAO publicationDAO) {
@@ -122,6 +109,7 @@ public class PublicationServiceImpl implements PublicationService {
 		this.publisherService = publisherService;
 	}
 
+	// TODO wird nicht benutzt.
 	private String createWhereCondition(ArrayList<String> queryParts) {
 		if (queryParts.isEmpty())
 			return "";
