@@ -41,7 +41,7 @@ public class PublicationDAO {
 	 * @return a publication or null if no publication was found with the given
 	 *         identifier.
 	 */
-	public Publication load(Long id) {
+	public Publication loadById(Long id) {
 		return (Publication) sessionFactory.getCurrentSession().get(
 				Publication.class, id);
 	}
@@ -90,7 +90,7 @@ public class PublicationDAO {
 	 *            The isbn you search for.
 	 * @return a publication which is null if no publication was found.
 	 */
-	public Publication load(Integer isbn) {
+	public Publication loadByIsbn(Long isbn) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
 		criteria.add(Restrictions.eq("isbn", isbn));

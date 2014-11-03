@@ -42,7 +42,7 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public Publication loadPublication(Long id) {
-		return publicationDAO.load(id);
+		return publicationDAO.loadById(id);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public List<Publication> searchPublicationByIsbn(Long isbn) {
 		List<Publication> publicationList = new ArrayList<Publication>();
-		Publication publication = publicationDAO.load(isbn);
+		Publication publication = publicationDAO.loadById(isbn);
 		if (publication != null)
 			publicationList.add(publication);
 		return publicationList;
