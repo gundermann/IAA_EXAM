@@ -49,7 +49,7 @@
 		<action name="SaveLending" class="de.nak.cars.action.LendingAction"
 			method="save">
 			<result type="redirect">ShowLendingManagement.action</result>
-			<result type="tiles" name="input">lendingForm</result>
+			<result type="chain" name="input">AddLending</result>
 		</action>
 		<action name="CancelLending" class="de.nak.cars.action.LendingAction"
 			method="cancel">

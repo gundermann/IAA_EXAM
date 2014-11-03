@@ -82,11 +82,12 @@ public class LendingServiceImpl implements LendingService {
 		return !processes.isEmpty();
 	}
 
+	// TODO Hier gibt es doch noch ein Problem. Das übergebene Lending ist in
+	// jedem Fall null. Hier müsste eine neue Instanz erst erzeugt werden. Das
+	// geschieht derzeit in der Action. Auch müssten hier die anderen Werte des
+	// Lending gesetzt werden. (Nicht nur Lender und Publication)
 	@Override
 	public Lending setup(Lending lending, Long lenderId, Long publicationId) {
-		// TODO kann auch nur lending übergeben werden. Die anderen Werte stehen
-		// dort drin.
-		// vgl. LendingAction.save()
 		lending.setLender(lenderService.loadLender(lenderId));
 		lending.setPublication(publicationService
 				.loadPublication(publicationId));
