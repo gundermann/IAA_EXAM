@@ -75,8 +75,8 @@ public interface LendingService {
 	boolean hasAdmonitionProcess(Lending lending);
 
 	/**
-	 * Completes a given lending by adding the attributes which are connected to
-	 * other data base objects.
+	 * Initializes a given lending by setting the initial value for every
+	 * attribute.
 	 * 
 	 * @param lending
 	 *            The lending to complete.
@@ -86,6 +86,6 @@ public interface LendingService {
 	 *            The data base id of the publication.
 	 * @return the completed lending.
 	 */
-	Lending setup(Lending lending, Long lenderId, Long publicationId);
+	Lending initializeLending(Lending lending, Long lenderId, Long publicationId);
 
 }

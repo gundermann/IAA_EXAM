@@ -3,20 +3,20 @@
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 <s:form>
-	<s:hidden name="publication.id" />
-	<s:textfield name="publication.nakId" key="publication.nakId"/>
-	<s:textfield name="publication.title" key="lbl.title" />
-	<s:textfield name="publication.yearOfPublication"
-		key="lbl.yearOfPublication" size="4" maxlength="4" />
-	<s:textfield name="publication.isbn" key="lbl.isbn" size="13"
+<s:actionerror/>
+	<s:hidden name="publicationId" />
+	<s:textfield name="publication.nakId" key="publication.nakId" requiredLabel="true" type="int"/>
+	<s:textfield name="publication.title" key="publication.title" requiredLabel="true"/>
+	<s:textfield name="publication.dateOfPublication"
+		key="publication.dateOfPublication" size="10" maxlength="10" type="date" requiredLabel="true" />
+	<s:textfield name="publication.isbn" key="publication.isbn" size="13"
 		maxlength="13" />
 
-	<s:textfield name="publication.quantity" key="lbl.quantity" />
+	<s:textfield name="publication.quantity" key="publication.quantity" requiredLabel="true" type="int"/>
 
 	<display:table id="publicationTypeTable" name="publicationTypeList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
-		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
 			<input type="radio" name="publicationTypeId"
 				value="${publicationTypeTable.publicationTypeId}" />
@@ -27,7 +27,6 @@
 	<display:table id="authorTable" name="authorList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
-		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
 			<input type="checkbox" name="authorId"
 				value="${authorTable.authorId}" />
@@ -38,7 +37,6 @@
 	<display:table id="keywordTable" name="keywordList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
-		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
 			<input type="checkbox" name="keywordId"
 				value="${keywordTable.keywordId}" />
@@ -49,7 +47,6 @@
 	<display:table id="publisherTable" name="publisherList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
-		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
 			<input type="radio" name="publisherId"
 				value="${publisherTable.publisherId}" />

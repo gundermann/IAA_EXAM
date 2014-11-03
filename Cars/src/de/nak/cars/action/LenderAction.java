@@ -29,9 +29,15 @@ public class LenderAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		// TODO Matnr abfragen
-		lenderService.saveLender(lender);
-		return SUCCESS;
+		Lender lenderWithNewMatriculationNumber = lenderService
+				.loadLender(lender.getMatriculationNumber());
+		if (lenderWithNewMatriculationNumber == null) {
+			lenderService.saveLender(lender);
+			return SUCCESS;
+		} else {
+			addActionError("msg.matriculationNumberNotAvailable");
+			return INPUT;
+		}
 	}
 
 	/**
@@ -48,7 +54,7 @@ public class LenderAction extends ActionSupport {
 	}
 
 	/**
-	 * Displays the selected publication in the lender form.
+	 * Displays the selected lender in the lender form.
 	 *
 	 * @return the result string.
 	 */
@@ -63,9 +69,9 @@ public class LenderAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// If the Lender is not set, the publication ID has to be set.
+		// If the Lender is not set, the lender ID has to be set.
 		if (lender == null && lenderId == null) {
-			addActionError(getText("msg.selectPublication"));
+			addActionError(getText("msg.selectLender"));
 		}
 	}
 

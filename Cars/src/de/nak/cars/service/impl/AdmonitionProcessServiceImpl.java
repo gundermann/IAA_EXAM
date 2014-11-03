@@ -56,7 +56,7 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 	}
 
 	@Override
-	public Integer getAdmonitionCount(Long admonitionProcessId) {
+	public Integer countAdmonitions(Long admonitionProcessId) {
 		AdmonitionProcess admonitionProcess = admonitionProcessDAO
 				.load(admonitionProcessId);
 		return admonitionProcess.getAdmonitions().size();

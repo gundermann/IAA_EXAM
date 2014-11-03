@@ -83,13 +83,16 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	@Override
-	public Lending setup(Lending lending, Long lenderId, Long publicationId) {
-		// TODO kann auch nur lending übergeben werden. Die anderen Werte stehen
-		// dort drin.
-		// vgl. LendingAction.save()
+	public Lending initializeLending(Lending lending, Long lenderId,
+			Long publicationId) {
 		lending.setLender(lenderService.loadLender(lenderId));
 		lending.setPublication(publicationService
 				.loadPublication(publicationId));
+		Calendar calendar = Calendar.getInstance();
+		lending.setOutgoDate(calendar.getTime());
+		calendar.add(Calendar.DAY_OF_MONTH, 28);
+		lending.setExpectedReturnDate(calendar.getTime());
+		lending.setNumberOfLendingExtensions(0);
 		return lending;
 	}
 

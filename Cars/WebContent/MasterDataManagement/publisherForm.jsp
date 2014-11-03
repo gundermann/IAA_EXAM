@@ -4,7 +4,7 @@
 <s:form>
 	<%-- Form fields for the publisher's attributes --%>
 	<s:hidden name="publisher.publisherId"/>
-	<s:textfield name="publisher.publisherName" key="publisher.name" />
+	<s:textfield name="publisher.publisherName" key="publisher.name" requiredLabel="true"/>
 	
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SavePublisher"/>

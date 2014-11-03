@@ -31,8 +31,8 @@ public class LendingAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		lending = lendingService.setup(lending, lending.getLender()
-				.getLenderId(), lending.getPublication().getPublicationId());
+		lending = new Lending();
+		lending = lendingService.initializeLending(lending, lenderId, publicationId);
 		lendingService.saveLending(lending);
 		return SUCCESS;
 	}
@@ -67,6 +67,13 @@ public class LendingAction extends ActionSupport {
 	@Override
 	public void validate() {
 		// TODO
+		if(lendingId == null){
+			addActionError("msg.selectLending");
+		}else if(lenderId == null){
+			addActionError("msg.selectLender");
+		}else if(publicationId == null){
+			addActionError("msg.selectPublication");
+		}
 	}
 
 	public Long getLenderId() {

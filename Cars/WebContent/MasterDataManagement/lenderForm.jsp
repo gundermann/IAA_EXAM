@@ -2,6 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <s:form>
+<s:actionerror/>
 	<%-- Form fields for the lender's attributes --%>
 	<s:hidden name="lender.lenderId"/>
 	<s:textfield name="lender.matriculationNumber" key="lender.matriculationNumber" requiredLabel="true"/>
