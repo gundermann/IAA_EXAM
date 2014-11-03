@@ -7,23 +7,23 @@
 <s:form>
 <s:hidden name="lendingId"/>
 
-<display:table id="publicationTable" name="publicationList" pagesize="5"
+<display:table id="publicationTable" name="publicationList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
-			<input type="radio" name="lending.publication.id"
-				value="${publicationTable.id}" />
+			<input type="radio" name="lending.publication.publicationId"
+				value="${publicationTable.publicationId}" />
 		</display:column>
+		<display:column titleKey="publication.nakId" property="nakId" sortable="true"/>
 		<display:column titleKey="publication.title" property="title" sortable="true"/>
-		<display:column titleKey="publication.yearOfPublication" property="yearOfPublication" sortable="true"/>
+		<display:column titleKey="publication.dateOfPublication" property="dateOfPublication" sortable="true"/>
 		<display:column titleKey="publication.publisher" property="publisher.publisherName" sortable="true"/>
 		<display:column titleKey="publication.publicationType" property="publicationType.name" sortable="true"/>
 		<display:column titleKey="publication.isbn" property="isbn" sortable="true"/>
-		<display:column titleKey="publication.quantity" property="quantity" sortable="true"/>
 	</display:table>
 
-<display:table id="lenderTable" name="lenderList" pagesize="5"
+<display:table id="lenderTable" name="lenderList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
@@ -31,7 +31,7 @@
 			<input type="radio" name="lending.lender.lenderId" value="${lenderTable.lenderId}" />
 		</display:column>
 		<display:column titleKey="lender.matriculationNumber" property="matriculationNumber" sortable="true"/>
-		<display:column titleKey="lender.firstname" property="firstName" sortable="true"/>
+		<display:column titleKey="firstname" property="firstName" sortable="true"/>
 		<display:column titleKey="lender.lastname" property="lastName" sortable="true"/>
 	</display:table>
 

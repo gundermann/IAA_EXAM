@@ -98,4 +98,6 @@ public interface PublicationService {
 	Publication setupPublication(Publication publication, String[] authorIds,
 			String[] keywordIds, Long publicationTypeId, Long publisherId);
 
+	List<Publication> loadAllAvailablePublications();
+
 }

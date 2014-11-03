@@ -3,11 +3,11 @@
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 <s:form>
-	<s:hidden name="publication.id" />
+	<s:hidden name="publication.publicationId" />
 	<s:textfield name="publication.nakId" key="publication.nakId"/>
 	<s:textfield name="publication.title" key="lbl.title" />
-	<s:textfield name="publication.yearOfPublication"
-		key="lbl.yearOfPublication" size="4" maxlength="4" />
+	<s:textfield name="publication.dateOfPublication"
+		key="lbl.dateOfPublication" size="4" maxlength="4" />
 	<s:textfield name="publication.isbn" key="lbl.isbn" size="13"
 		maxlength="13" />
 

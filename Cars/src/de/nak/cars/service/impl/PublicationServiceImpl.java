@@ -157,4 +157,13 @@ public class PublicationServiceImpl implements PublicationService {
 		Publisher publisher = publisherService.loadPublisher(publisherId);
 		publication.setPublisher(publisher);
 	}
+
+	// TODO kannst du hier eine Liste zurückgeben, in der nur Publikationen
+	// sind, die auch noch ausleihbar sind. (Wenn wir vom Publikation A nur 3
+	// Exemplare haben, können wir Publikation A auch nur 3 mal ausleihen)
+	@Override
+	public List<Publication> loadAllAvailablePublications() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

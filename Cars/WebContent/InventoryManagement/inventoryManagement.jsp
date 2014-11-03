@@ -13,10 +13,10 @@
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
 			<input type="radio" name="publicationId"
-				value="${publicationTable.id}" />
+				value="${publicationTable.publicationId}" />
 		</display:column>
 		<display:column titleKey="publication.title" property="title" sortable="true"/>
-		<display:column titleKey="publication.yearOfPublication" property="yearOfPublication" sortable="true"/>
+		<display:column titleKey="publication.dateOfPublication" property="dateOfPublication" sortable="true"/>
 		<display:column titleKey="publication.publisher" property="publisher.publisherName" sortable="true"/>
 		<display:column titleKey="publication.publicationType" property="publicationType.name" sortable="true"/>
 		<display:column titleKey="publication.isbn" property="isbn" sortable="true"/>
