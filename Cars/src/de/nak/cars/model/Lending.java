@@ -48,7 +48,7 @@ public class Lending {
 		this.outgoDate = outgoDate;
 	}
 
-	@Column(name = "return_date")
+	@Column
 	public Date getExpectedReturnDate() {
 		return expectedReturnDate;
 	}
