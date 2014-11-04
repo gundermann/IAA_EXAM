@@ -17,29 +17,18 @@
 		<display:column titleKey="lending.expectedReturnDate" property="expectedReturnDate" sortable="true"/>
 	</display:table>
 	
-	<!-- 
-	<%-- Liste von Säumnissen --%>
-	<table style="border-collapse: collapse; border: #CCC;" border="1">
-		<tr>
-			<th></th>
-			<th><s:text name="lbl.publicationId"/></th>
-			<th><s:text name="lbl.outgoDate"/></th>
-			<th><s:text name="lbl.returnDate"/></th>
-			<th><s:text name="lbl.lender"/></th>
-			<th><s:text name="lbl.amountOfReminders"/></th>
-		</tr>
-		<s:iterator value="failureList">
-			<tr>
-				<td><s:radio name="internalId" list="#{id:''}" theme="simple"/></td>
-				<td><s:property value="publicationId"/></td>
-				<td><s:property value="internalOd"/></td>
-				<td><s:property value="rentDate"/></td>
-				<td><s:property value="returnDate"/></td>
-				<td><s:property value="borrower"/></td>
-				<td><s:property value="amountOfReminders"/></td>
-			</tr>
-		</s:iterator>
-	</table>
-	 -->
+	<s:submit key="btn.delete" action="DeleteLending"/>
+	
+	<%-- list of admonition processes--%>
+	<display:table id="admonitionProcessTable" name="admonitionProcessList" pagesize="5"
+		cellpadding="5px;" cellspacing="5px;"
+		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:column>
+			<input type="radio" name="admonitionProcessId" value="${admonitionProcessTable.admonitionProcessId}" />
+		</display:column>
+		<display:column titleKey="lending.publication" property="admonitionProcess.lending.publication" sortable="true"/>
+		<display:column titleKey="lending.outGoDate" property="admonitionProcess.lending.outGoDate" sortable="true"/>
+	</display:table>
 	
 </s:form>

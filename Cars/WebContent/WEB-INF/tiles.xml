@@ -11,25 +11,6 @@
 		<put-attribute name="header" value="/header.jsp" />
 	</definition>
 
-
-
-	<!-- The list screen for all cars. -->
-	<definition name="carList" extends="mainLayout">
-		<put-attribute name="content" value="/carList.jsp" />
-	</definition>
-
-	<!-- The form for a single car. -->
-	<definition name="carForm" extends="mainLayout">
-		<put-attribute name="content" value="/carForm.jsp" />
-	</definition>
-
-	<!-- The form for a single car. -->
-	<definition name="carForm2" extends="mainLayout">
-		<put-attribute name="content" value="/carForm2.jsp" />
-	</definition>
-
-
-
 	<!-- LENDINGMANAGEMENT -->
 	<definition name="lendingManagement" extends="mainLayout">
 		<put-attribute name="content"

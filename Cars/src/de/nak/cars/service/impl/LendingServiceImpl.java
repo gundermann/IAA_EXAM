@@ -51,12 +51,14 @@ public class LendingServiceImpl implements LendingService {
 		return lendingDAO.loadAll();
 	}
 
+	// TODO zum DAO sollten keine Strings übergeben werden. (SQLs sollten wir
+	// nicht über Stringverkettungen zusammenbauen).
 	@Override
 	public List<Lending> searchDelayedLendings() {
 		Date now = new GregorianCalendar().getTime();
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
 		String todayString = dateFormat.format(now);
-		return lendingDAO.findDelayed(Integer.valueOf(todayString));
+		return lendingDAO.findDelayed(Integer.parseInt(todayString));
 	}
 
 	@Override

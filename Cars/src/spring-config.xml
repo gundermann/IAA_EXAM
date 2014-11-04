@@ -75,16 +75,6 @@
 		<property name="authorDAO" ref="authorDAO"/>
 	</bean>
 	
-	<!-- Car DAO -->
-	<bean id="carDAO" class="de.nak.cars.dao.CarDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-
-	<!-- Car Service -->
-	<bean id="carService" class="de.nak.cars.service.impl.CarServiceImpl">
-		<property name="carDAO" ref="carDAO"/>
-	</bean>
-	
 	<!-- Keyword DAO -->
 	<bean id="keywordDAO" class="de.nak.cars.dao.KeywordDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>

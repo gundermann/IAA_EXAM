@@ -1,5 +1,6 @@
 package de.nak.cars.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -66,15 +67,21 @@ public class LendingDAO {
 	/**
 	 * Searches lendings with a return date smaller then the delivered date.
 	 * 
-	 * @param currentDate
+	 * @param todayString
 	 *            Todays date.
 	 * @return a list of lendings which is empty if no lending was found.
 	 */
+	// TODO lieber die Abfragen durchgängig mit Criteria erstellen. Hier können
+	// wir mit den Typen arbeiten, die auch im Objekt zu finden sind und müssen
+	// nicht andauernd zu Strings parsen, damit das in ein sql passt.
+	// Außerdem funktioniert diese Abfrage nicht
 	@SuppressWarnings("unchecked")
-	public List<Lending> findDelayed(Integer currentDate) {
-		return sessionFactory.getCurrentSession()
-				.createQuery("from Lending where return_date < " + currentDate)
-				.list();
+	public List<Lending> findDelayed(Integer todayString) {
+		return sessionFactory
+				.getCurrentSession()
+				.createQuery(
+						"from Lending where expectedReturnDate < "
+								+ todayString).list();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -95,5 +102,6 @@ public class LendingDAO {
 		criteria.add(Restrictions.eq("publication", publication));
 		return criteria.list();
 	}
+
 
 }
