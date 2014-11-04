@@ -2,6 +2,7 @@ package de.nak.library.service.impl;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -80,6 +81,19 @@ public class LendingServiceImpl implements LendingService {
 		List<AdmonitionProcess> processes = admonitionProcessService
 				.searchByLending(lending);
 		return !processes.isEmpty();
+	}
+
+	@Override
+	public List<Publication> loadAllAvailablePublications() {
+		List<Publication> allPublications = publicationService
+				.loadAllPublications();
+		List<Publication> availablePublications = new ArrayList<Publication>();
+		for (Publication publication : allPublications) {
+			List<Lending> lendingList = searchByPublication(publication);
+			if (publication.getQuantity() > lendingList.size())
+				availablePublications.add(publication);
+		}
+		return availablePublications;
 	}
 
 	@Override

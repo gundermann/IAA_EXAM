@@ -88,4 +88,11 @@ public interface LendingService {
 	 */
 	Lending initializeLending(Lending lending, Long lenderId, Long publicationId);
 
+	/**
+	 * Search all publications without a lending.
+	 * 
+	 * @return a list which is empty if no publication was found.
+	 */
+	List<Publication> loadAllAvailablePublications();
+
 }

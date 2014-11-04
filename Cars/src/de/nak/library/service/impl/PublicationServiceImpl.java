@@ -83,14 +83,6 @@ public class PublicationServiceImpl implements PublicationService {
 		return publication;
 	}
 
-	@Override
-	public List<Publication> loadAllAvailablePublications() {
-		// TODO: muss in einen eigenen service
-		// da dieser service nicht die LendingDAO kennt
-		// und der lending service nicht die publicationDAO
-		return null;
-	}
-
 	public void setPublicationDAO(PublicationDAO publicationDAO) {
 		this.publicationDAO = publicationDAO;
 	}
@@ -110,19 +102,6 @@ public class PublicationServiceImpl implements PublicationService {
 
 	public void setPublisherService(PublisherService publisherService) {
 		this.publisherService = publisherService;
-	}
-
-	// TODO wird nicht benutzt.
-	private String createWhereCondition(ArrayList<String> queryParts) {
-		if (queryParts.isEmpty())
-			return "";
-		String whereCondition = " where ";
-		for (int i = 0; i < queryParts.size(); i++) {
-			whereCondition = whereCondition + queryParts.get(i);
-			if (i < queryParts.size() - 1)
-				whereCondition = whereCondition + " and ";
-		}
-		return whereCondition;
 	}
 
 	private void addAuthorValues(Publication publication, Long[] authorIds) {

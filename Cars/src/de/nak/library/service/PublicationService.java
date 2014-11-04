@@ -98,11 +98,4 @@ public interface PublicationService {
 	Publication setupPublication(Publication publication, Long[] authorIds,
 			Long[] keywordIds, Long publicationTypeId, Long publisherId);
 
-	/**
-	 * Search all publications without a lending.
-	 * 
-	 * @return a list which is empty if no publication was found.
-	 */
-	List<Publication> loadAllAvailablePublications();
-
 }
