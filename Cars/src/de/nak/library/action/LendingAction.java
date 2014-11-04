@@ -54,7 +54,7 @@ public class LendingAction extends ActionSupport {
 	 * 
 	 * @return the result string.
 	 */
-	public String finishLendingByReturn() {
+	public String finishLendingIfReturned() {
 		lending = lendingService.loadLending(lendingId);
 		if (lending != null) {
 			lendingService.finishLendingIfReturned(lending);
@@ -67,7 +67,7 @@ public class LendingAction extends ActionSupport {
 	 * 
 	 * @return the result string.
 	 */
-	public String finishLendingByLoss() {
+	public String finishLendingIfLost() {
 		lending = lendingService.loadLending(lendingId);
 		if (lending != null) {
 			lendingService.finishLendingIfLost(lending);

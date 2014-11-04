@@ -45,7 +45,7 @@
 		<action name="AddLending" class="de.nak.library.action.ShowLendingSetupAction">
 			<result type="tiles">lendingForm</result>
 		</action>
-		<action name="FinishLendingByReturn" class="de.nak.library.action.LendingAction" method="finishLendingByReturn">
+		<action name="FinishLendingByReturn" class="de.nak.library.action.LendingAction" method="finishLendingIfReturned">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">ShowLendingList</result>
 		</action>
