@@ -16,7 +16,7 @@
 	<!-- The session factory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="de.nak.cars.model"/>
+		<property name="packagesToScan" value="de.nak.library.model"/>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
@@ -41,67 +41,67 @@
 
 	<!-- The pointcut definition -->
 	<aop:config>
-		<aop:pointcut id="serviceMethods" expression="execution(* de.nak.cars.service.*.*(..))"/>
+		<aop:pointcut id="serviceMethods" expression="execution(* de.nak.library.service.*.*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
 	</aop:config>
 	
 	<!-- AdmonitionProcess DAO -->
-	<bean id="admonitionProcessDAO" class="de.nak.cars.dao.AdmonitionProcessDAO">
+	<bean id="admonitionProcessDAO" class="de.nak.library.dao.AdmonitionProcessDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- AdmonitionProcess Service -->
-	<bean id="admonitionProcessService" class="de.nak.cars.service.impl.AdmonitionProcessServiceImpl">
+	<bean id="admonitionProcessService" class="de.nak.library.service.impl.AdmonitionProcessServiceImpl">
 		<property name="admonitionProcessDAO" ref="admonitionProcessDAO"/>
 	</bean>
 	
 	<!-- Admonition DAO -->
-	<bean id="admonitionDAO" class="de.nak.cars.dao.AdmonitionDAO">
+	<bean id="admonitionDAO" class="de.nak.library.dao.AdmonitionDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- Admonition Service -->
-	<bean id="admonitionService" class="de.nak.cars.service.impl.AdmonitionServiceImpl">
+	<bean id="admonitionService" class="de.nak.library.service.impl.AdmonitionServiceImpl">
 		<property name="admonitionDAO" ref="admonitionDAO"/>
 	</bean>
 
 	<!-- Author DAO -->
-	<bean id="authorDAO" class="de.nak.cars.dao.AuthorDAO">
+	<bean id="authorDAO" class="de.nak.library.dao.AuthorDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- Author Service -->
-	<bean id="authorService" class="de.nak.cars.service.impl.AuthorServiceImpl">
+	<bean id="authorService" class="de.nak.library.service.impl.AuthorServiceImpl">
 		<property name="authorDAO" ref="authorDAO"/>
 	</bean>
 	
 	<!-- Keyword DAO -->
-	<bean id="keywordDAO" class="de.nak.cars.dao.KeywordDAO">
+	<bean id="keywordDAO" class="de.nak.library.dao.KeywordDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- Keyword Service -->
-	<bean id="keywordService" class="de.nak.cars.service.impl.KeywordServiceImpl">
+	<bean id="keywordService" class="de.nak.library.service.impl.KeywordServiceImpl">
 		<property name="keywordDAO" ref="keywordDAO"/>
 	</bean>
 
 	<!-- Lender DAO -->
-	<bean id="lenderDAO" class="de.nak.cars.dao.LenderDAO">
+	<bean id="lenderDAO" class="de.nak.library.dao.LenderDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- Lender Service -->
-	<bean id="lenderService" class="de.nak.cars.service.impl.LenderServiceImpl">
+	<bean id="lenderService" class="de.nak.library.service.impl.LenderServiceImpl">
 		<property name="lenderDAO" ref="lenderDAO"/>
 	</bean>
 
 	<!-- Lending DAO -->
-	<bean id="lendingDAO" class="de.nak.cars.dao.LendingDAO">
+	<bean id="lendingDAO" class="de.nak.library.dao.LendingDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- Lending Service -->
-	<bean id="lendingService" class="de.nak.cars.service.impl.LendingServiceImpl">
+	<bean id="lendingService" class="de.nak.library.service.impl.LendingServiceImpl">
 		<property name="lendingDAO" ref="lendingDAO"/>
 		<property name="admonitionProcessService" ref="admonitionProcessService"/>
 		<property name="lenderService" ref="lenderService"/>
@@ -109,12 +109,12 @@
 	</bean>
 
 	<!-- Publication DAO -->
-	<bean id="publicationDAO" class="de.nak.cars.dao.PublicationDAO">
+	<bean id="publicationDAO" class="de.nak.library.dao.PublicationDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- Publication Service -->
-	<bean id="publicationService" class="de.nak.cars.service.impl.PublicationServiceImpl">
+	<bean id="publicationService" class="de.nak.library.service.impl.PublicationServiceImpl">
 		<property name="publicationDAO" ref="publicationDAO"/>
 		<property name="authorService" ref="authorService"/>
 		<property name="keywordService" ref="keywordService"/>
@@ -123,22 +123,22 @@
 	</bean>
 	
 	<!-- PublicationType DAO -->
-	<bean id="publicationTypeDAO" class="de.nak.cars.dao.PublicationTypeDAO">
+	<bean id="publicationTypeDAO" class="de.nak.library.dao.PublicationTypeDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- PublicationType Service -->
-	<bean id="publicationTypeService" class="de.nak.cars.service.impl.PublicationTypeServiceImpl">
+	<bean id="publicationTypeService" class="de.nak.library.service.impl.PublicationTypeServiceImpl">
 		<property name="publicationTypeDAO" ref="publicationTypeDAO"/>
 	</bean>
 
 	<!-- Publisher DAO -->
-	<bean id="publisherDAO" class="de.nak.cars.dao.PublisherDAO">
+	<bean id="publisherDAO" class="de.nak.library.dao.PublisherDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
 	<!-- Publisher Service -->
-	<bean id="publisherService" class="de.nak.cars.service.impl.PublisherServiceImpl">
+	<bean id="publisherService" class="de.nak.library.service.impl.PublisherServiceImpl">
 		<property name="publisherDAO" ref="publisherDAO"/>
 	</bean>
 	

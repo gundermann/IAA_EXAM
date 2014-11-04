@@ -15,11 +15,9 @@
 			<result type="tiles">masterDataManagement</result>
 		</action>
 
-		<action name="ShowInventoryManagement" class="de.nak.cars.action.ShowPublicationListAction">
+		<action name="ShowInventoryManagement" class="de.nak.library.action.ShowPublicationListAction">
 			<result type="tiles">inventoryManagement</result>
 		</action>
-
-
 		<action name="ShowLendingManagement">
 			<result type="tiles">lendingManagement</result>
 		</action>
@@ -31,33 +29,36 @@
 
 
 		<!-- ADMONITIONPROCESS -->
-		<action name="AddAdmonition" class="de.nak.cars.action.AdmonitionProcessAction"></action>
+		<action name="AddAdmonition" class="de.nak.library.action.AdmonitionProcessAction"></action>
 
 
 		<!-- LENDING -->
-		<action name="ShowDelayedLendingList" class="de.nak.cars.action.ShowDelayedLendingListAction">
+		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
+		<action name="ShowDelayedLendingList" class="de.nak.library.action.ShowDelayedLendingListAction">
 			<result type="tiles">delayedLendingList</result>
 		</action>
-		<action name="ShowLendingList" class="de.nak.cars.action.ShowLendingListAction">
+
+
+		<action name="ShowLendingList" class="de.nak.library.action.ShowLendingListAction">
 			<result type="tiles">lendingList</result>
 		</action>
-		<action name="AddLending" class="de.nak.cars.action.ShowLendingSetupAction">
+		<action name="AddLending" class="de.nak.library.action.ShowLendingSetupAction">
 			<result type="tiles">lendingForm</result>
 		</action>
-		<action name="FinishLendingByReturn" class="de.nak.cars.action.LendingAction" method="returnPublication">
+		<action name="FinishLendingByReturn" class="de.nak.library.action.LendingAction" method="finishLendingByReturn">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">ShowLendingList</result>
 		</action>
-		<action name="ExtendLending" class="de.nak.cars.action.LendingAction" method="extend">
+		<action name="ExtendLending" class="de.nak.library.action.LendingAction" method="extend">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">ShowLendingList</result>
 		</action>
-		<action name="SaveLending" class="de.nak.cars.action.LendingAction"
+		<action name="SaveLending" class="de.nak.library.action.LendingAction"
 			method="save">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">AddLending</result>
 		</action>
-		<action name="CancelLending" class="de.nak.cars.action.LendingAction"
+		<action name="CancelLending" class="de.nak.library.action.LendingAction"
 			method="cancel">
 			<result type="redirect">ShowLendingList.action</result>
 		</action>
@@ -66,7 +67,7 @@
 
 		<!-- PUBLICATION -->
 		<!-- Action that displays the publications in a List -->
-		<action name="ShowPublicationList" class="de.nak.cars.action.ShowPublicationListAction">
+		<action name="ShowPublicationList" class="de.nak.library.action.ShowPublicationListAction">
 			<result type="tiles">publicationList</result>
 		</action>
 		<action name="SearchForm">
@@ -74,29 +75,29 @@
 		</action>
 		<!-- Action for the search of a publication -->
 		<action name="FindPublication"
-			class="de.nak.cars.action.ShowPublicationSearchResultListAction">
+			class="de.nak.library.action.ShowPublicationSearchResultListAction">
 			<result type="tiles">inventoryManagement</result>
 			<result type="chain" name="input">publicationSearchForm</result>
 		</action>
 
 		<action name="AddPublication"
-			class="de.nak.cars.action.ShowPublicationSetupAction">
+			class="de.nak.library.action.ShowPublicationSetupAction">
 			<result type="tiles">publicationForm</result>
 		</action>
 
-		<action name="DeletePublication" class="de.nak.cars.action.PublicationAction"
+		<action name="DeletePublication" class="de.nak.library.action.PublicationAction"
 			method="delete">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">ShowInventoryManagement</result>
 		</action>
 		<!-- Action for the cancel button of the formular for new publications. -->
-		<action name="CancelPublication" class="de.nak.cars.action.PublicationAction"
+		<action name="CancelPublication" class="de.nak.library.action.PublicationAction"
 			method="cancel">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="tiles" name="input">publicationForm</result>
 		</action>
 		<!-- Action for the save button of the formular for new publications. -->
-		<action name="SavePublication" class="de.nak.cars.action.PublicationAction"
+		<action name="SavePublication" class="de.nak.library.action.PublicationAction"
 			method="save">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">AddPublication</result>
@@ -104,7 +105,7 @@
 
 		<!-- KEYWORD -->
 
-		<action name="ShowKeywordList" class="de.nak.cars.action.ShowKeywordListAction">
+		<action name="ShowKeywordList" class="de.nak.library.action.ShowKeywordListAction">
 			<result type="tiles">keywordList</result>
 		</action>
 
@@ -112,24 +113,24 @@
 			<result type="tiles">keywordForm</result>
 		</action>
 
-		<action name="DeleteKeyword" class="de.nak.cars.action.KeywordAction"
+		<action name="DeleteKeyword" class="de.nak.library.action.KeywordAction"
 			method="delete">
 			<result type="redirect">ShowKeywordList.action</result>
 			<result type="chain" name="input">ShowKeywordList</result>
 		</action>
 
-		<action name="EditKeyword" class="de.nak.cars.action.KeywordAction"
+		<action name="EditKeyword" class="de.nak.library.action.KeywordAction"
 			method="load">
 			<result type="tiles">keywordForm</result>
 			<result type="chain" name="input">ShowKeywordList</result>
 		</action>
 		<!-- Action for the cancel button of the formular for new keywords. -->
-		<action name="CancelKeyword" class="de.nak.cars.action.KeywordAction"
+		<action name="CancelKeyword" class="de.nak.library.action.KeywordAction"
 			method="cancel">
 			<result type="redirect">ShowKeywordList.action</result>
 		</action>
 		<!-- Action for the save button of the formular for new keywords. -->
-		<action name="SaveKeyword" class="de.nak.cars.action.KeywordAction"
+		<action name="SaveKeyword" class="de.nak.library.action.KeywordAction"
 			method="save">
 			<result type="redirect">ShowKeywordList.action</result>
 			<result type="tiles" name="input">keywordForm</result>
@@ -138,7 +139,7 @@
 
 		<!-- PUBLISHER -->
 
-		<action name="ShowPublisherList" class="de.nak.cars.action.ShowPublisherListAction">
+		<action name="ShowPublisherList" class="de.nak.library.action.ShowPublisherListAction">
 			<result type="tiles">publisherList</result>
 		</action>
 
@@ -146,24 +147,24 @@
 			<result type="tiles">publisherForm</result>
 		</action>
 
-		<action name="DeletePublisher" class="de.nak.cars.action.PublisherAction"
+		<action name="DeletePublisher" class="de.nak.library.action.PublisherAction"
 			method="delete">
 			<result type="redirect">ShowPublisherList.action</result>
 			<result type="chain" name="input">ShowPublisherList</result>
 		</action>
 
-		<action name="EditPublisher" class="de.nak.cars.action.PublisherAction"
+		<action name="EditPublisher" class="de.nak.library.action.PublisherAction"
 			method="load">
 			<result type="tiles">publisherForm</result>
 			<result type="chain" name="input">ShowPublisherList</result>
 		</action>
 		<!-- Action for the cancel button of the formular for new publisher. -->
-		<action name="CancelPublisher" class="de.nak.cars.action.PublisherAction"
+		<action name="CancelPublisher" class="de.nak.library.action.PublisherAction"
 			method="cancel">
 			<result type="redirect">ShowPublisherList.action</result>
 		</action>
 		<!-- Action for the save button of the formular for new publisher. -->
-		<action name="SavePublisher" class="de.nak.cars.action.PublisherAction"
+		<action name="SavePublisher" class="de.nak.library.action.PublisherAction"
 			method="save">
 			<result type="redirect">ShowPublisherList.action</result>
 			<result type="tiles" name="input">publisherForm</result>
@@ -174,7 +175,7 @@
 
 		<!-- AUTHOR -->
 
-		<action name="ShowAuthorList" class="de.nak.cars.action.ShowAuthorListAction">
+		<action name="ShowAuthorList" class="de.nak.library.action.ShowAuthorListAction">
 			<result type="tiles">authorList</result>
 		</action>
 
@@ -182,24 +183,24 @@
 			<result type="tiles">authorForm</result>
 		</action>
 
-		<action name="DeleteAuthor" class="de.nak.cars.action.AuthorAction"
+		<action name="DeleteAuthor" class="de.nak.library.action.AuthorAction"
 			method="delete">
 			<result type="redirect">ShowAuthorList.action</result>
 			<result type="chain" name="input">ShowAuthorList</result>
 		</action>
 
-		<action name="EditAuthor" class="de.nak.cars.action.AuthorAction"
+		<action name="EditAuthor" class="de.nak.library.action.AuthorAction"
 			method="load">
 			<result type="tiles">authorForm</result>
 			<result type="chain" name="input">ShowAuthorList</result>
 		</action>
 		<!-- Action for the cancel button of the formular for new authors. -->
-		<action name="CancelAuthor" class="de.nak.cars.action.AuthorAction"
+		<action name="CancelAuthor" class="de.nak.library.action.AuthorAction"
 			method="cancel">
 			<result type="redirect">ShowAuthorList.action</result>
 		</action>
 		<!-- Action for the save button of the formular for new authors. -->
-		<action name="SaveAuthor" class="de.nak.cars.action.AuthorAction"
+		<action name="SaveAuthor" class="de.nak.library.action.AuthorAction"
 			method="save">
 			<result type="redirect">ShowAuthorList.action</result>
 			<result type="tiles" name="input">authorForm</result>
@@ -209,7 +210,7 @@
 
 		<!-- PUBLICATIONTYPE -->
 
-		<action name="ShowPublicationTypeList" class="de.nak.cars.action.ShowPublicationTypeListAction">
+		<action name="ShowPublicationTypeList" class="de.nak.library.action.ShowPublicationTypeListAction">
 			<result type="tiles">publicationTypeList</result>
 		</action>
 
@@ -217,24 +218,24 @@
 			<result type="tiles">publicationTypeForm</result>
 		</action>
 
-		<action name="DeletePublicationType" class="de.nak.cars.action.PublicationTypeAction"
+		<action name="DeletePublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="delete">
 			<result type="redirect">ShowPublicationTypeList.action</result>
 			<result type="chain" name="input">ShowPublicationTypeList</result>
 		</action>
 
-		<action name="EditPublicationType" class="de.nak.cars.action.PublicationTypeAction"
+		<action name="EditPublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="load">
 			<result type="tiles">publicationTypeForm</result>
 			<result type="chain" name="input">ShowPublicationTypeList</result>
 		</action>
 		<!-- Action for the cancel button of the formular for new publicationstypes. -->
-		<action name="CancelPublicationType" class="de.nak.cars.action.PublicationTypeAction"
+		<action name="CancelPublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="cancel">
 			<result type="redirect">ShowPublicationTypeList.action</result>
 		</action>
 		<!-- Action for the save button of the formular for new publicationstypes. -->
-		<action name="SavePublicationType" class="de.nak.cars.action.PublicationTypeAction"
+		<action name="SavePublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="save">
 			<result type="redirect">ShowPublicationTypeList.action</result>
 			<result type="tiles" name="input">publicationTypeForm</result>
@@ -242,7 +243,7 @@
 
 
 		<!-- LENDER -->
-		<action name="ShowLenderList" class="de.nak.cars.action.ShowLenderListAction">
+		<action name="ShowLenderList" class="de.nak.library.action.ShowLenderListAction">
 			<result type="tiles">lenderList</result>
 		</action>
 
@@ -250,24 +251,24 @@
 			<result type="tiles">lenderForm</result>
 		</action>
 		<!-- Action for the delete button of the formular for lenders. -->
-		<action name="DeleteLender" class="de.nak.cars.action.LenderAction"
+		<action name="DeleteLender" class="de.nak.library.action.LenderAction"
 			method="delete">
 			<result type="redirect">ShowLenderList.action</result>
 			<result type="chain" name="input">ShowLenderList</result>
 		</action>
 		<!-- Action for the edit button of the formular for lenders. -->
-		<action name="EditLender" class="de.nak.cars.action.LenderAction"
+		<action name="EditLender" class="de.nak.library.action.LenderAction"
 			method="load">
 			<result type="tiles">lenderForm</result>
 			<result type="chain" name="input">ShowLenderList</result>
 		</action>
 		<!-- Action for the cancel button of the formular for new lenders. -->
-		<action name="CancelLender" class="de.nak.cars.action.LenderAction"
+		<action name="CancelLender" class="de.nak.library.action.LenderAction"
 			method="cancel">
 			<result type="redirect">ShowLenderList.action</result>
 		</action>
 		<!-- Action for the save button of the formular for new lenders. -->
-		<action name="SaveLender" class="de.nak.cars.action.LenderAction"
+		<action name="SaveLender" class="de.nak.library.action.LenderAction"
 			method="save">
 			<result type="redirect">ShowLenderList.action</result>
 			<result type="tiles" name="input">lenderForm</result>
