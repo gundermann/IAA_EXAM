@@ -109,20 +109,20 @@ public class LendingServiceImpl implements LendingService {
 		lending.setNumberOfLendingExtensions(0);
 		return lending;
 	}
-	
-	@Override
-	public void finishLendingByReturn(Lending lending) {
-		// TODO Lending und den admonitionProcesses sowie bestehende admonitions
-		// löschen
 
+	@Override
+	public void finishLendingIfReturned(Lending lending) {
+		deleteAdmonitionProcess(lending);
+		deleteLending(lending);
 	}
 
 	@Override
-	public void finishLendingByLoss(Lending lending) {
-		// TODO Lending und den admonitionProcesses sowie bestehende admonitions
-		// löschen. Außerdem die Anzahl der exemplare der Publication
-		// herabsetzen
-
+	public void finishLendingIfLost(Lending lending) {
+		Publication publication = lending.getPublication();
+		publication.setQuantity(publication.getQuantity() - 1);
+		publicationService.savePublication(publication);
+		deleteAdmonitionProcess(lending);
+		deleteLending(lending);
 	}
 
 	public void setLendingDAO(LendingDAO lendingDAO) {
@@ -140,6 +140,15 @@ public class LendingServiceImpl implements LendingService {
 
 	public void setPublicationService(PublicationService publicationService) {
 		this.publicationService = publicationService;
+	}
+
+	private void deleteAdmonitionProcess(Lending lending) {
+		List<AdmonitionProcess> admonitionProcesses = admonitionProcessService
+				.searchByLending(lending);
+		if (!admonitionProcesses.isEmpty()) {
+			AdmonitionProcess admonitionProcess = admonitionProcesses.get(0);
+			admonitionProcessService.deleteAdmonitionProcess(admonitionProcess);
+		}
 	}
 
 }

@@ -57,7 +57,7 @@ public class LendingAction extends ActionSupport {
 	public String finishLendingByReturn() {
 		lending = lendingService.loadLending(lendingId);
 		if (lending != null) {
-			lendingService.finishLendingByReturn(lending);
+			lendingService.finishLendingIfReturned(lending);
 		}
 		return SUCCESS;
 	}
@@ -70,7 +70,7 @@ public class LendingAction extends ActionSupport {
 	public String finishLendingByLoss() {
 		lending = lendingService.loadLending(lendingId);
 		if (lending != null) {
-			lendingService.finishLendingByLoss(lending);
+			lendingService.finishLendingIfLost(lending);
 		}
 		return SUCCESS;
 	}

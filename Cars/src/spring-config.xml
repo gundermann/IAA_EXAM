@@ -53,6 +53,7 @@
 	<!-- AdmonitionProcess Service -->
 	<bean id="admonitionProcessService" class="de.nak.library.service.impl.AdmonitionProcessServiceImpl">
 		<property name="admonitionProcessDAO" ref="admonitionProcessDAO"/>
+		<property name="admonitionService" ref="admonitionService"/>
 	</bean>
 	
 	<!-- Admonition DAO -->

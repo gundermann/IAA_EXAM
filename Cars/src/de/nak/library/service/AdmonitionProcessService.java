@@ -30,7 +30,7 @@ public interface AdmonitionProcessService {
 	AdmonitionProcess loadAdmonitionProcess(Long id);
 
 	/**
-	 * Deletes the given admonition process.
+	 * Deletes the given admonition process and every attached admonition.
 	 * 
 	 * @param admonitionProcess
 	 *            The admonition process.
@@ -45,11 +45,12 @@ public interface AdmonitionProcessService {
 	List<AdmonitionProcess> loadAllAdmonitionProcesss();
 
 	/**
-	 * Search all admonition processes which belong to a given lending.
+	 * Search the admonition process which belongs to a given lending.
 	 * 
 	 * @param lending
 	 *            The given lending to search by.
-	 * @return a list which is empty if no admonition process was found.
+	 * @return a List containing one admonition process. The List is empty if no
+	 *         admonition process was found.
 	 */
 	List<AdmonitionProcess> searchByLending(Lending lending);
 
