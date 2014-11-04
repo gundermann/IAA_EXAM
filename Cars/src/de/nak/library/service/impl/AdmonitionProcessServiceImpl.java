@@ -73,4 +73,8 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		this.admonitionProcessDAO = admonitionProcessDAO;
 	}
 
+	public void setAdmonitionService(AdmonitionService admonitionService) {
+		this.admonitionService = admonitionService;
+	}
+
 }
