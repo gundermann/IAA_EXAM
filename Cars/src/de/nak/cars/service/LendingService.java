@@ -88,4 +88,8 @@ public interface LendingService {
 	 */
 	Lending initializeLending(Lending lending, Long lenderId, Long publicationId);
 
+	void finishLendingByReturn(Lending lending);
+
+	void finishLendingByLoss(Lending lending);
+
 }

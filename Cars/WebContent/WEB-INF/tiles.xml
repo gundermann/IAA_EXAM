@@ -20,6 +20,14 @@
 		<put-attribute name="content"
 			value="/LendingManagement/lendingForm.jsp" />
 	</definition>
+	<definition name="delayedLendingList" extends="mainLayout">
+		<put-attribute name="content"
+			value="/LendingManagement/delayedLendingList.jsp" />
+	</definition>
+	<definition name="lendingList" extends="mainLayout">
+		<put-attribute name="content"
+			value="/LendingManagement/lendingList.jsp" />
+	</definition>
 
 
 	<!-- INVENTORYMANAGEMENT -->
@@ -121,11 +129,6 @@
 	<definition name="admonitionManagement" extends="admontionManagementLayout">
 		<put-attribute name="content"
 			value="/AdmonitionManagement/admonitionManagement.jsp" />
-	</definition>
-	<!-- list of delayed lending -->
-	<definition name="delayedLendingList" extends="admontionManagementLayout">
-		<put-attribute name="content"
-			value="/AdmonitionManagement/delayedLendingList.jsp" />
 	</definition>
 
 </tiles-definitions>

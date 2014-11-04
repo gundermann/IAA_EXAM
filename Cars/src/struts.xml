@@ -8,7 +8,7 @@
 	<package name="default" namespace="/" extends="tiles-default">
 
 		<action name="">
-			<result type="redirect">ShowAdmonitionManagement.action</result>
+			<result type="redirect">ShowDelayedLendingList.action</result>
 		</action>
 
 		<action name="ShowMasterDataManagement">
@@ -20,44 +20,46 @@
 		</action>
 
 
-		<action name="ShowLendingManagement" class="de.nak.cars.action.ShowLendingListAction">
+		<action name="ShowLendingManagement">
 			<result type="tiles">lendingManagement</result>
 		</action>
 
-		<action name="ShowAdmonitionManagement" class="de.nak.cars.action.ShowAdmonitionListAndDelayedLendingsListAction">
+		<action name="ShowAdmonitionManagement" class="de.nak.cars.action.ShowAdmonitionProcessListAction">
 			<result type="tiles">admonitionManagement</result>
 		</action>
 
 
 
-
-
-		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
-		<action name="ShowDelayedLendingList" class="de.nak.cars.action.ShowDelayedLendingListAction">
-			<result type="tiles">delayedLendingList</result>
-		</action>
+		<!-- ADMONITIONPROCESS -->
+		<action name="AddAdmonition" class="de.nak.cars.action.AdmonitionProcessAction"></action>
 
 
 		<!-- LENDING -->
+		<action name="ShowDelayedLendingList" class="de.nak.cars.action.ShowDelayedLendingListAction">
+			<result type="tiles">delayedLendingList</result>
+		</action>
+		<action name="ShowLendingList" class="de.nak.cars.action.ShowLendingListAction">
+			<result type="tiles">lendingList</result>
+		</action>
 		<action name="AddLending" class="de.nak.cars.action.ShowLendingSetupAction">
 			<result type="tiles">lendingForm</result>
 		</action>
-		<action name="DeleteLending" class="de.nak.cars.action.LendingAction" method="delete">
-			<result type="redirect">ShowLendingManagement.action</result>
-			<result type="chain" name="input">ShowLendingManagement</result>
+		<action name="FinishLendingByReturn" class="de.nak.cars.action.LendingAction" method="returnPublication">
+			<result type="redirect">ShowLendingList.action</result>
+			<result type="chain" name="input">ShowLendingList</result>
 		</action>
 		<action name="ExtendLending" class="de.nak.cars.action.LendingAction" method="extend">
-			<result type="redirect">ShowLendingManagement.action</result>
-			<result type="chain" name="input">ShowLendingManagement</result>
+			<result type="redirect">ShowLendingList.action</result>
+			<result type="chain" name="input">ShowLendingList</result>
 		</action>
 		<action name="SaveLending" class="de.nak.cars.action.LendingAction"
 			method="save">
-			<result type="redirect">ShowLendingManagement.action</result>
+			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">AddLending</result>
 		</action>
 		<action name="CancelLending" class="de.nak.cars.action.LendingAction"
 			method="cancel">
-			<result type="redirect">ShowLendingManagement.action</result>
+			<result type="redirect">ShowLendingList.action</result>
 		</action>
 
 

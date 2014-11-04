@@ -32,6 +32,7 @@
 		</display:column>
 		<display:column titleKey="lending.publication" property="lending.publication.title" sortable="true"/>
 		<display:column titleKey="lending.expectedReturnDate" property="lending.expectedReturnDate" sortable="true"/>
+		<display:column titleKey="admonitionProcess.admonitions" value="${admonitions.size()==null ? 0 : admonitons.size()}"/>
 	</display:table>
 	
 	

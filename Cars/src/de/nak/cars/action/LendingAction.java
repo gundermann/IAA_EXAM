@@ -50,14 +50,27 @@ public class LendingAction extends ActionSupport {
 	}
 
 	/**
-	 * Deletes the selected lending from the database.
+	 * Finishes the selected lending from the database.
 	 * 
 	 * @return the result string.
 	 */
-	public String delete() {
+	public String finishLendingByReturn() {
 		lending = lendingService.loadLending(lendingId);
 		if (lending != null) {
-			lendingService.deleteLending(lending);
+			lendingService.finishLendingByReturn(lending);
+		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * Finishes the selected lending from the database.
+	 * 
+	 * @return the result string.
+	 */
+	public String finishLendingByLoss() {
+		lending = lendingService.loadLending(lendingId);
+		if (lending != null) {
+			lendingService.finishLendingByLoss(lending);
 		}
 		return SUCCESS;
 	}
@@ -78,7 +91,6 @@ public class LendingAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// TODO
 		if(lendingId != null){
 			return;
 		}

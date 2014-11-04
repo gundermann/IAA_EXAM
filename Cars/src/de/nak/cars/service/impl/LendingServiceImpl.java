@@ -115,4 +115,19 @@ public class LendingServiceImpl implements LendingService {
 		this.publicationService = publicationService;
 	}
 
+	@Override
+	public void finishLendingByReturn(Lending lending) {
+		// TODO Lending und den admonitionProcesses sowie bestehende admonitions
+		// löschen
+
+	}
+
+	@Override
+	public void finishLendingByLoss(Lending lending) {
+		// TODO Lending und den admonitionProcesses sowie bestehende admonitions
+		// löschen. Außerdem die Anzahl der exemplare der Publication
+		// herabsetzen
+
+	}
+
 }

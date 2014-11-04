@@ -35,16 +35,19 @@ public class AdmonitionProcessAction extends ActionSupport {
 	
 	public String deleteLastAdmonitionProcess(){
 		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 0 ){
-			//FEHLERMELDUNG
+			addActionError("msg.hasNoAdmonition");
+			return INPUT;
 		}
 		return SUCCESS;
 	}
 
 	public String addAdmonitionProcess(){
 		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 3){
-			//TODO FEHLERMELDUNG
+			addActionError("msg.maximumOfAdmonitionReached");
+			return INPUT;
 		}
-		admonitionProcessService.addAdmonition(admonitionProcess);
+		admonitionProcess = admonitionProcessService.addAdmonition(admonitionProcess);
+		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
 		return SUCCESS;
 	}
 	
