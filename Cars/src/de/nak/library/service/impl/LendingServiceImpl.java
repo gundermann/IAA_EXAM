@@ -66,14 +66,10 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	@Override
-	public void adjustReturnDate(Lending lending) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(lending.getOutgoDate());
-		calendar.add(Calendar.DATE, 28);
-		for (int i = 0; i < lending.getNumberOfLendingExtensions(); i++) {
-			calendar.add(Calendar.DATE, 14);
-		}
-		lending.setExpectedReturnDate(calendar.getTime());
+	public void extend(Lending lending) {
+		extendReturnDate(lending);
+		Integer lendingExtensionNr = lending.getNumberOfLendingExtensions();
+		lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
 	}
 
 	@Override
@@ -102,11 +98,8 @@ public class LendingServiceImpl implements LendingService {
 		lending.setLender(lenderService.loadLender(lenderId));
 		lending.setPublication(publicationService
 				.loadPublication(publicationId));
-		Calendar calendar = Calendar.getInstance();
-		lending.setOutgoDate(calendar.getTime());
-		calendar.add(Calendar.DAY_OF_MONTH, 28);
-		lending.setExpectedReturnDate(calendar.getTime());
 		lending.setNumberOfLendingExtensions(0);
+		initializeDates(lending);
 		return lending;
 	}
 
@@ -149,6 +142,20 @@ public class LendingServiceImpl implements LendingService {
 			AdmonitionProcess admonitionProcess = admonitionProcesses.get(0);
 			admonitionProcessService.deleteAdmonitionProcess(admonitionProcess);
 		}
+	}
+
+	private void initializeDates(Lending lending) {
+		Calendar calendar = Calendar.getInstance();
+		lending.setOutgoDate(calendar.getTime());
+		calendar.add(Calendar.DAY_OF_MONTH, 28);
+		lending.setExpectedReturnDate(calendar.getTime());
+	}
+
+	private void extendReturnDate(Lending lending) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(lending.getExpectedReturnDate());
+		calendar.add(Calendar.DATE, 14);
+		lending.setExpectedReturnDate(calendar.getTime());
 	}
 
 }

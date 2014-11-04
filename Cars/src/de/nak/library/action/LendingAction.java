@@ -44,7 +44,7 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String extend(){
 		load();
-		lendingService.adjustReturnDate(lending);
+		lendingService.extend(lending);
 		lendingService.saveLending(lending);
 		return SUCCESS;
 	}
