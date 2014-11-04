@@ -31,7 +31,7 @@ public class ShowAdmonitionListAndDelayedLendingsListAction implements Action {
 	
 	@Override
 	public String execute() throws Exception {
-		lendingList = lendingService.searchDelayedLendings();
+//		lendingList = lendingService.searchDelayedLendings();
 		admonitionProcessList = admonitionProcessService.loadAllAdmonitionProcesss();
 		return SUCCESS;
 	}
