@@ -53,6 +53,11 @@
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationForm.jsp" />
 	</definition>
+	<!-- form for publications to edit -->
+	<definition name="publicationEditForm" extends="inventoryManagementLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publicationEditForm.jsp" />
+	</definition>
 	<!-- form for common publication search -->
 	<definition name="publicationSearchForm" extends="inventoryManagementLayout">
 		<put-attribute name="content"

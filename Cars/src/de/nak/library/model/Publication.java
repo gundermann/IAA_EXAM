@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -93,7 +94,7 @@ public class Publication {
 		this.publicationType = publicationType;
 	}
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	public Set<Keyword> getKeywords() {
 		return keywords;
 	}
@@ -102,7 +103,7 @@ public class Publication {
 		this.keywords = keywords;
 	}
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	public Set<Author> getAuthors() {
 		return authors;
 	}

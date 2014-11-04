@@ -7,8 +7,8 @@
 </h3>
 
 <s:form>
-<s:actionerror/>
-	<s:hidden name="lendingId" value="0"/>
+	<s:actionerror />
+	<s:hidden name="lendingId" value="0" />
 
 	<display:table id="publicationTable" name="publicationList"
 		cellpadding="5px;" cellspacing="5px;"

@@ -90,6 +90,17 @@
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">ShowInventoryManagement</result>
 		</action>
+		
+		<action name="DeleteKeywordFromPublication" class="de.nak.library.action.PublicationAction"
+			method="deleteKeyword">
+			<result type="redirect">EditPublication.action</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		<action name="EditPublication" class="de.nak.library.action.PublicationAction"
+			method="load">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">ShowInventoryManagement</result>
+		</action>
 		<!-- Action for the cancel button of the formular for new publications. -->
 		<action name="CancelPublication" class="de.nak.library.action.PublicationAction"
 			method="cancel">
@@ -101,6 +112,12 @@
 			method="save">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">AddPublication</result>
+		</action>
+		
+		<action name="SaveEditedPublication" class="de.nak.library.action.PublicationAction"
+			method="saveEditing">
+			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="chain" name="input">EditPublication</result>
 		</action>
 
 		<!-- KEYWORD -->

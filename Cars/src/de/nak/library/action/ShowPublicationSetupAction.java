@@ -37,16 +37,7 @@ public class ShowPublicationSetupAction implements Action {
 	private PublisherService publisherService;
 
 	private Publication publication;
-
-	@Override
-	public String execute() throws Exception {
-		publicationTypeList = publicationTypeService.loadAllPublicationTypes();
-		authorList = authorService.loadAllAuthors();
-		keywordList = keywordService.loadAllKeywords();
-		publisherList = publisherService.loadAllPublishers();
-		return SUCCESS;
-	}
-
+	
 	public List<Publisher> getPublisherList() {
 		return publisherList;
 	}
@@ -104,4 +95,15 @@ public class ShowPublicationSetupAction implements Action {
 		this.keywordService = keywordService;
 	}
 
+	@Override
+	public String execute() throws Exception {
+		publicationTypeList = publicationTypeService.loadAllPublicationTypes();
+		authorList = authorService.loadAllAuthors();
+		keywordList = keywordService.loadAllKeywords();
+		publisherList = publisherService.loadAllPublishers();
+		return SUCCESS;
+	}
+
+	
+	
 }

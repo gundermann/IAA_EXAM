@@ -77,6 +77,28 @@ public class PublicationAction extends ActionSupport {
 		} else
 			return INPUT;
 	}
+	
+	public String saveEditing(){
+		Publication publicationFromDB = publicationService.loadPublication(publicationId);
+		publication.setPublicationId(publicationId);
+		publication.setAuthors(publicationFromDB.getAuthors());
+		publication.setKeywords(publicationFromDB.getKeywords());
+		publication.setPublicationType(publicationFromDB.getPublicationType());
+		publication.setPublisher(publicationFromDB.getPublisher());
+		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
+	public String deleteKeyword(){
+		if(keywordId.length == 0){
+			addActionError("msg.selectKeyword");
+			return INPUT;
+		}
+		publication.getKeywords().remove(keywordId[0]);
+		publicationService.savePublication(publication);
+		publication = publicationService.loadPublication(publicationId);
+		return SUCCESS;
+	}
 
 	/**
 	 * Validates if the input for a new publication is valid
@@ -131,9 +153,9 @@ public class PublicationAction extends ActionSupport {
 	@Override
 	public void validate() {
 		// If the publication is not set, the publication ID has to be set.
-		if (publication == null && publicationId == null) {
-			addActionError(getText("msg.selectPublication"));
-		}
+//		if (publication == null && publicationId == null) {
+//			addActionError(getText("msg.selectPublication"));
+//		}
 	}
 
 	public Publication getPublication() {
