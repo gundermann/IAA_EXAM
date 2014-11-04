@@ -74,8 +74,8 @@ public interface PublicationService {
 	 * 
 	 * @param isbn
 	 *            The isbn you search for.
-	 * @return a List containing one publication which is null if no publication
-	 *         was found.
+	 * @return a List containing one publication. The List is empty if no
+	 *         publication was found.
 	 */
 	List<Publication> searchPublicationByIsbn(Long isbn);
 

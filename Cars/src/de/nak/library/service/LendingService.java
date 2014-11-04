@@ -95,7 +95,15 @@ public interface LendingService {
 	 */
 	List<Publication> loadAllAvailablePublications();
 
-	void finishLendingByReturn(Lending lending);
+	void finishLendingIfReturned(Lending lending);
 
-	void finishLendingByLoss(Lending lending);
+	/**
+	 * Deletes a given lending including the admonition process and all
+	 * admonitions. Reduces the quantity of the publication attached to the
+	 * lending.
+	 * 
+	 * @param lending
+	 *            The lending to delete.
+	 */
+	void finishLendingIfLost(Lending lending);
 }

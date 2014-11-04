@@ -9,6 +9,7 @@ import de.nak.library.model.Admonition;
 import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.model.Lending;
 import de.nak.library.service.AdmonitionProcessService;
+import de.nak.library.service.AdmonitionService;
 
 /**
  * The admonition process service implementation class.
@@ -16,8 +17,10 @@ import de.nak.library.service.AdmonitionProcessService;
  * @admonitionProcess Christian Leppelt
  */
 public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
-	/** The admonitionProcess DAO. */
+	/** The admonition process DAO. */
 	private AdmonitionProcessDAO admonitionProcessDAO;
+	/** The admonition service. */
+	private AdmonitionService admonitionService;
 
 	@Override
 	public void saveAdmonitionProcess(AdmonitionProcess admonitionProcess) {
@@ -31,6 +34,9 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 
 	@Override
 	public void deleteAdmonitionProcess(AdmonitionProcess admonitionProcess) {
+		Set<Admonition> admonitions = admonitionProcess.getAdmonitions();
+		for (Admonition admonition : admonitions)
+			admonitionService.deleteAdmonition(admonition);
 		admonitionProcessDAO.delete(admonitionProcess);
 	}
 
