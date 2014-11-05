@@ -133,13 +133,13 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public void setPublisher(Publication publication, Long publisherId) {
+	public void setPublisherForPublication(Publication publication, Long publisherId) {
 		addPublisherValue(publication, publisherId);
 	}
 
 	//TODO setzt den PublicationType zur übergebenen ID an der Publication (analog zu setPublisher)
 	@Override
-	public void setPublicationType(Publication publication,
+	public void setPublicationTypeForPublication(Publication publication,
 			Long publicationTypeId) {
 		// TODO Auto-generated method stub
 

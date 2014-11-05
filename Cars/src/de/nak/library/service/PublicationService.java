@@ -98,9 +98,11 @@ public interface PublicationService {
 	Publication setupPublication(Publication publication, Long[] authorIds,
 			Long[] keywordIds, Long publicationTypeId, Long publisherId);
 
-	void setPublisher(Publication publication, Long publisherId);
+	// TODO
+	void setPublisherForPublication(Publication publication, Long publisherId);
 
-	void setPublicationType(Publication publication, Long publicationTypeId);
+	void setPublicationTypeForPublication(Publication publication,
+			Long publicationTypeId);
 
 	void addKeywords(Publication publication, Long[] keywordId);
 
