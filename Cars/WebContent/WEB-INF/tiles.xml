@@ -63,6 +63,11 @@
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationSearchForm.jsp" />
 	</definition>
+	<!-- form for publisher setup for publication -->
+	<definition name="publisherSetup" extends="mainLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publisherSetupForm.jsp" />
+	</definition>
 
 
 	<!-- MASTERDATAMANAGEMENT -->

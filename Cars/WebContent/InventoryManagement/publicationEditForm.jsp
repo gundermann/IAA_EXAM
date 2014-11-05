@@ -16,27 +16,31 @@
 		maxlength="13" />
 	<s:textfield name="publication.quantity" key="publication.quantity"
 		requiredLabel="true" type="int" />
+		
+	<s:label key="publication.authors"/>
+	<s:iterator value="publication.authors">
+		<s:text name="name"></s:text>
+		<br />
+	</s:iterator>
+	<s:submit key="btn.edit" method="EditAuthorsOfPublication" align="left"/>
+	
+	<s:label key="publication.keywords"/>
+	<s:iterator value="publication.keywords">
+		<s:text name="keyword"></s:text>
+		<br />
+	</s:iterator>
+	<s:submit key="btn.edit" method="EditKeywordsOfPublication" align="left" />
 
-<s:iterator value="publication.authors">
-	<s:text name="name"></s:text>
-	<br/>
-</s:iterator>
-	<s:submit key="btn.add" method="EditAuthorsOfPublication" />
+	<s:label key="publication.publicationType"/>
+	<s:label name="publication.publicationType.name" />
+	<s:submit key="btn.edit" align="left" />
 
-	<display:table id="keywordTable" name="publication.keywords"
-		cellpadding="5px;" cellspacing="5px;"
-		style="margin-left:50px;margin-top:20px;" requestURI="#">
-		<display:column titleKey="publication.keywords" property="keyword" />
-	</display:table>
-	<s:submit key="btn.edit" method="EditKeywordsOfPublication" />
+	<s:label key="publication.publisher" />
+	<s:label name="publication.publisher.publisherName" />
+	<s:submit key="btn.edit.publisher" align="left" action="SetupPublisherForPublication"/>
 
-	<s:text name="publication.publicationType.publicationName" />
-	<s:submit key="btn.edit" />
-
-	<s:text name="publisher" />
-	<s:text name="publication.publisher.publisherName" />
 
 	<%-- The buttons --%>
-	<s:submit key="btn.save" action="SaveEditedPublication" />
-	<s:submit key="btn.cancel" action="CancelPublication" />
+	<s:submit key="btn.save" action="SaveEditedPublication" align="left"/>
+	<s:submit key="btn.cancel" action="CancelPublication" align="left" />
 </s:form>

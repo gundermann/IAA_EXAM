@@ -119,6 +119,16 @@
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
+		
+		<action name="SetupPublisherForPublication" class="de.nak.library.action.ShowPublisherSetupForPublicationAction">
+			<result type="tiles">publisherSetup</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		
+		<action name="SaveEditedPublisherForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublisher">
+			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="chain" name="input">SetupPublisherForPublication</result>
+		</action>
 
 		<!-- KEYWORD -->
 

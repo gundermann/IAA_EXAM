@@ -31,6 +31,17 @@ public class PublicationAction extends ActionSupport {
 
 	private Long publisherId;
 
+	public String saveEditedPublisher(){
+		if(publisherId == null){
+			addActionError("msg.selectPublisher");
+			return INPUT;
+		}
+		publication = publicationService.loadPublication(publicationId);
+		publicationService.setPublisher(publication, publisherId);
+		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
 	public Long getPublisherId() {
 		return publisherId;
 	}
