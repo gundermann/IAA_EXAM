@@ -59,12 +59,13 @@ public interface LendingService {
 	List<Lending> searchByPublication(Publication publication);
 
 	/**
-	 * Recalculates and sets the return date for a given lending.
+	 * Extends the return date of a given lending by 2 weeks. Adds one extension
+	 * to the Lending.
 	 * 
 	 * @param lending
 	 *            The lending.
 	 */
-	void adjustReturnDate(Lending lending);
+	void extend(Lending lending);
 
 	/**
 	 * Tells whether an admonition process exists for a given lending.
