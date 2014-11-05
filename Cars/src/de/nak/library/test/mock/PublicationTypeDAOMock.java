@@ -19,7 +19,9 @@ public class PublicationTypeDAOMock extends PublicationTypeDAO {
 
 	@Override
 	public PublicationType load(Long id) {
-		return new PublicationType();
+		PublicationType publicationType = new PublicationType();
+		publicationType.setPublicationTypeId(id);
+		return publicationType;
 	}
 
 	@Override

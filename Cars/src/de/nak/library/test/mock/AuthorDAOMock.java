@@ -19,7 +19,9 @@ public class AuthorDAOMock extends AuthorDAO {
 
 	@Override
 	public Author load(Long id) {
-		return new Author();
+		Author author = new Author();
+		author.setAuthorId(id);
+		return author;
 	}
 
 	@Override

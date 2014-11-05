@@ -19,7 +19,9 @@ public class PublisherDAOMock extends PublisherDAO {
 
 	@Override
 	public Publisher load(Long publisherId) {
-		return new Publisher();
+		Publisher publisher = new Publisher();
+		publisher.setPublisherId(publisherId);
+		return publisher;
 	}
 
 	@Override

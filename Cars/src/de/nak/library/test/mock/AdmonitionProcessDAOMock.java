@@ -29,7 +29,9 @@ public class AdmonitionProcessDAOMock extends AdmonitionProcessDAO {
 		AdmonitionProcess admonitionProcess = new AdmonitionProcess();
 		Set<Admonition> admonitions = new HashSet<Admonition>();
 		for (int i = 0; i < id; i++) {
-			admonitions.add(new Admonition());
+			Admonition admonition = new Admonition();
+			admonition.setAdmonitionId(id);
+			admonitions.add(admonition);
 		}
 		admonitionProcess.setAdmonitions(admonitions);
 		return admonitionProcess;

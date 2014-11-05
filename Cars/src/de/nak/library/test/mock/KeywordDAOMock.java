@@ -19,7 +19,9 @@ public class KeywordDAOMock extends KeywordDAO {
 
 	@Override
 	public Keyword load(Long id) {
-		return new Keyword();
+		Keyword keyword = new Keyword();
+		keyword.setKeywordId(id);
+		return keyword;
 	}
 
 	@Override

@@ -43,7 +43,4 @@ public interface KeywordService {
 	 */
 	List<Keyword> loadAllKeywords();
 
-	// TODO
-	List<Keyword> loadAllKeywordsNotInPublication(Long publicationId);
-
 }

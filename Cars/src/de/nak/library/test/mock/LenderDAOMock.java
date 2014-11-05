@@ -19,7 +19,9 @@ public class LenderDAOMock extends LenderDAO {
 
 	@Override
 	public Lender load(Long lenderId) {
-		return new Lender();
+		Lender lender = new Lender();
+		lender.setLenderId(lenderId);
+		return lender;
 	}
 
 	@Override

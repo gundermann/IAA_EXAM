@@ -151,7 +151,6 @@ public class LendingServiceImpl implements LendingService {
 		lending.setExpectedReturnDate(calendar.getTime());
 	}
 
-	// TODO beim Jahreswelchsel wird das Jahr nicht verändert
 	private void extendReturnDate(Lending lending) {
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(lending.getExpectedReturnDate());

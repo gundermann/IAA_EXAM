@@ -20,7 +20,9 @@ public class LendingDAOMock extends LendingDAO {
 
 	@Override
 	public Lending load(Long id) {
-		return null;
+		Lending lending = new Lending();
+		lending.setLendingId(id);
+		return lending;
 	}
 
 	@Override

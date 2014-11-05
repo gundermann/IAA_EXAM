@@ -24,7 +24,9 @@ public class PublicationDAOMock extends PublicationDAO {
 
 	@Override
 	public Publication loadById(Long id) {
-		return new Publication();
+		Publication publication = new Publication();
+		publication.setPublicationId(id);
+		return publication;
 	}
 
 	@Override

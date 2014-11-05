@@ -42,7 +42,4 @@ public interface AuthorService {
 	 * @return a list which is empty if no author was found.
 	 */
 	List<Author> loadAllAuthors();
-
-	// TODO
-	List<Author> loadAllAuthorNotInPublication(Long publicationId);
 }

@@ -39,10 +39,4 @@ public class AuthorServiceImpl implements AuthorService {
 		this.authorDAO = authorDao;
 	}
 
-	@Override
-	public List<Author> loadAllAuthorNotInPublication(Long publicationId) {
-		// TODO Eine Liste aller Autoren, die nicht zu den Autoren der Publikation gehören
-		return null;
-	}
-	
 }
