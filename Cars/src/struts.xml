@@ -125,10 +125,53 @@
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		
+		<action name="SetupPublicationTypeForPublication" class="de.nak.library.action.ShowPublicationTypeSetupForPublicationAction">
+			<result type="tiles">publicationTypeSetup</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		
+		<action name="AddKeywordsForPublication" class="de.nak.library.action.ShowKeywordSetupForPublicationAction">
+			<result type="tiles">keywordAddSetup</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		
+		<action name="DeleteKeywordsForPublication" class="de.nak.library.action.PublicationAction" method="load">
+			<result type="tiles">keywordDeleteSetup</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		
+		<action name="AddKeywordsToPublication" class="de.nak.library.action.PublicationAction" method="addKeywords">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">AddKeywordsForPublication</result>
+		</action>
+		
+		<action name="ShowPublicationSetupFromKeywordAddSetup" class="de.nak.library.action.PublicationAction"
+			method="load">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">AddKeywordsForPublication</result>
+		</action>
+		
+		<action name="DeleteKeywordsFromPublication" class="de.nak.library.action.PublicationAction" method="deleteKeywords">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">SetupKeywordsForPublication</result>
+		</action>
+		
+		<action name="ShowPublicationSetupFromKeywordDeleteSetup" class="de.nak.library.action.PublicationAction"
+			method="load">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">DeleteKeywordsToPublication</result>
+		</action>
+		
 		<action name="SaveEditedPublisherForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublisher">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">SetupPublisherForPublication</result>
 		</action>
+		
+		<action name="SaveEditedPublicationTypeForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublicationType">
+			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="chain" name="input">SetupPublicationTypeForPublication</result>
+		</action>
+		
 
 		<!-- KEYWORD -->
 

@@ -39,5 +39,11 @@ public class KeywordServiceImpl implements KeywordService {
 		this.keywordDAO = keywordDAO;
 	}
 
+	@Override
+	public List<Keyword> loadAllKeywordsNotInPublication(Long publicationId) {
+		// TODO Eine Liste aller Keywords, die nicht zu den Keywods der Publication gehören
+		return null;
+	}
+
 
 }

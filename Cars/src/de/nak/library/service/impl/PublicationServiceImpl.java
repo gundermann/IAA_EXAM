@@ -136,4 +136,35 @@ public class PublicationServiceImpl implements PublicationService {
 	public void setPublisher(Publication publication, Long publisherId) {
 		addPublisherValue(publication, publisherId);
 	}
+
+	//TODO setzt den PublicationType zur übergebenen ID an der Publication (analog zu setPublisher)
+	@Override
+	public void setPublicationType(Publication publication,
+			Long publicationTypeId) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void addKeywords(Publication publication, Long[] keywordId) {
+		// TODO Hier müssen die Keywords zu den übergebenen IDs hinzugefügt
+		// werden. Der untere Aufrug setzt sie (löscht die bestehenden und setzt
+		// die übergebenen)
+		addKeywordValues(publication, keywordId);
+	}
+
+	//TODO Keywords zu übergeben ids müssen aus der Publication entfernt werden 
+	@Override
+	public void deleteKeywords(Publication publication, Long[] keywordIds) {
+	}
+
+	@Override
+	public void addAuthors(Publication publication, Long[] authorId) {
+		// TODO Analog zu addKeywords		
+	}
+
+	@Override
+	public void deleteAuthors(Publication publication, Long[] authorToDeleteId) {
+		// TODO Analog zu deleteKeywords
+		
+	}
 }

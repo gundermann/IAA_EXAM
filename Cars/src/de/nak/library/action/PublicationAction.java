@@ -10,6 +10,9 @@ import de.nak.library.service.PublicationService;
  *
  * @author Niels Gundermann
  */
+
+
+//TODO separieren
 public class PublicationAction extends ActionSupport {
 	/** Serial version UID. */
 	private static final long serialVersionUID = -3393497662671380262L;
@@ -26,11 +29,75 @@ public class PublicationAction extends ActionSupport {
 	private Long[] authorId;
 
 	private Long[] keywordId;
+	
+	private Long[] authorToDeleteId;
+
+	private Long[] keywordToDeleteId;
 
 	private Long publicationTypeId;
 
 	private Long publisherId;
 
+	public Long[] getAuthorToDeleteId() {
+		return authorToDeleteId;
+	}
+
+	public void setAuthorToDeleteId(Long[] authorToDeleteId) {
+		this.authorToDeleteId = authorToDeleteId;
+	}
+
+	public Long[] getKeywordToDeleteId() {
+		return keywordToDeleteId;
+	}
+
+	public void setKeywordToDeleteId(Long[] keywordToDeleteId) {
+		this.keywordToDeleteId = keywordToDeleteId;
+	}
+
+	public String addKeywords(){
+		if(keywordId == null){
+			addActionError("msg.selectKeyword");
+			return INPUT;
+		}
+		publication = publicationService.loadPublication(publicationId);
+		publicationService.addKeywords(publication, keywordId);
+		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
+	public String deleteKeywords(){
+		if(keywordToDeleteId == null){
+			addActionError("msg.selectKeyword");
+			return INPUT;
+		}
+		publication = publicationService.loadPublication(publicationId);
+		publicationService.deleteKeywords(publication, keywordToDeleteId);
+		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
+	public String addAuthors(){
+		if(authorId == null){
+			addActionError("msg.selectAuthor");
+			return INPUT;
+		}
+		publication = publicationService.loadPublication(publicationId);
+		publicationService.addAuthors(publication, authorId);
+		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
+	public String deleteAuthors(){
+		if(authorToDeleteId == null){
+			addActionError("msg.selectAuthor");
+			return INPUT;
+		}
+		publication = publicationService.loadPublication(publicationId);
+		publicationService.deleteAuthors(publication, authorToDeleteId);
+		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
 	public String saveEditedPublisher(){
 		if(publisherId == null){
 			addActionError("msg.selectPublisher");
@@ -38,6 +105,17 @@ public class PublicationAction extends ActionSupport {
 		}
 		publication = publicationService.loadPublication(publicationId);
 		publicationService.setPublisher(publication, publisherId);
+		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
+	public String saveEditedPublicationType(){
+		if(publicationTypeId == null){
+			addActionError("msg.selectPublicationType");
+			return INPUT;
+		}
+		publication = publicationService.loadPublication(publicationId);
+		publicationService.setPublicationType(publication, publicationTypeId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}

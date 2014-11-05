@@ -43,4 +43,5 @@ public interface AuthorService {
 	 */
 	List<Author> loadAllAuthors();
 
+	List<Author> loadAllAuthorNotInPublication(Long publicationId);
 }

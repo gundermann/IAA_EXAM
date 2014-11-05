@@ -100,4 +100,14 @@ public interface PublicationService {
 
 	void setPublisher(Publication publication, Long publisherId);
 
+	void setPublicationType(Publication publication, Long publicationTypeId);
+
+	void addKeywords(Publication publication, Long[] keywordId);
+
+	void deleteKeywords(Publication publication, Long[] keywordId);
+
+	void addAuthors(Publication publication, Long[] authorId);
+
+	void deleteAuthors(Publication publication, Long[] authorToDeleteId);
+
 }

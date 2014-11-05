@@ -17,26 +17,24 @@
 	<s:textfield name="publication.quantity" key="publication.quantity"
 		requiredLabel="true" type="int" />
 		
-	<s:label key="publication.authors"/>
+	<s:text name="publication.authors"/>
 	<s:iterator value="publication.authors">
 		<s:text name="name"></s:text>
 		<br />
 	</s:iterator>
-	<s:submit key="btn.edit" method="EditAuthorsOfPublication" align="left"/>
 	
-	<s:label key="publication.keywords"/>
+	<s:text name="publication.keywords"/>
 	<s:iterator value="publication.keywords">
-		<s:text name="keyword"></s:text>
-		<br />
+		<s:text name="keyword"/>
 	</s:iterator>
-	<s:submit key="btn.edit" method="EditKeywordsOfPublication" align="left" />
+	<s:submit key="btn.add.keyword" align="left" action="AddKeywordsForPublication"/>
+	<s:submit key="btn.delete.keyword" align="left" action="DeleteKeywordsForPublication"/>
 
 	<s:label key="publication.publicationType"/>
 	<s:label name="publication.publicationType.name" />
-	<s:submit key="btn.edit" align="left" />
+	<s:submit key="btn.edit.publicationType" align="left" action="SetupPublicationTypeForPublication"/>
 
-	<s:label key="publication.publisher" />
-	<s:label name="publication.publisher.publisherName" />
+	<s:label key="publication.publisher" name="publication.publisher.publisherName" />
 	<s:submit key="btn.edit.publisher" align="left" action="SetupPublisherForPublication"/>
 
 

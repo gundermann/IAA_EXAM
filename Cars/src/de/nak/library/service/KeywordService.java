@@ -42,5 +42,7 @@ public interface KeywordService {
 	 * @return a list which is empty if no keyword was found.
 	 */
 	List<Keyword> loadAllKeywords();
+	
+	List<Keyword> loadAllKeywordsNotInPublication(Long publicationId);
 
 }
