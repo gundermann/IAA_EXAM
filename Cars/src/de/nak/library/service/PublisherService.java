@@ -7,7 +7,7 @@ import de.nak.library.model.Publisher;
 /**
  * Publisher service interface.
  * 
- * @publisher Christian Leppelt
+ * @author Christian Leppelt
  */
 public interface PublisherService {
 

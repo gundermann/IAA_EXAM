@@ -9,7 +9,7 @@ import de.nak.library.service.AdmonitionService;
 /**
  * The admonition service implementation class.
  * 
- * @admonition Christian Leppelt
+ * @author Christian Leppelt
  */
 public class AdmonitionServiceImpl implements AdmonitionService {
 	/** The admonition DAO. */

@@ -96,6 +96,13 @@ public interface LendingService {
 	 */
 	List<Publication> loadAllAvailablePublications();
 
+	/**
+	 * Deletes a given lending including the admonition process and all
+	 * admonitions.
+	 * 
+	 * @param lending
+	 *            The lending to delete.
+	 */
 	void finishLendingIfReturned(Lending lending);
 
 	/**
