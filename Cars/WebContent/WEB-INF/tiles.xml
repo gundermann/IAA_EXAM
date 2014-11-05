@@ -31,35 +31,28 @@
 
 
 	<!-- INVENTORYMANAGEMENT -->
-	<!-- The main layout for master data management. -->
-	<definition name="inventoryManagementLayout" template="/layout/inventoryManagementLayout.jsp">
-		<put-attribute name="title" value="InventoryManagement" />
-		<put-attribute name="inventoryManagementHeader"
-			value="/InventoryManagement/inventoryManagementHeader.jsp" />
-		<put-attribute name="header" value="/header.jsp" />
-	</definition>
 	<!-- The menu of the inventory management -->
-	<definition name="inventoryManagement" extends="inventoryManagementLayout">
+	<definition name="inventoryManagement" extends="mainLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/inventoryManagement.jsp" />
 	</definition>
 	<!-- form for publications to set up the type -->
-	<definition name="publicationFormForAuthors" extends="inventoryManagementLayout">
+	<definition name="publicationFormForAuthors" extends="mainLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationFormForAuthors.jsp" />
 	</definition>
 	<!-- form for publications -->
-	<definition name="publicationForm" extends="inventoryManagementLayout">
+	<definition name="publicationForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationForm.jsp" />
 	</definition>
 	<!-- form for publications to edit -->
-	<definition name="publicationEditForm" extends="inventoryManagementLayout">
+	<definition name="publicationEditForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationEditForm.jsp" />
 	</definition>
 	<!-- form for common publication search -->
-	<definition name="publicationSearchForm" extends="inventoryManagementLayout">
+	<definition name="publicationSearchForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationSearchForm.jsp" />
 	</definition>
@@ -73,10 +66,25 @@
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationTypeSetupForm.jsp" />
 	</definition>
-	<!-- form for keyword setup for publication -->
+	<!-- form for setup to add keyword to publication -->
 	<definition name="keywordAddSetup" extends="mainLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/keywordAddSetupForm.jsp" />
+	</definition>
+	<!-- form for setup to delete keyword from publication -->
+	<definition name="keywordDeleteSetup" extends="mainLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/keywordDeleteSetupForm.jsp" />
+	</definition>
+	<!-- form for setup to add author to publication -->
+	<definition name="authorAddSetup" extends="mainLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/authorAddSetupForm.jsp" />
+	</definition>
+	<!-- form for setup to delete author from publication -->
+	<definition name="authorDeleteSetup" extends="mainLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/authorDeleteSetupForm.jsp" />
 	</definition>
 
 
@@ -138,15 +146,8 @@
 	</definition>
 
 	<!-- ADMONITIONMANAGEMENT -->
-	<!-- The main layout for admonition management. -->
-	<definition name="admontionManagementLayout" template="/layout/admonitionManagementLayout.jsp">
-		<put-attribute name="title" value="AdmonitionManagement" />
-		<put-attribute name="admonitionManagementHeader"
-			value="/AdmonitionManagement/admonitionManagementHeader.jsp" />
-		<put-attribute name="header" value="/header.jsp" />
-	</definition>
 	<!-- the main menu for admonition management -->
-	<definition name="admonitionManagement" extends="admontionManagementLayout">
+	<definition name="admonitionManagement" extends="mainLayout">
 		<put-attribute name="content"
 			value="/AdmonitionManagement/admonitionManagement.jsp" />
 	</definition>

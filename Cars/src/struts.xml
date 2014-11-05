@@ -172,7 +172,7 @@
 		</action>
 		<!-- Action that saves the publication type to publication -->
 		<action name="SaveEditedPublicationTypeForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublicationType">
-			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">SetupPublicationTypeForPublication</result>
 		</action>
 		
