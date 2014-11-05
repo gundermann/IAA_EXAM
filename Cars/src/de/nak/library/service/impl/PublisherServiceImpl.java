@@ -9,7 +9,7 @@ import de.nak.library.service.PublisherService;
 /**
  * The publisher service implementation class.
  * 
- * @publisher Christian Leppelt
+ * @author Christian Leppelt
  */
 public class PublisherServiceImpl implements PublisherService {
 	/** The publisher DAO. */

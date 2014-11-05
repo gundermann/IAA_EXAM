@@ -69,7 +69,8 @@ public interface AdmonitionProcessService {
 	 * 
 	 * @param admonitionProcessId
 	 *            The data base id of the admonition process.
-	 * @return the number of admonitions.
+	 * @return the number of admonitions. Returns null if no admonition process
+	 *         was found.
 	 */
 	Integer countAdmonitions(Long admonitionProcessId);
 
