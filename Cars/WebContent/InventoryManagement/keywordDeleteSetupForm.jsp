@@ -6,7 +6,7 @@
 	<s:actionerror />
 	<s:hidden name="publicationId" />
 
-	<%-- List of publication types left in master data management--%>
+	<%-- List of keyword from the publication--%>
 	<display:table id="keywordTable" name="keywordList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">

@@ -6,15 +6,15 @@
 	<s:actionerror />
 	<s:hidden name="publicationId" />
 
-	<%-- List of keywords left in master data management--%>
-	<display:table id="keywordTable" name="keywordList" 
+	<%-- List of authors left in master data management--%>
+	<display:table id="authorTable" name="publication.authorList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:column>
-			<input type="checkbox" name="keywordId" value="${keywordTable.keywordId}" />
+			<input type="checkbox" name="authorId" value="${authorTable.authorId}" />
 		</display:column>
-		<display:column titleKey="keyword.name" property="keyword" sortable="true"/>
+		<display:column titleKey="author.name" property="name" sortable="true"/>
 	</display:table>
-	<s:submit key="btn.add" action="AddKeywordsToPublication" align="left"/>
+	<s:submit key="btn.add" action="AddAuthorsToPublication" align="left"/>
 
 </s:form>

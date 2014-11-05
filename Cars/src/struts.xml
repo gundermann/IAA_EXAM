@@ -70,6 +70,7 @@
 		<action name="ShowPublicationList" class="de.nak.library.action.ShowPublicationListAction">
 			<result type="tiles">publicationList</result>
 		</action>
+		<!-- Action that shows the search form for a publication -->
 		<action name="SearchForm">
 			<result type="tiles">publicationSearchForm</result>
 		</action>
@@ -79,23 +80,18 @@
 			<result type="tiles">inventoryManagement</result>
 			<result type="chain" name="input">publicationSearchForm</result>
 		</action>
-
+		<!-- Action that initializes the setup for a new publication -->
 		<action name="AddPublication"
 			class="de.nak.library.action.ShowPublicationSetupAction">
 			<result type="tiles">publicationForm</result>
 		</action>
-
+		<!-- Action that deletes a publication -->
 		<action name="DeletePublication" class="de.nak.library.action.PublicationAction"
 			method="delete">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">ShowInventoryManagement</result>
 		</action>
-		
-		<action name="DeleteKeywordFromPublication" class="de.nak.library.action.PublicationAction"
-			method="deleteKeyword">
-			<result type="redirect">EditPublication.action</result>
-			<result type="chain" name="input">EditPublication</result>
-		</action>
+		<!-- Action that loads the publication to edit them -->
 		<action name="EditPublication" class="de.nak.library.action.PublicationAction"
 			method="load">
 			<result type="tiles">publicationEditForm</result>
@@ -113,60 +109,68 @@
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">AddPublication</result>
 		</action>
-		
+		<!-- Action that save the edited publication -->
 		<action name="SaveEditedPublication" class="de.nak.library.action.PublicationAction"
 			method="saveEditing">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
-		
-		<action name="SetupPublisherForPublication" class="de.nak.library.action.ShowPublisherSetupForPublicationAction">
-			<result type="tiles">publisherSetup</result>
-			<result type="chain" name="input">EditPublication</result>
-		</action>
-		
-		<action name="SetupPublicationTypeForPublication" class="de.nak.library.action.ShowPublicationTypeSetupForPublicationAction">
-			<result type="tiles">publicationTypeSetup</result>
-			<result type="chain" name="input">EditPublication</result>
-		</action>
-		
-		<action name="AddKeywordsForPublication" class="de.nak.library.action.ShowKeywordSetupForPublicationAction">
+		<!-- Action that shows the setup to add keywords to publication -->
+		<action name="ShowAddKeywordsSetup" class="de.nak.library.action.ShowKeywordSetupForPublicationAction">
 			<result type="tiles">keywordAddSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
-		
-		<action name="DeleteKeywordsForPublication" class="de.nak.library.action.PublicationAction" method="load">
+		<!-- Action that shows the setup to delete keywords from publication -->
+		<action name="ShowDeleteKeywordsSetup" class="de.nak.library.action.PublicationAction" method="load">
 			<result type="tiles">keywordDeleteSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
-		
+		<!-- Action that adds the keywords to publication -->
 		<action name="AddKeywordsToPublication" class="de.nak.library.action.PublicationAction" method="addKeywords">
 			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">AddKeywordsForPublication</result>
 		</action>
-		
-		<action name="ShowPublicationSetupFromKeywordAddSetup" class="de.nak.library.action.PublicationAction"
-			method="load">
-			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">AddKeywordsForPublication</result>
-		</action>
-		
+		<!-- Action that deletes the keywords to publication -->
 		<action name="DeleteKeywordsFromPublication" class="de.nak.library.action.PublicationAction" method="deleteKeywords">
 			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">SetupKeywordsForPublication</result>
 		</action>
-		
-		<action name="ShowPublicationSetupFromKeywordDeleteSetup" class="de.nak.library.action.PublicationAction"
-			method="load">
-			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">DeleteKeywordsToPublication</result>
+		<!-- Action that shows the setup to add authors to publication -->
+		<action name="ShowAddAuthorsSetup" class="de.nak.library.action.ShowAuthorsSetupForPublicationAction">
+			<result type="tiles">authorsAddSetup</result>
+			<result type="chain" name="input">EditPublication</result>
 		</action>
-		
+		<!-- Action that shows the setup to delete authors from publication -->
+		<action name="ShowDeleteAuthorsSetup" class="de.nak.library.action.PublicationAction" method="load">
+			<result type="tiles">authorsDeleteSetup</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		<!-- Action that adds the authors to publication -->
+		<action name="AddAuthorsToPublication" class="de.nak.library.action.PublicationAction" method="addAuthors">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">AddAuthorsForPublication</result>
+		</action>
+		<!-- Action that deletes the authors to publication -->
+		<action name="DeleteAuthorsFromPublication" class="de.nak.library.action.PublicationAction" method="deleteAuthors">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">SetupAuthorsForPublication</result>
+		</action>
+		<!-- Action that shows the setup for publisher of a publication -->
+		<action name="SetupPublisherForPublication" class="de.nak.library.action.ShowPublisherSetupForPublicationAction">
+			<result type="tiles">publisherSetup</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		<!-- Action that saves the publisher to publication -->
 		<action name="SaveEditedPublisherForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublisher">
-			<result type="redirect">ShowInventoryManagement.action</result>
+			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">SetupPublisherForPublication</result>
 		</action>
-		
+		<!-- Action that shows the setup for publication type of a publication -->
+		<action name="SetupPublicationTypeForPublication" class="de.nak.library.action.ShowPublicationTypeSetupForPublicationAction">
+			<result type="tiles">publicationTypeSetup</result>
+			<result type="chain" name="input">EditPublication</result>
+		</action>
+		<!-- Action that saves the publication type to publication -->
 		<action name="SaveEditedPublicationTypeForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublicationType">
 			<result type="redirect">ShowInventoryManagement.action</result>
 			<result type="chain" name="input">SetupPublicationTypeForPublication</result>
@@ -174,7 +178,6 @@
 		
 
 		<!-- KEYWORD -->
-
 		<action name="ShowKeywordList" class="de.nak.library.action.ShowKeywordListAction">
 			<result type="tiles">keywordList</result>
 		</action>
