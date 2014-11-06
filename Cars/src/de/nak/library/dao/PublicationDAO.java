@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 import de.nak.library.model.Publication;
-import de.nak.library.searchModel.SearchPublication;
 
 /**
  * Publication data access object.
@@ -104,7 +103,7 @@ public class PublicationDAO {
 	 * @return List of all publications that correspond to the given values.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Publication> load(SearchPublication publication) {
+	public List<Publication> load(Publication publication) {
 
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
