@@ -1,11 +1,17 @@
 package de.nak.library.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
+import de.nak.library.model.Author;
 import de.nak.library.model.Publication;
 import de.nak.library.searchModel.SearchPublication;
 
@@ -121,17 +127,33 @@ public class PublicationDAO {
 			criteria.add(Restrictions.like("title",
 					"%" + publication.getTitle() + "%"));
 		}
-		// TODO: suche nach Autoren, datum, publisher, publicationtype und
-		// keywords implementieren
+		// TODO: suche nach Autoren implementieren
 		if (publication.getAuthors() != null
 				&& !publication.getAuthors().equals("")) {
-			criteria.add(Restrictions.like("authors",
-					"%" + publication.getAuthors() + "%"));
+			Set<Author> authors = new HashSet<Author>();
+			Author author = new Author();
+			author.setName(publication.getAuthors());
+			authors.add(author);
+
+			criteria.add(Restrictions.like("authors", author));
 		}
+
 		if (publication.getDateOfPublication() != null
 				&& !publication.getDateOfPublication().equals("")) {
-			criteria.add(Restrictions.eq("dateOfPublication",
-					publication.getDateOfPublication()));
+			SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+			Date beginnPublicationDate = null;
+			Date endPublicationDate = null;
+			try {
+				beginnPublicationDate = formatter.parse("01.01."
+						+ publication.getDateOfPublication());
+				endPublicationDate = formatter.parse("31.12."
+						+ publication.getDateOfPublication());
+			} catch (ParseException e) {
+				beginnPublicationDate = new Date();
+			}
+			System.out.println(beginnPublicationDate);
+			criteria.add(Restrictions.between("dateOfPublication",
+					beginnPublicationDate, endPublicationDate));
 		}
 		if (publication.getPublisher() != null
 				&& !publication.getPublisher().equals("")) {
@@ -143,6 +165,7 @@ public class PublicationDAO {
 			criteria.add(Restrictions.eq("publicationType",
 					publication.getPublicationType()));
 		}
+		// TODO: Keywordsuche implementieren
 		if (publication.getKeywords() != null
 				&& !publication.getKeywords().equals("")) {
 			criteria.add(Restrictions.eq("keywords", publication.getKeywords()));
@@ -150,5 +173,4 @@ public class PublicationDAO {
 
 		return criteria.list();
 	}
-
 }
