@@ -56,6 +56,7 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		Admonition admonition = new Admonition();
 		admonition.setAdmonitionProcess(admonitionProcess);
 		admonition.setCreationDay(new GregorianCalendar().getTime());
+		//TODO Admonition in DB speichern um Exception zu verhindern(nur ne Vermutung)
 		Set<Admonition> admonitions = admonitionProcess.getAdmonitions();
 		if (admonitions == null)
 			admonitions = new HashSet<Admonition>();

@@ -113,6 +113,7 @@ public class PublicationDAO {
 	 * @return List of all publications that correspond to the given values.
 	 */
 	@SuppressWarnings("unchecked")
+	//TODO doppelte ergebnisse aussortieren
 	public List<Publication> load(String title, List<Author> authors,
 			Date dateOfPublication, Publisher publisher,
 			PublicationType publicationType, List<Keyword> keywords) {
