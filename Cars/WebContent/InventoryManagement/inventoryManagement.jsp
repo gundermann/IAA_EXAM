@@ -17,18 +17,18 @@
 			<input type="radio" name="publicationId"
 				value="${publicationTable.publicationId}" />
 		</display:column>
-		<display:column titleKey="publication.title" property="title"
+		<display:column title="Titel" property="title"
 			sortable="true" />
-		<display:column titleKey="publication.dateOfPublication"
+		<display:column title="Datum der Veröffentlichung"
 			property="dateOfPublication" sortable="true"
 			format="{0,date,dd.MM.yyyy}" />
-		<display:column titleKey="publication.publisher"
+		<display:column title="Verlag"
 			property="publisher.publisherName" sortable="true" />
-		<display:column titleKey="publication.publicationType"
+		<display:column title="Publikationart"
 			property="publicationType.name" sortable="true" />
-		<display:column titleKey="publication.isbn" property="isbn"
+		<display:column title="ISBN" property="isbn"
 			sortable="true" />
-		<display:column titleKey="publication.quantity" property="quantity"
+		<display:column title="Bestandsmenge" property="quantity"
 			sortable="true" />
 	</display:table>
 

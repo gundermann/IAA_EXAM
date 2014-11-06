@@ -22,14 +22,17 @@
 			<result type="tiles">lendingManagement</result>
 		</action>
 
-		<action name="ShowAdmonitionManagement" class="de.nak.cars.action.ShowAdmonitionProcessListAction">
+		<action name="ShowAdmonitionManagement" class="de.nak.library.action.ShowAdmonitionProcessListAction">
 			<result type="tiles">admonitionManagement</result>
 		</action>
 
 
 
 		<!-- ADMONITIONPROCESS -->
-		<action name="AddAdmonition" class="de.nak.library.action.AdmonitionProcessAction"></action>
+		<action name="AddAdmonition" class="de.nak.library.action.AdmonitionProcessAction" method="addAdmonition">
+			<result type="redirect">ShowAdmonitionManagement.action</result>
+			<result type="chain" name="input">ShowAdmonitionManagement</result>
+		</action>
 
 
 		<!-- LENDING -->
@@ -46,6 +49,10 @@
 			<result type="tiles">lendingForm</result>
 		</action>
 		<action name="FinishLendingByReturn" class="de.nak.library.action.LendingAction" method="finishLendingIfReturned">
+			<result type="redirect">ShowLendingList.action</result>
+			<result type="chain" name="input">ShowLendingList</result>
+		</action>
+		<action name="FinishLendingByLost" class="de.nak.library.action.LendingAction" method="finishLendingIfLost">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">ShowLendingList</result>
 		</action>

@@ -33,7 +33,7 @@ public class AdmonitionProcessAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	public String deleteLastAdmonitionProcess(){
+	public String deleteLastAdmonition(){
 		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 0 ){
 			addActionError("msg.hasNoAdmonition");
 			return INPUT;
@@ -41,11 +41,12 @@ public class AdmonitionProcessAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public String addAdmonitionProcess(){
+	public String addAdmonition(){
 		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 3){
 			addActionError("msg.maximumOfAdmonitionReached");
 			return INPUT;
 		}
+		admonitionProcess = admonitionProcessService.loadAdmonitionProcess(admonitionProcessId);
 		admonitionProcess = admonitionProcessService.addAdmonition(admonitionProcess);
 		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
 		return SUCCESS;

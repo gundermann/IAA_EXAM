@@ -14,13 +14,13 @@
 			<input type="radio" name="lendingId"
 				value="${lendingTable.lendingId}" />
 		</display:column>
-		<display:column titleKey="lending.publication" property="publication.title" sortable="true"/>
-		<display:column titleKey="lending.outgoDate" property="outgoDate" sortable="true"/>
-		<display:column titleKey="lending.lender" property="lender.matriculationNumber" sortable="true"/>
-		<display:column titleKey="lending.expectedReturnDate" property="expectedReturnDate" sortable="true"/>
-		<display:column titleKey="lending.numberOfLendingExtensions" property="numberOfLendingExtensions" sortable="true"/>
+		<display:column title="Publikation" property="publication.title" sortable="true"/>
+		<display:column title="Herausgabedatum" property="outgoDate" sortable="true" format="{0,date,dd.MM.yyyy}"/>
+		<display:column title="Ausleiher - Mat.NR." property="lender.matriculationNumber" sortable="true"/>
+		<display:column title="Rückgabedatum" property="expectedReturnDate" sortable="true" format="{0,date,dd.MM.yyyy}"/>
+		<display:column title="Anzahl der Verlängerungen" property="numberOfLendingExtensions" sortable="true"/>
 	</display:table>
-<s:submit key="btn.add" action="AddLending"/>
-<s:submit key="btn.finish" action="FinishLendingByReturn"/>
-<s:submit key="btn.extend" action="ExtendLending"/>
+<s:submit key="btn.add" action="AddLending" align="left"/>
+<s:submit key="btn.finish" action="FinishLendingByReturn" align="left"/>
+<s:submit key="btn.extend" action="ExtendLending" align="left"/>
 </s:form>

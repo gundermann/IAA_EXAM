@@ -5,6 +5,6 @@
 <h3><s:text name="txt.lendingManagement"/></h3>
 
 <s:form>
-<s:submit key="btn.delayedLendings" action="ShowDelayedLendingList"/>
-<s:submit key="btn.lendings" action="ShowLendingList"/>
+<s:submit key="btn.delayedLendings" action="ShowDelayedLendingList" align="left"/>
+<s:submit key="btn.lendings" action="ShowLendingList" align="left"/>
 </s:form>

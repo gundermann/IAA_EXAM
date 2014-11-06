@@ -20,5 +20,5 @@
 		<display:column titleKey="lending.expectedReturnDate" property="expectedReturnDate" sortable="true"/>
 		<display:column titleKey="lending.numberOfLendingExtensions" property="numberOfLendingExtensions" sortable="true"/>
 	</display:table>
-<s:submit key="btn.lost" action="FinishLendingByDelete"/>
+<s:submit key="btn.lost" action="FinishLendingByLost" align="left"/>
 </s:form>
