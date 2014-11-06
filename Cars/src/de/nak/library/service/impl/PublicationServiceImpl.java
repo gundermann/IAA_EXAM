@@ -83,6 +83,68 @@ public class PublicationServiceImpl implements PublicationService {
 		return publication;
 	}
 
+	@Override
+	public void editPublisher(Publication publication, Long newPublisherId) {
+		addPublisherValue(publication, newPublisherId);
+	}
+
+	@Override
+	public void editPublicationType(Publication publication,
+			Long newPublicationTypeId) {
+		addPublicaionTypeValue(publication, newPublicationTypeId);
+	}
+
+	public void addKeywords(Publication publication, Long[] keywordIds) {
+		addKeywordValues(publication, keywordIds);
+	}
+
+	@Override
+	public void deleteKeywords(Publication publication, Long[] keywordIds) {
+		Set<Keyword> keywords = publication.getKeywords();
+		if (keywords == null)
+			keywords = new HashSet<Keyword>();
+		for (Long keywordId : keywordIds) {
+			keywords.remove(keywordService.loadKeyword(keywordId));
+		}
+		publication.setKeywords(keywords);
+	}
+
+	@Override
+	public void addAuthors(Publication publication, Long[] authorIds) {
+		addAuthorValues(publication, authorIds);
+	}
+
+	@Override
+	public void deleteAuthors(Publication publication, Long[] authorIds) {
+		Set<Author> authors = publication.getAuthors();
+		if (authors == null)
+			authors = new HashSet<Author>();
+		for (Long authorId : authorIds) {
+			authors.remove(authorService.loadAuthor(authorId));
+		}
+		publication.setAuthors(authors);
+	}
+
+	@Override
+	public List<Author> loadAllAuthorNotInPublication(Long publicationId) {
+		Publication publication = loadPublication(publicationId);
+		List<Author> authors = authorService.loadAllAuthors();
+		for (Author author : publication.getAuthors()) {
+			authors.remove(author);
+		}
+		return authors;
+	}
+
+	@Override
+	public List<Keyword> loadAllKeywordsNotInPublication(Long publicationId) {
+		Publication publication = loadPublication(publicationId);
+		List<Keyword> keywords = keywordService.loadAllKeywords();
+		for (Keyword keyword : publication.getKeywords()) {
+			keywords.remove(keyword);
+		}
+		return keywords;
+	}
+
 	public void setPublicationDAO(PublicationDAO publicationDAO) {
 		this.publicationDAO = publicationDAO;
 	}
@@ -105,7 +167,9 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	private void addAuthorValues(Publication publication, Long[] authorIds) {
-		Set<Author> authors = new HashSet<Author>();
+		Set<Author> authors = publication.getAuthors();
+		if (authors == null)
+			authors = new HashSet<Author>();
 		for (Long authorId : authorIds) {
 			authors.add(authorService.loadAuthor(authorId));
 		}
@@ -113,7 +177,9 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	private void addKeywordValues(Publication publication, Long[] keywordIds) {
-		Set<Keyword> keywords = new HashSet<Keyword>();
+		Set<Keyword> keywords = publication.getKeywords();
+		if (keywords == null)
+			keywords = new HashSet<Keyword>();
 		for (Long keywordId : keywordIds) {
 			keywords.add(keywordService.loadKeyword(keywordId));
 		}
@@ -130,41 +196,5 @@ public class PublicationServiceImpl implements PublicationService {
 	private void addPublisherValue(Publication publication, Long publisherId) {
 		Publisher publisher = publisherService.loadPublisher(publisherId);
 		publication.setPublisher(publisher);
-	}
-
-	@Override
-	public void setPublisher(Publication publication, Long publisherId) {
-		addPublisherValue(publication, publisherId);
-	}
-
-	//TODO setzt den PublicationType zur übergebenen ID an der Publication (analog zu setPublisher)
-	@Override
-	public void setPublicationType(Publication publication,
-			Long publicationTypeId) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addKeywords(Publication publication, Long[] keywordId) {
-		// TODO Hier müssen die Keywords zu den übergebenen IDs hinzugefügt
-		// werden. Der untere Aufrug setzt sie (löscht die bestehenden und setzt
-		// die übergebenen)
-		addKeywordValues(publication, keywordId);
-	}
-
-	//TODO Keywords zu übergeben ids müssen aus der Publication entfernt werden 
-	@Override
-	public void deleteKeywords(Publication publication, Long[] keywordIds) {
-	}
-
-	@Override
-	public void addAuthors(Publication publication, Long[] authorId) {
-		// TODO Analog zu addKeywords		
-	}
-
-	@Override
-	public void deleteAuthors(Publication publication, Long[] authorToDeleteId) {
-		// TODO Analog zu deleteKeywords
-		
 	}
 }

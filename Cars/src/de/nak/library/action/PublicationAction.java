@@ -104,7 +104,7 @@ public class PublicationAction extends ActionSupport {
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
-		publicationService.setPublisher(publication, publisherId);
+		publicationService.editPublisher(publication, publisherId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
@@ -115,7 +115,7 @@ public class PublicationAction extends ActionSupport {
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
-		publicationService.setPublicationType(publication, publicationTypeId);
+		publicationService.editPublicationType(publication, publicationTypeId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}

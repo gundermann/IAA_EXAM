@@ -98,16 +98,84 @@ public interface PublicationService {
 	Publication setupPublication(Publication publication, Long[] authorIds,
 			Long[] keywordIds, Long publicationTypeId, Long publisherId);
 
-	void setPublisher(Publication publication, Long publisherId);
+	/**
+	 * Changes the publisher of a given publication.
+	 * 
+	 * @param publication
+	 *            The publication to change.
+	 * @param publisherId
+	 *            The data base id of the new publisher.
+	 */
+	void editPublisher(Publication publication, Long publisherId);
 
-	void setPublicationType(Publication publication, Long publicationTypeId);
+	/**
+	 * Changes the publication type of a given publication.
+	 * 
+	 * @param publication
+	 *            The publication to change.
+	 * @param publisherId
+	 *            The data base id of the new publication type.
+	 */
+	void editPublicationType(Publication publication, Long publicationTypeId);
 
-	void addKeywords(Publication publication, Long[] keywordId);
+	/**
+	 * Adds the keywords behind the IDs in a given list to a given publication.
+	 * 
+	 * @param publication
+	 *            The publication to change.
+	 * @param keywordIds
+	 *            The data base id of the new keywords.
+	 */
+	void addKeywords(Publication publication, Long[] keywordIds);
 
-	void deleteKeywords(Publication publication, Long[] keywordId);
+	/**
+	 * Removes the keywords behind the IDs in a given list from a given
+	 * publication.
+	 * 
+	 * @param publication
+	 *            The publication to change.
+	 * @param keywordIds
+	 *            The data base id of the new keywords.
+	 */
+	void deleteKeywords(Publication publication, Long[] keywordIds);
 
-	void addAuthors(Publication publication, Long[] authorId);
+	/**
+	 * Adds the authors behind the IDs in a given list to a given publication.
+	 * 
+	 * @param publication
+	 *            The publication to change.
+	 * @param keywordId
+	 *            The data base id of the new authors.
+	 */
+	void addAuthors(Publication publication, Long[] authorIds);
 
-	void deleteAuthors(Publication publication, Long[] authorToDeleteId);
+	/**
+	 * Removes the authors behind the IDs in a given list from a given
+	 * publication.
+	 * 
+	 * @param publication
+	 *            The publication to change.
+	 * @param keywordId
+	 *            The data base id of the new authors.
+	 */
+	void deleteAuthors(Publication publication, Long[] authorIds);
+
+	/**
+	 * Loads all the authors not attached to the given publication.
+	 * 
+	 * @param publicationId
+	 *            The data base id of the publication.
+	 * @return list which is empty if no author was found.
+	 */
+	List<Author> loadAllAuthorNotInPublication(Long publicationId);
+
+	/**
+	 * Loads all the keywords not attached to the given publication.
+	 * 
+	 * @param publicationId
+	 *            The data base id of the publication.
+	 * @return list which is empty if no keyword was found.
+	 */
+	List<Keyword> loadAllKeywordsNotInPublication(Long publicationId);
 
 }

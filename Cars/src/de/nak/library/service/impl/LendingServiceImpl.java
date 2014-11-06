@@ -147,11 +147,10 @@ public class LendingServiceImpl implements LendingService {
 	private void initializeDates(Lending lending) {
 		Calendar calendar = new GregorianCalendar();
 		lending.setOutgoDate(calendar.getTime());
-		calendar.add(Calendar.DAY_OF_MONTH, 28);
+		calendar.add(Calendar.DATE, 28);
 		lending.setExpectedReturnDate(calendar.getTime());
 	}
 
-	//TODO beim Jahreswelchsel wird das Jahr nicht verändert
 	private void extendReturnDate(Lending lending) {
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(lending.getExpectedReturnDate());

@@ -38,4 +38,36 @@ public class Keyword {
 		this.keyword = keyword;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((keyword == null) ? 0 : keyword.hashCode());
+		result = prime * result
+				+ ((keywordId == null) ? 0 : keywordId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Keyword other = (Keyword) obj;
+		if (keyword == null) {
+			if (other.keyword != null)
+				return false;
+		} else if (!keyword.equals(other.keyword))
+			return false;
+		if (keywordId == null) {
+			if (other.keywordId != null)
+				return false;
+		} else if (!keywordId.equals(other.keywordId))
+			return false;
+		return true;
+	}
+
 }
