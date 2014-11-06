@@ -44,6 +44,10 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String extend(){
 		load();
+		if(lending.getNumberOfLendingExtensions() >= 2){
+			addActionError(getText("msg.noMoreExtension"));
+			return INPUT;
+		}
 		lendingService.extend(lending);
 		lendingService.saveLending(lending);
 		return SUCCESS;

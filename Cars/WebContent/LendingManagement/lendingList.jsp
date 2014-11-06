@@ -5,7 +5,7 @@
 <h3><s:text name="txt.lendingManagement"/></h3>
 
 <s:form>
-
+<s:actionerror/>
 <display:table id="lendingTable" name="lendingList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
@@ -21,6 +21,6 @@
 		<display:column titleKey="lending.numberOfLendingExtensions" property="numberOfLendingExtensions" sortable="true"/>
 	</display:table>
 <s:submit key="btn.add" action="AddLending"/>
-<s:submit key="btn.return" action="FinishLendingByReturn"/>
+<s:submit key="btn.finish" action="FinishLendingByReturn"/>
 <s:submit key="btn.extend" action="ExtendLending"/>
 </s:form>

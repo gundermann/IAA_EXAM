@@ -2,6 +2,8 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
+
+<h3><s:text name="txt.inventoryManagement.addAuthor"></s:text></h3>
 <s:form>
 	<s:actionerror />
 	<s:hidden name="publicationId" />

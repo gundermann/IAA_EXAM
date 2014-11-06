@@ -2,7 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<h3>txt.admonitionManagement</h3>
+<h3><s:text name="txt.admonitionManagement"/></h3>
 <s:form>
 	<s:actionerror/>
 	<s:text name="txt.delayedLendings"/>
@@ -19,7 +19,7 @@
 		<display:column titleKey="lending.expectedReturnDate" property="expectedReturnDate" sortable="true"/>
 	</display:table>
 	
-	<s:submit key="btn.delete" action="DeleteLending"/>
+	<s:submit key="btn.delete" action="DeleteLending" align="left"/>
 	
 	<s:text name="txt.admonitionProcesses"/>
 	<%-- list of admonition processes--%>
@@ -36,6 +36,6 @@
 	</display:table>
 	
 	
-	<s:submit key="btn.finish" action="FinishAdmonitionProcess"/>
-	<s:submit key="btn.addAdmonition" action="AddAdmonition"/>
+	<s:submit key="btn.finish" action="FinishAdmonitionProcess" align="left"/>
+	<s:submit key="btn.addAdmonition" action="AddAdmonition" align="left"/>
 </s:form>
