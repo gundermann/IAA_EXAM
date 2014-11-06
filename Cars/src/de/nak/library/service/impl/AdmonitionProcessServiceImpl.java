@@ -53,10 +53,7 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 
 	@Override
 	public AdmonitionProcess addAdmonition(AdmonitionProcess admonitionProcess) {
-		Admonition admonition = new Admonition();
-		admonition.setAdmonitionProcess(admonitionProcess);
-		admonition.setCreationDay(new GregorianCalendar().getTime());
-		//TODO Admonition in DB speichern um Exception zu verhindern(nur ne Vermutung)
+		Admonition admonition = createAdmonition(admonitionProcess);
 		Set<Admonition> admonitions = admonitionProcess.getAdmonitions();
 		if (admonitions == null)
 			admonitions = new HashSet<Admonition>();
@@ -81,6 +78,14 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 
 	public void setAdmonitionService(AdmonitionService admonitionService) {
 		this.admonitionService = admonitionService;
+	}
+
+	private Admonition createAdmonition(AdmonitionProcess admonitionProcess) {
+		Admonition admonition = new Admonition();
+		admonition.setAdmonitionProcess(admonitionProcess);
+		admonition.setCreationDay(new GregorianCalendar().getTime());
+		admonitionService.saveAdmonition(admonition);
+		return admonition;
 	}
 
 }

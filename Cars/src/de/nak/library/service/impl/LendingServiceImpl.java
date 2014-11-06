@@ -67,9 +67,12 @@ public class LendingServiceImpl implements LendingService {
 
 	@Override
 	public void extend(Lending lending) {
-		extendReturnDate(lending);
 		Integer lendingExtensionNr = lending.getNumberOfLendingExtensions();
-		lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
+		if (lendingExtensionNr <= 3) {
+			extendReturnDate(lending);
+			lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
+			deleteAdmonitionProcess(lending);
+		}
 	}
 
 	@Override
