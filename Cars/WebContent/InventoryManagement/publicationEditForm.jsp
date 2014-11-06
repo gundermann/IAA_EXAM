@@ -2,18 +2,24 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<h3><s:text name="txt.inventoryManagement.editPublication"/></h3>
+<h3>
+	<s:text name="txt.inventoryManagement.editPublication" />
+</h3>
 <s:form>
-	<s:text name="publication.authors" />
-	<br />
+	<h3>
+		<s:text name="publication.authors" />
+	</h3>
 	<s:iterator value="publication.authors">
 		<s:text name="name"></s:text>
+		<br />
 	</s:iterator>
 	<br />
-	<s:text name="publication.keywords" />
-	<br />
+	<h3>
+		<s:text name="publication.keywords" />
+	</h3>
 	<s:iterator value="publication.keywords">
 		<s:text name="keyword" />
+		<br />
 	</s:iterator>
 	<br />
 	<s:actionerror />
@@ -22,9 +28,10 @@
 		requiredLabel="true" type="int" />
 	<s:textfield name="publication.title" key="publication.title"
 		requiredLabel="true" />
-	<s:textfield name="publication.dateOfPublication"
-		key="publication.dateOfPublication" size="10" maxlength="10"
-		type="date" requiredLabel="true" />
+	<s:date name="publication.dateOfPublication" id="dateOfPublication"
+		format="dd.MM.yyyy" />
+	<s:textfield key="publication.dateOfPublication"
+		name="publication.dateOfPublication" value="%{dateOfPublication}" />
 	<s:textfield name="publication.isbn" key="publication.isbn" size="13"
 		maxlength="13" />
 	<s:textfield name="publication.quantity" key="publication.quantity"
@@ -39,6 +46,10 @@
 		action="ShowAddKeywordsSetup" />
 	<s:submit key="btn.delete.keyword" align="left"
 		action="ShowDeleteKeywordsSetup" />
+	<s:submit key="btn.add.author" align="left"
+		action="ShowAddAuthorsSetup" />
+	<s:submit key="btn.delete.author" align="left"
+		action="ShowDeleteAuthorsSetup" />
 	<s:submit key="btn.edit.publicationType" align="left"
 		action="SetupPublicationTypeForPublication" />
 	<s:submit key="btn.edit.publisher" align="left"

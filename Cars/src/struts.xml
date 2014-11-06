@@ -116,12 +116,12 @@
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that shows the setup to add keywords to publication -->
-		<action name="ShowAddKeywordsSetup" class="de.nak.library.action.ShowKeywordSetupForPublicationAction">
+		<action name="ShowAddKeywordsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadKeywordsNotInLending">
 			<result type="tiles">keywordAddSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that shows the setup to delete keywords from publication -->
-		<action name="ShowDeleteKeywordsSetup" class="de.nak.library.action.PublicationAction" method="load">
+		<action name="ShowDeleteKeywordsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadKeywordsInLending">
 			<result type="tiles">keywordDeleteSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
@@ -136,12 +136,12 @@
 			<result type="chain" name="input">SetupKeywordsForPublication</result>
 		</action>
 		<!-- Action that shows the setup to add authors to publication -->
-		<action name="ShowAddAuthorsSetup" class="de.nak.library.action.ShowAuthorsSetupForPublicationAction">
+		<action name="ShowAddAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadAuthorsNotInLending">
 			<result type="tiles">authorsAddSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that shows the setup to delete authors from publication -->
-		<action name="ShowDeleteAuthorsSetup" class="de.nak.library.action.PublicationAction" method="load">
+		<action name="ShowDeleteAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadAuthorsInLending">
 			<result type="tiles">authorsDeleteSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>

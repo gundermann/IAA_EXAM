@@ -16,10 +16,9 @@
 		type="date" requiredLabel="true" />
 	<s:textfield name="publication.isbn" key="publication.isbn" size="13"
 		maxlength="13" />
-
 	<s:textfield name="publication.quantity" key="publication.quantity"
 		requiredLabel="true" type="int" />
-
+		
 	<display:table id="publicationTypeTable" name="publicationTypeList"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
@@ -29,7 +28,6 @@
 		</display:column>
 		<display:column titleKey="publicationType.name" property="name" />
 	</display:table>
-
 	<display:table id="authorTable" name="authorList" cellpadding="5px;"
 		cellspacing="5px;" style="margin-left:50px;margin-top:20px;"
 		requestURI="#">
@@ -39,7 +37,6 @@
 		</display:column>
 		<display:column titleKey="author.name" property="name" />
 	</display:table>
-
 	<display:table id="keywordTable" name="keywordList" cellpadding="5px;"
 		cellspacing="5px;" style="margin-left:50px;margin-top:20px;"
 		requestURI="#">

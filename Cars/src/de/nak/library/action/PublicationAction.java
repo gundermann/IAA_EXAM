@@ -11,8 +11,6 @@ import de.nak.library.service.PublicationService;
  * @author Niels Gundermann
  */
 
-
-//TODO separieren
 public class PublicationAction extends ActionSupport {
 	/** Serial version UID. */
 	private static final long serialVersionUID = -3393497662671380262L;
@@ -26,36 +24,21 @@ public class PublicationAction extends ActionSupport {
 	/** The publication service. */
 	private PublicationService publicationService;
 
+	/** The IDs of the selected authors to delete or to add */
 	private Long[] authorId;
 
+	/** The IDs of the selected keywords to delete or to add */
 	private Long[] keywordId;
-	
-	private Long[] authorToDeleteId;
 
-	private Long[] keywordToDeleteId;
-
+	/** The ID of a new publication type */
 	private Long publicationTypeId;
 
+	/** THe ID of a new publisher */
 	private Long publisherId;
 
-	public Long[] getAuthorToDeleteId() {
-		return authorToDeleteId;
-	}
-
-	public void setAuthorToDeleteId(Long[] authorToDeleteId) {
-		this.authorToDeleteId = authorToDeleteId;
-	}
-
-	public Long[] getKeywordToDeleteId() {
-		return keywordToDeleteId;
-	}
-
-	public void setKeywordToDeleteId(Long[] keywordToDeleteId) {
-		this.keywordToDeleteId = keywordToDeleteId;
-	}
-
-	public String addKeywords(){
-		if(keywordId == null){
+	/** Adds the selected keywords to the publication keywords */
+	public String addKeywords() {
+		if (keywordId == null) {
 			addActionError("msg.selectKeyword");
 			return INPUT;
 		}
@@ -64,20 +47,22 @@ public class PublicationAction extends ActionSupport {
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
-	
-	public String deleteKeywords(){
-		if(keywordToDeleteId == null){
+
+	/** Deletes the selected keywords from the publication keyword */
+	public String deleteKeywords() {
+		if (keywordId == null) {
 			addActionError("msg.selectKeyword");
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
-		publicationService.deleteKeywords(publication, keywordToDeleteId);
+		publicationService.deleteKeywords(publication, keywordId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
-	
-	public String addAuthors(){
-		if(authorId == null){
+
+	/** Adds the selected authors to the publication keywords */
+	public String addAuthors() {
+		if (authorId == null) {
 			addActionError("msg.selectAuthor");
 			return INPUT;
 		}
@@ -86,20 +71,22 @@ public class PublicationAction extends ActionSupport {
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
-	
-	public String deleteAuthors(){
-		if(authorToDeleteId == null){
+
+	/** Deletes the selected authors from the publication keyword */
+	public String deleteAuthors() {
+		if (authorId == null) {
 			addActionError("msg.selectAuthor");
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
-		publicationService.deleteAuthors(publication, authorToDeleteId);
+		publicationService.deleteAuthors(publication, authorId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
-	
-	public String saveEditedPublisher(){
-		if(publisherId == null){
+
+	/** Saves the selected publisher as new publisher for the publication */
+	public String saveEditedPublisher() {
+		if (publisherId == null) {
 			addActionError("msg.selectPublisher");
 			return INPUT;
 		}
@@ -108,9 +95,10 @@ public class PublicationAction extends ActionSupport {
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
-	
-	public String saveEditedPublicationType(){
-		if(publicationTypeId == null){
+
+	/** Saves the selected publication type as new publisher for the publication */
+	public String saveEditedPublicationType() {
+		if (publicationTypeId == null) {
 			addActionError("msg.selectPublicationType");
 			return INPUT;
 		}
@@ -119,38 +107,6 @@ public class PublicationAction extends ActionSupport {
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
-	
-	public Long getPublisherId() {
-		return publisherId;
-	}
-
-	public void setPublisherId(Long publisherId) {
-		this.publisherId = publisherId;
-	}
-
-	public Long[] getKeywordId() {
-		return keywordId;
-	}
-
-	public void setKeywordId(Long[] keywordId) {
-		this.keywordId = keywordId;
-	}
-
-	public Long getPublicationTypeId() {
-		return publicationTypeId;
-	}
-
-	public void setPublicationTypeId(Long publicationTypeId) {
-		this.publicationTypeId = publicationTypeId;
-	}
-
-	public Long[] getAuthorId() {
-		return authorId;
-	}
-
-	public void setAuthorId(Long[] authorId) {
-		this.authorId = authorId;
-	}
 
 	/**
 	 * Saves the publication to the database.
@@ -158,7 +114,7 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		if (inputValid()) {
+		if (inputForNewPublicationValid()) {
 			publication = publicationService.setupPublication(publication,
 					authorId, keywordId, publicationTypeId, publisherId);
 			publicationService.savePublication(publication);
@@ -166,9 +122,16 @@ public class PublicationAction extends ActionSupport {
 		} else
 			return INPUT;
 	}
-	
-	public String saveEditing(){
-		Publication publicationFromDB = publicationService.loadPublication(publicationId);
+
+	/**
+	 * Saves the edited values of publication excepted authors, keyword,
+	 * publisher and publication type
+	 * 
+	 * @return the result string.
+	 * */
+	public String saveEditing() {
+		Publication publicationFromDB = publicationService
+				.loadPublication(publicationId);
 		publication.setPublicationId(publicationId);
 		publication.setAuthors(publicationFromDB.getAuthors());
 		publication.setKeywords(publicationFromDB.getKeywords());
@@ -177,24 +140,13 @@ public class PublicationAction extends ActionSupport {
 		publicationService.savePublication(publication);
 		return SUCCESS;
 	}
-	
-	public String deleteKeyword(){
-		if(keywordId.length == 0){
-			addActionError("msg.selectKeyword");
-			return INPUT;
-		}
-		publication.getKeywords().remove(keywordId[0]);
-		publicationService.savePublication(publication);
-		publication = publicationService.loadPublication(publicationId);
-		return SUCCESS;
-	}
 
 	/**
 	 * Validates if the input for a new publication is valid
 	 * 
-	 * @return
+	 * @return valid
 	 */
-	private boolean inputValid() {
+	private boolean inputForNewPublicationValid() {
 		boolean isValid = true;
 		if (authorId == null || authorId.length == 0) {
 			addActionError("msg.selectAuthor");
@@ -226,7 +178,7 @@ public class PublicationAction extends ActionSupport {
 	}
 
 	/**
-	 * Displays the selected publication in the publicaiton form.
+	 * Displays the selected publication in the publication form.
 	 *
 	 * @return the result string.
 	 */
@@ -235,6 +187,11 @@ public class PublicationAction extends ActionSupport {
 		return SUCCESS;
 	}
 
+	/**
+	 * Cancel the setup for publication
+	 * 
+	 * @return the result string
+	 */
 	public String cancel() {
 		return SUCCESS;
 	}
@@ -242,9 +199,9 @@ public class PublicationAction extends ActionSupport {
 	@Override
 	public void validate() {
 		// If the publication is not set, the publication ID has to be set.
-//		if (publication == null && publicationId == null) {
-//			addActionError(getText("msg.selectPublication"));
-//		}
+		if (publication == null && publicationId == null) {
+			addActionError(getText("msg.selectPublication"));
+		}
 	}
 
 	public Publication getPublication() {
@@ -267,4 +224,19 @@ public class PublicationAction extends ActionSupport {
 		this.publicationService = publicationService;
 	}
 
+	public void setPublisherId(Long publisherId) {
+		this.publisherId = publisherId;
+	}
+
+	public void setKeywordId(Long[] keywordId) {
+		this.keywordId = keywordId;
+	}
+
+	public void setPublicationTypeId(Long publicationTypeId) {
+		this.publicationTypeId = publicationTypeId;
+	}
+
+	public void setAuthorId(Long[] authorId) {
+		this.authorId = authorId;
+	}
 }
