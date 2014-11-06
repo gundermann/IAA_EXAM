@@ -11,6 +11,7 @@ import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
 import de.nak.library.model.PublicationType;
 import de.nak.library.model.Publisher;
+import de.nak.library.searchModel.SearchPublication;
 import de.nak.library.service.AuthorService;
 import de.nak.library.service.KeywordService;
 import de.nak.library.service.PublicationService;
@@ -55,7 +56,7 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public List<Publication> searchPublications(Publication publication) {
+	public List<Publication> searchPublications(SearchPublication publication) {
 		return publicationDAO.load(publication);
 	}
 
