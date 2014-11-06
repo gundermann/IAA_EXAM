@@ -6,7 +6,6 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.library.model.Publication;
-import de.nak.library.searchModel.SearchPublication;
 import de.nak.library.service.PublicationService;
 
 /**
@@ -16,7 +15,7 @@ import de.nak.library.service.PublicationService;
  */
 public class ShowPublicationSearchResultListAction implements Action {
 
-	private SearchPublication publication;
+	private Publication publication;
 
 	/** The list of PublicationTypes. */
 	private List<Publication> publicationList;
@@ -44,11 +43,11 @@ public class ShowPublicationSearchResultListAction implements Action {
 		return publicationList;
 	}
 
-	public SearchPublication getPublication() {
+	public Publication getPublication() {
 		return publication;
 	}
 
-	public void setPublication(SearchPublication publication) {
+	public void setPublication(Publication publication) {
 		this.publication = publication;
 	}
 
