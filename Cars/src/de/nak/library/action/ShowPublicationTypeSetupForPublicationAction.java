@@ -1,7 +1,6 @@
 package de.nak.library.action;
 
 import de.nak.library.model.Publication;
-import de.nak.library.service.PublicationService;
 
 
 
@@ -10,21 +9,14 @@ import de.nak.library.service.PublicationService;
  *
  * @author Niels Gundermann
  */
-public class ShowKeywordSetupForPublicationAction extends ShowKeywordListAction {
+public class ShowPublicationTypeSetupForPublicationAction extends ShowPublicationTypeListAction {
 
 	private Long publicationId;
 	
 	private Publication publication;
 	
-	private PublicationService publicationService;
 	
 
-	@Override
-	public String execute() throws Exception {
-		super.execute();
-		publication = publicationService.loadPublication(publicationId);
-		return SUCCESS;
-	}
 	public Publication getPublication() {
 		return publication;
 	}
@@ -39,9 +31,6 @@ public class ShowKeywordSetupForPublicationAction extends ShowKeywordListAction 
 
 	public void setPublicationId(Long publicationId) {
 		this.publicationId = publicationId;
-	}
-	public void setPublicationService(PublicationService publicationService) {
-		this.publicationService = publicationService;
 	}
 	
 	
