@@ -15,6 +15,7 @@ import org.hibernate.criterion.Restrictions;
 import de.nak.library.model.Author;
 import de.nak.library.model.Publication;
 import de.nak.library.model.PublicationType;
+import de.nak.library.model.Publisher;
 import de.nak.library.searchModel.SearchPublication;
 
 /**
@@ -156,12 +157,20 @@ public class PublicationDAO {
 			criteria.add(Restrictions.between("dateOfPublication",
 					beginnPublicationDate, endPublicationDate));
 		}
-		// TODO: Suche nach Publisher
 		if (publication.getPublisher() != null
 				&& !publication.getPublisher().equals("")) {
 
-			criteria.add(Restrictions.eq("publisher",
-					publication.getPublisher()));
+			Criteria publisherCriteria = sessionFactory.getCurrentSession()
+					.createCriteria(Publisher.class);
+			publisherCriteria.add(Restrictions.ilike("publisherName", "%"
+					+ publication.getPublisher() + "%"));
+			List<Publisher> publishers = publisherCriteria.list();
+
+			Disjunction res = Restrictions.disjunction();
+			for (Publisher publisher : publishers) {
+				res.add(Restrictions.eq("publisher", publisher));
+			}
+			criteria.add(res);
 		}
 
 		if (publication.getPublicationType() != null
