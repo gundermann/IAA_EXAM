@@ -9,10 +9,12 @@ import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
 
 import de.nak.library.model.Author;
 import de.nak.library.model.Publication;
+import de.nak.library.model.PublicationType;
 import de.nak.library.searchModel.SearchPublication;
 
 /**
@@ -151,19 +153,32 @@ public class PublicationDAO {
 			} catch (ParseException e) {
 				beginnPublicationDate = new Date();
 			}
-			System.out.println(beginnPublicationDate);
 			criteria.add(Restrictions.between("dateOfPublication",
 					beginnPublicationDate, endPublicationDate));
 		}
+		// TODO: Suche nach Publisher
 		if (publication.getPublisher() != null
 				&& !publication.getPublisher().equals("")) {
+
 			criteria.add(Restrictions.eq("publisher",
 					publication.getPublisher()));
 		}
+
 		if (publication.getPublicationType() != null
 				&& !publication.getPublicationType().equals("")) {
-			criteria.add(Restrictions.eq("publicationType",
+
+			Criteria publicationTypeCriteria = sessionFactory
+					.getCurrentSession().createCriteria(PublicationType.class);
+			publicationTypeCriteria.add(Restrictions.ilike("name",
 					publication.getPublicationType()));
+			List<PublicationType> publicationTypes = publicationTypeCriteria
+					.list();
+
+			Disjunction res = Restrictions.disjunction();
+			for (PublicationType pubType : publicationTypes) {
+				res.add(Restrictions.eq("publicationType", pubType));
+			}
+			criteria.add(res);
 		}
 		// TODO: Keywordsuche implementieren
 		if (publication.getKeywords() != null
