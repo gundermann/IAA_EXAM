@@ -1,17 +1,13 @@
 package de.nak.library.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
-import de.nak.library.model.Author;
-import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
-import de.nak.library.model.PublicationType;
-import de.nak.library.model.Publisher;
+import de.nak.library.searchModel.SearchPublication;
 
 /**
  * Publication data access object.
@@ -104,37 +100,53 @@ public class PublicationDAO {
 	/**
 	 * Search publication by multiple value from the database.
 	 * 
-	 * @param title
-	 * @param authors
-	 * @param dateOfPublication
-	 * @param publisher
-	 * @param type
-	 * @param keywords
+	 * @param publication
 	 * @return List of all publications that correspond to the given values.
 	 */
 	@SuppressWarnings("unchecked")
-	//TODO doppelte ergebnisse aussortieren
-	public List<Publication> load(String title, List<Author> authors,
-			Date dateOfPublication, Publisher publisher,
-			PublicationType publicationType, List<Keyword> keywords) {
+	public List<Publication> load(SearchPublication publication) {
 
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 
-		if (title != null && !title.equals(""))
-			criteria.add(Restrictions.like("title", "%" + title + "%"));
-		if (authors != null && !authors.isEmpty())
-			// TODO: geht das mit den Autoren so?
-			criteria.add(Restrictions.like("authors", "%" + authors + "%"));
-		if (dateOfPublication != null)
-			criteria.add(Restrictions
-					.eq("dateOfPublication", dateOfPublication));
-		if (publisher != null)
-			criteria.add(Restrictions.eq("publisher", publisher));
-		if (publicationType != null)
-			criteria.add(Restrictions.eq("publicationType", publicationType));
-		if (keywords != null && !keywords.isEmpty())
-			criteria.add(Restrictions.eq("keywords", keywords));
+		if (publication.getNakId() != null
+				&& !publication.getNakId().equals("")) {
+			criteria.add(Restrictions.eq("nakId",
+					Long.valueOf(publication.getNakId())));
+		}
+
+		if (publication.getTitle() != null
+				&& !publication.getTitle().equals("")) {
+			criteria.add(Restrictions.like("title",
+					"%" + publication.getTitle() + "%"));
+		}
+		// TODO: suche nach Autoren, datum, publisher, publicationtype und
+		// keywords implementieren
+		if (publication.getAuthors() != null
+				&& !publication.getAuthors().equals("")) {
+			criteria.add(Restrictions.like("authors",
+					"%" + publication.getAuthors() + "%"));
+		}
+		if (publication.getDateOfPublication() != null
+				&& !publication.getDateOfPublication().equals("")) {
+			criteria.add(Restrictions.eq("dateOfPublication",
+					publication.getDateOfPublication()));
+		}
+		if (publication.getPublisher() != null
+				&& !publication.getPublisher().equals("")) {
+			criteria.add(Restrictions.eq("publisher",
+					publication.getPublisher()));
+		}
+		if (publication.getPublicationType() != null
+				&& !publication.getPublicationType().equals("")) {
+			criteria.add(Restrictions.eq("publicationType",
+					publication.getPublicationType()));
+		}
+		if (publication.getKeywords() != null
+				&& !publication.getKeywords().equals("")) {
+			criteria.add(Restrictions.eq("keywords", publication.getKeywords()));
+		}
 
 		return criteria.list();
 	}

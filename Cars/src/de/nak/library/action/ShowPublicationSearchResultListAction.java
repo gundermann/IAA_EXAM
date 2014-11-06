@@ -6,6 +6,7 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.library.model.Publication;
+import de.nak.library.searchModel.SearchPublication;
 import de.nak.library.service.PublicationService;
 
 /**
@@ -15,7 +16,7 @@ import de.nak.library.service.PublicationService;
  */
 public class ShowPublicationSearchResultListAction implements Action {
 
-	private Publication publication;
+	private SearchPublication publication;
 
 	/** The list of PublicationTypes. */
 	private List<Publication> publicationList;
@@ -27,16 +28,14 @@ public class ShowPublicationSearchResultListAction implements Action {
 	public String execute() throws Exception {
 		if (publication == null) {
 			publicationList = publicationService.loadAllPublications();
-		} else if (publication.getIsbn() != null) {
+		} else if (publication.getIsbn() != null
+				&& !publication.getIsbn().equals("")) {
 			publicationList = new ArrayList<Publication>();
-			publicationList = publicationService
-					.searchPublicationByIsbn(publication.getIsbn());
+			publicationList = publicationService.searchPublicationByIsbn(Long
+					.valueOf(publication.getIsbn()));
 		} else {
-			 publicationList =
-			 publicationService.searchPublications(publication.getTitle(),
-			 null, publication.getDateOfPublication(),
-			 publication.getPublisher(), publication.getPublicationType(),
-			 null);
+			publicationList = publicationService
+					.searchPublications(publication);
 		}
 		return SUCCESS;
 	}
@@ -45,11 +44,11 @@ public class ShowPublicationSearchResultListAction implements Action {
 		return publicationList;
 	}
 
-	public Publication getPublication() {
+	public SearchPublication getPublication() {
 		return publication;
 	}
 
-	public void setPublication(Publication publication) {
+	public void setPublication(SearchPublication publication) {
 		this.publication = publication;
 	}
 

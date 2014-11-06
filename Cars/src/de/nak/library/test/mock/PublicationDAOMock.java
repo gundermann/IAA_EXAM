@@ -1,14 +1,10 @@
 package de.nak.library.test.mock;
 
-import java.util.Date;
 import java.util.List;
 
 import de.nak.library.dao.PublicationDAO;
-import de.nak.library.model.Author;
-import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
-import de.nak.library.model.PublicationType;
-import de.nak.library.model.Publisher;
+import de.nak.library.searchModel.SearchPublication;
 
 /**
  * The publication dao mock class.
@@ -50,9 +46,7 @@ public class PublicationDAOMock extends PublicationDAO {
 	}
 
 	@Override
-	public List<Publication> load(String title, List<Author> authors,
-			Date dateOfPublication, Publisher publisher,
-			PublicationType publicationType, List<Keyword> keywords) {
+	public List<Publication> load(SearchPublication publication) {
 		return null;
 	}
 }

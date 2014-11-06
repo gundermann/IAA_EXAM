@@ -1,7 +1,6 @@
 package de.nak.library.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -12,6 +11,7 @@ import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
 import de.nak.library.model.PublicationType;
 import de.nak.library.model.Publisher;
+import de.nak.library.searchModel.SearchPublication;
 import de.nak.library.service.AuthorService;
 import de.nak.library.service.KeywordService;
 import de.nak.library.service.PublicationService;
@@ -56,11 +56,8 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public List<Publication> searchPublications(String title,
-			List<Author> authors, Date dateOfPublication, Publisher publisher,
-			PublicationType publicationType, List<Keyword> keywords) {
-		return publicationDAO.load(title, authors, dateOfPublication,
-				publisher, publicationType, keywords);
+	public List<Publication> searchPublications(SearchPublication publication) {
+		return publicationDAO.load(publication);
 	}
 
 	@Override
@@ -94,6 +91,7 @@ public class PublicationServiceImpl implements PublicationService {
 		addPublicaionTypeValue(publication, newPublicationTypeId);
 	}
 
+	@Override
 	public void addKeywords(Publication publication, Long[] keywordIds) {
 		addKeywordValues(publication, keywordIds);
 	}

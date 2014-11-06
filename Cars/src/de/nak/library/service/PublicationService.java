@@ -1,13 +1,11 @@
 package de.nak.library.service;
 
-import java.util.Date;
 import java.util.List;
 
 import de.nak.library.model.Author;
 import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
-import de.nak.library.model.PublicationType;
-import de.nak.library.model.Publisher;
+import de.nak.library.searchModel.SearchPublication;
 
 /**
  * Publication service interface.
@@ -51,23 +49,10 @@ public interface PublicationService {
 	/**
 	 * Search a list of publications.
 	 * 
-	 * @param title
-	 *            The title you search for.
-	 * @param authors
-	 *            The authors you search for.
-	 * @param yearOfPublication
-	 *            The year of publication you search for.
-	 * @param publisher
-	 *            The publisher you search for.
-	 * @param type
-	 *            The publication type you search for.
-	 * @param keywords
-	 *            The keywords you search for.
+	 * @param publication
 	 * @return a list which is empty if no publication was found.
 	 */
-	List<Publication> searchPublications(String title, List<Author> authors,
-			Date dateOfPublication, Publisher publisher, PublicationType type,
-			List<Keyword> keywords);
+	List<Publication> searchPublications(SearchPublication publication);
 
 	/**
 	 * Search a publication.

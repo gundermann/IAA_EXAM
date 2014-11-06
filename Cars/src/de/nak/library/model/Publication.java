@@ -50,6 +50,7 @@ public class Publication {
 		this.publicationId = publicationId;
 	}
 
+	@Column
 	public String getTitle() {
 		return title;
 	}
