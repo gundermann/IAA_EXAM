@@ -2,6 +2,7 @@ package de.nak.library.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +29,8 @@ public class Lending {
 	private Date expectedReturnDate;
 	/** Indicates how often the lending has been extended. */
 	private Integer numberOfLendingExtensions;
+	/** The admonitionprocess of the lending. */
+	private AdmonitionProcess admonitionProcess;
 
 	@Id
 	@Column(name = "LENDING_ID")
@@ -81,6 +84,15 @@ public class Lending {
 
 	public void setLender(Lender lender) {
 		this.lender = lender;
+	}
+
+	@OneToOne(mappedBy = "lending", cascade = CascadeType.ALL)
+	public AdmonitionProcess getAdmonitionProcess() {
+		return admonitionProcess;
+	}
+
+	public void setAdmonitionProcess(AdmonitionProcess admonitionProcess) {
+		this.admonitionProcess = admonitionProcess;
 	}
 
 }
