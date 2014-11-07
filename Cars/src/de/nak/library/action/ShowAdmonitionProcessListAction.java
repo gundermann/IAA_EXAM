@@ -26,8 +26,6 @@ public class ShowAdmonitionProcessListAction implements Action {
 		admonitionProcessList = admonitionProcessService.loadAllAdmonitionProcesss();
 		return SUCCESS;
 	}
-
-	
 	
 	public List<AdmonitionProcess> getAdmonitionProcessList() {
 		return admonitionProcessList;

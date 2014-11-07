@@ -11,39 +11,61 @@ import de.nak.library.service.PublicationService;
 
 public class PublicationEditSetupAction extends ActionSupport {
 
-	/**
-	 * 
-	 */
+	/** Serial version UID. */
 	private static final long serialVersionUID = 2610560721911144525L;
 
+	/** The keyword list */
 	private List<Keyword> keywordList;
 
+	/** The author list */
 	private List<Author> authorList;
 
+	/** The publication service */
 	private PublicationService publicationService;
 
+	/** The publication's identifier */
 	private Long publicationId;
-	
-	public String loadKeywordsNotInLending() {
+
+	/**
+	 * Loads the keywords which are no keywords of the publication
+	 * 
+	 * @return the result string
+	 */
+	public String loadKeywordsNotInPublication() {
 		keywordList = publicationService
 				.loadAllKeywordsNotInPublication(publicationId);
 		return SUCCESS;
 	}
 
-	public String loadAuthorsNotInLending() {
+	/**
+	 * Loads the authors which are no authors of the publication
+	 * 
+	 * @return the result string
+	 */
+	public String loadAuthorsNotInPublication() {
 		authorList = publicationService
 				.loadAllAuthorNotInPublication(publicationId);
 		return SUCCESS;
 	}
 
-	public String loadKeywordsInLending() {
+	/**
+	 * Loads the keywords which are keywords of the publication
+	 * 
+	 * @return the result string
+	 */
+	public String loadKeywordsInPublication() {
 		keywordList = new ArrayList<Keyword>();
 		keywordList.addAll(publicationService.loadPublication(publicationId)
 				.getKeywords());
 		return SUCCESS;
 	}
 
-	public String loadAuthorsInLending() {
+	/**
+	 * Loads the authors which are authors of the publication
+	 * 
+	 * @return the result string
+	 */
+	public String loadAuthorsInPublication() {
 		authorList = new ArrayList<Author>();
 		authorList.addAll(publicationService.loadPublication(publicationId)
 				.getAuthors());
@@ -69,8 +91,5 @@ public class PublicationEditSetupAction extends ActionSupport {
 	public void setPublicationService(PublicationService publicationService) {
 		this.publicationService = publicationService;
 	}
-	
-	
-	
 
 }

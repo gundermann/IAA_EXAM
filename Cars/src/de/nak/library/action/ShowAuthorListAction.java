@@ -8,7 +8,7 @@ import de.nak.library.model.Author;
 import de.nak.library.service.AuthorService;
 
 /**
- * Action that shows a list of PublicationTypes.
+ * Action that shows a list of authors.
  *
  * @author Niels Gundermann
  */

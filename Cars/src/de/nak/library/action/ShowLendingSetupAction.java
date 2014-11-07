@@ -10,17 +10,19 @@ import de.nak.library.service.LenderService;
 import de.nak.library.service.PublicationService;
 
 /**
+ * The Action that shows the setup for a lending.
  *
  * @author Niels Gundermann
  */
 public class ShowLendingSetupAction implements Action {
 
+	/** The publication service */
 	private PublicationService publicationService;
-
+	/** The list of publications */
 	private List<Publication> publicationList;
-
+	/** The lender service */
 	private LenderService lenderService;
-
+	/** The list of publications */
 	private List<Lender> lenderList;
 
 	@Override

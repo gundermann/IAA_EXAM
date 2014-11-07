@@ -14,15 +14,19 @@ public class LendingAction extends ActionSupport {
 	/** Serial version UID. */
 	private static final long serialVersionUID = -3393497662671380262L;
 
-	/** The lender's identifier selected by the user. */
+	/** The lender's identifier selected by the user for new lending. */
 	private Long lenderId;
 
+	/** The lending's identifier selected by the user. */
 	private Long lendingId;
 
+	/** The lending */
 	private Lending lending;
 
+	/** The lending service */
 	private LendingService lendingService;
 
+	/** The publication's identifier selected by the user for new lending. */
 	private Long publicationId;
 
 	/**
@@ -32,19 +36,20 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String save() {
 		lending = new Lending();
-		lending = lendingService.initializeLending(lending, lenderId, publicationId);
+		lending = lendingService.initializeLending(lending, lenderId,
+				publicationId);
 		lendingService.saveLending(lending);
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * Recalculates the returning date of the lending.
 	 * 
 	 * @return the result string.
 	 */
-	public String extend(){
-		load();
-		if(lending.getNumberOfLendingExtensions() >= 2){
+	public String extend() {
+		lending = lendingService.loadLending(lendingId);
+		if (lending.getNumberOfLendingExtensions() >= 2) {
 			addActionError(getText("msg.noMoreExtension"));
 			return INPUT;
 		}
@@ -65,7 +70,7 @@ public class LendingAction extends ActionSupport {
 		}
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * Finishes the selected lending from the database.
 	 * 
@@ -79,31 +84,21 @@ public class LendingAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/**
-	 * Displays the selected publication in the lending form.
-	 * 
-	 * @return the result string.
-	 */
-	public String load() {
-		lending = lendingService.loadLending(lendingId);
-		return SUCCESS;
-	}
-
+	/** Cancels the setup form  for lending. */
 	public String cancel() {
 		return SUCCESS;
 	}
 
 	@Override
 	public void validate() {
-		if(lendingId != null){
+		if (lendingId != null) {
 			return;
-		}
-		else if(lendingId == null){
-			addActionError("msg.selectLending");
-		}else if(lenderId == null){
-			addActionError("msg.selectLender");
-		}else if(publicationId == null){
-			addActionError("msg.selectPublication");
+		} else if (lendingId == null) {
+			addActionError(getText("msg.selectLending"));
+		} else if (lenderId == null) {
+			addActionError(getText("msg.selectLender"));
+		} else if (publicationId == null) {
+			addActionError(getText("msg.selectPublication"));
 		}
 	}
 

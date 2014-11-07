@@ -8,22 +8,22 @@ import de.nak.library.model.Lending;
 import de.nak.library.service.LendingService;
 
 /**
- * Action that shows a list of failures.
+ * Action that shows a list of delayed lendings.
  *
  * @author Niels Gundermann
  */
 public class ShowDelayedLendingListAction implements Action {
 
-	/** The list of AdmonitionProcesss. */
+	/** The list of delayed lendings. */
 	private List<Lending> delayedLendingList;
 
-	/** The AdmonitionProcess service. */
+	/** The Lending service. */
 	private LendingService lendingService;
 
 	
 	@Override
 	public String execute() throws Exception {
-//		delayedLendingList = lendingService.searchDelayedLendings();
+		delayedLendingList = lendingService.searchDelayedLendings();
 		return SUCCESS;
 	}
 

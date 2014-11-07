@@ -10,30 +10,36 @@ import de.nak.library.searchModel.SearchPublication;
 import de.nak.library.service.PublicationService;
 
 /**
- * Action that shows a list of PublicationTypes.
+ * Action that shows a search result list of Publication.
  * 
  * @author Niels Gundermann
  */
 public class ShowPublicationSearchResultListAction implements Action {
 
+	/** The criteria for publication search */
 	private SearchPublication publication;
 
-	/** The list of PublicationTypes. */
+	/** The list of Publication. */
 	private List<Publication> publicationList;
 
-	/** The PublicationType service. */
+	/** The Publication service. */
 	private PublicationService publicationService;
 
 	@Override
 	public String execute() throws Exception {
+		//If no criteria show all
 		if (publication == null) {
 			publicationList = publicationService.loadAllPublications();
-		} else if (publication.getIsbn() != null
+		}
+		//If isbn is set, search by isbn
+		else if (publication.getIsbn() != null
 				&& !publication.getIsbn().equals("")) {
 			publicationList = new ArrayList<Publication>();
 			publicationList = publicationService.searchPublicationByIsbn(Long
 					.valueOf(publication.getIsbn()));
-		} else {
+		} 
+		//search usual
+		else {
 			publicationList = publicationService
 					.searchPublications(publication);
 		}

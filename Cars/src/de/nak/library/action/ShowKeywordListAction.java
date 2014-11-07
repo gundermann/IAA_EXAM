@@ -13,10 +13,10 @@ import de.nak.library.service.KeywordService;
  * @author Niels Gundermann
  */
 public class ShowKeywordListAction implements Action {
-	/** The list of PublicationTypes. */
+	/** The list of keywords. */
 	private List<Keyword> keywordList;
 
-	/** The PublicationType service. */
+	/** The keyword service. */
 	private KeywordService keywordService;
 
 	@Override

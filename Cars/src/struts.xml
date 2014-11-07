@@ -7,64 +7,79 @@
 <struts>
 	<package name="default" namespace="/" extends="tiles-default">
 
+		<!-- The default Action -->
 		<action name="">
 			<result type="redirect">ShowDelayedLendingList.action</result>
 		</action>
-
+		<!-- The Action that shows the master data management menu -->
 		<action name="ShowMasterDataManagement">
 			<result type="tiles">masterDataManagement</result>
 		</action>
-
+		<!-- Action that shows the inventory management -->
 		<action name="ShowInventoryManagement" class="de.nak.library.action.ShowPublicationListAction">
 			<result type="tiles">inventoryManagement</result>
 		</action>
+		<!-- Action to show the lending management -->
 		<action name="ShowLendingManagement">
 			<result type="tiles">lendingManagement</result>
 		</action>
-
-		<action name="ShowAdmonitionManagement" class="de.nak.library.action.ShowAdmonitionProcessListAction">
+		<!-- Action to show the admonition management -->
+		<action name="ShowAdmonitionManagement"
+			class="de.nak.library.action.ShowAdmonitionProcessListAction">
 			<result type="tiles">admonitionManagement</result>
 		</action>
 
 
 
 		<!-- ADMONITIONPROCESS -->
-		<action name="AddAdmonition" class="de.nak.library.action.AdmonitionProcessAction" method="addAdmonition">
+		<!-- Action to add an admonition to an admonition process -->
+		<action name="AddAdmonition" class="de.nak.library.action.AdmonitionProcessAction"
+			method="addAdmonition">
 			<result type="redirect">ShowAdmonitionManagement.action</result>
 			<result type="chain" name="input">ShowAdmonitionManagement</result>
 		</action>
 
 
 		<!-- LENDING -->
-		<!-- Action welche die Liste von Säumnissen und das Hauptmenü anzeigt -->
-		<action name="ShowDelayedLendingList" class="de.nak.library.action.ShowDelayedLendingListAction">
+		<!-- Action that shows the delayed lendings -->
+		<action name="ShowDelayedLendingList"
+			class="de.nak.library.action.ShowDelayedLendingListAction">
 			<result type="tiles">delayedLendingList</result>
 		</action>
 
-
+		<!-- Action that shows the list of lendings -->
 		<action name="ShowLendingList" class="de.nak.library.action.ShowLendingListAction">
 			<result type="tiles">lendingList</result>
 		</action>
+		<!-- Action that adds a lending -->
 		<action name="AddLending" class="de.nak.library.action.ShowLendingSetupAction">
 			<result type="tiles">lendingForm</result>
 		</action>
-		<action name="FinishLendingByReturn" class="de.nak.library.action.LendingAction" method="finishLendingIfReturned">
+		<!-- Action to finish a lending by return -->
+		<action name="FinishLendingByReturn" class="de.nak.library.action.LendingAction"
+			method="finishLendingIfReturned">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">ShowLendingList</result>
 		</action>
-		<action name="FinishLendingByLost" class="de.nak.library.action.LendingAction" method="finishLendingIfLost">
+		<!-- Action to finish a lending by lost -->
+		<action name="FinishLendingByLost" class="de.nak.library.action.LendingAction"
+			method="finishLendingIfLost">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">ShowLendingList</result>
 		</action>
-		<action name="ExtendLending" class="de.nak.library.action.LendingAction" method="extend">
+		<!-- Action to extends a lending -->
+		<action name="ExtendLending" class="de.nak.library.action.LendingAction"
+			method="extend">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">ShowLendingList</result>
 		</action>
+		<!-- Action to save a lending -->
 		<action name="SaveLending" class="de.nak.library.action.LendingAction"
 			method="save">
 			<result type="redirect">ShowLendingList.action</result>
 			<result type="chain" name="input">AddLending</result>
 		</action>
+		<!-- Action to cancel the lending setup -->
 		<action name="CancelLending" class="de.nak.library.action.LendingAction"
 			method="cancel">
 			<result type="redirect">ShowLendingList.action</result>
@@ -88,8 +103,7 @@
 			<result type="chain" name="input">publicationSearchForm</result>
 		</action>
 		<!-- Action that initializes the setup for a new publication -->
-		<action name="AddPublication"
-			class="de.nak.library.action.ShowPublicationSetupAction">
+		<action name="AddPublication" class="de.nak.library.action.ShowPublicationSetupAction">
 			<result type="tiles">publicationForm</result>
 		</action>
 		<!-- Action that deletes a publication -->
@@ -123,82 +137,97 @@
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that shows the setup to add keywords to publication -->
-		<action name="ShowAddKeywordsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadKeywordsNotInLending">
+		<action name="ShowAddKeywordsSetup" class="de.nak.library.action.PublicationEditSetupAction"
+			method="loadKeywordsNotInPublication">
 			<result type="tiles">keywordAddSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that shows the setup to delete keywords from publication -->
-		<action name="ShowDeleteKeywordsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadKeywordsInLending">
+		<action name="ShowDeleteKeywordsSetup" class="de.nak.library.action.PublicationEditSetupAction"
+			method="loadKeywordsInPublication">
 			<result type="tiles">keywordDeleteSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that adds the keywords to publication -->
-		<action name="AddKeywordsToPublication" class="de.nak.library.action.PublicationAction" method="addKeywords">
+		<action name="AddKeywordsToPublication" class="de.nak.library.action.PublicationAction"
+			method="addKeywords">
 			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">AddKeywordsForPublication</result>
 		</action>
 		<!-- Action that deletes the keywords to publication -->
-		<action name="DeleteKeywordsFromPublication" class="de.nak.library.action.PublicationAction" method="deleteKeywords">
+		<action name="DeleteKeywordsFromPublication" class="de.nak.library.action.PublicationAction"
+			method="deleteKeywords">
 			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">SetupKeywordsForPublication</result>
 		</action>
 		<!-- Action that shows the setup to add authors to publication -->
-		<action name="ShowAddAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadAuthorsNotInLending">
+		<action name="ShowAddAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction"
+			method="loadAuthorsNotInPublication">
 			<result type="tiles">authorsAddSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that shows the setup to delete authors from publication -->
-		<action name="ShowDeleteAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction" method="loadAuthorsInLending">
+		<action name="ShowDeleteAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction"
+			method="loadAuthorsInPublication">
 			<result type="tiles">authorsDeleteSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that adds the authors to publication -->
-		<action name="AddAuthorsToPublication" class="de.nak.library.action.PublicationAction" method="addAuthors">
+		<action name="AddAuthorsToPublication" class="de.nak.library.action.PublicationAction"
+			method="addAuthors">
 			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">AddAuthorsForPublication</result>
 		</action>
 		<!-- Action that deletes the authors to publication -->
-		<action name="DeleteAuthorsFromPublication" class="de.nak.library.action.PublicationAction" method="deleteAuthors">
+		<action name="DeleteAuthorsFromPublication" class="de.nak.library.action.PublicationAction"
+			method="deleteAuthors">
 			<result type="tiles">publicationEditForm</result>
 			<result type="chain" name="input">SetupAuthorsForPublication</result>
 		</action>
 		<!-- Action that shows the setup for publisher of a publication -->
-		<action name="SetupPublisherForPublication" class="de.nak.library.action.ShowPublisherSetupForPublicationAction">
+		<action name="SetupPublisherForPublication"
+			class="de.nak.library.action.ShowPublisherSetupForPublicationAction">
 			<result type="tiles">publisherSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that saves the publisher to publication -->
-		<action name="SaveEditedPublisherForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublisher">
+		<action name="SaveEditedPublisherForPublication" class="de.nak.library.action.PublicationAction"
+			method="saveEditedPublisher">
 			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">SetupPublisherForPublication</result>
+			<result type="chain" name="input">SetupPublisherForPublication
+			</result>
 		</action>
 		<!-- Action that shows the setup for publication type of a publication -->
-		<action name="SetupPublicationTypeForPublication" class="de.nak.library.action.ShowPublicationTypeSetupForPublicationAction">
+		<action name="SetupPublicationTypeForPublication"
+			class="de.nak.library.action.ShowPublicationTypeSetupForPublicationAction">
 			<result type="tiles">publicationTypeSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that saves the publication type to publication -->
-		<action name="SaveEditedPublicationTypeForPublication" class="de.nak.library.action.PublicationAction" method="saveEditedPublicationType">
+		<action name="SaveEditedPublicationTypeForPublication" class="de.nak.library.action.PublicationAction"
+			method="saveEditedPublicationType">
 			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">SetupPublicationTypeForPublication</result>
+			<result type="chain" name="input">SetupPublicationTypeForPublication
+			</result>
 		</action>
-		
+
 
 		<!-- KEYWORD -->
+		<!-- Action that shows the list of keywords -->
 		<action name="ShowKeywordList" class="de.nak.library.action.ShowKeywordListAction">
 			<result type="tiles">keywordList</result>
 		</action>
-
+		<!-- Action to add a keyword -->
 		<action name="AddKeyword">
 			<result type="tiles">keywordForm</result>
 		</action>
-
+		<!-- Action to delete a keyword -->
 		<action name="DeleteKeyword" class="de.nak.library.action.KeywordAction"
 			method="delete">
 			<result type="redirect">ShowKeywordList.action</result>
 			<result type="chain" name="input">ShowKeywordList</result>
 		</action>
-
+		<!-- Action to edit a keyword -->
 		<action name="EditKeyword" class="de.nak.library.action.KeywordAction"
 			method="load">
 			<result type="tiles">keywordForm</result>
@@ -218,32 +247,32 @@
 
 
 		<!-- PUBLISHER -->
-
+		<!-- Action to show the list of publisher -->
 		<action name="ShowPublisherList" class="de.nak.library.action.ShowPublisherListAction">
 			<result type="tiles">publisherList</result>
 		</action>
-
+		<!-- Action to add a publisher -->
 		<action name="AddPublisher">
 			<result type="tiles">publisherForm</result>
 		</action>
-
+		<!-- Action to delete a publisher -->
 		<action name="DeletePublisher" class="de.nak.library.action.PublisherAction"
 			method="delete">
 			<result type="redirect">ShowPublisherList.action</result>
 			<result type="chain" name="input">ShowPublisherList</result>
 		</action>
-
+		<!-- Action to edit a publisher -->
 		<action name="EditPublisher" class="de.nak.library.action.PublisherAction"
 			method="load">
 			<result type="tiles">publisherForm</result>
 			<result type="chain" name="input">ShowPublisherList</result>
 		</action>
-		<!-- Action for the cancel button of the formular for new publisher. -->
+		<!-- Action for the cancel button of the form for new publisher. -->
 		<action name="CancelPublisher" class="de.nak.library.action.PublisherAction"
 			method="cancel">
 			<result type="redirect">ShowPublisherList.action</result>
 		</action>
-		<!-- Action for the save button of the formular for new publisher. -->
+		<!-- Action for the save button of the form for new publisher. -->
 		<action name="SavePublisher" class="de.nak.library.action.PublisherAction"
 			method="save">
 			<result type="redirect">ShowPublisherList.action</result>
@@ -254,21 +283,21 @@
 
 
 		<!-- AUTHOR -->
-
+		<!-- Action to shows the list of authors -->
 		<action name="ShowAuthorList" class="de.nak.library.action.ShowAuthorListAction">
 			<result type="tiles">authorList</result>
 		</action>
-
+		<!-- Action to add a author -->
 		<action name="AddAuthor">
 			<result type="tiles">authorForm</result>
 		</action>
-
+		<!-- Action to delete a author -->
 		<action name="DeleteAuthor" class="de.nak.library.action.AuthorAction"
 			method="delete">
 			<result type="redirect">ShowAuthorList.action</result>
 			<result type="chain" name="input">ShowAuthorList</result>
 		</action>
-
+		<!-- Action to edit a author -->
 		<action name="EditAuthor" class="de.nak.library.action.AuthorAction"
 			method="load">
 			<result type="tiles">authorForm</result>
@@ -289,32 +318,33 @@
 
 
 		<!-- PUBLICATIONTYPE -->
-
-		<action name="ShowPublicationTypeList" class="de.nak.library.action.ShowPublicationTypeListAction">
+		<!-- Action that shows the list of publication types -->
+		<action name="ShowPublicationTypeList"
+			class="de.nak.library.action.ShowPublicationTypeListAction">
 			<result type="tiles">publicationTypeList</result>
 		</action>
-
+		<!-- Action to add a publication type -->
 		<action name="AddPublicationType">
 			<result type="tiles">publicationTypeForm</result>
 		</action>
-
+		<!-- Action to delete a publication type -->
 		<action name="DeletePublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="delete">
 			<result type="redirect">ShowPublicationTypeList.action</result>
 			<result type="chain" name="input">ShowPublicationTypeList</result>
 		</action>
-
+		<!-- Action to edit a publication type -->
 		<action name="EditPublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="load">
 			<result type="tiles">publicationTypeForm</result>
 			<result type="chain" name="input">ShowPublicationTypeList</result>
 		</action>
-		<!-- Action for the cancel button of the formular for new publicationstypes. -->
+		<!-- Action for the cancel button of the form for new publication types. -->
 		<action name="CancelPublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="cancel">
 			<result type="redirect">ShowPublicationTypeList.action</result>
 		</action>
-		<!-- Action for the save button of the formular for new publicationstypes. -->
+		<!-- Action for the save button of the form for new publication types. -->
 		<action name="SavePublicationType" class="de.nak.library.action.PublicationTypeAction"
 			method="save">
 			<result type="redirect">ShowPublicationTypeList.action</result>
@@ -323,31 +353,32 @@
 
 
 		<!-- LENDER -->
+		<!-- Action that shows the list of lender -->
 		<action name="ShowLenderList" class="de.nak.library.action.ShowLenderListAction">
 			<result type="tiles">lenderList</result>
 		</action>
-
+		<!-- Action to add a lender -->
 		<action name="AddLender">
 			<result type="tiles">lenderForm</result>
 		</action>
-		<!-- Action for the delete button of the formular for lenders. -->
+		<!-- Action for the delete button of the form for lenders. -->
 		<action name="DeleteLender" class="de.nak.library.action.LenderAction"
 			method="delete">
 			<result type="redirect">ShowLenderList.action</result>
 			<result type="chain" name="input">ShowLenderList</result>
 		</action>
-		<!-- Action for the edit button of the formular for lenders. -->
+		<!-- Action for the edit button of the form for lenders. -->
 		<action name="EditLender" class="de.nak.library.action.LenderAction"
 			method="load">
 			<result type="tiles">lenderForm</result>
 			<result type="chain" name="input">ShowLenderList</result>
 		</action>
-		<!-- Action for the cancel button of the formular for new lenders. -->
+		<!-- Action for the cancel button of the form for new lenders. -->
 		<action name="CancelLender" class="de.nak.library.action.LenderAction"
 			method="cancel">
 			<result type="redirect">ShowLenderList.action</result>
 		</action>
-		<!-- Action for the save button of the formular for new lenders. -->
+		<!-- Action for the save button of the form for new lenders. -->
 		<action name="SaveLender" class="de.nak.library.action.LenderAction"
 			method="save">
 			<result type="redirect">ShowLenderList.action</result>

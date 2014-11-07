@@ -15,29 +15,32 @@ import de.nak.library.service.PublicationTypeService;
 import de.nak.library.service.PublisherService;
 
 /**
+ * Action that shows the setup for a new publication.
  *
  * @author Niels Gundermann
  */
 public class ShowPublicationSetupAction implements Action {
 
+	/** The list of publication types */
 	private List<PublicationType> publicationTypeList;
-
+	/** The publication type service */
 	private PublicationTypeService publicationTypeService;
-
+	/** The list of authors */
 	private List<Author> authorList;
-
+	/** The author service */
 	private AuthorService authorService;
-
+	/** The list of keywords */
 	private List<Keyword> keywordList;
-
+	/** The keyword service */
 	private KeywordService keywordService;
-
+	/** The list of publishers */
 	private List<Publisher> publisherList;
-
+	/** The publisher service */
 	private PublisherService publisherService;
-
+	/** The new publication */
+	//TODO wird das wrklich gebraucht?
 	private Publication publication;
-	
+
 	public List<Publisher> getPublisherList() {
 		return publisherList;
 	}
@@ -104,6 +107,4 @@ public class ShowPublicationSetupAction implements Action {
 		return SUCCESS;
 	}
 
-	
-	
 }
