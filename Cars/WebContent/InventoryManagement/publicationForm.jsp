@@ -22,6 +22,7 @@
 	<display:table id="publicationTypeTable" name="publicationTypeList"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Publikationsarten vorhanden" />
 		<display:column>
 			<input type="radio" name="publicationTypeId"
 				value="${publicationTypeTable.publicationTypeId}" />
@@ -31,6 +32,7 @@
 	<display:table id="authorTable" name="authorList" cellpadding="5px;"
 		cellspacing="5px;" style="margin-left:50px;margin-top:20px;"
 		requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Autoren vorhanden" />
 		<display:column>
 			<input type="checkbox" name="authorId"
 				value="${authorTable.authorId}" />
@@ -40,6 +42,7 @@
 	<display:table id="keywordTable" name="keywordList" cellpadding="5px;"
 		cellspacing="5px;" style="margin-left:50px;margin-top:20px;"
 		requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Schlüsselwörter vorhanden" />
 		<s:set name="id" value="%{keywordTable.keywordId}" />
 		<display:column>
 			<input type="checkbox" name="keywordId"
@@ -51,6 +54,7 @@
 	<display:table id="publisherTable" name="publisherList"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Verlage vorhanden" />
 		<display:column>
 			<input type="radio" name="publisherId"
 				value="${publisherTable.publisherId}" />

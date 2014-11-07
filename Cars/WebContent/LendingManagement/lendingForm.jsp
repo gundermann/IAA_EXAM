@@ -13,6 +13,7 @@
 	<display:table id="publicationTable" name="publicationList"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Publikationsarten vorhanden" />
 		<display:column>
 			<input type="radio" name="publicationId"
 				value="${publicationTable.publicationId}" />
@@ -34,6 +35,7 @@
 	<display:table id="lenderTable" name="lenderList" cellpadding="5px;"
 		cellspacing="5px;" style="margin-left:50px;margin-top:20px;"
 		requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Ausleiher vorhanden" />
 		<display:column>
 			<input type="radio" name="lenderId" value="${lenderTable.lenderId}" />
 		</display:column>

@@ -13,6 +13,7 @@
 		pagesize="5" cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:setProperty name="basic.msg.empty_list" value="Keine Publikationen gefunden" />
 		<display:column>
 			<input type="radio" name="publicationId"
 				value="${publicationTable.publicationId}" />

@@ -23,7 +23,7 @@ public class ShowDelayedLendingListAction implements Action {
 	
 	@Override
 	public String execute() throws Exception {
-		delayedLendingList = lendingService.searchDelayedLendings();
+//		delayedLendingList = lendingService.searchDelayedLendings();
 		return SUCCESS;
 	}
 

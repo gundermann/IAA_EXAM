@@ -11,6 +11,7 @@
 	<display:table id="keywordTable" name="keywordList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Schlüsselwörter vorhanden" />
 		<display:column>
 			<input type="checkbox" name="keywordId" value="${keywordTable.keywordId}" />
 		</display:column>
