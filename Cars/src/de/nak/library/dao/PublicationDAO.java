@@ -11,6 +11,7 @@ import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
 
 import de.nak.library.model.Author;
+import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
 import de.nak.library.model.PublicationType;
 import de.nak.library.model.Publisher;
@@ -141,8 +142,10 @@ public class PublicationDAO {
 
 			Disjunction res = Restrictions.disjunction();
 			for (Author author : authors) {
-				criteria.add(Restrictions.eq("authors.id", author.getAuthorId()));
+				res.add(Restrictions.eq("authors.id", author.getAuthorId()));
+
 			}
+			criteria.add(res);
 		}
 
 		if (publication.getDateOfPublication() != null
@@ -161,6 +164,7 @@ public class PublicationDAO {
 			criteria.add(Restrictions.between("dateOfPublication",
 					beginnPublicationDate, endPublicationDate));
 		}
+
 		if (publication.getPublisher() != null
 				&& !publication.getPublisher().equals("")) {
 
@@ -171,6 +175,7 @@ public class PublicationDAO {
 			List<Publisher> publishers = publisherCriteria.list();
 
 			Disjunction res = Restrictions.disjunction();
+
 			for (Publisher publisher : publishers) {
 				res.add(Restrictions.eq("publisher", publisher));
 			}
@@ -194,10 +199,24 @@ public class PublicationDAO {
 			}
 			criteria.add(res);
 		}
-		// TODO: Keywordsuche implementieren
+
 		if (publication.getKeywords() != null
 				&& !publication.getKeywords().equals("")) {
-			criteria.add(Restrictions.eq("keywords", publication.getKeywords()));
+			Criteria keywordCriteria = sessionFactory.getCurrentSession()
+					.createCriteria(Keyword.class);
+			keywordCriteria.add(Restrictions.ilike("keyword",
+					"%" + publication.getKeywords() + "%"));
+			List<Keyword> keywords = keywordCriteria.list();
+
+			criteria.createAlias("keywords", "keywords");
+
+			Disjunction res = Restrictions.disjunction();
+			for (Keyword keyword : keywords) {
+				res.add(Restrictions.eq("keywords.id", keyword.getKeywordId()));
+
+			}
+			criteria.add(res);
+
 		}
 
 		return criteria.list();
