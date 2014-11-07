@@ -154,6 +154,10 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 * */
 	public String saveEditing() {
+		if (publicationService.loadByNakId(publication.getNakId()) != null) {
+			addActionError(getText("msg.matriculationNumberNotAvailable"));
+			return INPUT;
+		}
 		Publication publicationFromDB = publicationService
 				.loadPublication(publicationId);
 		publication.setPublicationId(publicationId);
@@ -184,7 +188,12 @@ public class PublicationAction extends ActionSupport {
 			addActionError(getText("msg.selectPublisher"));
 			isValid = false;
 		}
-
+		Publication publicationWithNakId = publicationService
+				.loadByNakId(publication.getNakId());
+		if (publicationWithNakId != null) {
+			addActionError(getText("msg.msg.matriculationNumberNotAvailable"));
+			isValid = false;
+		}
 		return isValid;
 	}
 

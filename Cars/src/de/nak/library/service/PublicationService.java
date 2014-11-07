@@ -5,7 +5,7 @@ import java.util.List;
 import de.nak.library.model.Author;
 import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
-import de.nak.library.searchModel.SearchPublication;
+import de.nak.library.searchModel.PublicationSearchCriteria;
 
 /**
  * Publication service interface.
@@ -52,7 +52,7 @@ public interface PublicationService {
 	 * @param publication
 	 * @return a list which is empty if no publication was found.
 	 */
-	List<Publication> searchPublications(SearchPublication publication);
+	List<Publication> searchPublications(PublicationSearchCriteria publication);
 
 	/**
 	 * Search a publication.
@@ -162,5 +162,7 @@ public interface PublicationService {
 	 * @return list which is empty if no keyword was found.
 	 */
 	List<Keyword> loadAllKeywordsNotInPublication(Long publicationId);
+
+	Publication loadByNakId(Long nakId);
 
 }

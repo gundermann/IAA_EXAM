@@ -23,5 +23,16 @@
 		<field-validator type="required">
 			<message key="msg.validator.required"/>
 		</field-validator>
+		<field-validator type="int">
+		<param name="min">1</param>
+		<message key="msg.quantity.min"/>
+		</field-validator>
+	</field>
+	<field name="isbn">
+		<field-validator type="long">
+		<param name="min">1000000000000</param>
+		<param name="max">9999999999999</param>
+		<message key="msg.isbn.lenght"/>
+		</field-validator>
 	</field>
 </validators>

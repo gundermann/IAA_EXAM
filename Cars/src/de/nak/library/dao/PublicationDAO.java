@@ -16,7 +16,7 @@ import de.nak.library.model.Author;
 import de.nak.library.model.Publication;
 import de.nak.library.model.PublicationType;
 import de.nak.library.model.Publisher;
-import de.nak.library.searchModel.SearchPublication;
+import de.nak.library.searchModel.PublicationSearchCriteria;
 
 /**
  * Publication data access object.
@@ -113,7 +113,7 @@ public class PublicationDAO {
 	 * @return List of all publications that correspond to the given values.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Publication> load(SearchPublication publication) {
+	public List<Publication> load(PublicationSearchCriteria publication) {
 
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
@@ -196,5 +196,13 @@ public class PublicationDAO {
 		}
 
 		return criteria.list();
+	}
+	
+	//TODO Kommentar
+	public Publication loadByNakId(Long nakId) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publication.class);
+		criteria.add(Restrictions.eq("nakId", nakId));
+		return (Publication) criteria.uniqueResult();
 	}
 }

@@ -11,7 +11,7 @@ import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
 import de.nak.library.model.PublicationType;
 import de.nak.library.model.Publisher;
-import de.nak.library.searchModel.SearchPublication;
+import de.nak.library.searchModel.PublicationSearchCriteria;
 import de.nak.library.service.AuthorService;
 import de.nak.library.service.KeywordService;
 import de.nak.library.service.PublicationService;
@@ -56,7 +56,7 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public List<Publication> searchPublications(SearchPublication publication) {
+	public List<Publication> searchPublications(PublicationSearchCriteria publication) {
 		return publicationDAO.load(publication);
 	}
 
@@ -194,5 +194,11 @@ public class PublicationServiceImpl implements PublicationService {
 	private void addPublisherValue(Publication publication, Long publisherId) {
 		Publisher publisher = publisherService.loadPublisher(publisherId);
 		publication.setPublisher(publisher);
+	}
+
+	@Override
+	//TODO Kommentar im interface
+	public Publication loadByNakId(Long nakId) {
+		return publicationDAO.loadByNakId(nakId);
 	}
 }

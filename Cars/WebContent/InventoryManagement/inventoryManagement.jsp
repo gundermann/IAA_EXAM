@@ -18,6 +18,8 @@
 			<input type="radio" name="publicationId"
 				value="${publicationTable.publicationId}" />
 		</display:column>
+		<display:column title="Nak-ID" property="nakId"
+			sortable="true" />
 		<display:column title="Titel" property="title"
 			sortable="true" />
 		<display:column title="Datum der Veröffentlichung"
