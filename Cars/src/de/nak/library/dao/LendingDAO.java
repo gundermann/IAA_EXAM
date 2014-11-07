@@ -1,5 +1,8 @@
 package de.nak.library.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -70,15 +73,21 @@ public class LendingDAO {
 	 *            Todays date.
 	 * @return a list of lendings which is empty if no lending was found.
 	 */
-	// TODO lieber die Abfragen durchgängig mit Criteria erstellen. Hier können
-		// wir mit den Typen arbeiten, die auch im Objekt zu finden sind und müssen
-		// nicht andauernd zu Strings parsen, damit das in ein sql passt.
-		// Außerdem funktioniert diese Abfrage nicht
 	@SuppressWarnings("unchecked")
-	public List<Lending> findDelayed(Integer currentDate) {
-		return sessionFactory.getCurrentSession()
-				.createQuery("from Lending where return_date < " + currentDate)
-				.list();
+	public List<Lending> findDelayed(Date currentDate) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Lending.class);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		Date date = new Date();
+		try {
+			date = formatter.parse("01.01.1000");
+		} catch (ParseException e) {
+		}
+		criteria.add(Restrictions.between("expectedReturnDate", date,
+				currentDate));
+
+		List<Lending> lendings = criteria.list();
+		return lendings;
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

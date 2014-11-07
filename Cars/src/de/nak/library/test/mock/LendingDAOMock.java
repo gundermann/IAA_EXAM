@@ -1,5 +1,6 @@
 package de.nak.library.test.mock;
 
+import java.util.Date;
 import java.util.List;
 
 import de.nak.library.dao.LendingDAO;
@@ -36,7 +37,7 @@ public class LendingDAOMock extends LendingDAO {
 	}
 
 	@Override
-	public List<Lending> findDelayed(Integer currentDate) {
+	public List<Lending> findDelayed(Date currentDate) {
 		return null;
 	}
 

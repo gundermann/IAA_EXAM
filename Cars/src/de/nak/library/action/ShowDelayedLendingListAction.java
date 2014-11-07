@@ -9,7 +9,7 @@ import de.nak.library.service.LendingService;
 
 /**
  * Action that shows a list of delayed lendings.
- *
+ * 
  * @author Niels Gundermann
  */
 public class ShowDelayedLendingListAction implements Action {
@@ -20,22 +20,18 @@ public class ShowDelayedLendingListAction implements Action {
 	/** The Lending service. */
 	private LendingService lendingService;
 
-	
 	@Override
 	public String execute() throws Exception {
-//		delayedLendingList = lendingService.searchDelayedLendings();
+		delayedLendingList = lendingService.searchDelayedLendings();
 		return SUCCESS;
 	}
-
 
 	public List<Lending> getDelayedLendingList() {
 		return delayedLendingList;
 	}
 
-
 	public void setLendingService(LendingService lendingService) {
 		this.lendingService = lendingService;
 	}
 
-	
 }
