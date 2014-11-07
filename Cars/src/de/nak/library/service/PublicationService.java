@@ -165,4 +165,6 @@ public interface PublicationService {
 
 	Publication loadByNakId(Long nakId);
 
+	List<Publication> loadAllAvailablePublications();
+
 }

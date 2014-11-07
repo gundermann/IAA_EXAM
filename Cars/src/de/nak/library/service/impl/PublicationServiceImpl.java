@@ -201,4 +201,11 @@ public class PublicationServiceImpl implements PublicationService {
 	public Publication loadByNakId(Long nakId) {
 		return publicationDAO.loadByNakId(nakId);
 	}
+
+	@Override
+	public List<Publication> loadAllAvailablePublications() {
+		// TODO Nur Publikationen ausgeben zu denen die Anzahl der ausgeliehenen Publikationen - Anzahl der Menge der Publikation > 0
+		
+		return null;
+	}
 }

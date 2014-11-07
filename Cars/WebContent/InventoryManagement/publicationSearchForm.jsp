@@ -13,7 +13,6 @@
 	<s:textfield key="publication.dateOfPublication"
 		name="criteria.dateOfPublication" value="%{dateOfPublication}" />
 	<s:textfield name="criteria.publicationType" key="publication.publicationType"/>
-	<s:textfield name="criteria.isbn" key="publication.isbn" size="13" maxlength="13"/>
 	<s:textfield name="criteria.keywords" key="publication.keywords"/>
 	<s:textfield name="criteria.publisher" key="publication.publisher"/>
 

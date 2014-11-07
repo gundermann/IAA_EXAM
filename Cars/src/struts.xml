@@ -96,11 +96,23 @@
 		<action name="SearchForm">
 			<result type="tiles">publicationSearchForm</result>
 		</action>
+		<!-- Action that shows the search by isbn form for a publication -->
+		<action name="SearchIsbnForm">
+			<result type="tiles">publicationSearchIsbnForm</result>
+		</action>
 		<!-- Action for the search of a publication -->
 		<action name="FindPublication"
-			class="de.nak.library.action.ShowPublicationSearchResultListAction">
+			class="de.nak.library.action.PublicationSearchResultAction"
+			method="find">
 			<result type="tiles">inventoryManagement</result>
 			<result type="chain" name="input">publicationSearchForm</result>
+		</action>
+		<!-- Action for the search of a publication by isbn -->
+		<action name="FindPublicationByIsbn"
+			class="de.nak.library.action.PublicationSearchResultAction"
+			method="findByIsbn">
+			<result type="tiles">inventoryManagement</result>
+			<result type="chain" name="input">publicationSearchIsbnForm</result>
 		</action>
 		<!-- Action that initializes the setup for a new publication -->
 		<action name="AddPublication" class="de.nak.library.action.ShowPublicationSetupAction">

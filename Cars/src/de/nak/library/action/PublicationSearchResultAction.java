@@ -3,7 +3,7 @@ package de.nak.library.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Publication;
 import de.nak.library.searchModel.PublicationSearchCriteria;
@@ -14,7 +14,10 @@ import de.nak.library.service.PublicationService;
  * 
  * @author Niels Gundermann
  */
-public class ShowPublicationSearchResultListAction implements Action {
+public class PublicationSearchResultAction extends ActionSupport {
+
+	/** The Version UID */
+	private static final long serialVersionUID = 4039539746540010170L;
 
 	/** The criteria for publication search */
 	private PublicationSearchCriteria criteria;
@@ -25,23 +28,32 @@ public class ShowPublicationSearchResultListAction implements Action {
 	/** The Publication service. */
 	private PublicationService publicationService;
 
-	@Override
-	public String execute() throws Exception {
-		//If no criteria show all
+	/**
+	 * Search for publication
+	 * 
+	 * @return the result string.
+	 * */
+	public String find() {
 		if (criteria == null) {
 			publicationList = publicationService.loadAllPublications();
+		} else {
+			publicationList = publicationService.searchPublications(criteria);
 		}
-		//If isbn is set, search by isbn
-		else if (criteria.getIsbn() != null
-				&& !criteria.getIsbn().equals("")) {
+		return SUCCESS;
+	}
+
+	/**
+	 * Search for publication by isbn.
+	 * 
+	 * @return the result string
+	 */
+	public String findByIsbn() {
+		if (criteria == null) {
+			publicationList = publicationService.loadAllPublications();
+		} else {
 			publicationList = new ArrayList<Publication>();
 			publicationList = publicationService.searchPublicationByIsbn(Long
 					.valueOf(criteria.getIsbn()));
-		} 
-		//search usual
-		else {
-			publicationList = publicationService
-					.searchPublications(criteria);
 		}
 		return SUCCESS;
 	}
