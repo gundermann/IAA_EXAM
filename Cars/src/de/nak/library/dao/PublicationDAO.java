@@ -221,8 +221,14 @@ public class PublicationDAO {
 
 		return criteria.list();
 	}
-	
-	//TODO Kommentar
+
+	/**
+	 * Search publications by nakId in the database
+	 * 
+	 * @param nakId
+	 * @return Publications that has the nak id, or null if no such nakid was
+	 *         found.
+	 */
 	public Publication loadByNakId(Long nakId) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
