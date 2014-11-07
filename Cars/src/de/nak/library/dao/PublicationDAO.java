@@ -3,9 +3,7 @@ package de.nak.library.dao;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -130,15 +128,21 @@ public class PublicationDAO {
 			criteria.add(Restrictions.like("title",
 					"%" + publication.getTitle() + "%"));
 		}
-		// TODO: suche nach Autoren implementieren
 		if (publication.getAuthors() != null
 				&& !publication.getAuthors().equals("")) {
-			Set<Author> authors = new HashSet<Author>();
-			Author author = new Author();
-			author.setName(publication.getAuthors());
-			authors.add(author);
 
-			criteria.add(Restrictions.like("authors", author));
+			Criteria authorCriteria = sessionFactory.getCurrentSession()
+					.createCriteria(Author.class);
+			authorCriteria.add(Restrictions.ilike("name",
+					"%" + publication.getAuthors() + "%"));
+			List<Author> authors = authorCriteria.list();
+
+			criteria.createAlias("authors", "authors");
+
+			Disjunction res = Restrictions.disjunction();
+			for (Author author : authors) {
+				criteria.add(Restrictions.eq("authors.id", author.getAuthorId()));
+			}
 		}
 
 		if (publication.getDateOfPublication() != null
@@ -170,6 +174,7 @@ public class PublicationDAO {
 			for (Publisher publisher : publishers) {
 				res.add(Restrictions.eq("publisher", publisher));
 			}
+
 			criteria.add(res);
 		}
 
@@ -178,7 +183,7 @@ public class PublicationDAO {
 
 			Criteria publicationTypeCriteria = sessionFactory
 					.getCurrentSession().createCriteria(PublicationType.class);
-			publicationTypeCriteria.add(Restrictions.ilike("name",
+			publicationTypeCriteria.add(Restrictions.eq("name",
 					publication.getPublicationType()));
 			List<PublicationType> publicationTypes = publicationTypeCriteria
 					.list();
