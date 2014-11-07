@@ -6,7 +6,7 @@ import de.nak.library.model.Keyword;
 import de.nak.library.service.KeywordService;
 
 /**
- * Action for a single publication.
+ * Action for a single keyword.
  *
  * @author Niels Gundermann
  */
@@ -14,17 +14,17 @@ public class KeywordAction extends ActionSupport {
 	/** Serial version UID. */
 	private static final long serialVersionUID = -3393497662671380262L;
 
-	/** The current publication. */
+	/** The current keyword. */
 	private Keyword keyword;
 
-	/** The publication's identifier selected by the user. */
+	/** The keyword's identifier selected by the user. */
 	private Long keywordId;
 
 	/** The publication service. */
 	private KeywordService keywordService;
 
 	/**
-	 * Saves the publication to the database.
+	 * Saves the keyword to the database.
 	 *
 	 * @return the result string.
 	 */
@@ -34,7 +34,7 @@ public class KeywordAction extends ActionSupport {
 	}
 
 	/**
-	 * Deletes the selected publication from the database.
+	 * Deletes the selected keyword from the database.
 	 *
 	 * @return the result string.
 	 */
@@ -47,7 +47,7 @@ public class KeywordAction extends ActionSupport {
 	}
 
 	/**
-	 * Displays the selected publication in the publicaiton form.
+	 * Displays the selected keyword .
 	 *
 	 * @return the result string.
 	 */
@@ -87,9 +87,4 @@ public class KeywordAction extends ActionSupport {
 		this.keywordService = keywordService;
 	}
 
-	
-
-
-
-	
 }

@@ -10,6 +10,7 @@
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
+		<display:setProperty name="basic.msg.empty_list" value="Keine Ausleihvorgänge vorhanden" />
 		<display:column>
 			<input type="radio" name="lendingId"
 				value="${lendingTable.lendingId}" />

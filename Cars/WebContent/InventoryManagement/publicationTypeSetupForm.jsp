@@ -11,6 +11,7 @@
 	<display:table id="publicationTypeTable" name="publicationTypeList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Publikationsarten vorhanden" />
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:column>
 			<input type="radio" name="publicationTypeId" value="${publicationTypeTable.publicationTypeId}" />

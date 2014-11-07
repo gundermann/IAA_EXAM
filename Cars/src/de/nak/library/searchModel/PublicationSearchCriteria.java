@@ -1,6 +1,6 @@
 package de.nak.library.searchModel;
 
-public class SearchPublication {
+public class PublicationSearchCriteria {
 
 	/** The NAK-intern identifier. */
 	private String nakId;

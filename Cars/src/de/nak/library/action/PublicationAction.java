@@ -36,10 +36,14 @@ public class PublicationAction extends ActionSupport {
 	/** THe ID of a new publisher */
 	private Long publisherId;
 
-	/** Adds the selected keywords to the publication keywords */
+	/**
+	 * Adds the selected keywords to the publication keywords
+	 * 
+	 * @return the result string
+	 */
 	public String addKeywords() {
 		if (keywordId == null) {
-			addActionError("msg.selectKeyword");
+			addActionError(getText("msg.selectKeyword"));
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
@@ -48,10 +52,14 @@ public class PublicationAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/** Deletes the selected keywords from the publication keyword */
+	/**
+	 * Deletes the selected keywords from the publication keyword
+	 * 
+	 * @return the result string
+	 */
 	public String deleteKeywords() {
 		if (keywordId == null) {
-			addActionError("msg.selectKeyword");
+			addActionError(getText("msg.selectKeyword"));
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
@@ -60,10 +68,14 @@ public class PublicationAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/** Adds the selected authors to the publication keywords */
+	/**
+	 * Adds the selected authors to the publication keywords
+	 * 
+	 * @return the result string
+	 */
 	public String addAuthors() {
 		if (authorId == null) {
-			addActionError("msg.selectAuthor");
+			addActionError(getText("msg.selectAuthor"));
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
@@ -72,10 +84,14 @@ public class PublicationAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/** Deletes the selected authors from the publication keyword */
+	/**
+	 * Deletes the selected authors from the publication keyword
+	 * 
+	 * @return the result string
+	 */
 	public String deleteAuthors() {
 		if (authorId == null) {
-			addActionError("msg.selectAuthor");
+			addActionError(getText("msg.selectAuthor"));
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
@@ -84,10 +100,14 @@ public class PublicationAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/** Saves the selected publisher as new publisher for the publication */
+	/**
+	 * Saves the selected publisher as new publisher for the publication
+	 * 
+	 * @return the result string
+	 */
 	public String saveEditedPublisher() {
 		if (publisherId == null) {
-			addActionError("msg.selectPublisher");
+			addActionError(getText("msg.selectPublisher"));
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
@@ -96,10 +116,14 @@ public class PublicationAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/** Saves the selected publication type as new publisher for the publication */
+	/**
+	 * Saves the selected publication type as new publisher for the publication
+	 * 
+	 * @return the result string
+	 */
 	public String saveEditedPublicationType() {
 		if (publicationTypeId == null) {
-			addActionError("msg.selectPublicationType");
+			addActionError(getText("msg.selectPublicationType"));
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
@@ -130,6 +154,10 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 * */
 	public String saveEditing() {
+		if (publicationService.loadByNakId(publication.getNakId()) != null) {
+			addActionError(getText("msg.matriculationNumberNotAvailable"));
+			return INPUT;
+		}
 		Publication publicationFromDB = publicationService
 				.loadPublication(publicationId);
 		publication.setPublicationId(publicationId);
@@ -149,18 +177,23 @@ public class PublicationAction extends ActionSupport {
 	private boolean inputForNewPublicationValid() {
 		boolean isValid = true;
 		if (authorId == null || authorId.length == 0) {
-			addActionError("msg.selectAuthor");
+			addActionError(getText("msg.selectAuthor"));
 			isValid = false;
 		}
 		if (publicationTypeId == null) {
-			addActionError("msg.selectPublicationType");
+			addActionError(getText("msg.selectPublicationType"));
 			isValid = false;
 		}
 		if (publisherId == null) {
-			addActionError("msg.selectPublisher");
+			addActionError(getText("msg.selectPublisher"));
 			isValid = false;
 		}
-
+		Publication publicationWithNakId = publicationService
+				.loadByNakId(publication.getNakId());
+		if (publicationWithNakId != null) {
+			addActionError(getText("msg.msg.matriculationNumberNotAvailable"));
+			isValid = false;
+		}
 		return isValid;
 	}
 

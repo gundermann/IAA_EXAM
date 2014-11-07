@@ -35,7 +35,7 @@ public class LenderAction extends ActionSupport {
 			lenderService.saveLender(lender);
 			return SUCCESS;
 		} else {
-			addActionError("msg.matriculationNumberNotAvailable");
+			addActionError(getText("msg.matriculationNumberNotAvailable"));
 			return INPUT;
 		}
 	}

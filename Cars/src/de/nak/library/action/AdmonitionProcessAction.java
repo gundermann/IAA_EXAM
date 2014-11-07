@@ -33,14 +33,11 @@ public class AdmonitionProcessAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	public String deleteLastAdmonition(){
-		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 0 ){
-			addActionError("msg.hasNoAdmonition");
-			return INPUT;
-		}
-		return SUCCESS;
-	}
-
+	/** 
+	 * Adds an Admonition to an AdmonitionProcess
+	 * 
+	 * @return the return string
+	 */
 	public String addAdmonition(){
 		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 3){
 			addActionError("msg.maximumOfAdmonitionReached");

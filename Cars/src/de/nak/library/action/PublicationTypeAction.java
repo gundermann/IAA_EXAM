@@ -14,10 +14,10 @@ public class PublicationTypeAction extends ActionSupport {
 	/** Serial version UID. */
 	private static final long serialVersionUID = -3393497662671380262L;
 
-	/** The current publication. */
+	/** The current publication type. */
 	private PublicationType publicationType;
 
-	/** The publication's identifier selected by the user. */
+	/** The publication type's identifier selected by the user. */
 	private Long publicationTypeId;
 
 	/** The publication type service. */
@@ -48,7 +48,7 @@ public class PublicationTypeAction extends ActionSupport {
 	}
 
 	/**
-	 * Displays the selected publication in the publicaitontype form.
+	 * Displays the selected publication type in the publication type form.
 	 * 
 	 * @return the result string.
 	 */
@@ -64,9 +64,9 @@ public class PublicationTypeAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// If the publicationtype is not set, the publication ID has to be set.
+		// If the publication type is not set, the publication type ID has to be set.
 		if (publicationType == null && publicationTypeId == null) {
-			addActionError(getText("msg.selectPublication"));
+			addActionError(getText("msg.selectPublicationType"));
 		}
 	}
 

@@ -8,7 +8,7 @@ import de.nak.library.model.Publisher;
 import de.nak.library.service.PublisherService;
 
 /**
- * Action that shows a list of PublicationTypes.
+ * Action that shows a list of publishers.
  *
  * @author Niels Gundermann
  */

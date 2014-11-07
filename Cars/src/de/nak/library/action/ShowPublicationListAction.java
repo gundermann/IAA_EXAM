@@ -8,15 +8,15 @@ import de.nak.library.model.Publication;
 import de.nak.library.service.PublicationService;
 
 /**
- * Action that shows a list of PublicationTypes.
+ * Action that shows a list of Publications.
  *
  * @author Niels Gundermann
  */
 public class ShowPublicationListAction implements Action {
-	/** The list of PublicationTypes. */
+	/** The list of Publications. */
 	private List<Publication> publicationList;
 
-	/** The PublicationType service. */
+	/** The Publication service. */
 	private PublicationService publicationService;
 
 	@Override

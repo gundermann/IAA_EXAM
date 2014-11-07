@@ -12,6 +12,7 @@
 	<display:table id="authorTable" name="publication.authorList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
+		<display:setProperty name="basic.msg.empty_list" value="Keine Autoren vorhanden" />
 		<display:column>
 			<input type="checkbox" name="authorId" value="${authorTable.authorId}" />
 		</display:column>

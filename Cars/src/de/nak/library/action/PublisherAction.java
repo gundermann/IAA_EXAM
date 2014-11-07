@@ -24,7 +24,7 @@ public class PublisherAction extends ActionSupport {
 	private PublisherService publisherService;
 
 	/**
-	 * Saves the publication type to the database.
+	 * Saves the publisher to the database.
 	 * 
 	 * @return the result string.
 	 */
@@ -48,7 +48,7 @@ public class PublisherAction extends ActionSupport {
 	}
 
 	/**
-	 * Displays the selected publication in the publisher form.
+	 * Displays the selected publisher in the publisher form.
 	 * 
 	 * @return the result string.
 	 */
@@ -64,9 +64,9 @@ public class PublisherAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		// If the Publisher is not set, the publication ID has to be set.
+		// If the Publisher is not set, the publisher ID has to be set.
 		if (publisher == null && publisherId == null) {
-			addActionError(getText("msg.selectPublication"));
+			addActionError(getText("msg.selectPublisher"));
 		}
 	}
 

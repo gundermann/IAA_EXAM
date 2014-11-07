@@ -4,7 +4,7 @@ import java.util.List;
 
 import de.nak.library.dao.PublicationDAO;
 import de.nak.library.model.Publication;
-import de.nak.library.searchModel.SearchPublication;
+import de.nak.library.searchModel.PublicationSearchCriteria;
 
 /**
  * The publication dao mock class.
@@ -46,7 +46,7 @@ public class PublicationDAOMock extends PublicationDAO {
 	}
 
 	@Override
-	public List<Publication> load(SearchPublication publication) {
+	public List<Publication> load(PublicationSearchCriteria publication) {
 		return null;
 	}
 }

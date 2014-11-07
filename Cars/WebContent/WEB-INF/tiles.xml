@@ -56,6 +56,11 @@
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationSearchForm.jsp" />
 	</definition>
+	<!-- form for common publication search by isbn-->
+	<definition name="publicationSearchIsbnForm" extends="mainLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publicationSearchIsbnForm.jsp" />
+	</definition>
 	<!-- form for publisher setup for publication -->
 	<definition name="publisherSetup" extends="mainLayout">
 		<put-attribute name="content"
