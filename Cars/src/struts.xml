@@ -9,7 +9,7 @@
 
 		<!-- The default Action -->
 		<action name="">
-			<result type="redirect">ShowDelayedLendingList.action</result>
+			<result type="redirect">ShowAdmonitionManagement.action</result>
 		</action>
 		<!-- The Action that shows the master data management menu -->
 		<action name="ShowMasterDataManagement">
@@ -25,7 +25,7 @@
 		</action>
 		<!-- Action to show the admonition management -->
 		<action name="ShowAdmonitionManagement"
-			class="de.nak.library.action.ShowAdmonitionProcessListAction">
+			class="de.nak.library.action.ShowDelayedLendingListAction">
 			<result type="tiles">admonitionManagement</result>
 		</action>
 
@@ -38,15 +38,15 @@
 			<result type="redirect">ShowAdmonitionManagement.action</result>
 			<result type="chain" name="input">ShowAdmonitionManagement</result>
 		</action>
+		<!-- Action to add an admonition to an admonition process -->
+		<action name="AddAdmonitionProcess" class="de.nak.library.action.AdmonitionProcessAction"
+			method="createAdmonitionProcess">
+			<result type="redirect">ShowAdmonitionManagement.action</result>
+			<result type="chain" name="input">ShowAdmonitionManagement</result>
+		</action>
 
 
 		<!-- LENDING -->
-		<!-- Action that shows the delayed lendings -->
-		<action name="ShowDelayedLendingList"
-			class="de.nak.library.action.ShowDelayedLendingListAction">
-			<result type="tiles">delayedLendingList</result>
-		</action>
-
 		<!-- Action that shows the list of lendings -->
 		<action name="ShowLendingList" class="de.nak.library.action.ShowLendingListAction">
 			<result type="tiles">lendingList</result>
@@ -102,15 +102,13 @@
 		</action>
 		<!-- Action for the search of a publication -->
 		<action name="FindPublication"
-			class="de.nak.library.action.PublicationSearchResultAction"
-			method="find">
+			class="de.nak.library.action.PublicationSearchResultAction" method="find">
 			<result type="tiles">inventoryManagement</result>
 			<result type="chain" name="input">publicationSearchForm</result>
 		</action>
 		<!-- Action for the search of a publication by isbn -->
 		<action name="FindPublicationByIsbn"
-			class="de.nak.library.action.PublicationSearchResultAction"
-			method="findByIsbn">
+			class="de.nak.library.action.PublicationSearchResultAction" method="findByIsbn">
 			<result type="tiles">inventoryManagement</result>
 			<result type="chain" name="input">publicationSearchIsbnForm</result>
 		</action>

@@ -73,9 +73,9 @@ public class LendingServiceImpl implements LendingService {
 
 	@Override
 	public boolean hasAdmonitionProcess(Lending lending) {
-		List<AdmonitionProcess> processes = admonitionProcessService
+		AdmonitionProcess processes = admonitionProcessService
 				.searchByLending(lending);
-		return !processes.isEmpty();
+		return processes != null;
 	}
 
 	@Override
@@ -108,6 +108,7 @@ public class LendingServiceImpl implements LendingService {
 		deleteLending(lending);
 	}
 
+	// TODO hier gibt es wieder eine org.hibernate.NonUniqueObjectException
 	@Override
 	public void finishLendingIfLost(Lending lending) {
 		Publication publication = lending.getPublication();
@@ -135,10 +136,9 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	private void deleteAdmonitionProcess(Lending lending) {
-		List<AdmonitionProcess> admonitionProcesses = admonitionProcessService
+		AdmonitionProcess admonitionProcess = admonitionProcessService
 				.searchByLending(lending);
-		if (!admonitionProcesses.isEmpty()) {
-			AdmonitionProcess admonitionProcess = admonitionProcesses.get(0);
+		if (admonitionProcess != null) {
 			admonitionProcessService.deleteAdmonitionProcess(admonitionProcess);
 		}
 	}
@@ -156,5 +156,6 @@ public class LendingServiceImpl implements LendingService {
 		calendar.add(Calendar.DATE, 14);
 		lending.setExpectedReturnDate(calendar.getTime());
 	}
+
 
 }

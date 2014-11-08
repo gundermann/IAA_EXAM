@@ -47,8 +47,8 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 	}
 
 	@Override
-	public List<AdmonitionProcess> searchByLending(Lending lending) {
-		return admonitionProcessDAO.load(lending);
+	public AdmonitionProcess searchByLending(Lending lending) {
+		return admonitionProcessDAO.loadByLending(lending);
 	}
 
 	@Override
@@ -88,4 +88,11 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		return admonition;
 	}
 
+	@Override
+	public AdmonitionProcess searchByLending(Long lendingId) {
+		//TODO hier den AdmonitionProcess heraussuchen, der zu der lending id gehört
+		return null;
+	}
+
+	
 }

@@ -1,6 +1,5 @@
 package de.nak.library.test.mock;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -48,8 +47,8 @@ public class AdmonitionProcessDAOMock extends AdmonitionProcessDAO {
 	}
 
 	@Override
-	public List<AdmonitionProcess> load(Lending lending) {
-		return new ArrayList<AdmonitionProcess>();
+	public AdmonitionProcess loadByLending(Lending lending) {
+		return null;
 	}
 
 }

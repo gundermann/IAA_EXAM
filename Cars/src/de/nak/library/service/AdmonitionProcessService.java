@@ -49,10 +49,10 @@ public interface AdmonitionProcessService {
 	 * 
 	 * @param lending
 	 *            The given lending to search by.
-	 * @return a List containing one admonition process. The List is empty if no
+	 * @return the admonition process. The List is empty if no
 	 *         admonition process was found.
 	 */
-	List<AdmonitionProcess> searchByLending(Lending lending);
+	AdmonitionProcess searchByLending(Lending lending);
 
 	/**
 	 * Adds an admonition with the current time to the given admonition process.
@@ -73,5 +73,7 @@ public interface AdmonitionProcessService {
 	 *         was found.
 	 */
 	Integer countAdmonitions(Long admonitionProcessId);
+
+	AdmonitionProcess searchByLending(Long lendingId);
 
 }

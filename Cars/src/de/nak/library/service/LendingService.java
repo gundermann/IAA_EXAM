@@ -114,4 +114,5 @@ public interface LendingService {
 	 *            The lending to delete.
 	 */
 	void finishLendingIfLost(Lending lending);
+
 }

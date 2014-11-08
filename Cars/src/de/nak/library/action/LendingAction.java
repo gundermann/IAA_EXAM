@@ -84,7 +84,7 @@ public class LendingAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	/** Cancels the setup form  for lending. */
+	/** Cancels the setup form for lending. */
 	public String cancel() {
 		return SUCCESS;
 	}

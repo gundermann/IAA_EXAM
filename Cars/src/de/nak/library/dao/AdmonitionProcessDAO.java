@@ -77,12 +77,12 @@ public class AdmonitionProcessDAO {
 	 * @return a list of one admonition process which is empty if no admonition
 	 *         process was found.
 	 */
-	@SuppressWarnings("unchecked")
-	public List<AdmonitionProcess> load(Lending lending) {
+	public AdmonitionProcess loadByLending(Lending lending) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				AdmonitionProcess.class);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.add(Restrictions.eq("lending", lending));
-		return criteria.list();
-	}
+		return (AdmonitionProcess) criteria.uniqueResult();
+		}
 
 }

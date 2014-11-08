@@ -20,10 +20,6 @@
 		<put-attribute name="content"
 			value="/LendingManagement/lendingForm.jsp" />
 	</definition>
-	<definition name="delayedLendingList" extends="mainLayout">
-		<put-attribute name="content"
-			value="/LendingManagement/delayedLendingList.jsp" />
-	</definition>
 	<definition name="lendingList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/LendingManagement/lendingList.jsp" />

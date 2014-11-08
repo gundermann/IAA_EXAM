@@ -17,21 +17,13 @@ public class AdmonitionProcessAction extends ActionSupport {
 	/** The current AdmonitionProcess. */
 	private AdmonitionProcess admonitionProcess;
 
-	/** The AdmonitionProcess's identifier selected by the user. */
-	private Long admonitionProcessId;
+	/** The lending's identifier selected by the user. */
+	private Long lendingId;
 
 	/** The AdmonitionProcess service. */
 	private AdmonitionProcessService admonitionProcessService;
-
-	/**
-	 * Saves the AdmonitionProcess to the database if possible.
-	 * 
-	 * @return the result string.
-	 */
-	public String save() {
-		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
-		return SUCCESS;
-	}
+	
+	
 	
 	/** 
 	 * Adds an Admonition to an AdmonitionProcess
@@ -39,47 +31,24 @@ public class AdmonitionProcessAction extends ActionSupport {
 	 * @return the return string
 	 */
 	public String addAdmonition(){
-		if(admonitionProcessService.countAdmonitions(admonitionProcessId) == 3){
-			addActionError("msg.maximumOfAdmonitionReached");
+		AdmonitionProcess admonitionProcess = admonitionProcessService.searchByLending(lendingId);
+		if(admonitionProcess == null){
 			return INPUT;
 		}
-		admonitionProcess = admonitionProcessService.loadAdmonitionProcess(admonitionProcessId);
+		if(admonitionProcess.getAdmonitions() != null && admonitionProcess.getAdmonitions().size() == 3){
+			addActionError(getText("msg.maximumOfAdmonitionReached"));
+			return INPUT;
+		}
 		admonitionProcess = admonitionProcessService.addAdmonition(admonitionProcess);
 		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
 		return SUCCESS;
 	}
 	
-	/**
-	 * Deletes the selected AdmonitionProcess from the database.
-	 *
-	 * @return the result string.
-	 */
-	public String delete() {
-		admonitionProcess = admonitionProcessService.loadAdmonitionProcess(admonitionProcessId);
-		if (admonitionProcess != null) {
-			admonitionProcessService.deleteAdmonitionProcess(admonitionProcess);
-		}
-		return SUCCESS;
-	}
-
-	/**
-	 * Displays the selected publication in the AdmonitionProcess form.
-	 *
-	 * @return the result string.
-	 */
-	public String load() {
-		admonitionProcess = admonitionProcessService.loadAdmonitionProcess(admonitionProcessId);
-		return SUCCESS;
-	}
-
-	public String cancel() {
-		return SUCCESS;
-	}
 
 	@Override
 	public void validate() {
-		// If the AdmonitionProcess is not set, the publication ID has to be set.
-		if (admonitionProcess == null && admonitionProcessId == null) {
+		//  the lending ID has to be set.
+		if (lendingId == null) {
 			addActionError(getText("msg.selectPublication"));
 		}
 	}
@@ -96,12 +65,13 @@ public class AdmonitionProcessAction extends ActionSupport {
 		this.admonitionProcessService = admonitionProcessService;
 	}
 
-	public Long getAdmonitionProcessId() {
-		return admonitionProcessId;
+	public Long getLendingId() {
+		return lendingId;
 	}
 
-	public void setAdmonitionProcessId(Long admonitionProcessId) {
-		this.admonitionProcessId = admonitionProcessId;
+	public void setLendingId(Long lendingId) {
+		this.lendingId = lendingId;
 	}
 
+	
 }

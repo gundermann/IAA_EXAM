@@ -77,6 +77,7 @@ public class LendingDAO {
 	public List<Lending> findDelayed(Date currentDate) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Lending.class);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 		Date date = new Date();
 		try {
