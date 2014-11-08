@@ -52,6 +52,11 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 	}
 
 	@Override
+	public AdmonitionProcess searchByLendingID(Long lendingId) {
+		return admonitionProcessDAO.loadByLendingID(lendingId);
+	}
+
+	@Override
 	public AdmonitionProcess addAdmonition(AdmonitionProcess admonitionProcess) {
 		Admonition admonition = createAdmonition(admonitionProcess);
 		Set<Admonition> admonitions = admonitionProcess.getAdmonitions();
@@ -88,17 +93,4 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		return admonition;
 	}
 
-	@Override
-	public AdmonitionProcess searchByLending(Long lendingId) {
-		//TODO hier den AdmonitionProcess heraussuchen, der zu der lending id gehört
-		return null;
-	}
-
-	@Override
-	public AdmonitionProcess createAdmonitionProcess(Long lendingId) {
-		// TODO Einen Mahnvorgang erstellen und zurückgeben
-		return null;
-	}
-
-	
 }

@@ -33,7 +33,7 @@ public class PublicationEditSetupAction extends ActionSupport {
 	 */
 	public String loadKeywordsNotInPublication() {
 		keywordList = publicationService
-				.loadAllKeywordsNotInPublication(publicationId);
+				.searchAllKeywordsNotInPublication(publicationId);
 		return SUCCESS;
 	}
 
@@ -44,7 +44,7 @@ public class PublicationEditSetupAction extends ActionSupport {
 	 */
 	public String loadAuthorsNotInPublication() {
 		authorList = publicationService
-				.loadAllAuthorNotInPublication(publicationId);
+				.searchAllAuthorNotInPublication(publicationId);
 		return SUCCESS;
 	}
 

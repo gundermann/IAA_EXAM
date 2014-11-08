@@ -137,15 +137,19 @@ public class PublicationDAO {
 			authorCriteria.add(Restrictions.ilike("name",
 					"%" + publication.getAuthors() + "%"));
 			List<Author> authors = authorCriteria.list();
+			if (!authors.isEmpty()) {
+				criteria.createAlias("authors", "authors");
 
-			criteria.createAlias("authors", "authors");
+				Disjunction res = Restrictions.disjunction();
+				for (Author author : authors) {
+					res.add(Restrictions.eq("authors.id", author.getAuthorId()));
 
-			Disjunction res = Restrictions.disjunction();
-			for (Author author : authors) {
-				res.add(Restrictions.eq("authors.id", author.getAuthorId()));
-
+				}
+				criteria.add(res);
+			} else {
+				criteria.add(Restrictions.eq("nakId", 0L));
 			}
-			criteria.add(res);
+
 		}
 
 		if (publication.getDateOfPublication() != null
@@ -174,13 +178,17 @@ public class PublicationDAO {
 					+ publication.getPublisher() + "%"));
 			List<Publisher> publishers = publisherCriteria.list();
 
-			Disjunction res = Restrictions.disjunction();
+			if (!publishers.isEmpty()) {
+				Disjunction res = Restrictions.disjunction();
 
-			for (Publisher publisher : publishers) {
-				res.add(Restrictions.eq("publisher", publisher));
+				for (Publisher publisher : publishers) {
+					res.add(Restrictions.eq("publisher", publisher));
+				}
+
+				criteria.add(res);
+			} else {
+				criteria.add(Restrictions.eq("nakId", 0L));
 			}
-
-			criteria.add(res);
 		}
 
 		if (publication.getPublicationType() != null
@@ -192,12 +200,16 @@ public class PublicationDAO {
 					publication.getPublicationType()));
 			List<PublicationType> publicationTypes = publicationTypeCriteria
 					.list();
+			if (!publicationTypes.isEmpty()) {
 
-			Disjunction res = Restrictions.disjunction();
-			for (PublicationType pubType : publicationTypes) {
-				res.add(Restrictions.eq("publicationType", pubType));
+				Disjunction res = Restrictions.disjunction();
+				for (PublicationType pubType : publicationTypes) {
+					res.add(Restrictions.eq("publicationType", pubType));
+				}
+				criteria.add(res);
+			} else {
+				criteria.add(Restrictions.eq("nakId", 0L));
 			}
-			criteria.add(res);
 		}
 
 		if (publication.getKeywords() != null
@@ -208,15 +220,19 @@ public class PublicationDAO {
 					"%" + publication.getKeywords() + "%"));
 			List<Keyword> keywords = keywordCriteria.list();
 
-			criteria.createAlias("keywords", "keywords");
+			if (!keywords.isEmpty()) {
+				criteria.createAlias("keywords", "keywords");
 
-			Disjunction res = Restrictions.disjunction();
-			for (Keyword keyword : keywords) {
-				res.add(Restrictions.eq("keywords.id", keyword.getKeywordId()));
+				Disjunction res = Restrictions.disjunction();
+				for (Keyword keyword : keywords) {
+					res.add(Restrictions.eq("keywords.id",
+							keyword.getKeywordId()));
 
+				}
+				criteria.add(res);
+			} else {
+				criteria.add(Restrictions.eq("nakId", 0L));
 			}
-			criteria.add(res);
-
 		}
 
 		return criteria.list();

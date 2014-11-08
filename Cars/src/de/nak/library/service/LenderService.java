@@ -29,15 +29,6 @@ public interface LenderService {
 	Lender loadLender(Long lenderId);
 
 	/**
-	 * Loads a single lender.
-	 * 
-	 * @param matriculationNumber
-	 *            The identifier.
-	 * @return a lender or null.
-	 */
-	Lender loadLender(Integer matriculationNumber);
-
-	/**
 	 * Deletes the given lender.
 	 * 
 	 * @param lender
@@ -51,5 +42,14 @@ public interface LenderService {
 	 * @return a list which is empty if no lender was found.
 	 */
 	List<Lender> loadAllLenders();
+
+	/**
+	 * Searches a lender belonging to a given matriculation number.
+	 * 
+	 * @param matriculationNumber
+	 *            The matriculation number.
+	 * @return a lender or null.
+	 */
+	Lender searchLenderByMatriculationNumber(Integer matriculationNumber);
 
 }

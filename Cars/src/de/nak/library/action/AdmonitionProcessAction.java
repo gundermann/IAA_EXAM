@@ -4,10 +4,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.service.AdmonitionProcessService;
+import de.nak.library.service.LendingService;
 
 /**
  * Action for a single AdmonitionProcess.
- *
+ * 
  * @author Niels Gundermann
  */
 public class AdmonitionProcessAction extends ActionSupport {
@@ -23,6 +24,9 @@ public class AdmonitionProcessAction extends ActionSupport {
 	/** The AdmonitionProcess service. */
 	private AdmonitionProcessService admonitionProcessService;
 
+	/** The lending service. */
+	private LendingService lendingService;
+
 	/**
 	 * Adds an Admonition to an AdmonitionProcess
 	 * 
@@ -30,7 +34,7 @@ public class AdmonitionProcessAction extends ActionSupport {
 	 */
 	public String addAdmonition() {
 		AdmonitionProcess admonitionProcess = admonitionProcessService
-				.searchByLending(lendingId);
+				.searchByLendingID(lendingId);
 		if (admonitionProcess == null) {
 			addActionError(getText("msg.noAdmonitionProcessFound"));
 			return INPUT;
@@ -52,11 +56,12 @@ public class AdmonitionProcessAction extends ActionSupport {
 	 * @return the result string
 	 */
 	public String createAdmonitionProcess() {
-		if(admonitionProcessService.searchByLending(lendingId) != null){
+		if (admonitionProcessService.searchByLendingID(lendingId) != null) {
 			addActionError(getText("msg.admonitionProcessAlreadyExists"));
 			return INPUT;
 		}
-		AdmonitionProcess admonitionProcess = admonitionProcessService.createAdmonitionProcess(lendingId);
+		AdmonitionProcess admonitionProcess = lendingService
+				.createAdmonitionProcess(lendingId);
 		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
 		return SUCCESS;
 	}
@@ -80,6 +85,10 @@ public class AdmonitionProcessAction extends ActionSupport {
 	public void setAdmonitionProcessService(
 			AdmonitionProcessService admonitionProcessService) {
 		this.admonitionProcessService = admonitionProcessService;
+	}
+
+	public void setLendingService(LendingService lendingService) {
+		this.lendingService = lendingService;
 	}
 
 	public Long getLendingId() {

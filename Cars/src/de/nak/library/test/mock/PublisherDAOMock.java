@@ -6,7 +6,7 @@ import de.nak.library.dao.PublisherDAO;
 import de.nak.library.model.Publisher;
 
 /**
- * The keyword dao mock class.
+ * The publisher dao mock class.
  * 
  * @author Christian Leppelt
  */

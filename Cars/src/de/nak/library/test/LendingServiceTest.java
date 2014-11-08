@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import junit.framework.TestCase;
+import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
 import de.nak.library.service.impl.AdmonitionProcessServiceImpl;
@@ -89,6 +90,16 @@ public class LendingServiceTest extends TestCase {
 		lendingService.finishLendingIfLost(lending);
 
 		assertEquals(new Integer(4), lending.getPublication().getQuantity());
+	}
+
+	public void testCreateAdmonitionProcess() {
+		Long lendingId = new Long(12);
+
+		AdmonitionProcess admonitionProcess = lendingService
+				.createAdmonitionProcess(lendingId);
+
+		assertEquals(lendingId, admonitionProcess.getLending().getLendingId());
+		assertNotNull(admonitionProcess.getAdmonitions());
 	}
 
 }

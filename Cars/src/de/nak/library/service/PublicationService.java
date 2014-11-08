@@ -47,22 +47,51 @@ public interface PublicationService {
 	List<Publication> loadAllPublications();
 
 	/**
-	 * Search a list of publications.
+	 * Search a list of publications by a given publication criteria.
 	 * 
-	 * @param publication
+	 * @param publicationCriteria
+	 *            The publication criteria.
 	 * @return a list which is empty if no publication was found.
 	 */
-	List<Publication> searchPublications(PublicationSearchCriteria publication);
+	List<Publication> searchPublicationByCriteria(
+			PublicationSearchCriteria publicationCriteria);
 
 	/**
-	 * Search a publication.
+	 * Search a publication to a given isbn.
 	 * 
 	 * @param isbn
-	 *            The isbn you search for.
+	 *            The isbn.
 	 * @return a List containing one publication. The List is empty if no
 	 *         publication was found.
 	 */
 	List<Publication> searchPublicationByIsbn(Long isbn);
+
+	/**
+	 * Search a publication to a given nakID.
+	 * 
+	 * @param nakId
+	 *            The nakID.
+	 * @return a publication or null.
+	 */
+	Publication searchByNakId(Long nakId);
+
+	/**
+	 * Loads all the authors not attached to the given publication.
+	 * 
+	 * @param publicationId
+	 *            The data base id of the publication.
+	 * @return list which is empty if no author was found.
+	 */
+	List<Author> searchAllAuthorNotInPublication(Long publicationId);
+
+	/**
+	 * Loads all the keywords not attached to the given publication.
+	 * 
+	 * @param publicationId
+	 *            The data base id of the publication.
+	 * @return list which is empty if no keyword was found.
+	 */
+	List<Keyword> searchAllKeywordsNotInPublication(Long publicationId);
 
 	/**
 	 * Completes a given publication by adding the attributes which are
@@ -144,27 +173,5 @@ public interface PublicationService {
 	 *            The data base id of the new authors.
 	 */
 	void deleteAuthors(Publication publication, Long[] authorIds);
-
-	/**
-	 * Loads all the authors not attached to the given publication.
-	 * 
-	 * @param publicationId
-	 *            The data base id of the publication.
-	 * @return list which is empty if no author was found.
-	 */
-	List<Author> loadAllAuthorNotInPublication(Long publicationId);
-
-	/**
-	 * Loads all the keywords not attached to the given publication.
-	 * 
-	 * @param publicationId
-	 *            The data base id of the publication.
-	 * @return list which is empty if no keyword was found.
-	 */
-	List<Keyword> loadAllKeywordsNotInPublication(Long publicationId);
-
-	Publication loadByNakId(Long nakId);
-
-	List<Publication> loadAllAvailablePublications();
 
 }

@@ -8,6 +8,7 @@ import de.nak.library.model.Admonition;
 import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.service.impl.AdmonitionProcessServiceImpl;
 import de.nak.library.service.impl.AdmonitionServiceImpl;
+import de.nak.library.test.mock.AdmonitionDAOMock;
 import de.nak.library.test.mock.AdmonitionProcessDAOMock;
 
 /**
@@ -25,6 +26,7 @@ public class AdmonitionProcessServiceTest extends TestCase {
 				.setAdmonitionProcessDAO(new AdmonitionProcessDAOMock());
 
 		AdmonitionServiceImpl admonitionService = new AdmonitionServiceImpl();
+		admonitionService.setAdmonitionDAO(new AdmonitionDAOMock());
 		admonitionProcessService.setAdmonitionService(admonitionService);
 	}
 
@@ -43,10 +45,6 @@ public class AdmonitionProcessServiceTest extends TestCase {
 
 	public void testCountAdmonitions() {
 		assertEquals(null, admonitionProcessService.countAdmonitions(null));
-		assertEquals(new Integer(0),
-				admonitionProcessService.countAdmonitions(0l));
-		assertEquals(new Integer(12),
-				admonitionProcessService.countAdmonitions(12l));
 	}
 
 	private void assertCorrectCreationDay(Admonition admonition) {

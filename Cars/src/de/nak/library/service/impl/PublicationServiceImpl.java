@@ -56,8 +56,9 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public List<Publication> searchPublications(PublicationSearchCriteria publication) {
-		return publicationDAO.load(publication);
+	public List<Publication> searchPublicationByCriteria(
+			PublicationSearchCriteria publicationCriteria) {
+		return publicationDAO.load(publicationCriteria);
 	}
 
 	@Override
@@ -67,6 +68,31 @@ public class PublicationServiceImpl implements PublicationService {
 		if (publication != null)
 			publicationList.add(publication);
 		return publicationList;
+	}
+
+	@Override
+	public Publication searchByNakId(Long nakId) {
+		return publicationDAO.loadByNakId(nakId);
+	}
+
+	@Override
+	public List<Author> searchAllAuthorNotInPublication(Long publicationId) {
+		Publication publication = loadPublication(publicationId);
+		List<Author> authors = authorService.loadAllAuthors();
+		for (Author author : publication.getAuthors()) {
+			authors.remove(author);
+		}
+		return authors;
+	}
+
+	@Override
+	public List<Keyword> searchAllKeywordsNotInPublication(Long publicationId) {
+		Publication publication = loadPublication(publicationId);
+		List<Keyword> keywords = keywordService.loadAllKeywords();
+		for (Keyword keyword : publication.getKeywords()) {
+			keywords.remove(keyword);
+		}
+		return keywords;
 	}
 
 	@Override
@@ -123,26 +149,6 @@ public class PublicationServiceImpl implements PublicationService {
 		publication.setAuthors(authors);
 	}
 
-	@Override
-	public List<Author> loadAllAuthorNotInPublication(Long publicationId) {
-		Publication publication = loadPublication(publicationId);
-		List<Author> authors = authorService.loadAllAuthors();
-		for (Author author : publication.getAuthors()) {
-			authors.remove(author);
-		}
-		return authors;
-	}
-
-	@Override
-	public List<Keyword> loadAllKeywordsNotInPublication(Long publicationId) {
-		Publication publication = loadPublication(publicationId);
-		List<Keyword> keywords = keywordService.loadAllKeywords();
-		for (Keyword keyword : publication.getKeywords()) {
-			keywords.remove(keyword);
-		}
-		return keywords;
-	}
-
 	public void setPublicationDAO(PublicationDAO publicationDAO) {
 		this.publicationDAO = publicationDAO;
 	}
@@ -194,18 +200,5 @@ public class PublicationServiceImpl implements PublicationService {
 	private void addPublisherValue(Publication publication, Long publisherId) {
 		Publisher publisher = publisherService.loadPublisher(publisherId);
 		publication.setPublisher(publisher);
-	}
-
-	@Override
-	//TODO Kommentar im interface
-	public Publication loadByNakId(Long nakId) {
-		return publicationDAO.loadByNakId(nakId);
-	}
-
-	@Override
-	public List<Publication> loadAllAvailablePublications() {
-		// TODO Nur Publikationen ausgeben zu denen die Anzahl der ausgeliehenen Publikationen - Anzahl der Menge der Publikation > 0
-		
-		return null;
 	}
 }
