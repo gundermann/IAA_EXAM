@@ -2,7 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<h3><s:text name="txt.masterDataManagement.authorList"/></h3>
+<h3><s:text name="txt.masterDataManagement.authors"/></h3>
 <s:form>
 	<s:actionerror/>
 	<%-- List of authors --%>
