@@ -2,6 +2,7 @@ package de.nak.library.service;
 
 import java.util.List;
 
+import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
 
@@ -52,11 +53,27 @@ public interface LendingService {
 	List<Lending> searchDelayedLendings();
 
 	/**
-	 * Search all lendings which belong to a publication.
+	 * Search all lendings which belong to a given publication.
 	 * 
+	 * @param publication
+	 *            The publication.
 	 * @return a list which is empty if no lending was found.
 	 */
 	List<Lending> searchByPublication(Publication publication);
+
+	/**
+	 * Search all publications without a lending.
+	 * 
+	 * @return a list which is empty if no publication was found.
+	 */
+	List<Publication> searchPublicationsWithoutLending();
+
+	/**
+	 * Search all publications which can be lend.
+	 * 
+	 * @return a list which is empty if no publication was found.
+	 */
+	List<Publication> searchAllAvailablePublications();
 
 	/**
 	 * Extends the return date of a given lending by 2 weeks. Adds one extension
@@ -72,6 +89,7 @@ public interface LendingService {
 	 * 
 	 * @param lending
 	 *            The lending.
+	 * @return true if the lending has an admonition process.
 	 */
 	boolean hasAdmonitionProcess(Lending lending);
 
@@ -88,13 +106,6 @@ public interface LendingService {
 	 * @return the completed lending.
 	 */
 	Lending initializeLending(Lending lending, Long lenderId, Long publicationId);
-
-	/**
-	 * Search all publications without a lending.
-	 * 
-	 * @return a list which is empty if no publication was found.
-	 */
-	List<Publication> loadAllAvailablePublications();
 
 	/**
 	 * Deletes a given lending including the admonition process and all
@@ -114,5 +125,15 @@ public interface LendingService {
 	 *            The lending to delete.
 	 */
 	void finishLendingIfLost(Lending lending);
+
+	/**
+	 * Creates and saves an admonition process for the given lending.
+	 * 
+	 * @param lendingId
+	 *            The data base id of the lending to create an admonition
+	 *            process for.
+	 * @return the created admonition process.
+	 */
+	AdmonitionProcess createAdmonitionProcess(Long lendingId);
 
 }

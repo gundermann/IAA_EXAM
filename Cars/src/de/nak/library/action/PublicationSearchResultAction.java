@@ -34,7 +34,7 @@ public class PublicationSearchResultAction extends ActionSupport {
 	 * @return the result string.
 	 * */
 	public String find() {
-		publicationList = publicationService.searchPublications(criteria);
+		publicationList = publicationService.searchPublicationByCriteria(criteria);
 		return SUCCESS;
 	}
 

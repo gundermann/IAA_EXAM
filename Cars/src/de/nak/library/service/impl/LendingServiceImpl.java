@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.List;
 
 import de.nak.library.dao.LendingDAO;
+import de.nak.library.model.Admonition;
 import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
@@ -62,24 +64,19 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	@Override
-	public void extend(Lending lending) {
-		Integer lendingExtensionNr = lending.getNumberOfLendingExtensions();
-		if (lendingExtensionNr <= 3) {
-			extendReturnDate(lending);
-			lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
-			deleteAdmonitionProcess(lending);
+	public List<Publication> searchPublicationsWithoutLending() {
+		List<Publication> allPublications = publicationService
+				.loadAllPublications();
+		List<Publication> publicationsWithoutLending = new ArrayList<Publication>();
+		for (Publication publication : allPublications) {
+			if (searchByPublication(publication).isEmpty())
+				publicationsWithoutLending.add(publication);
 		}
+		return publicationsWithoutLending;
 	}
 
 	@Override
-	public boolean hasAdmonitionProcess(Lending lending) {
-		AdmonitionProcess processes = admonitionProcessService
-				.searchByLending(lending);
-		return processes != null;
-	}
-
-	@Override
-	public List<Publication> loadAllAvailablePublications() {
+	public List<Publication> searchAllAvailablePublications() {
 		List<Publication> allPublications = publicationService
 				.loadAllPublications();
 		List<Publication> availablePublications = new ArrayList<Publication>();
@@ -89,6 +86,24 @@ public class LendingServiceImpl implements LendingService {
 				availablePublications.add(publication);
 		}
 		return availablePublications;
+	}
+
+	@Override
+	public void extend(Lending lending) {
+		Integer lendingExtensionNr = lending.getNumberOfLendingExtensions();
+		if (lendingExtensionNr <= 3) {
+			extendReturnDate(lending);
+			lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
+			deleteAdmonitionProcess(lending);
+		}
+		saveLending(lending);
+	}
+
+	@Override
+	public boolean hasAdmonitionProcess(Lending lending) {
+		AdmonitionProcess processes = admonitionProcessService
+				.searchByLending(lending);
+		return processes != null;
 	}
 
 	@Override
@@ -105,17 +120,23 @@ public class LendingServiceImpl implements LendingService {
 	@Override
 	public void finishLendingIfReturned(Lending lending) {
 		deleteAdmonitionProcess(lending);
-		deleteLending(lending);
 	}
 
-	// TODO hier gibt es wieder eine org.hibernate.NonUniqueObjectException
 	@Override
 	public void finishLendingIfLost(Lending lending) {
 		Publication publication = lending.getPublication();
 		publication.setQuantity(publication.getQuantity() - 1);
 		publicationService.savePublication(publication);
 		deleteAdmonitionProcess(lending);
-		deleteLending(lending);
+	}
+
+	@Override
+	public AdmonitionProcess createAdmonitionProcess(Long lendingId) {
+		AdmonitionProcess admonitionProcess = new AdmonitionProcess();
+		admonitionProcess.setAdmonitions(new HashSet<Admonition>());
+		admonitionProcess.setLending(loadLending(lendingId));
+		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
+		return admonitionProcess;
 	}
 
 	public void setLendingDAO(LendingDAO lendingDAO) {
@@ -156,6 +177,5 @@ public class LendingServiceImpl implements LendingService {
 		calendar.add(Calendar.DATE, 14);
 		lending.setExpectedReturnDate(calendar.getTime());
 	}
-
 
 }

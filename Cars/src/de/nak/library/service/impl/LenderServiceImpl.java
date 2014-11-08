@@ -26,11 +26,6 @@ public class LenderServiceImpl implements LenderService {
 	}
 
 	@Override
-	public Lender loadLender(Integer matriculationNumber) {
-		return lenderDAO.load(matriculationNumber);
-	}
-
-	@Override
 	public void deleteLender(Lender lender) {
 		lenderDAO.delete(lender);
 	}
@@ -38,6 +33,11 @@ public class LenderServiceImpl implements LenderService {
 	@Override
 	public List<Lender> loadAllLenders() {
 		return lenderDAO.loadAll();
+	}
+
+	@Override
+	public Lender searchLenderByMatriculationNumber(Integer matriculationNumber) {
+		return lenderDAO.load(matriculationNumber);
 	}
 
 	public void setLenderDAO(LenderDAO lenderDAO) {

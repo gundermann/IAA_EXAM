@@ -1,11 +1,8 @@
 package de.nak.library.test.mock;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import de.nak.library.dao.AdmonitionProcessDAO;
-import de.nak.library.model.Admonition;
 import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.model.Lending;
 
@@ -23,17 +20,7 @@ public class AdmonitionProcessDAOMock extends AdmonitionProcessDAO {
 
 	@Override
 	public AdmonitionProcess load(Long id) {
-		if (id == null)
-			return null;
-		AdmonitionProcess admonitionProcess = new AdmonitionProcess();
-		Set<Admonition> admonitions = new HashSet<Admonition>();
-		for (int i = 0; i < id; i++) {
-			Admonition admonition = new Admonition();
-			admonition.setAdmonitionId(id);
-			admonitions.add(admonition);
-		}
-		admonitionProcess.setAdmonitions(admonitions);
-		return admonitionProcess;
+		return null;
 	}
 
 	@Override

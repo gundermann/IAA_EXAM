@@ -7,7 +7,7 @@ import de.nak.library.model.Keyword;
 import de.nak.library.service.KeywordService;
 
 /**
- * The keyword process service implementation class.
+ * The keyword service implementation class.
  * 
  * @author Christian Leppelt
  */

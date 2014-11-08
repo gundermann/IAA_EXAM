@@ -30,7 +30,7 @@ public class LenderAction extends ActionSupport {
 	 */
 	public String save() {
 		Lender lenderWithNewMatriculationNumber = lenderService
-				.loadLender(lender.getMatriculationNumber());
+				.searchLenderByMatriculationNumber(lender.getMatriculationNumber());
 		if (lenderWithNewMatriculationNumber == null) {
 			lenderService.saveLender(lender);
 			return SUCCESS;

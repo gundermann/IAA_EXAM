@@ -45,10 +45,6 @@ public class AdmonitionProcessServiceTest extends TestCase {
 
 	public void testCountAdmonitions() {
 		assertEquals(null, admonitionProcessService.countAdmonitions(null));
-		assertEquals(new Integer(0),
-				admonitionProcessService.countAdmonitions(0l));
-		assertEquals(new Integer(12),
-				admonitionProcessService.countAdmonitions(12l));
 	}
 
 	private void assertCorrectCreationDay(Admonition admonition) {

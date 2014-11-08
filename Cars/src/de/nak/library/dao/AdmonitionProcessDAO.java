@@ -83,6 +83,10 @@ public class AdmonitionProcessDAO {
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.add(Restrictions.eq("lending", lending));
 		return (AdmonitionProcess) criteria.uniqueResult();
-		}
+	}
 
+	public AdmonitionProcess loadByLendingID(Long lendingId) {
+		// TODO
+		return null;
+	}
 }
