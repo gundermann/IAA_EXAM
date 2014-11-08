@@ -173,13 +173,13 @@
 		<!-- Action that shows the setup to add authors to publication -->
 		<action name="ShowAddAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction"
 			method="loadAuthorsNotInPublication">
-			<result type="tiles">authorsAddSetup</result>
+			<result type="tiles">authorAddSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that shows the setup to delete authors from publication -->
 		<action name="ShowDeleteAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction"
 			method="loadAuthorsInPublication">
-			<result type="tiles">authorsDeleteSetup</result>
+			<result type="tiles">authorDeleteSetup</result>
 			<result type="chain" name="input">EditPublication</result>
 		</action>
 		<!-- Action that adds the authors to publication -->

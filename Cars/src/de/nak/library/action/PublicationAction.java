@@ -154,7 +154,8 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 * */
 	public String saveEditing() {
-		if (publicationService.loadByNakId(publication.getNakId()) != null) {
+		Publication publicationWithSameNakId = publicationService.loadByNakId(publication.getNakId());
+		if (publicationWithSameNakId != null && publicationWithSameNakId.getPublicationId() != publicationId) {
 			addActionError(getText("msg.matriculationNumberNotAvailable"));
 			return INPUT;
 		}

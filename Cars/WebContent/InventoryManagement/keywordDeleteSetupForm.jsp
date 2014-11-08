@@ -17,6 +17,6 @@
 		</display:column>
 		<display:column titleKey="keyword.name" property="keyword" sortable="true"/>
 	</display:table>
-	<s:submit key="btn.add" action="DeleteKeywordsToPublication" align="left"/>
+	<s:submit key="btn.delete" action="DeleteKeywordsFromPublication" align="left"/>
 
 </s:form>

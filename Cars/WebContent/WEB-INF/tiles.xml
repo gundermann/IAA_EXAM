@@ -59,7 +59,7 @@
 			value="/InventoryManagement/publisherSetupForm.jsp" />
 	</definition>
 	<!-- form for publication type setup for publication -->
-	<definition name="publisherSetup" extends="mainLayout">
+	<definition name="publicationTypeSetup" extends="mainLayout">
 		<put-attribute name="content"
 			value="/InventoryManagement/publicationTypeSetupForm.jsp" />
 	</definition>

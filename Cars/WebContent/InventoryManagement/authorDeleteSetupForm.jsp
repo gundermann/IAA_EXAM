@@ -18,6 +18,6 @@
 		</display:column>
 		<display:column titleKey="author.name" property="author" sortable="true"/>
 	</display:table>
-	<s:submit key="btn.add" action="DeleteAuthorsToPublication" align="left"/>
+	<s:submit key="btn.delete" action="DeleteAuthorsFromPublication" align="left"/>
 
 </s:form>
