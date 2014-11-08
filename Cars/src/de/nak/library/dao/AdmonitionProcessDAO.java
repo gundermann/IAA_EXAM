@@ -85,8 +85,17 @@ public class AdmonitionProcessDAO {
 		return (AdmonitionProcess) criteria.uniqueResult();
 	}
 
+	/**
+	 * Loads a admonition processes from the database that belongs to the given
+	 * lendingId.
+	 * 
+	 * @return a list of one admonition process which is empty if no admonition
+	 *         process was found.
+	 */
 	public AdmonitionProcess loadByLendingID(Long lendingId) {
-		// TODO
-		return null;
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				AdmonitionProcess.class);
+		criteria.add(Restrictions.eq("lending", lendingId));
+		return (AdmonitionProcess) criteria.uniqueResult();
 	}
 }
