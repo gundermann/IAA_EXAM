@@ -107,6 +107,7 @@ public class LendingDAO {
 	public List<Lending> load(Publication publication) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Lending.class);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.add(Restrictions.eq("publication", publication));
 		return criteria.list();
 	}
