@@ -35,11 +35,32 @@ public class LendingAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		lending = new Lending();
-		lending = lendingService.initializeLending(lending, lenderId,
-				publicationId);
-		lendingService.saveLending(lending);
-		return SUCCESS;
+		if (isSetupValid()) {
+			lending = new Lending();
+			lending = lendingService.initializeLending(lending, lenderId,
+					publicationId);
+			lendingService.saveLending(lending);
+			return SUCCESS;
+		} else
+			return INPUT;
+	}
+
+	/**
+	 * Checks if the lender ID and publication ID is set.
+	 * 
+	 * @return valid
+	 */
+	private boolean isSetupValid() {
+		boolean isValid = true;
+		if (lenderId == null) {
+			addActionError(getText("msg.selectLender"));
+			isValid = false;
+		} 
+		if (publicationId == null) {
+			addActionError(getText("msg.selectPublication"));
+			isValid = false;
+		}
+		return isValid;
 	}
 
 	/**
@@ -91,14 +112,8 @@ public class LendingAction extends ActionSupport {
 
 	@Override
 	public void validate() {
-		if (lendingId != null) {
-			return;
-		} else if (lendingId == null) {
+		if (lendingId == null) {
 			addActionError(getText("msg.selectLending"));
-		} else if (lenderId == null) {
-			addActionError(getText("msg.selectLender"));
-		} else if (publicationId == null) {
-			addActionError(getText("msg.selectPublication"));
 		}
 	}
 
