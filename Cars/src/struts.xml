@@ -104,13 +104,13 @@
 		<action name="FindPublication"
 			class="de.nak.library.action.PublicationSearchResultAction" method="find">
 			<result type="tiles">inventoryManagement</result>
-			<result type="chain" name="input">publicationSearchForm</result>
+			<result type="chain" name="input">SearchForm</result>
 		</action>
 		<!-- Action for the search of a publication by isbn -->
 		<action name="FindPublicationByIsbn"
 			class="de.nak.library.action.PublicationSearchResultAction" method="findByIsbn">
-			<result type="tiles">inventoryManagement</result>
-			<result type="chain" name="input">publicationSearchIsbnForm</result>
+			<result type="tiles" name="success">inventoryManagement</result>
+			<result type="chain" name="input">SearchIsbnForm</result>
 		</action>
 		<!-- Action that initializes the setup for a new publication -->
 		<action name="AddPublication" class="de.nak.library.action.ShowPublicationSetupAction">

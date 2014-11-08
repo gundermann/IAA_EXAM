@@ -5,7 +5,7 @@
 <s:form>
 	<s:actionerror/>
 	<%-- Form fields for the criteria's isbn attribute --%>
-	<s:textfield name="criteria.isbn" key="publication.isbn" size="13" maxlength="13"/>
+	<s:textfield name="criteria.isbn" key="publication.isbn" size="13" maxlength="13" type="long"/>
 
 	<%-- The buttons --%>
 	<s:submit key="btn.search" action="FindPublicationByIsbn" align="left"/>

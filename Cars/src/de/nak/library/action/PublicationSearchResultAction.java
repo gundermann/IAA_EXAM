@@ -46,7 +46,14 @@ public class PublicationSearchResultAction extends ActionSupport {
 	public String findByIsbn() {
 		if (criteria.getIsbn().equals("")) {
 			publicationList = publicationService.loadAllPublications();
+			return SUCCESS;
 		} else {
+			try {
+				Long.valueOf(criteria.getIsbn());
+			} catch (NumberFormatException nfe) {
+				addActionError(getText("msg.noValidISBN"));
+				return INPUT;
+			}
 			publicationList = new ArrayList<Publication>();
 			publicationList = publicationService.searchPublicationByIsbn(Long
 					.valueOf(criteria.getIsbn()));

@@ -3,7 +3,6 @@
 
 <h3><s:text name="txt.search" /></h3>
 <s:form>
-	<s:actionerror/>
 	<%-- Form fields for the criteria's attributes --%>
 	<s:textfield name="criteria.nakId" key="publication.nakId"/>
 	<s:textfield name="criteria.title" key="publication.title" />
