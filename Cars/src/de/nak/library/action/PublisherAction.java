@@ -1,8 +1,13 @@
 package de.nak.library.action;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.library.model.Publication;
+import de.nak.library.model.PublicationSearchCriteria;
 import de.nak.library.model.Publisher;
+import de.nak.library.service.PublicationService;
 import de.nak.library.service.PublisherService;
 
 /**
@@ -22,6 +27,14 @@ public class PublisherAction extends ActionSupport {
 
 	/** The publisher service. */
 	private PublisherService publisherService;
+	
+	/** The publication service */
+	private PublicationService publicationService;
+	
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
+	}
+
 
 	/**
 	 * Saves the publisher to the database.
@@ -39,9 +52,16 @@ public class PublisherAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String delete() {
-		publisher = publisherService
-				.loadPublisher(publisherId);
+		publisher = publisherService.loadPublisher(publisherId);
 		if (publisher != null) {
+			PublicationSearchCriteria publicationCriteria = new PublicationSearchCriteria();
+			publicationCriteria.setPublisher(publisher.getPublisherName());
+			List<Publication> publicationResults = publicationService
+					.searchPublicationByCriteria(publicationCriteria);
+			if (!publicationResults.isEmpty()) {
+				addActionError(getText("msg.publisherInUse"));
+				return INPUT;
+			}
 			publisherService.deletePublisher(publisher);
 		}
 		return SUCCESS;

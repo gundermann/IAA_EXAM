@@ -1,9 +1,14 @@
 package de.nak.library.action;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Keyword;
+import de.nak.library.model.Publication;
+import de.nak.library.model.PublicationSearchCriteria;
 import de.nak.library.service.KeywordService;
+import de.nak.library.service.PublicationService;
 
 /**
  * Action for a single keyword.
@@ -22,6 +27,13 @@ public class KeywordAction extends ActionSupport {
 
 	/** The publication service. */
 	private KeywordService keywordService;
+	
+	/** The publication service */
+	private PublicationService publicationService;
+
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
+	}
 
 	/**
 	 * Saves the keyword to the database.
@@ -41,6 +53,14 @@ public class KeywordAction extends ActionSupport {
 	public String delete() {
 		keyword = keywordService.loadKeyword(keywordId);
 		if (keyword != null) {
+			PublicationSearchCriteria publicationCriteria = new PublicationSearchCriteria();
+			publicationCriteria.setKeywords(keyword.getKeyword());
+			List<Publication> publicationResults = publicationService
+					.searchPublicationByCriteria(publicationCriteria);
+			if (!publicationResults.isEmpty()) {
+				addActionError(getText("msg.keywordInUse"));
+				return INPUT;
+			}
 			keywordService.deleteKeyword(keyword);
 		}
 		return SUCCESS;

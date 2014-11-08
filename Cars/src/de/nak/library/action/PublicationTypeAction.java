@@ -1,8 +1,13 @@
 package de.nak.library.action;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.library.model.Publication;
+import de.nak.library.model.PublicationSearchCriteria;
 import de.nak.library.model.PublicationType;
+import de.nak.library.service.PublicationService;
 import de.nak.library.service.PublicationTypeService;
 
 /**
@@ -22,6 +27,14 @@ public class PublicationTypeAction extends ActionSupport {
 
 	/** The publication type service. */
 	private PublicationTypeService publicationTypeService;
+	
+	/** The publication service */
+	private PublicationService publicationService;
+	
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
+	}
+
 
 	/**
 	 * Saves the publication type to the database.
@@ -39,9 +52,16 @@ public class PublicationTypeAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String delete() {
-		publicationType = publicationTypeService
-				.loadPublicationType(publicationTypeId);
+		publicationType = publicationTypeService.loadPublicationType(publicationTypeId);
 		if (publicationType != null) {
+			PublicationSearchCriteria publicationCriteria = new PublicationSearchCriteria();
+			publicationCriteria.setPublicationType(publicationType.getName());
+			List<Publication> publicationResults = publicationService
+					.searchPublicationByCriteria(publicationCriteria);
+			if (!publicationResults.isEmpty()) {
+				addActionError(getText("msg.publicationTypeInUse"));
+				return INPUT;
+			}
 			publicationTypeService.deletePublicationType(publicationType);
 		}
 		return SUCCESS;

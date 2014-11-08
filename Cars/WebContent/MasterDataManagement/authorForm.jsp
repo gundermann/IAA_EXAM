@@ -8,6 +8,6 @@
 	<s:textfield name="author.name" key="author.name" requiredLabel="true" />
 	
 	<%-- The buttons --%>
-	<s:submit key="btn.save" action="SaveAuthor"/>
-	<s:submit key="btn.cancel" action="CancelAuthor"/>
+	<s:submit key="btn.save" action="SaveAuthor" align="left"/>
+	<s:submit key="btn.cancel" action="CancelAuthor" align="left"/>
 </s:form>
