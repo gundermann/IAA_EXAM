@@ -174,6 +174,4 @@ public interface PublicationService {
 	 */
 	void deleteAuthors(Publication publication, Long[] authorIds);
 
-	List<Publication> loadAllAvailablePublications();
-
 }

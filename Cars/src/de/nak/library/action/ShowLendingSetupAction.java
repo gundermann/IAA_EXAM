@@ -7,17 +7,20 @@ import com.opensymphony.xwork2.Action;
 import de.nak.library.model.Lender;
 import de.nak.library.model.Publication;
 import de.nak.library.service.LenderService;
+import de.nak.library.service.LendingService;
 import de.nak.library.service.PublicationService;
 
 /**
  * The Action that shows the setup for a lending.
- *
+ * 
  * @author Niels Gundermann
  */
 public class ShowLendingSetupAction implements Action {
 
 	/** The publication service */
 	private PublicationService publicationService;
+	/** The lending service */
+	private LendingService lendingService;
 	/** The list of publications */
 	private List<Publication> publicationList;
 	/** The lender service */
@@ -30,7 +33,7 @@ public class ShowLendingSetupAction implements Action {
 		lenderList = lenderService.loadAllLenders();
 		// TODO hier bietet sich eine Methode an, die nur die Publikationen
 		// zurück gibt, die auch ausgeliehen werden können
-		 publicationList = publicationService.loadAllAvailablePublications();
+		publicationList = lendingService.searchAllAvailablePublications();
 		publicationList = publicationService.loadAllPublications();
 		return SUCCESS;
 	}
@@ -57,6 +60,10 @@ public class ShowLendingSetupAction implements Action {
 
 	public void setLenderService(LenderService lenderService) {
 		this.lenderService = lenderService;
+	}
+
+	public void setLendingService(LendingService lendingService) {
+		this.lendingService = lendingService;
 	}
 
 }

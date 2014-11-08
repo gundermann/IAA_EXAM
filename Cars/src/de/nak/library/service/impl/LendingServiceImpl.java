@@ -70,18 +70,6 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	@Override
-	public List<Publication> searchPublicationsWithoutLending() {
-		List<Publication> allPublications = publicationService
-				.loadAllPublications();
-		List<Publication> publicationsWithoutLending = new ArrayList<Publication>();
-		for (Publication publication : allPublications) {
-			if (searchByPublication(publication).isEmpty())
-				publicationsWithoutLending.add(publication);
-		}
-		return publicationsWithoutLending;
-	}
-
-	@Override
 	public List<Publication> searchAllAvailablePublications() {
 		List<Publication> allPublications = publicationService
 				.loadAllPublications();

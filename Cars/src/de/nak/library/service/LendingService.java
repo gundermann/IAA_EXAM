@@ -72,13 +72,6 @@ public interface LendingService {
 	List<Lending> searchByLender(Lender lender);
 
 	/**
-	 * Search all publications without a lending.
-	 * 
-	 * @return a list which is empty if no publication was found.
-	 */
-	List<Publication> searchPublicationsWithoutLending();
-
-	/**
 	 * Search all publications which can be lend.
 	 * 
 	 * @return a list which is empty if no publication was found.
