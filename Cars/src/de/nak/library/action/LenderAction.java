@@ -4,10 +4,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Lender;
 import de.nak.library.service.LenderService;
+import de.nak.library.service.LendingService;
 
 /**
  * Action for a single lender.
- *
+ * 
  * @author Niels Gundermann
  */
 public class LenderAction extends ActionSupport {
@@ -23,6 +24,9 @@ public class LenderAction extends ActionSupport {
 	/** The lender service. */
 	private LenderService lenderService;
 
+	/** The lending service */
+	private LendingService lendingService;
+
 	/**
 	 * Saves the Lender to the database if possible.
 	 * 
@@ -30,7 +34,8 @@ public class LenderAction extends ActionSupport {
 	 */
 	public String save() {
 		Lender lenderWithNewMatriculationNumber = lenderService
-				.searchLenderByMatriculationNumber(lender.getMatriculationNumber());
+				.searchLenderByMatriculationNumber(lender
+						.getMatriculationNumber());
 		if (lenderWithNewMatriculationNumber == null) {
 			lenderService.saveLender(lender);
 			return SUCCESS;
@@ -42,12 +47,16 @@ public class LenderAction extends ActionSupport {
 
 	/**
 	 * Deletes the selected lender from the database.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String delete() {
 		lender = lenderService.loadLender(lenderId);
 		if (lender != null) {
+			if (!lendingService.searchByLender(lender).isEmpty()) {
+				addActionError(getText("msg.lenderInUse"));
+				return INPUT;
+			}
 			lenderService.deleteLender(lender);
 		}
 		return SUCCESS;
@@ -55,7 +64,7 @@ public class LenderAction extends ActionSupport {
 
 	/**
 	 * Displays the selected lender in the lender form.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String load() {
@@ -85,6 +94,10 @@ public class LenderAction extends ActionSupport {
 
 	public void setLenderService(LenderService lenderService) {
 		this.lenderService = lenderService;
+	}
+
+	public void setLendingService(LendingService lendingService) {
+		this.lendingService = lendingService;
 	}
 
 	public Long getLenderId() {

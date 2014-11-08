@@ -10,6 +10,7 @@ import java.util.List;
 import de.nak.library.dao.LendingDAO;
 import de.nak.library.model.Admonition;
 import de.nak.library.model.AdmonitionProcess;
+import de.nak.library.model.Lender;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
 import de.nak.library.service.AdmonitionProcessService;
@@ -61,6 +62,11 @@ public class LendingServiceImpl implements LendingService {
 	@Override
 	public List<Lending> searchByPublication(Publication publication) {
 		return lendingDAO.load(publication);
+	}
+
+	@Override
+	public List<Lending> searchByLender(Lender lender) {
+		return lendingDAO.load(lender);
 	}
 
 	@Override
