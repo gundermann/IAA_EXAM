@@ -201,4 +201,10 @@ public class PublicationServiceImpl implements PublicationService {
 		Publisher publisher = publisherService.loadPublisher(publisherId);
 		publication.setPublisher(publisher);
 	}
+
+	@Override
+	public List<Publication> loadAllAvailablePublications() {
+		// TODO Publikationen, die abzüglich der verliehenen Exemplare immer noch einen Bestand >0 haben
+		return null;
+	}
 }

@@ -30,7 +30,7 @@ public class ShowLendingSetupAction implements Action {
 		lenderList = lenderService.loadAllLenders();
 		// TODO hier bietet sich eine Methode an, die nur die Publikationen
 		// zurück gibt, die auch ausgeliehen werden können
-		// publicationList = publicationService.loadAllAvailablePublications();
+		 publicationList = publicationService.loadAllAvailablePublications();
 		publicationList = publicationService.loadAllPublications();
 		return SUCCESS;
 	}
