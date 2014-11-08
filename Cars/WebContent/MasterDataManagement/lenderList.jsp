@@ -14,12 +14,12 @@
 		<display:column>
 			<input type="radio" name="lenderId" value="${lenderTable.lenderId}" />
 		</display:column>
-		<display:column titleKey="lender.matriculationNumber" property="matriculationNumber" sortable="true"/>
-		<display:column titleKey="lender.firstname" property="firstName" sortable="true"/>
-		<display:column titleKey="lender.lastname" property="lastName" sortable="true"/>
+		<display:column title="Matrikulation-Nummer" property="matriculationNumber" sortable="true"/>
+		<display:column title="Vorname" property="firstName" sortable="true"/>
+		<display:column title="Nachname" property="lastName" sortable="true"/>
 	</display:table>
 
-	<s:submit key="btn.add" action="AddLender"/>
-	<s:submit key="btn.delete" action="DeleteLender"/>
-	<s:submit key="btn.edit" action="EditLender"/>
+	<s:submit key="btn.add" action="AddLender" align="left"/>
+	<s:submit key="btn.delete" action="DeleteLender" align="left"/>
+	<s:submit key="btn.edit" action="EditLender" align="left"/>
 </s:form>

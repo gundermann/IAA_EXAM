@@ -15,10 +15,10 @@
 		<display:column>
 			<input type="radio" name="keywordId" value="${keywordTable.keywordId}" />
 		</display:column>
-		<display:column titleKey="keyword" property="keyword" sortable="true"/>
+		<display:column title="Schlüsselwort" property="keyword" sortable="true"/>
 	</display:table>
 	
-	<s:submit key="btn.add" action="AddKeyword"/>
-	<s:submit key="btn.delete" action="DeleteKeyword"/>
-	<s:submit key="btn.edit" action="EditKeyword"/>
+	<s:submit key="btn.add" action="AddKeyword" align="left"/>
+	<s:submit key="btn.delete" action="DeleteKeyword" align="left"/>
+	<s:submit key="btn.edit" action="EditKeyword" align="left"/>
 </s:form>

@@ -14,10 +14,10 @@
 		<display:column>
 			<input type="radio" name="authorId" value="${authorTable.authorId}" />
 		</display:column>
-		<display:column titleKey="author.name" property="name" sortable="true"/>
+		<display:column title="Name" property="name" sortable="true"/>
 	</display:table>
 
-	<s:submit key="btn.add" action="AddAuthor"/>
-	<s:submit key="btn.delete" action="DeleteAuthor"/>
-	<s:submit key="btn.edit" action="EditAuthor"/>
+	<s:submit key="btn.add" action="AddAuthor" align="left"/>
+	<s:submit key="btn.delete" action="DeleteAuthor" align="left"/>
+	<s:submit key="btn.edit" action="EditAuthor" align="left"/>
 </s:form>

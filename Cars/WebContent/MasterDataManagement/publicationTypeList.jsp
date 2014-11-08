@@ -15,7 +15,7 @@
 		<display:column>
 			<input type="radio" name="publicationTypeId" value="${publicationTypeTable.publicationTypeId}" />
 		</display:column>
-		<display:column titleKey="lbl.publicationType.name" property="name" sortable="true"/>
+		<display:column title="Publikationart" property="name" sortable="true"/>
 	</display:table>
 	
 	<s:submit align="left" key="btn.add" action="AddPublicationType"/>
