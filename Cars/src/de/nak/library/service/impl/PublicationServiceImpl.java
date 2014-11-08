@@ -64,7 +64,7 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public List<Publication> searchPublicationByIsbn(Long isbn) {
 		List<Publication> publicationList = new ArrayList<Publication>();
-		Publication publication = publicationDAO.loadById(isbn);
+		Publication publication = publicationDAO.loadByIsbn(isbn);
 		if (publication != null)
 			publicationList.add(publication);
 		return publicationList;
