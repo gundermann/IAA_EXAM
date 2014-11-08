@@ -34,11 +34,7 @@ public class PublicationSearchResultAction extends ActionSupport {
 	 * @return the result string.
 	 * */
 	public String find() {
-		if (criteria == null) {
-			publicationList = publicationService.loadAllPublications();
-		} else {
-			publicationList = publicationService.searchPublications(criteria);
-		}
+		publicationList = publicationService.searchPublications(criteria);
 		return SUCCESS;
 	}
 
@@ -48,7 +44,7 @@ public class PublicationSearchResultAction extends ActionSupport {
 	 * @return the result string
 	 */
 	public String findByIsbn() {
-		if (criteria == null) {
+		if (criteria.getIsbn().equals("")) {
 			publicationList = publicationService.loadAllPublications();
 		} else {
 			publicationList = new ArrayList<Publication>();
@@ -73,4 +69,13 @@ public class PublicationSearchResultAction extends ActionSupport {
 	public void setPublicationService(PublicationService PublicationService) {
 		this.publicationService = PublicationService;
 	}
+
+	public PublicationSearchCriteria getCriteria() {
+		return criteria;
+	}
+
+	public void setCriteria(PublicationSearchCriteria criteria) {
+		this.criteria = criteria;
+	}
+
 }
