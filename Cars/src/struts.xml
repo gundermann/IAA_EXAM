@@ -64,8 +64,8 @@
 		<!-- Action to finish a lending by lost -->
 		<action name="FinishLendingByLost" class="de.nak.library.action.LendingAction"
 			method="finishLendingIfLost">
-			<result type="redirect">ShowLendingList.action</result>
-			<result type="chain" name="input">ShowLendingList</result>
+			<result type="redirect">ShowAdmonitionManagement.action</result>
+			<result type="chain" name="input">ShowAdmonitionManagement</result>
 		</action>
 		<!-- Action to extends a lending -->
 		<action name="ExtendLending" class="de.nak.library.action.LendingAction"
