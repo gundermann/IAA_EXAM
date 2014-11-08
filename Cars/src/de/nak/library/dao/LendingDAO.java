@@ -9,6 +9,7 @@ import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
+import de.nak.library.model.Lender;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
 
@@ -99,7 +100,7 @@ public class LendingDAO {
 	 * Searches lendings that belong to a given publication.
 	 * 
 	 * @param publication
-	 *            Publication that was lended.
+	 *            Publication that was lend.
 	 * @return a list of lendings which is empty if no lending was found.
 	 */
 	@SuppressWarnings("unchecked")
@@ -107,6 +108,21 @@ public class LendingDAO {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Lending.class);
 		criteria.add(Restrictions.eq("publication", publication));
+		return criteria.list();
+	}
+
+	/**
+	 * Searches lendings that belong to a given lender.
+	 * 
+	 * @param lender
+	 *            Lender who lend the publication.
+	 * @return a list of lendings which is empty if no lending was found.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Lending> load(Lender lender) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Lending.class);
+		criteria.add(Restrictions.eq("lender", lender));
 		return criteria.list();
 	}
 

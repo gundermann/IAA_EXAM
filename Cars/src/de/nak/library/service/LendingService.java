@@ -3,6 +3,7 @@ package de.nak.library.service;
 import java.util.List;
 
 import de.nak.library.model.AdmonitionProcess;
+import de.nak.library.model.Lender;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
 
@@ -60,6 +61,15 @@ public interface LendingService {
 	 * @return a list which is empty if no lending was found.
 	 */
 	List<Lending> searchByPublication(Publication publication);
+
+	/**
+	 * Search all lendings which belong to a given lender.
+	 * 
+	 * @param lender
+	 *            The lender.
+	 * @return a list which is empty if no lending was found.
+	 */
+	List<Lending> searchByLender(Lender lender);
 
 	/**
 	 * Search all publications without a lending.

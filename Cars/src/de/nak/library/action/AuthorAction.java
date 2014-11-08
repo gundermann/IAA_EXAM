@@ -12,7 +12,7 @@ import de.nak.library.service.PublicationService;
 
 /**
  * Action for a single author.
- *
+ * 
  * @author Niels Gundermann
  */
 public class AuthorAction extends ActionSupport {
@@ -33,7 +33,7 @@ public class AuthorAction extends ActionSupport {
 
 	/**
 	 * Saves the author to the database.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String save() {
@@ -43,7 +43,7 @@ public class AuthorAction extends ActionSupport {
 
 	/**
 	 * Deletes the selected author from the database.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String delete() {
@@ -64,7 +64,7 @@ public class AuthorAction extends ActionSupport {
 
 	/**
 	 * Displays the selected author in the author form.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String load() {
@@ -80,7 +80,7 @@ public class AuthorAction extends ActionSupport {
 	public void validate() {
 		// If the author is not set, the author ID has to be set.
 		if (author == null && authorId == null) {
-			addActionError(getText("msg.selectauthor"));
+			addActionError(getText("msg.selectAuthor"));
 		}
 	}
 

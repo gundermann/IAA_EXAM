@@ -12,7 +12,7 @@ import de.nak.library.service.PublicationService;
 
 /**
  * Action for a single keyword.
- *
+ * 
  * @author Niels Gundermann
  */
 public class KeywordAction extends ActionSupport {
@@ -27,17 +27,13 @@ public class KeywordAction extends ActionSupport {
 
 	/** The publication service. */
 	private KeywordService keywordService;
-	
+
 	/** The publication service */
 	private PublicationService publicationService;
 
-	public void setPublicationService(PublicationService publicationService) {
-		this.publicationService = publicationService;
-	}
-
 	/**
 	 * Saves the keyword to the database.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String save() {
@@ -47,7 +43,7 @@ public class KeywordAction extends ActionSupport {
 
 	/**
 	 * Deletes the selected keyword from the database.
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String delete() {
@@ -68,7 +64,7 @@ public class KeywordAction extends ActionSupport {
 
 	/**
 	 * Displays the selected keyword .
-	 *
+	 * 
 	 * @return the result string.
 	 */
 	public String load() {
@@ -105,6 +101,10 @@ public class KeywordAction extends ActionSupport {
 
 	public void setKeywordService(KeywordService keywordService) {
 		this.keywordService = keywordService;
+	}
+
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
 	}
 
 }

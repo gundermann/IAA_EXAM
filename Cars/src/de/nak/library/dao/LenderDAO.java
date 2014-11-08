@@ -74,12 +74,14 @@ public class LenderDAO {
 	 * @return a Lender or null if no lender was found with the given
 	 *         matriculationNumber.
 	 */
+	@SuppressWarnings("unchecked")
 	public Lender load(Integer matriculationNumber) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Lender.class);
 		criteria.add(Restrictions
 				.eq("matriculationNumber", matriculationNumber));
-		return (Lender) criteria.list().get(0);
+		List<Object> lenders = criteria.list();
+		return lenders.isEmpty() ? null : (Lender) lenders.get(0);
 	}
 
 }
