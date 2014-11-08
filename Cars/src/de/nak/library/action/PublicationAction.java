@@ -189,6 +189,10 @@ public class PublicationAction extends ActionSupport {
 			addActionError(getText("msg.selectPublisher"));
 			isValid = false;
 		}
+		if (keywordId == null) {
+			addActionError(getText("msg.selectKeyword"));
+			isValid = false;
+		}
 		Publication publicationWithNakId = publicationService
 				.loadByNakId(publication.getNakId());
 		if (publicationWithNakId != null) {
