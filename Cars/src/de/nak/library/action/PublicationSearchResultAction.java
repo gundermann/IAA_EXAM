@@ -6,7 +6,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Publication;
-import de.nak.library.searchModel.PublicationSearchCriteria;
+import de.nak.library.model.PublicationSearchCriteria;
 import de.nak.library.service.PublicationService;
 
 /**

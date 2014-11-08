@@ -1,4 +1,4 @@
-package de.nak.library.searchModel;
+package de.nak.library.model;
 
 public class PublicationSearchCriteria {
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import de.nak.library.dao.PublicationDAO;
 import de.nak.library.model.Publication;
-import de.nak.library.searchModel.PublicationSearchCriteria;
+import de.nak.library.model.PublicationSearchCriteria;
 
 /**
  * The publication dao mock class.

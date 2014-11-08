@@ -13,9 +13,9 @@ import org.hibernate.criterion.Restrictions;
 import de.nak.library.model.Author;
 import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
+import de.nak.library.model.PublicationSearchCriteria;
 import de.nak.library.model.PublicationType;
 import de.nak.library.model.Publisher;
-import de.nak.library.searchModel.PublicationSearchCriteria;
 
 /**
  * Publication data access object.

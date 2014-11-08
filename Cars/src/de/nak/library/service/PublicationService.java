@@ -5,7 +5,7 @@ import java.util.List;
 import de.nak.library.model.Author;
 import de.nak.library.model.Keyword;
 import de.nak.library.model.Publication;
-import de.nak.library.searchModel.PublicationSearchCriteria;
+import de.nak.library.model.PublicationSearchCriteria;
 
 /**
  * Publication service interface.
