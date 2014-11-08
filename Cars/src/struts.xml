@@ -21,7 +21,7 @@
 		</action>
 		<!-- Action to show the lending management -->
 		<action name="ShowLendingManagement">
-			<result type="tiles">lendingManagement</result>
+			<result type="redirect">ShowLendingList</result>
 		</action>
 		<!-- Action to show the admonition management -->
 		<action name="ShowAdmonitionManagement"

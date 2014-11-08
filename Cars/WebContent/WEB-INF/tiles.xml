@@ -12,10 +12,6 @@
 	</definition>
 
 	<!-- LENDINGMANAGEMENT -->
-	<definition name="lendingManagement" extends="mainLayout">
-		<put-attribute name="content"
-			value="/LendingManagement/lendingManagement.jsp" />
-	</definition>
 	<definition name="lendingForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/LendingManagement/lendingForm.jsp" />

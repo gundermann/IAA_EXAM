@@ -46,6 +46,11 @@ public class AdmonitionProcessAction extends ActionSupport {
 		return SUCCESS;
 	}
 
+	/**
+	 * Creates an admonition process for the selected lending.
+	 * 
+	 * @return the result string
+	 */
 	public String createAdmonitionProcess() {
 		if(admonitionProcessService.searchByLending(lendingId) != null){
 			addActionError(getText("msg.admonitionProcessAlreadyExists"));
