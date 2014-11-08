@@ -119,7 +119,8 @@ public class LendingServiceImpl implements LendingService {
 
 	@Override
 	public void finishLendingIfReturned(Lending lending) {
-		deleteAdmonitionProcess(lending);
+		if (!deleteAdmonitionProcess(lending))
+			deleteLending(lending);
 	}
 
 	@Override
@@ -127,7 +128,8 @@ public class LendingServiceImpl implements LendingService {
 		Publication publication = lending.getPublication();
 		publication.setQuantity(publication.getQuantity() - 1);
 		publicationService.savePublication(publication);
-		deleteAdmonitionProcess(lending);
+		if (!deleteAdmonitionProcess(lending))
+			deleteLending(lending);
 	}
 
 	@Override
@@ -156,12 +158,14 @@ public class LendingServiceImpl implements LendingService {
 		this.publicationService = publicationService;
 	}
 
-	private void deleteAdmonitionProcess(Lending lending) {
+	private boolean deleteAdmonitionProcess(Lending lending) {
 		AdmonitionProcess admonitionProcess = admonitionProcessService
 				.searchByLending(lending);
 		if (admonitionProcess != null) {
 			admonitionProcessService.deleteAdmonitionProcess(admonitionProcess);
+			return true;
 		}
+		return false;
 	}
 
 	private void initializeDates(Lending lending) {
