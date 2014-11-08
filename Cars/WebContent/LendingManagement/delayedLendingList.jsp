@@ -6,7 +6,7 @@
 
 <s:form>
 
-<display:table id="lendingTable" name="lendingList" pagesize="5"
+<display:table id="lendingTable" name="delayedLendingList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />

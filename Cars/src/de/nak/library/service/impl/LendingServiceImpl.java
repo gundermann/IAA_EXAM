@@ -1,7 +1,5 @@
 package de.nak.library.service.impl;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -55,9 +53,7 @@ public class LendingServiceImpl implements LendingService {
 	@Override
 	public List<Lending> searchDelayedLendings() {
 		Date now = new GregorianCalendar().getTime();
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		String todayString = dateFormat.format(now);
-		return lendingDAO.findDelayed(Integer.valueOf(todayString));
+		return lendingDAO.findDelayed(now);
 	}
 
 	@Override
