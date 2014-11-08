@@ -36,6 +36,6 @@
 
 
 	<s:submit key="btn.lost" action="FinishLendingByLost" align="left" />
-	<s:submit key="btn.addAdmonitionProcess" align="left" action=""/>
+	<s:submit key="btn.addAdmonitionProcess" align="left" action="AddAdmonitionProcess"/>
 	<s:submit key="btn.addAdmonition" action="AddAdmonition" align="left" />
 </s:form>
