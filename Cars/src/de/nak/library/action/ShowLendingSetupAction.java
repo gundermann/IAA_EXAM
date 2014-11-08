@@ -8,7 +8,6 @@ import de.nak.library.model.Lender;
 import de.nak.library.model.Publication;
 import de.nak.library.service.LenderService;
 import de.nak.library.service.LendingService;
-import de.nak.library.service.PublicationService;
 
 /**
  * The Action that shows the setup for a lending.
@@ -17,8 +16,6 @@ import de.nak.library.service.PublicationService;
  */
 public class ShowLendingSetupAction implements Action {
 
-	/** The publication service */
-	private PublicationService publicationService;
 	/** The lending service */
 	private LendingService lendingService;
 	/** The list of publications */
@@ -31,10 +28,7 @@ public class ShowLendingSetupAction implements Action {
 	@Override
 	public String execute() throws Exception {
 		lenderList = lenderService.loadAllLenders();
-		// TODO hier bietet sich eine Methode an, die nur die Publikationen
-		// zurück gibt, die auch ausgeliehen werden können
 		publicationList = lendingService.searchAllAvailablePublications();
-		publicationList = publicationService.loadAllPublications();
 		return SUCCESS;
 	}
 
@@ -52,10 +46,6 @@ public class ShowLendingSetupAction implements Action {
 
 	public void setLenderList(List<Lender> lenderList) {
 		this.lenderList = lenderList;
-	}
-
-	public void setPublicationService(PublicationService publicationService) {
-		this.publicationService = publicationService;
 	}
 
 	public void setLenderService(LenderService lenderService) {

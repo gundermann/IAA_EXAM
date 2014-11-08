@@ -13,7 +13,7 @@
 	<display:table id="publicationTable" name="publicationList"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
-		<display:setProperty name="basic.msg.empty_list" value="Keine Publikationsarten vorhanden" />
+		<display:setProperty name="basic.msg.empty_list" value="Es können keine Publikationen mehr ausgeliehen werden - bitte Abbrechen" />
 		<display:column>
 			<input type="radio" name="publicationId"
 				value="${publicationTable.publicationId}" />
