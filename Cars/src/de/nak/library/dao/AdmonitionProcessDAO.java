@@ -93,9 +93,11 @@ public class AdmonitionProcessDAO {
 	 *         process was found.
 	 */
 	public AdmonitionProcess loadByLendingID(Long lendingId) {
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
-				AdmonitionProcess.class);
-		criteria.add(Restrictions.eq("lending", lendingId));
-		return (AdmonitionProcess) criteria.uniqueResult();
+		Criteria lendingCriteria = sessionFactory.getCurrentSession()
+				.createCriteria(Lending.class);
+		lendingCriteria.add(Restrictions.eq("lendingId", lendingId));
+		Lending lending = (Lending) lendingCriteria.uniqueResult();
+
+		return loadByLending(lending);
 	}
 }
