@@ -22,32 +22,43 @@ public class AdmonitionProcessAction extends ActionSupport {
 
 	/** The AdmonitionProcess service. */
 	private AdmonitionProcessService admonitionProcessService;
-	
-	
-	
-	/** 
+
+	/**
 	 * Adds an Admonition to an AdmonitionProcess
 	 * 
 	 * @return the return string
 	 */
-	public String addAdmonition(){
-		AdmonitionProcess admonitionProcess = admonitionProcessService.searchByLending(lendingId);
-		if(admonitionProcess == null){
+	public String addAdmonition() {
+		AdmonitionProcess admonitionProcess = admonitionProcessService
+				.searchByLending(lendingId);
+		if (admonitionProcess == null) {
+			addActionError(getText("msg.noAdmonitionProcessFound"));
 			return INPUT;
 		}
-		if(admonitionProcess.getAdmonitions() != null && admonitionProcess.getAdmonitions().size() == 3){
+		if (admonitionProcess.getAdmonitions() != null
+				&& admonitionProcess.getAdmonitions().size() == 3) {
 			addActionError(getText("msg.maximumOfAdmonitionReached"));
 			return INPUT;
 		}
-		admonitionProcess = admonitionProcessService.addAdmonition(admonitionProcess);
+		admonitionProcess = admonitionProcessService
+				.addAdmonition(admonitionProcess);
 		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
 		return SUCCESS;
 	}
-	
+
+	public String createAdmonitionProcess() {
+		if(admonitionProcessService.searchByLending(lendingId) != null){
+			addActionError(getText("msg.admonitionProcessAlreadyExists"));
+			return INPUT;
+		}
+		AdmonitionProcess admonitionProcess = admonitionProcessService.createAdmonitionProcess(lendingId);
+		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
+		return SUCCESS;
+	}
 
 	@Override
 	public void validate() {
-		//  the lending ID has to be set.
+		// the lending ID has to be set.
 		if (lendingId == null) {
 			addActionError(getText("msg.selectPublication"));
 		}
@@ -61,7 +72,8 @@ public class AdmonitionProcessAction extends ActionSupport {
 		this.admonitionProcess = admonitionProcess;
 	}
 
-	public void setAdmonitionProcessService(AdmonitionProcessService admonitionProcessService) {
+	public void setAdmonitionProcessService(
+			AdmonitionProcessService admonitionProcessService) {
 		this.admonitionProcessService = admonitionProcessService;
 	}
 
@@ -73,5 +85,4 @@ public class AdmonitionProcessAction extends ActionSupport {
 		this.lendingId = lendingId;
 	}
 
-	
 }

@@ -76,4 +76,6 @@ public interface AdmonitionProcessService {
 
 	AdmonitionProcess searchByLending(Long lendingId);
 
+	AdmonitionProcess createAdmonitionProcess(Long lendingId);
+
 }

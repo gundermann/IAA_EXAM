@@ -94,5 +94,11 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		return null;
 	}
 
+	@Override
+	public AdmonitionProcess createAdmonitionProcess(Long lendingId) {
+		// TODO Einen Mahnvorgang erstellen und zurückgeben
+		return null;
+	}
+
 	
 }
