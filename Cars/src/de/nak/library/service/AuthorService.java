@@ -42,4 +42,6 @@ public interface AuthorService {
 	 * @return a list which is empty if no author was found.
 	 */
 	List<Author> loadAllAuthors();
+
+	Author loadByName(String name);
 }

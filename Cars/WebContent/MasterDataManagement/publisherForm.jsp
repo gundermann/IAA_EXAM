@@ -5,6 +5,7 @@
 	<s:text name="txt.masterDataManagement.publisher"/>
 </h3>
 <s:form>
+<s:actionerror/>
 	<%-- Form fields for the publisher's attributes --%>
 	<s:hidden name="publisher.publisherId"/>
 	<s:textfield name="publisher.publisherName" key="publisher.name" requiredLabel="true"/>

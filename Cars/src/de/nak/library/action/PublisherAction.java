@@ -42,6 +42,12 @@ public class PublisherAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
+		Publisher publisherWithSameName = publisherService.loadByName(publisher.getPublisherName());
+		if (publisherWithSameName != null
+				&& (publisherId == null || publisherWithSameName.getPublisherId() != publisherId)) {
+			addActionError(getText("msg.publisherNameAlreadyExists"));
+			return INPUT;
+		}
 		publisherService.savePublisher(publisher);
 		return SUCCESS;
 	}

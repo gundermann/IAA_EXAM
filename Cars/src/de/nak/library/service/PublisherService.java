@@ -43,4 +43,6 @@ public interface PublisherService {
 	 */
 	List<Publisher> loadAllPublishers();
 
+	Publisher loadByName(String publisherName);
+
 }

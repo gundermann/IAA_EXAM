@@ -39,4 +39,9 @@ public class AuthorServiceImpl implements AuthorService {
 		this.authorDAO = authorDao;
 	}
 
+	@Override
+	public Author loadByName(String name) {
+		return authorDAO.load(name);
+	}
+
 }

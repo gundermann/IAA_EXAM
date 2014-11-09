@@ -39,4 +39,9 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 		this.publicationTypeDAO = publicationTypeDAO;
 	}
 
+	@Override
+	public PublicationType loadByName(String name) {
+		return publicationTypeDAO.load(name);
+	}
+
 }

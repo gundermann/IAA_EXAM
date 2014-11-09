@@ -43,4 +43,6 @@ public interface PublicationTypeService {
 	 */
 	List<PublicationType> loadAllPublicationTypes();
 
+	PublicationType loadByName(String name);
+
 }

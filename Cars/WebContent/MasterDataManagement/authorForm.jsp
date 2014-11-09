@@ -5,6 +5,7 @@
 	<s:text name="txt.masterDataManagement.authors"/>
 </h3>
 <s:form>
+<s:actionerror/>
 	<%-- Form fields for the author's attributes --%>
 	<s:hidden name="author.authorId"/>
 	<s:textfield name="author.name" key="author.name" requiredLabel="true" />

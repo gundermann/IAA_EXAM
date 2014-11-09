@@ -37,6 +37,12 @@ public class AuthorAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
+		Author authorWithSameName = authorService.loadByName(author.getName());
+		if (authorWithSameName != null
+				&& (authorId == null || authorWithSameName.getAuthorId() != authorId)) {
+			addActionError(getText("msg.authorNameAlreadyExists"));
+			return INPUT;
+		}
 		authorService.saveAuthor(author);
 		return SUCCESS;
 	}

@@ -43,4 +43,6 @@ public interface KeywordService {
 	 */
 	List<Keyword> loadAllKeywords();
 
+	Keyword loadByName(String keyword);
+
 }

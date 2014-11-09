@@ -37,6 +37,13 @@ public class KeywordAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
+		Keyword keywordWithSameName = keywordService.loadByName(keyword
+				.getKeyword());
+		if (keywordWithSameName != null
+				&& (keywordId == null || keywordWithSameName.getKeywordId() != keywordId)) {
+			addActionError(getText("msg.keywordNameAlreadyExists"));
+			return INPUT;
+		}
 		keywordService.saveKeyword(keyword);
 		return SUCCESS;
 	}

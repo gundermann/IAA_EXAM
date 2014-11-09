@@ -39,4 +39,9 @@ public class PublisherServiceImpl implements PublisherService {
 		this.publisherDAO = publisherDAO;
 	}
 
+	@Override
+	public Publisher loadByName(String publisherName) {
+		return publisherDAO.load(publisherName);
+	}
+
 }

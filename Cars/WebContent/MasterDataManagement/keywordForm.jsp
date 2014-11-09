@@ -6,6 +6,7 @@
 	<s:text name="txt.masterDataManagement.keywords"/>
 </h3>
 <s:form>
+<s:actionerror/>
 	<%-- Form fields for the keyword's attributes --%>
 	<s:hidden name="keyword.keywordId"/>
 	<s:textfield name="keyword.keyword" key="keyword" requiredLabel="true" />

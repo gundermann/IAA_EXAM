@@ -201,4 +201,5 @@ public class PublicationServiceImpl implements PublicationService {
 		Publisher publisher = publisherService.loadPublisher(publisherId);
 		publication.setPublisher(publisher);
 	}
+
 }

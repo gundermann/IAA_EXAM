@@ -39,4 +39,9 @@ public class KeywordServiceImpl implements KeywordService {
 		this.keywordDAO = keywordDAO;
 	}
 
+	@Override
+	public Keyword loadByName(String keyword) {
+		return keywordDAO.load(keyword);
+	}
+
 }
