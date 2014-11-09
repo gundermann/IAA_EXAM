@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
 <h3><s:text name="txt.inventoryManagement.deleteAuthor"/></h3>

@@ -12,10 +12,12 @@
 	</definition>
 
 	<!-- LENDINGMANAGEMENT -->
+	<!-- the form for a new lending -->
 	<definition name="lendingForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/LendingManagement/lendingForm.jsp" />
 	</definition>
+	<!-- the list of the existing lendings -->
 	<definition name="lendingList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/LendingManagement/lendingList.jsp" />
@@ -86,7 +88,7 @@
 
 
 	<!-- MASTERDATAMANAGEMENT -->
-	<!-- Menü für die Stammdatenverwaltung -->
+	<!-- menu of master data management -->
 	<definition name="masterDataManagement" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/masterDataManagement.jsp" />
@@ -96,17 +98,17 @@
 		<put-attribute name="content"
 			value="/MasterDataManagement/publicationTypeList.jsp" />
 	</definition>
-	<!-- Formular for new publicationtype -->
+	<!-- Form for new publicationtype -->
 	<definition name="publicationTypeForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/publicationTypeForm.jsp" />
 	</definition>
-	<!-- Liste der Schlüsselwörter -->
+	<!-- List of keywords -->
 	<definition name="keywordList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/keywordList.jsp" />
 	</definition>
-	<!-- Formular für neues Schlüsselwort -->
+	<!-- Form for new keywords-->
 	<definition name="keywordForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/keywordForm.jsp" />
@@ -121,12 +123,12 @@
 		<put-attribute name="content"
 			value="/MasterDataManagement/publisherForm.jsp" />
 	</definition>
-	<!-- Liste der Ausleiher -->
+	<!-- List of the lenders -->
 	<definition name="lenderList" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/lenderList.jsp" />
 	</definition>
-	<!-- Formular for lender -->
+	<!-- Form for lender -->
 	<definition name="lenderForm" extends="mainLayout">
 		<put-attribute name="content"
 			value="/MasterDataManagement/lenderForm.jsp" />
@@ -143,7 +145,7 @@
 	</definition>
 
 	<!-- ADMONITIONMANAGEMENT -->
-	<!-- the main menu for admonition management -->
+	<!-- the list of delayed lendings to manage admonition processes-->
 	<definition name="admonitionManagement" extends="mainLayout">
 		<put-attribute name="content"
 			value="/AdmonitionManagement/admonitionManagement.jsp" />
