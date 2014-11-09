@@ -53,13 +53,13 @@ public class LendingServiceTest extends TestCase {
 
 		lendingService.extend(lending);
 
-		newDate = new GregorianCalendar(2012 + 1900, 11, 25).getTime(); // December/25/2012
+		newDate = new GregorianCalendar(2013 + 1900, 0, 8).getTime(); // January/08/2013
 		assertEquals(new Integer(1), lending.getNumberOfLendingExtensions());
 		assertEquals(newDate, lending.getExpectedReturnDate());
 
 		lendingService.extend(lending);
 
-		newDate = new GregorianCalendar(2013 + 1900, 0, 8).getTime(); // January/08/2013
+		newDate = new GregorianCalendar(2013 + 1900, 1, 5).getTime(); // February/05/2013
 		assertEquals(new Integer(2), lending.getNumberOfLendingExtensions());
 		assertEquals(newDate, lending.getExpectedReturnDate());
 
@@ -67,13 +67,13 @@ public class LendingServiceTest extends TestCase {
 
 	public void testInitializeLending() {
 		Lending lending = new Lending();
+		lending.setOutgoDate(new GregorianCalendar().getTime());
 
 		lendingService.initializeLending(lending, 12l, 12l);
 
 		assertNotNull(lending.getLender());
 		assertNotNull(lending.getPublication());
 		assertEquals(new Integer(0), lending.getNumberOfLendingExtensions());
-		assertNotNull(lending.getOutgoDate());
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(lending.getOutgoDate());
 		calendar.add(Calendar.DATE, 28);
