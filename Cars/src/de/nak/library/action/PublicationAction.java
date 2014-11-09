@@ -3,6 +3,7 @@ package de.nak.library.action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Publication;
+import de.nak.library.service.LendingService;
 import de.nak.library.service.PublicationService;
 
 /**
@@ -35,6 +36,9 @@ public class PublicationAction extends ActionSupport {
 
 	/** THe ID of a new publisher */
 	private Long publisherId;
+
+	/** The Lending service */
+	private LendingService lendingService;
 
 	/**
 	 * Adds the selected keywords to the publication keywords
@@ -154,8 +158,10 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string.
 	 * */
 	public String saveEditing() {
-		Publication publicationWithSameNakId = publicationService.searchByNakId(publication.getNakId());
-		if (publicationWithSameNakId != null && publicationWithSameNakId.getPublicationId() != publicationId) {
+		Publication publicationWithSameNakId = publicationService
+				.searchByNakId(publication.getNakId());
+		if (publicationWithSameNakId != null
+				&& publicationWithSameNakId.getPublicationId() != publicationId) {
 			addActionError(getText("msg.matriculationNumberNotAvailable"));
 			return INPUT;
 		}
@@ -210,6 +216,10 @@ public class PublicationAction extends ActionSupport {
 	public String delete() {
 		publication = publicationService.loadPublication(publicationId);
 		if (publication != null) {
+			if (!lendingService.searchByPublication(publication).isEmpty()) {
+				addActionError(getText("msg.publicationUsedInLending"));
+				return INPUT;
+			}
 			publicationService.deletePublication(publication);
 		}
 		return SUCCESS;
@@ -277,4 +287,10 @@ public class PublicationAction extends ActionSupport {
 	public void setAuthorId(Long[] authorId) {
 		this.authorId = authorId;
 	}
+
+	public void setLendingService(LendingService lendingService) {
+		this.lendingService = lendingService;
+	}
+	
+	
 }
