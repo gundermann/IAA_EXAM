@@ -38,6 +38,7 @@
 	</display:table>
 
 	<%-- the buttons to handle publication--%>
+	<s:submit key="btn.detail" action="ShowDetails" align="left"/>
 	<s:submit key="btn.add" action="AddPublication" align="left" />
 	<s:submit key="btn.edit" action="EditPublication" align="left" />
 	<s:submit key="btn.delete" action="DeletePublication" align="left" />

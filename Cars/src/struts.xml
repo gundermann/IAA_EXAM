@@ -218,6 +218,18 @@
 			<result type="chain" name="input">SetupPublicationTypeForPublication
 			</result>
 		</action>
+		<!-- Action that shows the details of a publication -->
+		<action name="ShowDetails" class="de.nak.library.action.PublicationAction"
+			method="loadDetails">
+			<result type="tiles">publicationDetail</result>
+			<result type="chain" name="input">ShowPublicationList</result>
+		</action>
+		<!--  Action that shows the setup for a publication coming from detail view--> 
+		<action name="EditPublicationFromDetail" class="de.nak.library.action.PublicationAction"
+			method="load">
+			<result type="tiles">publicationEditForm</result>
+			<result type="chain" name="input">ShowDetails</result>
+		</action>
 
 
 		<!-- KEYWORD -->

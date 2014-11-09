@@ -1,7 +1,10 @@
 package de.nak.library.action;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
 import de.nak.library.service.LendingService;
 import de.nak.library.service.PublicationService;
@@ -40,6 +43,8 @@ public class PublicationAction extends ActionSupport {
 	/** The Lending service */
 	private LendingService lendingService;
 
+	private List<Lending> lendingList;
+
 	/**
 	 * Adds the selected keywords to the publication keywords
 	 * 
@@ -67,10 +72,6 @@ public class PublicationAction extends ActionSupport {
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
-		if(publication.getKeywords().size() == keywordId.length){
-			addActionError("msg.oneKeywordHasToBeSet");
-			return INPUT;
-		}
 		publicationService.deleteKeywords(publication, keywordId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
@@ -118,10 +119,6 @@ public class PublicationAction extends ActionSupport {
 	 * @return the result string
 	 */
 	public String saveEditedPublisher() {
-		if (publisherId == null) {
-			addActionError(getText("msg.selectPublisher"));
-			return INPUT;
-		}
 		publication = publicationService.loadPublication(publicationId);
 		publicationService.editPublisher(publication, publisherId);
 		publicationService.savePublication(publication);
@@ -141,6 +138,17 @@ public class PublicationAction extends ActionSupport {
 		publication = publicationService.loadPublication(publicationId);
 		publicationService.editPublicationType(publication, publicationTypeId);
 		publicationService.savePublication(publication);
+		return SUCCESS;
+	}
+	
+	/**
+	 *  Loads the publication and the lending for the publication 
+	 * 
+	 * @return the result string
+	 */
+	public String loadDetails() {
+		load();
+		lendingList = lendingService.searchByPublication(publication);
 		return SUCCESS;
 	}
 
@@ -197,14 +205,6 @@ public class PublicationAction extends ActionSupport {
 		}
 		if (publicationTypeId == null) {
 			addActionError(getText("msg.selectPublicationType"));
-			isValid = false;
-		}
-		if (publisherId == null) {
-			addActionError(getText("msg.selectPublisher"));
-			isValid = false;
-		}
-		if (keywordId == null) {
-			addActionError(getText("msg.selectKeyword"));
 			isValid = false;
 		}
 		Publication publicationWithNakId = publicationService
@@ -299,6 +299,16 @@ public class PublicationAction extends ActionSupport {
 	public void setLendingService(LendingService lendingService) {
 		this.lendingService = lendingService;
 	}
+
+	public List<Lending> getLendingList() {
+		return lendingList;
+	}
+
+	public void setLendingList(List<Lending> lendingList) {
+		this.lendingList = lendingList;
+	}
+	
+	
 	
 	
 }

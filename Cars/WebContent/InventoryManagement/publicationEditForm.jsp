@@ -45,7 +45,7 @@
 	<s:label key="publication.publicationType"
 		name="publication.publicationType.name" />
 	<s:label key="publication.publisher"
-		name="publication.publisher.publisherName" />
+		name="publication.publisher.publisherName" value="%{publication.publisher == null ? '' : publication.publisher.publisherName}"/>
 
 	<%-- The buttons --%>
 	<s:submit key="btn.add.keyword" align="left"

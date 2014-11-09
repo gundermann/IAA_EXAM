@@ -8,7 +8,7 @@
 	<s:hidden name="publicationId" />
 
 	<%-- List of publisher --%>
-	<display:table id="publisherTable" name="publisherList" pagesize="5"
+	<display:table id="publisherTable" name="publisherList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />

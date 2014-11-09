@@ -85,6 +85,11 @@
 		<put-attribute name="content"
 			value="/InventoryManagement/authorDeleteSetupForm.jsp" />
 	</definition>
+	<!-- detail view for publication-->
+	<definition name="publicationDetail" extends="mainLayout">
+		<put-attribute name="content"
+			value="/InventoryManagement/publicationDetail.jsp" />
+	</definition>
 
 
 	<!-- MASTERDATAMANAGEMENT -->

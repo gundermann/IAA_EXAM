@@ -128,8 +128,13 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public void editPublisher(Publication publication, Long newPublisherId) {
-		Publisher publisher = publisherService.loadPublisher(newPublisherId);
-		publication.setPublisher(publisher);
+		if (newPublisherId == null) {
+			publication.setPublisher(null);
+		} else {
+			Publisher publisher = publisherService
+					.loadPublisher(newPublisherId);
+			publication.setPublisher(publisher);
+		}
 	}
 
 	@Override
@@ -142,13 +147,15 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public void addKeywords(Publication publication, Long[] keywordIds) {
-		Set<Keyword> keywords = publication.getKeywords();
-		if (keywords == null)
-			keywords = new HashSet<Keyword>();
-		for (Long keywordId : keywordIds) {
-			keywords.add(keywordService.loadKeyword(keywordId));
+		if (keywordIds != null) {
+			Set<Keyword> keywords = publication.getKeywords();
+			if (keywords == null)
+				keywords = new HashSet<Keyword>();
+			for (Long keywordId : keywordIds) {
+				keywords.add(keywordService.loadKeyword(keywordId));
+			}
+			publication.setKeywords(keywords);
 		}
-		publication.setKeywords(keywords);
 	}
 
 	@Override

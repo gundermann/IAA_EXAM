@@ -8,7 +8,7 @@
 	<s:hidden name="publicationId" />
 
 	<%-- List of publication types --%>
-	<display:table id="publicationTypeTable" name="publicationTypeList" pagesize="5"
+	<display:table id="publicationTypeTable" name="publicationTypeList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="basic.msg.empty_list" value="Keine Publikationsarten vorhanden" />
