@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Lender of Publications.
+ * Entity for a lender of Publications.
  * 
  * @author Kathrin Kurtz
  */

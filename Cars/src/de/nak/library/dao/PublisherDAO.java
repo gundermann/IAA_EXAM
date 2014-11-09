@@ -77,6 +77,11 @@ public class PublisherDAO {
 		return (Publisher) criteria.uniqueResult();
 	}
 
+	/**
+	 * Set the sessionFactory.
+	 * 
+	 * @param sessionFactory
+	 */
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

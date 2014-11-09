@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Typ for publications.
+ * Enityt for types of publications.
  * 
  * @author Kathrin Kurtz
  * 

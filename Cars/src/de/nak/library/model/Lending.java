@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 /**
  * Lending entity.
  * 
- * @author Christian Leppelt
+ * @author Christian Leppelt, Kathrin Kurtz
  */
 @Entity
 public class Lending {
