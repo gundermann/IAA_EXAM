@@ -160,13 +160,13 @@
 		<action name="AddKeywordsToPublication" class="de.nak.library.action.PublicationAction"
 			method="addKeywords">
 			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">AddKeywordsForPublication</result>
+			<result type="chain" name="input">ShowAddKeywordsSetup</result>
 		</action>
 		<!-- Action that deletes the keywords to publication -->
 		<action name="DeleteKeywordsFromPublication" class="de.nak.library.action.PublicationAction"
 			method="deleteKeywords">
 			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">SetupKeywordsForPublication</result>
+			<result type="chain" name="input">ShowDeleteKeywordsSetup</result>
 		</action>
 		<!-- Action that shows the setup to add authors to publication -->
 		<action name="ShowAddAuthorsSetup" class="de.nak.library.action.PublicationEditSetupAction"

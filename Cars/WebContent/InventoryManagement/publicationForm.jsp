@@ -16,7 +16,7 @@
 		key="publication.dateOfPublication" size="10" maxlength="10"
 		type="date" requiredLabel="true" />
 	<s:textfield name="publication.isbn" key="publication.isbn" size="13"
-		maxlength="13" />
+		maxlength="13" type="long" />
 	<s:textfield name="publication.quantity" key="publication.quantity"
 		requiredLabel="true" type="int" />
 

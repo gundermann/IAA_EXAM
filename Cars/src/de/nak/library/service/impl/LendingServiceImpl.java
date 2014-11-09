@@ -88,19 +88,16 @@ public class LendingServiceImpl implements LendingService {
 		if (lendingExtensionNr <= 3) {
 			extendReturnDate(lending);
 			lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
-			Date now = new GregorianCalendar().getTime();
-			if (lending.getExpectedReturnDate().compareTo(now) >= 0) {
-				deleteAdmonitionProcess(lending);
-				lending.setAdmonitionProcess(null);
-			}
+			deleteAdmonitionProcess(lending);
+			lending.setAdmonitionProcess(null);
 		}
 		saveLending(lending);
 	}
 
-//	@Override
-//	public boolean hasAdmonitionProcess(Lending lending) {
-//		return lending.getAdmonitionProcess() != null;
-//	}
+	// @Override
+	// public boolean hasAdmonitionProcess(Lending lending) {
+	// return lending.getAdmonitionProcess() != null;
+	// }
 
 	@Override
 	public Lending initializeLending(Lending lending, Long lenderId,

@@ -37,7 +37,7 @@
 	<s:date name="publication.dateOfPublication" id="dateOfPublication"
 		format="dd.MM.yyyy" />
 	<s:textfield key="publication.dateOfPublication"
-		name="publication.dateOfPublication" value="%{dateOfPublication}" />
+		name="publication.dateOfPublication" value="%{dateOfPublication}" requiredLabel="true" />
 	<s:textfield name="publication.isbn" key="publication.isbn" size="13"
 		maxlength="13" />
 	<s:textfield name="publication.quantity" key="publication.quantity"
