@@ -6,7 +6,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Author;
 import de.nak.library.model.Publication;
-import de.nak.library.model.PublicationSearchCriteria;
 import de.nak.library.service.AuthorService;
 import de.nak.library.service.PublicationService;
 
@@ -55,10 +54,7 @@ public class AuthorAction extends ActionSupport {
 	public String delete() {
 		author = authorService.loadAuthor(authorId);
 		if (author != null) {
-			PublicationSearchCriteria publicationCriteria = new PublicationSearchCriteria();
-			publicationCriteria.setAuthors(author.getName());
-			List<Publication> publicationResults = publicationService
-					.searchPublicationByCriteria(publicationCriteria);
+			List<Publication> publicationResults = publicationService.searchByAuthorId(authorId);
 			if (!publicationResults.isEmpty()) {
 				addActionError(getText("msg.authorInUse"));
 				return INPUT;

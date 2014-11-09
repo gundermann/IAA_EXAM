@@ -5,7 +5,6 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Publication;
-import de.nak.library.model.PublicationSearchCriteria;
 import de.nak.library.model.Publisher;
 import de.nak.library.service.PublicationService;
 import de.nak.library.service.PublisherService;
@@ -60,10 +59,7 @@ public class PublisherAction extends ActionSupport {
 	public String delete() {
 		publisher = publisherService.loadPublisher(publisherId);
 		if (publisher != null) {
-			PublicationSearchCriteria publicationCriteria = new PublicationSearchCriteria();
-			publicationCriteria.setPublisher(publisher.getPublisherName());
-			List<Publication> publicationResults = publicationService
-					.searchPublicationByCriteria(publicationCriteria);
+			List<Publication> publicationResults = publicationService.searchByPublisherId(publisherId);
 			if (!publicationResults.isEmpty()) {
 				addActionError(getText("msg.publisherInUse"));
 				return INPUT;
