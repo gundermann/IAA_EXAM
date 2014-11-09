@@ -2,7 +2,9 @@ package de.nak.library.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import de.nak.library.model.Publisher;
 
@@ -59,6 +61,20 @@ public class PublisherDAO {
 	public List<Publisher> loadAll() {
 		return sessionFactory.getCurrentSession().createQuery("from Publisher")
 				.list();
+	}
+
+	/**
+	 * Loads a publisher with a given name from the database.
+	 * 
+	 * @param name
+	 * @return a Publisher if a publisher with this name was found or null if no
+	 *         publisher was found.
+	 */
+	public Publisher load(String name) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publisher.class);
+		criteria.add(Restrictions.eq("publisherName", name));
+		return (Publisher) criteria.uniqueResult();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

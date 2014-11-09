@@ -2,7 +2,9 @@ package de.nak.library.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import de.nak.library.model.PublicationType;
 
@@ -60,6 +62,20 @@ public class PublicationTypeDAO {
 	public List<PublicationType> loadAll() {
 		return sessionFactory.getCurrentSession()
 				.createQuery("from PublicationType").list();
+	}
+
+	/**
+	 * Loads a publicationtype with a given name from the database.
+	 * 
+	 * @param name
+	 * @return a publicationtype if a publicationtype with this name was found
+	 *         or null if no publicationtype was found.
+	 */
+	public PublicationType load(String name) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				PublicationType.class);
+		criteria.add(Restrictions.eq("name", name));
+		return (PublicationType) criteria.uniqueResult();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

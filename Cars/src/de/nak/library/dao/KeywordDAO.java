@@ -2,7 +2,9 @@ package de.nak.library.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 import de.nak.library.model.Keyword;
 
@@ -60,6 +62,20 @@ public class KeywordDAO {
 	public List<Keyword> loadAll() {
 		return sessionFactory.getCurrentSession().createQuery("from Keyword")
 				.list();
+	}
+
+	/**
+	 * Loads a keyword with a given name from the database.
+	 * 
+	 * @param name
+	 * @return a keyword if a keyword with this name was found or null if no
+	 *         keyword was found.
+	 */
+	public Keyword load(String name) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Keyword.class);
+		criteria.add(Restrictions.eq("keyword", name));
+		return (Keyword) criteria.uniqueResult();
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
