@@ -52,7 +52,7 @@
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 		<display:setProperty name="basic.msg.empty_list"
-			value="Keine Ausleihvorgänge vorhanden" />
+			value="" />
 		<display:column title="Herausgabedatum" property="outgoDate"
 			sortable="true" format="{0,date,dd.MM.yyyy}" />
 		<display:column title="Ausleiher - Mat.NR."
