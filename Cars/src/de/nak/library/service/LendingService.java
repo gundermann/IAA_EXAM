@@ -94,7 +94,7 @@ public interface LendingService {
 	 *            The lending.
 	 * @return true if the lending has an admonition process.
 	 */
-	boolean hasAdmonitionProcess(Lending lending);
+//	boolean hasAdmonitionProcess(Lending lending);
 
 	/**
 	 * Initializes a given lending by setting the initial value for every

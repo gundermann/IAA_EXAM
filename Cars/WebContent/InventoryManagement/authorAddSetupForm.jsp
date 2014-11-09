@@ -17,6 +17,8 @@
 		</display:column>
 		<display:column titleKey="author.name" property="name" sortable="true"/>
 	</display:table>
+	
+	<%-- the buttons --%>
 	<s:submit key="btn.add" action="AddAuthorsToPublication" align="left"/>
 
 </s:form>

@@ -16,6 +16,8 @@
 		</display:column>
 		<display:column titleKey="keyword.name" property="keyword" sortable="true"/>
 	</display:table>
+	
+	<%-- the buttons --%>
 	<s:submit key="btn.add" action="AddKeywordsToPublication" align="left"/>
 
 </s:form>

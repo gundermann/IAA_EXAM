@@ -7,6 +7,7 @@
 </h3>
 <s:form>
 	<s:actionerror />
+	<%-- The table of delayed lending --%>
 	<display:table id="lendingTable" name="delayedLendingList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
@@ -34,7 +35,7 @@
 			sortable="true" />
 	</display:table>
 
-
+	<%-- The buttons --%>
 	<s:submit key="btn.lost" action="FinishLendingByLost" align="left" />
 	<s:submit key="btn.addAdmonitionProcess" align="left" action="AddAdmonitionProcess"/>
 	<s:submit key="btn.addAdmonition" action="AddAdmonition" align="left" />

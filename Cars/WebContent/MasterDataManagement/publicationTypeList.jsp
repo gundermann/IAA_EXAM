@@ -2,11 +2,13 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<s:form>
+<h3>
 	<s:text name="txt.masterDataManagement.publicationTypes"/>
+</h3>
+<s:form>
 
 	<s:actionerror/>
-	<%-- Liste von Publikationsarten --%>
+	<%-- List of publication types --%>
 	<display:table id="publicationTypeTable" name="publicationTypeList" pagesize="5"
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
@@ -18,6 +20,7 @@
 		<display:column title="Publikationart" property="name" sortable="true"/>
 	</display:table>
 	
+	<%-- The buttons --%>
 	<s:submit align="left" key="btn.add" action="AddPublicationType"/>
 	<s:submit align="left" key="btn.delete" action="DeletePublicationType"/>
 	<s:submit align="left" key="btn.edit" action="EditPublicationType"/>

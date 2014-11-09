@@ -7,11 +7,12 @@
 </h3>
 
 <s:form>
+	<%-- the buttons for search--%>
 	<s:submit key="btn.search" action="SearchForm" align="left" />
-
 	<s:submit key="btn.search.isbn" action="SearchIsbnForm" align="left" />
 
 	<s:actionerror />
+	<%-- the table of publications --%>
 	<display:table id="publicationTable" name="publicationList"
 		pagesize="5" cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
@@ -36,6 +37,7 @@
 			sortable="true" />
 	</display:table>
 
+	<%-- the buttons to handle publication--%>
 	<s:submit key="btn.add" action="AddPublication" align="left" />
 	<s:submit key="btn.edit" action="EditPublication" align="left" />
 	<s:submit key="btn.delete" action="DeletePublication" align="left" />

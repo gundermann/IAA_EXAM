@@ -15,10 +15,11 @@
 		<display:column>
 			<input type="radio" name="publisherId" value="${publisherTable.publisherId}" />
 		</display:column>
-		<display:column titleKey="publisher.publisherName" property="publisherName" sortable="true"/>
+		<display:column title="Bezeichnung" property="publisherName" sortable="true"/>
 	</display:table>
 	
-	<s:submit key="btn.add" action="AddPublisher"/>
-	<s:submit key="btn.delete" action="DeletePublisher"/>
-	<s:submit key="btn.edit" action="EditPublisher"/>
+	<%-- The buttons --%>
+	<s:submit key="btn.add" action="AddPublisher" align="left"/>
+	<s:submit key="btn.delete" action="DeletePublisher" align="left"/>
+	<s:submit key="btn.edit" action="EditPublisher" align="left"/>
 </s:form>

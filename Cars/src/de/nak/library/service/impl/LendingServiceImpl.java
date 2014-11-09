@@ -97,10 +97,10 @@ public class LendingServiceImpl implements LendingService {
 		saveLending(lending);
 	}
 
-	@Override
-	public boolean hasAdmonitionProcess(Lending lending) {
-		return lending.getAdmonitionProcess() != null;
-	}
+//	@Override
+//	public boolean hasAdmonitionProcess(Lending lending) {
+//		return lending.getAdmonitionProcess() != null;
+//	}
 
 	@Override
 	public Lending initializeLending(Lending lending, Long lenderId,

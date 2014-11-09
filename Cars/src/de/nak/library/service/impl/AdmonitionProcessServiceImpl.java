@@ -2,13 +2,11 @@ package de.nak.library.service.impl;
 
 import java.util.GregorianCalendar;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import de.nak.library.dao.AdmonitionProcessDAO;
 import de.nak.library.model.Admonition;
 import de.nak.library.model.AdmonitionProcess;
-import de.nak.library.model.Lending;
 import de.nak.library.service.AdmonitionProcessService;
 import de.nak.library.service.AdmonitionService;
 
@@ -28,10 +26,10 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		admonitionProcessDAO.save(admonitionProcess);
 	}
 
-	@Override
-	public AdmonitionProcess loadAdmonitionProcess(Long admonitionProcessId) {
-		return admonitionProcessDAO.load(admonitionProcessId);
-	}
+//	@Override
+//	public AdmonitionProcess loadAdmonitionProcess(Long admonitionProcessId) {
+//		return admonitionProcessDAO.load(admonitionProcessId);
+//	}
 
 	@Override
 	public void deleteAdmonitionProcess(AdmonitionProcess admonitionProcess) {
@@ -41,10 +39,10 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		admonitionProcessDAO.delete(admonitionProcess);
 	}
 
-	@Override
-	public List<AdmonitionProcess> loadAllAdmonitionProcesss() {
-		return admonitionProcessDAO.loadAll();
-	}
+//	@Override
+//	public List<AdmonitionProcess> loadAllAdmonitionProcesss() {
+//		return admonitionProcessDAO.loadAll();
+//	}
 
 //	@Override
 //	public AdmonitionProcess searchByLending(Lending lending) {
@@ -67,14 +65,14 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		return admonitionProcess;
 	}
 
-	@Override
-	public Integer countAdmonitions(Long admonitionProcessId) {
-		AdmonitionProcess admonitionProcess = admonitionProcessDAO
-				.load(admonitionProcessId);
-		if (admonitionProcess == null)
-			return null;
-		return admonitionProcess.getAdmonitions().size();
-	}
+//	@Override
+//	public Integer countAdmonitions(Long admonitionProcessId) {
+//		AdmonitionProcess admonitionProcess = admonitionProcessDAO
+//				.load(admonitionProcessId);
+//		if (admonitionProcess == null)
+//			return null;
+//		return admonitionProcess.getAdmonitions().size();
+//	}
 
 	public void setAdmonitionProcessDAO(
 			AdmonitionProcessDAO admonitionProcessDAO) {

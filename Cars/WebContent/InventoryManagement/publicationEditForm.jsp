@@ -6,6 +6,9 @@
 	<s:text name="txt.inventoryManagement.editPublication" />
 </h3>
 <s:form>
+	<s:actionerror />
+
+	<%-- the list of authors of the publication --%>
 	<h3>
 		<s:text name="publication.authors" />
 	</h3>
@@ -14,6 +17,8 @@
 		<br />
 	</s:iterator>
 	<br />
+	
+	<%-- the list of keywords of the publication --%>
 	<h3>
 		<s:text name="publication.keywords" />
 	</h3>
@@ -22,7 +27,8 @@
 		<br />
 	</s:iterator>
 	<br />
-	<s:actionerror />
+	
+	<%-- the left attributes of publication--%>
 	<s:hidden name="publicationId" />
 	<s:textfield name="publication.nakId" key="publication.nakId"
 		requiredLabel="true" type="int" />

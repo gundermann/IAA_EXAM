@@ -1,7 +1,5 @@
 package de.nak.library.service;
 
-import java.util.List;
-
 import de.nak.library.model.AdmonitionProcess;
 
 /**
@@ -26,7 +24,7 @@ public interface AdmonitionProcessService {
 	 *            The identifier.
 	 * @return a admonition process or null.
 	 */
-	AdmonitionProcess loadAdmonitionProcess(Long id);
+//	AdmonitionProcess loadAdmonitionProcess(Long id);
 
 	/**
 	 * Deletes the given admonition process and every attached admonition.
@@ -41,7 +39,7 @@ public interface AdmonitionProcessService {
 	 * 
 	 * @return a list which is empty if no admonition process was found.
 	 */
-	List<AdmonitionProcess> loadAllAdmonitionProcesss();
+//	List<AdmonitionProcess> loadAllAdmonitionProcesss();
 
 	/**
 	 * Search the admonition process which belongs to a given lending.
@@ -81,6 +79,6 @@ public interface AdmonitionProcessService {
 	 * @return the number of admonitions. Returns null if no admonition process
 	 *         was found.
 	 */
-	Integer countAdmonitions(Long admonitionProcessId);
+//	Integer countAdmonitions(Long admonitionProcessId);
 
 }

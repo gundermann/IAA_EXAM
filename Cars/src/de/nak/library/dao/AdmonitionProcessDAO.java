@@ -1,7 +1,5 @@
 package de.nak.library.dao;
 
-import java.util.List;
-
 import org.hibernate.SessionFactory;
 
 import de.nak.library.model.AdmonitionProcess;
@@ -36,10 +34,10 @@ public class AdmonitionProcessDAO {
 	 * @return a admonition process or null if no admonition process was found
 	 *         with the given identifier.
 	 */
-	public AdmonitionProcess load(Long id) {
-		return (AdmonitionProcess) sessionFactory.getCurrentSession().get(
-				AdmonitionProcess.class, id);
-	}
+//	public AdmonitionProcess load(Long id) {
+//		return (AdmonitionProcess) sessionFactory.getCurrentSession().get(
+//				AdmonitionProcess.class, id);
+//	}
 
 	/**
 	 * Deletes the admonition process from the database.
@@ -57,11 +55,11 @@ public class AdmonitionProcessDAO {
 	 * @return a list of admonition processes which is empty if no admonition
 	 *         process was found.
 	 */
-	@SuppressWarnings("unchecked")
-	public List<AdmonitionProcess> loadAll() {
-		return sessionFactory.getCurrentSession()
-				.createQuery("from AdmonitionProcess").list();
-	}
+//	@SuppressWarnings("unchecked")
+//	public List<AdmonitionProcess> loadAll() {
+//		return sessionFactory.getCurrentSession()
+//				.createQuery("from AdmonitionProcess").list();
+//	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;

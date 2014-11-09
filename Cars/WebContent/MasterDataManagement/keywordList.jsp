@@ -18,6 +18,7 @@
 		<display:column title="Schlüsselwort" property="keyword" sortable="true"/>
 	</display:table>
 	
+	<%-- The buttons --%>
 	<s:submit key="btn.add" action="AddKeyword" align="left"/>
 	<s:submit key="btn.delete" action="DeleteKeyword" align="left"/>
 	<s:submit key="btn.edit" action="EditKeyword" align="left"/>

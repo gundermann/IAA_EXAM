@@ -1,7 +1,5 @@
 package de.nak.library.dao;
 
-import java.util.List;
-
 import org.hibernate.SessionFactory;
 
 import de.nak.library.model.Admonition;
@@ -36,10 +34,10 @@ public class AdmonitionDAO {
 	 * @return A admonition or null if no admonition was found with the given
 	 *         identifier.
 	 */
-	public Admonition load(Long id) {
-		return (Admonition) sessionFactory.getCurrentSession().get(
-				Admonition.class, id);
-	}
+//	public Admonition load(Long id) {
+//		return (Admonition) sessionFactory.getCurrentSession().get(
+//				Admonition.class, id);
+//	}
 
 	/**
 	 * Deletes the admonition from the database.
@@ -56,11 +54,11 @@ public class AdmonitionDAO {
 	 * 
 	 * @return a list of admonitions which is empty if no admonition was found.
 	 */
-	@SuppressWarnings("unchecked")
-	public List<Admonition> loadAll() {
-		return sessionFactory.getCurrentSession()
-				.createQuery("from Admonition").list();
-	}
+//	@SuppressWarnings("unchecked")
+//	public List<Admonition> loadAll() {
+//		return sessionFactory.getCurrentSession()
+//				.createQuery("from Admonition").list();
+//	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;

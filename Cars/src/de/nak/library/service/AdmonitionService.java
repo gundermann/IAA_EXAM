@@ -1,7 +1,5 @@
 package de.nak.library.service;
 
-import java.util.List;
-
 import de.nak.library.model.Admonition;
 
 /**
@@ -26,7 +24,7 @@ public interface AdmonitionService {
 	 *            The identifier.
 	 * @return a admonition or null.
 	 */
-	Admonition loadAdmonition(Long id);
+//	Admonition loadAdmonition(Long id);
 
 	/**
 	 * Deletes the given admonition.
@@ -41,6 +39,6 @@ public interface AdmonitionService {
 	 * 
 	 * @return a list which is empty if no admonition was found.
 	 */
-	List<Admonition> loadAllAdmonitions();
+//	List<Admonition> loadAllAdmonitions();
 
 }
