@@ -236,4 +236,73 @@ public class PublicationDAO {
 		criteria.add(Restrictions.eq("nakId", nakId));
 		return (Publication) criteria.uniqueResult();
 	}
+
+	/**
+	 * Search publications by KeywordID in the database
+	 * 
+	 * @param keywordId
+	 * @return List of Publications that have the keyword, or empty list if no
+	 *         such keyword was found.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Publication> loadByKeywordId(Long keywordId) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publication.class);
+		Disjunction res = Restrictions.disjunction();
+		res.add(Restrictions.eq("keywords.id", keywordId));
+		criteria.add(res);
+		return criteria.list();
+	}
+
+	/**
+	 * Search publications by publicationTypeId in the database
+	 * 
+	 * @param publicationTypeId
+	 * @return List of Publications that have the publicationTypeId, or empty
+	 *         list if no such publicationTypeId was found.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Publication> loadByPublicationTypeId(Long publicationTypeId) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publication.class);
+		Disjunction res = Restrictions.disjunction();
+		res.add(Restrictions.eq("publicationType.id", publicationTypeId));
+		criteria.add(res);
+		return criteria.list();
+	}
+
+	/**
+	 * Search publications by authorId in the database
+	 * 
+	 * @param authorId
+	 * @return List of Publications that have the authorId, or empty list if no
+	 *         such authorId was found.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Publication> loadByAuthorId(Long authorId) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publication.class);
+		Disjunction res = Restrictions.disjunction();
+		res.add(Restrictions.eq("authors.id", authorId));
+		criteria.add(res);
+		return criteria.list();
+	}
+
+	/**
+	 * Search publications by publisherId in the database
+	 * 
+	 * @param publisherId
+	 * @return List of Publications that have the publisherId, or empty list if
+	 *         no such publisherId was found.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Publication> loadByPublisherId(Long publisherId) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+				Publication.class);
+		Disjunction res = Restrictions.disjunction();
+		res.add(Restrictions.eq("publisher.id", publisherId));
+		criteria.add(res);
+		return criteria.list();
+	}
+
 }
