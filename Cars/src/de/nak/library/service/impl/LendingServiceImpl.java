@@ -130,7 +130,6 @@ public class LendingServiceImpl implements LendingService {
 
 	private void initializeDates(Lending lending) {
 		Calendar calendar = new GregorianCalendar();
-		lending.setOutgoDate(lending.getOutgoDate());
 		calendar.add(Calendar.DATE, 28);
 		lending.setExpectedReturnDate(calendar.getTime());
 	}
