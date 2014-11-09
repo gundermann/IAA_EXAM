@@ -86,10 +86,6 @@ public class PublicationDAO {
 		return (Publication) criteria.uniqueResult();
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
 	/**
 	 * Search publication by multiple value from the database.
 	 * 
@@ -303,6 +299,10 @@ public class PublicationDAO {
 		res.add(Restrictions.eq("publisher.id", publisherId));
 		criteria.add(res);
 		return criteria.list();
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
 }

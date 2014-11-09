@@ -76,6 +76,42 @@ public interface PublicationService {
 	Publication searchByNakId(Long nakId);
 
 	/**
+	 * Search a publication to a given keywordID.
+	 * 
+	 * @param keywordId
+	 *            The keywordID.
+	 * @return list which is empty if no author was found.
+	 */
+	List<Publication> searchByKeywordId(Long keywordId);
+
+	/**
+	 * Search a publication to a given publicationTypeID.
+	 * 
+	 * @param publicationTypeId
+	 *            The publicationTypeD.
+	 * @return list which is empty if no author was found.
+	 */
+	List<Publication> searchByPublicationTypeId(Long publicationTypeId);
+
+	/**
+	 * Search a publication to a given authorID.
+	 * 
+	 * @param authorId
+	 *            The authorID.
+	 * @return list which is empty if no author was found.
+	 */
+	List<Publication> searchByAuthorId(Long authorId);
+
+	/**
+	 * Search a publication to a given publisherID.
+	 * 
+	 * @param publisherId
+	 *            The publisherID.
+	 * @return list which is empty if no author was found.
+	 */
+	List<Publication> searchByPublisherId(Long publisherId);
+
+	/**
 	 * Loads all the authors not attached to the given publication.
 	 * 
 	 * @param publicationId

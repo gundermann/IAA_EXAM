@@ -76,6 +76,26 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
+	public List<Publication> searchByKeywordId(Long keywordId) {
+		return publicationDAO.loadByKeywordId(keywordId);
+	}
+
+	@Override
+	public List<Publication> searchByPublicationTypeId(Long publicationTypeId) {
+		return publicationDAO.loadByPublicationTypeId(publicationTypeId);
+	}
+
+	@Override
+	public List<Publication> searchByAuthorId(Long authorId) {
+		return publicationDAO.loadByAuthorId(authorId);
+	}
+
+	@Override
+	public List<Publication> searchByPublisherId(Long publisherId) {
+		return publicationDAO.loadByPublisherId(publisherId);
+	}
+
+	@Override
 	public List<Author> searchAllAuthorNotInPublication(Long publicationId) {
 		Publication publication = loadPublication(publicationId);
 		List<Author> authors = authorService.loadAllAuthors();
