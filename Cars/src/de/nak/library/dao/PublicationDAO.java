@@ -107,7 +107,7 @@ public class PublicationDAO {
 
 		if (publication.getTitle() != null
 				&& !publication.getTitle().equals("")) {
-			criteria.add(Restrictions.like("title",
+			criteria.add(Restrictions.ilike("title",
 					"%" + publication.getTitle() + "%"));
 		}
 		if (publication.getAuthors() != null
@@ -177,7 +177,7 @@ public class PublicationDAO {
 
 			Criteria publicationTypeCriteria = sessionFactory
 					.getCurrentSession().createCriteria(PublicationType.class);
-			publicationTypeCriteria.add(Restrictions.eq("name",
+			publicationTypeCriteria.add(Restrictions.ilike("name",
 					publication.getPublicationType()));
 			List<PublicationType> publicationTypes = publicationTypeCriteria
 					.list();
