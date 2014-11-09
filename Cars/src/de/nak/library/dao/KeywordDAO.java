@@ -78,6 +78,11 @@ public class KeywordDAO {
 		return (Keyword) criteria.uniqueResult();
 	}
 
+	/**
+	 * Set the sessionFactory.
+	 * 
+	 * @param sessionFactory
+	 */
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
