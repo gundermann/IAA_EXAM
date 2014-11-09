@@ -138,7 +138,7 @@ public class LendingServiceImpl implements LendingService {
 	private void extendReturnDate(Lending lending) {
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(lending.getExpectedReturnDate());
-		calendar.add(Calendar.DATE, 14);
+		calendar.add(Calendar.DATE, 28);
 		lending.setExpectedReturnDate(calendar.getTime());
 	}
 

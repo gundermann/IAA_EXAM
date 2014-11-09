@@ -78,7 +78,7 @@ public interface LendingService {
 	List<Publication> searchAllAvailablePublications();
 
 	/**
-	 * Extends the return date of a given lending by 2 weeks. Adds one extension
+	 * Extends the return date of a given lending by 4 weeks. Adds one extension
 	 * to the Lending. Removes the admonition process if there is one.
 	 * 
 	 * @param lending
