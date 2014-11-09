@@ -36,6 +36,11 @@ public class AdmonitionProcessDAO {
 		sessionFactory.getCurrentSession().delete(admonitionProcess);
 	}
 
+	/**
+	 * Set the sessionFactory.
+	 * 
+	 * @param sessionFactory
+	 */
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

@@ -1,5 +1,11 @@
 package de.nak.library.model;
 
+/**
+ * Entity to Search for publications.
+ * 
+ * @author Kathrin Kurtz
+ * 
+ */
 public class PublicationSearchCriteria {
 
 	/** The NAK-intern identifier. */

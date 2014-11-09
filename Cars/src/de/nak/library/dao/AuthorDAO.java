@@ -77,6 +77,11 @@ public class AuthorDAO {
 		return (Author) criteria.uniqueResult();
 	}
 
+	/**
+	 * Set the sessionFactory.
+	 * 
+	 * @param sessionFactory
+	 */
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
