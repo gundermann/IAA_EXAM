@@ -88,16 +88,18 @@ public class LendingServiceImpl implements LendingService {
 		if (lendingExtensionNr <= 3) {
 			extendReturnDate(lending);
 			lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
-			deleteAdmonitionProcess(lending);
+			Date now = new GregorianCalendar().getTime();
+			if (lending.getExpectedReturnDate().compareTo(now) >= 0) {
+				deleteAdmonitionProcess(lending);
+				lending.setAdmonitionProcess(null);
+			}
 		}
 		saveLending(lending);
 	}
 
 	@Override
 	public boolean hasAdmonitionProcess(Lending lending) {
-		AdmonitionProcess processes = admonitionProcessService
-				.searchByLending(lending);
-		return processes != null;
+		return lending.getAdmonitionProcess() != null;
 	}
 
 	@Override
@@ -113,8 +115,8 @@ public class LendingServiceImpl implements LendingService {
 
 	@Override
 	public void finishLendingIfReturned(Lending lending) {
-		if (!deleteAdmonitionProcess(lending))
-			deleteLending(lending);
+		// if(!deleteAdmonitionProcess(lending))
+		deleteLending(lending);
 	}
 
 	@Override
@@ -122,15 +124,14 @@ public class LendingServiceImpl implements LendingService {
 		Publication publication = lending.getPublication();
 		publication.setQuantity(publication.getQuantity() - 1);
 		publicationService.savePublication(publication);
-		if (!deleteAdmonitionProcess(lending))
-			deleteLending(lending);
+		// if(!deleteAdmonitionProcess(lending))
+		deleteLending(lending);
 	}
 
 	@Override
 	public AdmonitionProcess createAdmonitionProcess(Long lendingId) {
 		AdmonitionProcess admonitionProcess = new AdmonitionProcess();
 		admonitionProcess.setAdmonitions(new HashSet<Admonition>());
-		admonitionProcess.setLending(loadLending(lendingId));
 		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
 		return admonitionProcess;
 	}
@@ -153,8 +154,7 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	private boolean deleteAdmonitionProcess(Lending lending) {
-		AdmonitionProcess admonitionProcess = admonitionProcessService
-				.searchByLending(lending);
+		AdmonitionProcess admonitionProcess = lending.getAdmonitionProcess();
 		if (admonitionProcess != null) {
 			admonitionProcessService.deleteAdmonitionProcess(admonitionProcess);
 			return true;

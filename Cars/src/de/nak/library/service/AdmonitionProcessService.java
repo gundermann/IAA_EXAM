@@ -3,7 +3,6 @@ package de.nak.library.service;
 import java.util.List;
 
 import de.nak.library.model.AdmonitionProcess;
-import de.nak.library.model.Lending;
 
 /**
  * Admonition process service interface.
@@ -52,7 +51,7 @@ public interface AdmonitionProcessService {
 	 * @return the admonition process. Returns null if no admonition process was
 	 *         found.
 	 */
-	AdmonitionProcess searchByLending(Lending lending);
+//	AdmonitionProcess searchByLending(Lending lending);
 
 	/**
 	 * Search the admonition process which belongs to a given lending.
@@ -62,7 +61,7 @@ public interface AdmonitionProcessService {
 	 * @return the admonition process. Returns null if no admonition process was
 	 *         found.
 	 */
-	AdmonitionProcess searchByLendingID(Long lendingId);
+//	AdmonitionProcess searchByLendingID(Long lendingId);
 
 	/**
 	 * Adds an admonition with the current time to the given admonition process.

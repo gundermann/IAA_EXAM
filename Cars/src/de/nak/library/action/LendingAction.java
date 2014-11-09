@@ -99,6 +99,9 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String finishLendingIfLost() {
 		lending = lendingService.loadLending(lendingId);
+		if(lending.getAdmonitionProcess() != null && lending.getAdmonitionProcess().getAdmonitions().size() < 3){
+			addActionError(getText("msg.sendThreeAdmonitions"));
+		}
 		if (lending != null) {
 			lendingService.finishLendingIfLost(lending);
 		}

@@ -3,6 +3,7 @@ package de.nak.library.action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.AdmonitionProcess;
+import de.nak.library.model.Lending;
 import de.nak.library.service.AdmonitionProcessService;
 import de.nak.library.service.LendingService;
 
@@ -33,8 +34,8 @@ public class AdmonitionProcessAction extends ActionSupport {
 	 * @return the return string
 	 */
 	public String addAdmonition() {
-		AdmonitionProcess admonitionProcess = admonitionProcessService
-				.searchByLendingID(lendingId);
+		AdmonitionProcess admonitionProcess = lendingService.loadLending(
+				lendingId).getAdmonitionProcess();
 		if (admonitionProcess == null) {
 			addActionError(getText("msg.noAdmonitionProcessFound"));
 			return INPUT;
@@ -56,13 +57,16 @@ public class AdmonitionProcessAction extends ActionSupport {
 	 * @return the result string
 	 */
 	public String createAdmonitionProcess() {
-		if (admonitionProcessService.searchByLendingID(lendingId) != null) {
+		if (lendingService.loadLending(lendingId).getAdmonitionProcess() != null) {
 			addActionError(getText("msg.admonitionProcessAlreadyExists"));
 			return INPUT;
 		}
 		AdmonitionProcess admonitionProcess = lendingService
 				.createAdmonitionProcess(lendingId);
 		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
+		Lending lending = lendingService.loadLending(lendingId);
+		lending.setAdmonitionProcess(admonitionProcess);
+		lendingService.saveLending(lending);
 		return SUCCESS;
 	}
 

@@ -2,12 +2,9 @@ package de.nak.library.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 
 import de.nak.library.model.AdmonitionProcess;
-import de.nak.library.model.Lending;
 
 /**
  * AdmonitionProcess data access object.
@@ -77,13 +74,13 @@ public class AdmonitionProcessDAO {
 	 * @return a list of one admonition process which is empty if no admonition
 	 *         process was found.
 	 */
-	public AdmonitionProcess loadByLending(Lending lending) {
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
-				AdmonitionProcess.class);
-		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-		criteria.add(Restrictions.eq("lending", lending));
-		return (AdmonitionProcess) criteria.uniqueResult();
-	}
+//	public AdmonitionProcess loadByLending(Lending lending) {
+//		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+//				AdmonitionProcess.class);
+//		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+//		criteria.add(Restrictions.eq("lending", lending));
+//		return (AdmonitionProcess) criteria.uniqueResult();
+//	}
 
 	/**
 	 * Loads a admonition processes from the database that belongs to the given
@@ -92,12 +89,12 @@ public class AdmonitionProcessDAO {
 	 * @return a list of one admonition process which is empty if no admonition
 	 *         process was found.
 	 */
-	public AdmonitionProcess loadByLendingID(Long lendingId) {
-		Criteria lendingCriteria = sessionFactory.getCurrentSession()
-				.createCriteria(Lending.class);
-		lendingCriteria.add(Restrictions.eq("lendingId", lendingId));
-		Lending lending = (Lending) lendingCriteria.uniqueResult();
-
-		return loadByLending(lending);
-	}
+//	public AdmonitionProcess loadByLendingID(Long lendingId) {
+//		Criteria lendingCriteria = sessionFactory.getCurrentSession()
+//				.createCriteria(Lending.class);
+//		lendingCriteria.add(Restrictions.eq("lendingId", lendingId));
+//		Lending lending = (Lending) lendingCriteria.uniqueResult();
+//
+//		return loadByLending(lending);
+//	}
 }

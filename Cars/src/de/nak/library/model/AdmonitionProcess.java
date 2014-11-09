@@ -26,9 +26,6 @@ public class AdmonitionProcess {
 	/** The identifier. */
 	private Long admonitionProcessId;
 
-	/** The lending that this admonition process belongs to */
-	private Lending lending;
-
 	/**
 	 * Set of the admonitions created in this admonition process. Maximum number
 	 * is 3.
@@ -46,23 +43,13 @@ public class AdmonitionProcess {
 		this.admonitionProcessId = id;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	public Set<Admonition> getAdmonitions() {
 		return admonitions;
 	}
 
 	public void setAdmonitions(Set<Admonition> admonitions) {
 		this.admonitions = admonitions;
-	}
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "LENDING_ID")
-	public Lending getLending() {
-		return lending;
-	}
-
-	public void setLending(Lending lending) {
-		this.lending = lending;
 	}
 
 }

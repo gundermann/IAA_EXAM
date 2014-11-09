@@ -46,15 +46,15 @@ public class AdmonitionProcessServiceImpl implements AdmonitionProcessService {
 		return admonitionProcessDAO.loadAll();
 	}
 
-	@Override
-	public AdmonitionProcess searchByLending(Lending lending) {
-		return admonitionProcessDAO.loadByLending(lending);
-	}
+//	@Override
+//	public AdmonitionProcess searchByLending(Lending lending) {
+//		return admonitionProcessDAO.loadByLending(lending);
+//	}
 
-	@Override
-	public AdmonitionProcess searchByLendingID(Long lendingId) {
-		return admonitionProcessDAO.loadByLendingID(lendingId);
-	}
+//	@Override
+//	public AdmonitionProcess searchByLendingID(Long lendingId) {
+//		return admonitionProcessDAO.loadByLendingID(lendingId);
+//	}
 
 	@Override
 	public AdmonitionProcess addAdmonition(AdmonitionProcess admonitionProcess) {
