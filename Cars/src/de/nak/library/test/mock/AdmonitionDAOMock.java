@@ -1,7 +1,5 @@
 package de.nak.library.test.mock;
 
-import java.util.List;
-
 import de.nak.library.dao.AdmonitionDAO;
 import de.nak.library.model.Admonition;
 
@@ -18,17 +16,7 @@ public class AdmonitionDAOMock extends AdmonitionDAO {
 	}
 
 	@Override
-	public Admonition load(Long id) {
-		return null;
-	}
-
-	@Override
 	public void delete(Admonition admonition) {
 
-	}
-
-	@Override
-	public List<Admonition> loadAll() {
-		return null;
 	}
 }

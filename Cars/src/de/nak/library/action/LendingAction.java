@@ -55,7 +55,7 @@ public class LendingAction extends ActionSupport {
 		if (lenderId == null) {
 			addActionError(getText("msg.selectLender"));
 			isValid = false;
-		} 
+		}
 		if (publicationId == null) {
 			addActionError(getText("msg.selectPublication"));
 			isValid = false;
@@ -87,7 +87,7 @@ public class LendingAction extends ActionSupport {
 	public String finishLendingIfReturned() {
 		lending = lendingService.loadLending(lendingId);
 		if (lending != null) {
-			lendingService.finishLendingIfReturned(lending);
+			lendingService.deleteLending(lending);
 		}
 		return SUCCESS;
 	}
@@ -99,7 +99,9 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String finishLendingIfLost() {
 		lending = lendingService.loadLending(lendingId);
-		if(lending.getAdmonitionProcess() == null || (lending.getAdmonitionProcess() != null && lending.getAdmonitionProcess().getAdmonitions().size() < 3)){
+		if (lending.getAdmonitionProcess() == null
+				|| (lending.getAdmonitionProcess() != null && lending
+						.getAdmonitionProcess().getAdmonitions().size() < 3)) {
 			addActionError(getText("msg.sendThreeAdmonitions"));
 			return INPUT;
 		}

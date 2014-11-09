@@ -43,6 +43,13 @@ public interface PublisherService {
 	 */
 	List<Publisher> loadAllPublishers();
 
-	Publisher loadByName(String publisherName);
+	/**
+	 * Searches for a publisher by a given name.
+	 * 
+	 * @param publisherName
+	 *            The publisher name.
+	 * @return a publisher. Returns null if no publisher was found.
+	 */
+	Publisher searchByName(String publisherName);
 
 }

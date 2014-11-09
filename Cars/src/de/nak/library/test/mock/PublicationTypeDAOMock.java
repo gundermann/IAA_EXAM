@@ -33,4 +33,9 @@ public class PublicationTypeDAOMock extends PublicationTypeDAO {
 	public List<PublicationType> loadAll() {
 		return null;
 	}
+
+	@Override
+	public PublicationType load(String name) {
+		return null;
+	}
 }

@@ -40,8 +40,8 @@ public class KeywordServiceImpl implements KeywordService {
 	}
 
 	@Override
-	public Keyword loadByName(String keyword) {
-		return keywordDAO.load(keyword);
+	public Keyword searchByName(String keywordName) {
+		return keywordDAO.load(keywordName);
 	}
 
 }

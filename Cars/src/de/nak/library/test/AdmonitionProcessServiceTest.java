@@ -30,6 +30,14 @@ public class AdmonitionProcessServiceTest extends TestCase {
 		admonitionProcessService.setAdmonitionService(admonitionService);
 	}
 
+	public void testCreateAdmonitionProcess() {
+		AdmonitionProcess admonitionProcess = admonitionProcessService
+				.createAdmonitionProcess();
+
+		assertNotNull(admonitionProcess);
+		assertNotNull(admonitionProcess.getAdmonitions());
+	}
+
 	public void testAddAdmonition() {
 		AdmonitionProcess admonitionProcess = new AdmonitionProcess();
 		admonitionProcessService.addAdmonition(admonitionProcess);
@@ -41,10 +49,6 @@ public class AdmonitionProcessServiceTest extends TestCase {
 			assertCorrectCreationDay(admonition);
 			assertEquals(admonitionProcess, admonition.getAdmonitionProcess());
 		}
-	}
-
-	public void testCountAdmonitions() {
-		assertEquals(null, admonitionProcessService.countAdmonitions(null));
 	}
 
 	private void assertCorrectCreationDay(Admonition admonition) {

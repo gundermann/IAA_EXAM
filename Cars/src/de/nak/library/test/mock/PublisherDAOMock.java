@@ -34,4 +34,9 @@ public class PublisherDAOMock extends PublisherDAO {
 		return null;
 	}
 
+	@Override
+	public Publisher load(String name) {
+		return null;
+	}
+
 }

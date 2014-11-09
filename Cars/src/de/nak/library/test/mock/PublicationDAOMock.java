@@ -36,17 +36,17 @@ public class PublicationDAOMock extends PublicationDAO {
 	}
 
 	@Override
-	public List<Publication> load(String whereCondition) {
-		return null;
-	}
-
-	@Override
 	public Publication loadByIsbn(Long isbn) {
 		return null;
 	}
 
 	@Override
 	public List<Publication> load(PublicationSearchCriteria publication) {
+		return null;
+	}
+
+	@Override
+	public Publication loadByNakId(Long nakId) {
 		return null;
 	}
 }

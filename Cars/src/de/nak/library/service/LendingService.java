@@ -2,7 +2,6 @@ package de.nak.library.service;
 
 import java.util.List;
 
-import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.model.Lender;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
@@ -88,15 +87,6 @@ public interface LendingService {
 	void extend(Lending lending);
 
 	/**
-	 * Tells whether an admonition process exists for a given lending.
-	 * 
-	 * @param lending
-	 *            The lending.
-	 * @return true if the lending has an admonition process.
-	 */
-//	boolean hasAdmonitionProcess(Lending lending);
-
-	/**
 	 * Initializes a given lending by setting the initial value for every
 	 * attribute.
 	 * 
@@ -111,33 +101,11 @@ public interface LendingService {
 	Lending initializeLending(Lending lending, Long lenderId, Long publicationId);
 
 	/**
-	 * Deletes a given lending including the admonition process and all
-	 * admonitions.
-	 * 
-	 * @param lending
-	 *            The lending to delete.
-	 */
-	void finishLendingIfReturned(Lending lending);
-
-	/**
-	 * Deletes a given lending including the admonition process and all
-	 * admonitions. Reduces the quantity of the publication attached to the
-	 * lending.
+	 * Deletes a given lending. Reduces the quantity of the publication attached
+	 * to the lending.
 	 * 
 	 * @param lending
 	 *            The lending to delete.
 	 */
 	void finishLendingIfLost(Lending lending);
-
-	/**
-	 * Creates and saves an admonition process for the given lending.
-	 * 
-	 * @param lendingId
-	 *            The data base id of the lending to create an admonition
-	 *            process for.
-	 * @return the created admonition process.
-	 */
-	AdmonitionProcess createAdmonitionProcess(Long lendingId);
-
-
 }

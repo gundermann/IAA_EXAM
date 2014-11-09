@@ -40,8 +40,8 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public Author loadByName(String name) {
-		return authorDAO.load(name);
+	public Author searchByName(String authorName) {
+		return authorDAO.load(authorName);
 	}
 
 }

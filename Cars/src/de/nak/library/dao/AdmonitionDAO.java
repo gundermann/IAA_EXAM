@@ -27,19 +27,6 @@ public class AdmonitionDAO {
 	}
 
 	/**
-	 * Loads a single admonition entity from the database.
-	 * 
-	 * @param id
-	 *            The identifier.
-	 * @return A admonition or null if no admonition was found with the given
-	 *         identifier.
-	 */
-//	public Admonition load(Long id) {
-//		return (Admonition) sessionFactory.getCurrentSession().get(
-//				Admonition.class, id);
-//	}
-
-	/**
 	 * Deletes the admonition from the database.
 	 * 
 	 * @param admonition
@@ -49,19 +36,7 @@ public class AdmonitionDAO {
 		sessionFactory.getCurrentSession().delete(admonition);
 	}
 
-	/**
-	 * Loads all admonitions from the database.
-	 * 
-	 * @return a list of admonitions which is empty if no admonition was found.
-	 */
-//	@SuppressWarnings("unchecked")
-//	public List<Admonition> loadAll() {
-//		return sessionFactory.getCurrentSession()
-//				.createQuery("from Admonition").list();
-//	}
-
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
 }

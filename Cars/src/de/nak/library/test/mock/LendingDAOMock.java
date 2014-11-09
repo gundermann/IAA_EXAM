@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import de.nak.library.dao.LendingDAO;
+import de.nak.library.model.Lender;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
 
@@ -43,6 +44,11 @@ public class LendingDAOMock extends LendingDAO {
 
 	@Override
 	public List<Lending> load(Publication publication) {
+		return null;
+	}
+
+	@Override
+	public List<Lending> load(Lender lender) {
 		return null;
 	}
 }

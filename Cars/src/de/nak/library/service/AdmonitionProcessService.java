@@ -18,15 +18,6 @@ public interface AdmonitionProcessService {
 	void saveAdmonitionProcess(AdmonitionProcess admonitionProcess);
 
 	/**
-	 * Loads a single admonition process.
-	 * 
-	 * @param id
-	 *            The identifier.
-	 * @return a admonition process or null.
-	 */
-//	AdmonitionProcess loadAdmonitionProcess(Long id);
-
-	/**
 	 * Deletes the given admonition process and every attached admonition.
 	 * 
 	 * @param admonitionProcess
@@ -35,31 +26,11 @@ public interface AdmonitionProcessService {
 	void deleteAdmonitionProcess(AdmonitionProcess admonitionProcess);
 
 	/**
-	 * Loads a list of all admonition process.
+	 * Creates an admonition process.
 	 * 
-	 * @return a list which is empty if no admonition process was found.
+	 * @return the created admonition process.
 	 */
-//	List<AdmonitionProcess> loadAllAdmonitionProcesss();
-
-	/**
-	 * Search the admonition process which belongs to a given lending.
-	 * 
-	 * @param lending
-	 *            The lending to search by.
-	 * @return the admonition process. Returns null if no admonition process was
-	 *         found.
-	 */
-//	AdmonitionProcess searchByLending(Lending lending);
-
-	/**
-	 * Search the admonition process which belongs to a given lending.
-	 * 
-	 * @param lending
-	 *            The data base id of the lending to search by.
-	 * @return the admonition process. Returns null if no admonition process was
-	 *         found.
-	 */
-//	AdmonitionProcess searchByLendingID(Long lendingId);
+	AdmonitionProcess createAdmonitionProcess();
 
 	/**
 	 * Adds an admonition with the current time to the given admonition process.
@@ -69,16 +40,5 @@ public interface AdmonitionProcessService {
 	 * @return the admonition process with the added admonition.
 	 */
 	AdmonitionProcess addAdmonition(AdmonitionProcess admonitionProcess);
-
-	/**
-	 * Returns the number of admonitions connected to a given admonition
-	 * process.
-	 * 
-	 * @param admonitionProcessId
-	 *            The data base id of the admonition process.
-	 * @return the number of admonitions. Returns null if no admonition process
-	 *         was found.
-	 */
-//	Integer countAdmonitions(Long admonitionProcessId);
 
 }

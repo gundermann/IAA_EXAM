@@ -40,8 +40,8 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 	}
 
 	@Override
-	public PublicationType loadByName(String name) {
-		return publicationTypeDAO.load(name);
+	public PublicationType searchByName(String typeName) {
+		return publicationTypeDAO.load(typeName);
 	}
 
 }

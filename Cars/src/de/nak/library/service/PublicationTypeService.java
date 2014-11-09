@@ -43,6 +43,14 @@ public interface PublicationTypeService {
 	 */
 	List<PublicationType> loadAllPublicationTypes();
 
-	PublicationType loadByName(String name);
+	/**
+	 * Searches for a publication type by a given name.
+	 * 
+	 * @param typeName
+	 *            The publication type name.
+	 * @return a publication type. Returns null if no publication type was
+	 *         found.
+	 */
+	PublicationType searchByName(String typeName);
 
 }

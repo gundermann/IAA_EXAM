@@ -43,5 +43,12 @@ public interface AuthorService {
 	 */
 	List<Author> loadAllAuthors();
 
-	Author loadByName(String name);
+	/**
+	 * Searches for an author by a given name.
+	 * 
+	 * @param authorName
+	 *            The authors name.
+	 * @return an author. Returns null if no author was found.
+	 */
+	Author searchByName(String authorName);
 }

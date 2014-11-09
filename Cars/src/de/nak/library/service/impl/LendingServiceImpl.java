@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashSet;
 import java.util.List;
 
 import de.nak.library.dao.LendingDAO;
-import de.nak.library.model.Admonition;
-import de.nak.library.model.AdmonitionProcess;
 import de.nak.library.model.Lender;
 import de.nak.library.model.Lending;
 import de.nak.library.model.Publication;
@@ -88,16 +85,12 @@ public class LendingServiceImpl implements LendingService {
 		if (lendingExtensionNr <= 3) {
 			extendReturnDate(lending);
 			lending.setNumberOfLendingExtensions(lendingExtensionNr + 1);
-			deleteAdmonitionProcess(lending);
+			admonitionProcessService.deleteAdmonitionProcess(lending
+					.getAdmonitionProcess());
 			lending.setAdmonitionProcess(null);
 		}
 		saveLending(lending);
 	}
-
-	// @Override
-	// public boolean hasAdmonitionProcess(Lending lending) {
-	// return lending.getAdmonitionProcess() != null;
-	// }
 
 	@Override
 	public Lending initializeLending(Lending lending, Long lenderId,
@@ -111,26 +104,11 @@ public class LendingServiceImpl implements LendingService {
 	}
 
 	@Override
-	public void finishLendingIfReturned(Lending lending) {
-		// if(!deleteAdmonitionProcess(lending))
-		deleteLending(lending);
-	}
-
-	@Override
 	public void finishLendingIfLost(Lending lending) {
 		Publication publication = lending.getPublication();
 		publication.setQuantity(publication.getQuantity() - 1);
 		publicationService.savePublication(publication);
-		// if(!deleteAdmonitionProcess(lending))
 		deleteLending(lending);
-	}
-
-	@Override
-	public AdmonitionProcess createAdmonitionProcess(Long lendingId) {
-		AdmonitionProcess admonitionProcess = new AdmonitionProcess();
-		admonitionProcess.setAdmonitions(new HashSet<Admonition>());
-		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
-		return admonitionProcess;
 	}
 
 	public void setLendingDAO(LendingDAO lendingDAO) {
@@ -148,15 +126,6 @@ public class LendingServiceImpl implements LendingService {
 
 	public void setPublicationService(PublicationService publicationService) {
 		this.publicationService = publicationService;
-	}
-
-	private boolean deleteAdmonitionProcess(Lending lending) {
-		AdmonitionProcess admonitionProcess = lending.getAdmonitionProcess();
-		if (admonitionProcess != null) {
-			admonitionProcessService.deleteAdmonitionProcess(admonitionProcess);
-			return true;
-		}
-		return false;
 	}
 
 	private void initializeDates(Lending lending) {

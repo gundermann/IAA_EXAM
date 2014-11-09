@@ -33,4 +33,9 @@ public class AuthorDAOMock extends AuthorDAO {
 	public List<Author> loadAll() {
 		return null;
 	}
+
+	@Override
+	public Author load(String name) {
+		return null;
+	}
 }

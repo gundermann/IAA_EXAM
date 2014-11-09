@@ -73,21 +73,6 @@ public class PublicationDAO {
 	}
 
 	/**
-	 * Search publications from the database.
-	 * 
-	 * @param whereCondition
-	 *            A String that contains the 'where'-condition of your sql
-	 *            statement.
-	 * @return a list of publications which is empty if no publication was
-	 *         found.
-	 */
-//	@SuppressWarnings("unchecked")
-//	public List<Publication> load(String whereCondition) {
-//		return sessionFactory.getCurrentSession()
-//				.createQuery("from Publication" + whereCondition).list();
-//	}
-
-	/**
 	 * Search publication by ISBN from the database.
 	 * 
 	 * @param isbn

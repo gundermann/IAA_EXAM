@@ -33,4 +33,9 @@ public class KeywordDAOMock extends KeywordDAO {
 	public List<Keyword> loadAll() {
 		return null;
 	}
+
+	@Override
+	public Keyword load(String name) {
+		return null;
+	}
 }

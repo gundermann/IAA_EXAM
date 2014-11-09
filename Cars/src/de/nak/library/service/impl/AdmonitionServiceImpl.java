@@ -18,20 +18,10 @@ public class AdmonitionServiceImpl implements AdmonitionService {
 		admonitionDAO.save(admonition);
 	}
 
-//	@Override
-//	public Admonition loadAdmonition(Long admonitionId) {
-//		return admonitionDAO.load(admonitionId);
-//	}
-
 	@Override
 	public void deleteAdmonition(Admonition admonition) {
 		admonitionDAO.delete(admonition);
 	}
-
-//	@Override
-//	public List<Admonition> loadAllAdmonitions() {
-//		return admonitionDAO.loadAll();
-//	}
 
 	public void setAdmonitionDAO(AdmonitionDAO admonitionDAO) {
 		this.admonitionDAO = admonitionDAO;

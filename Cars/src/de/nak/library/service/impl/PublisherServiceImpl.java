@@ -40,7 +40,7 @@ public class PublisherServiceImpl implements PublisherService {
 	}
 
 	@Override
-	public Publisher loadByName(String publisherName) {
+	public Publisher searchByName(String publisherName) {
 		return publisherDAO.load(publisherName);
 	}
 

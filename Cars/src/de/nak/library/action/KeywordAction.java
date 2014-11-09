@@ -37,7 +37,7 @@ public class KeywordAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		Keyword keywordWithSameName = keywordService.loadByName(keyword
+		Keyword keywordWithSameName = keywordService.searchByName(keyword
 				.getKeyword());
 		if (keywordWithSameName != null
 				&& (keywordId == null || keywordWithSameName.getKeywordId() != keywordId)) {

@@ -43,6 +43,13 @@ public interface KeywordService {
 	 */
 	List<Keyword> loadAllKeywords();
 
-	Keyword loadByName(String keyword);
+	/**
+	 * Searches for a keyword by a given name.
+	 * 
+	 * @param keywordName
+	 *            The keyword name.
+	 * @return a keyword. Returns null if no keyword was found.
+	 */
+	Keyword searchByName(String keywordName);
 
 }

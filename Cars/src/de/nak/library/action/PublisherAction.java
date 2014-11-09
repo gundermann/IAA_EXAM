@@ -42,7 +42,7 @@ public class PublisherAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		Publisher publisherWithSameName = publisherService.loadByName(publisher.getPublisherName());
+		Publisher publisherWithSameName = publisherService.searchByName(publisher.getPublisherName());
 		if (publisherWithSameName != null
 				&& (publisherId == null || publisherWithSameName.getPublisherId() != publisherId)) {
 			addActionError(getText("msg.publisherNameAlreadyExists"));

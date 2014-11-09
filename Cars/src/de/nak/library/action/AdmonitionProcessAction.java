@@ -61,8 +61,8 @@ public class AdmonitionProcessAction extends ActionSupport {
 			addActionError(getText("msg.admonitionProcessAlreadyExists"));
 			return INPUT;
 		}
-		AdmonitionProcess admonitionProcess = lendingService
-				.createAdmonitionProcess(lendingId);
+		AdmonitionProcess admonitionProcess = admonitionProcessService
+				.createAdmonitionProcess();
 		admonitionProcessService.saveAdmonitionProcess(admonitionProcess);
 		Lending lending = lendingService.loadLending(lendingId);
 		lending.setAdmonitionProcess(admonitionProcess);
