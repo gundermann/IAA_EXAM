@@ -279,6 +279,7 @@ public class PublicationDAO {
 	public List<Publication> loadByAuthorId(Long authorId) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
+		criteria.createAlias("authors", "authors");
 		Disjunction res = Restrictions.disjunction();
 		res.add(Restrictions.eq("authors.id", authorId));
 		criteria.add(res);
