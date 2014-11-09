@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.library.model.Author;
 import de.nak.library.model.Keyword;
+import de.nak.library.model.Publication;
 import de.nak.library.service.PublicationService;
 
 public class PublicationEditSetupAction extends ActionSupport {
@@ -25,6 +26,18 @@ public class PublicationEditSetupAction extends ActionSupport {
 
 	/** The publication's identifier */
 	private Long publicationId;
+
+	/** The publication.*/
+	private Publication publication;
+	
+	
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
+	}
 
 	/**
 	 * Loads the keywords which are no keywords of the publication

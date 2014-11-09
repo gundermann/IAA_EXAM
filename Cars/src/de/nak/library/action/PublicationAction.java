@@ -67,6 +67,10 @@ public class PublicationAction extends ActionSupport {
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
+		if(publication.getKeywords().size() == keywordId.length){
+			addActionError("msg.oneKeywordHasToBeSet");
+			return INPUT;
+		}
 		publicationService.deleteKeywords(publication, keywordId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
@@ -99,6 +103,10 @@ public class PublicationAction extends ActionSupport {
 			return INPUT;
 		}
 		publication = publicationService.loadPublication(publicationId);
+		if(publication.getAuthors().size() == authorId.length){
+			addActionError("msg.oneAuthorHasToBeSet");
+			return INPUT;
+		}
 		publicationService.deleteAuthors(publication, authorId);
 		publicationService.savePublication(publication);
 		return SUCCESS;
