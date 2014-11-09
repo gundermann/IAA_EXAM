@@ -5,9 +5,10 @@
 	<s:text name="txt.masterDataManagement.publicationTypes"/>
 </h3>
 <s:form>
+<s:actionerror/>
 	<%-- Form fields for the publicationtype's attributes --%>
 	<s:hidden name="publicationType.publicationTypeId"/>
-	<s:textfield name="publicationType.name" key="publicationType.name" requiredLabel="true"/>
+	<s:textfield name="publicationType.name" key="publication.publicationType" requiredLabel="true"/>
 	
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SavePublicationType" align="left"/>

@@ -26,14 +26,13 @@ public class PublisherAction extends ActionSupport {
 
 	/** The publisher service. */
 	private PublisherService publisherService;
-	
+
 	/** The publication service */
 	private PublicationService publicationService;
-	
+
 	public void setPublicationService(PublicationService publicationService) {
 		this.publicationService = publicationService;
 	}
-
 
 	/**
 	 * Saves the publisher to the database.
@@ -41,9 +40,11 @@ public class PublisherAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		Publisher publisherWithSameName = publisherService.searchByName(publisher.getPublisherName());
+		Publisher publisherWithSameName = publisherService
+				.searchByName(publisher.getPublisherName());
 		if (publisherWithSameName != null
-				&& (publisherId == null || publisherWithSameName.getPublisherId() != publisherId)) {
+				&& publisherWithSameName.getPublisherId() != publisher
+						.getPublisherId()) {
 			addActionError(getText("msg.publisherNameAlreadyExists"));
 			return INPUT;
 		}
@@ -59,7 +60,8 @@ public class PublisherAction extends ActionSupport {
 	public String delete() {
 		publisher = publisherService.loadPublisher(publisherId);
 		if (publisher != null) {
-			List<Publication> publicationResults = publicationService.searchByPublisherId(publisherId);
+			List<Publication> publicationResults = publicationService
+					.searchByPublisherId(publisherId);
 			if (!publicationResults.isEmpty()) {
 				addActionError(getText("msg.publisherInUse"));
 				return INPUT;
@@ -75,8 +77,7 @@ public class PublisherAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String load() {
-		publisher = publisherService
-				.loadPublisher(publisherId);
+		publisher = publisherService.loadPublisher(publisherId);
 		return SUCCESS;
 	}
 
@@ -108,8 +109,7 @@ public class PublisherAction extends ActionSupport {
 		this.publisherId = publisherId;
 	}
 
-	public void setPublisherService(
-			PublisherService publisherService) {
+	public void setPublisherService(PublisherService publisherService) {
 		this.publisherService = publisherService;
 	}
 

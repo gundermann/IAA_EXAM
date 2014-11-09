@@ -43,7 +43,7 @@ public class PublicationTypeAction extends ActionSupport {
 	public String save() {
 		PublicationType publicationTypeWithSameName = publicationTypeService.searchByName(publicationType.getName());
 		if (publicationTypeWithSameName != null
-				&& (publicationTypeId == null || publicationTypeWithSameName.getPublicationTypeId() != publicationTypeId)) {
+				&&  publicationTypeWithSameName.getPublicationTypeId() != publicationType.getPublicationTypeId()) {
 			addActionError(getText("msg.publicationTypeNameAlreadyExists"));
 			return INPUT;
 		}

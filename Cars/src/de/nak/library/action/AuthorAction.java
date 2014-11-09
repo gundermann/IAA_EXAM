@@ -36,9 +36,10 @@ public class AuthorAction extends ActionSupport {
 	 * @return the result string.
 	 */
 	public String save() {
-		Author authorWithSameName = authorService.searchByName(author.getName());
+		Author authorWithSameName = authorService
+				.searchByName(author.getName());
 		if (authorWithSameName != null
-				&& (authorId == null || authorWithSameName.getAuthorId() != authorId)) {
+				&& authorWithSameName.getAuthorId() != author.getAuthorId()) {
 			addActionError(getText("msg.authorNameAlreadyExists"));
 			return INPUT;
 		}
@@ -54,7 +55,8 @@ public class AuthorAction extends ActionSupport {
 	public String delete() {
 		author = authorService.loadAuthor(authorId);
 		if (author != null) {
-			List<Publication> publicationResults = publicationService.searchByAuthorId(authorId);
+			List<Publication> publicationResults = publicationService
+					.searchByAuthorId(authorId);
 			if (!publicationResults.isEmpty()) {
 				addActionError(getText("msg.authorInUse"));
 				return INPUT;

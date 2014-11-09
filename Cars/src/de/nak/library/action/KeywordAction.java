@@ -39,7 +39,7 @@ public class KeywordAction extends ActionSupport {
 		Keyword keywordWithSameName = keywordService.searchByName(keyword
 				.getKeyword());
 		if (keywordWithSameName != null
-				&& (keywordId == null || keywordWithSameName.getKeywordId() != keywordId)) {
+				&& keywordWithSameName.getKeywordId() != keyword.getKeywordId()) {
 			addActionError(getText("msg.keywordNameAlreadyExists"));
 			return INPUT;
 		}
@@ -55,7 +55,8 @@ public class KeywordAction extends ActionSupport {
 	public String delete() {
 		keyword = keywordService.loadKeyword(keywordId);
 		if (keyword != null) {
-			List<Publication> publicationResults = publicationService.searchByKeywordId(keywordId);
+			List<Publication> publicationResults = publicationService
+					.searchByKeywordId(keywordId);
 			if (!publicationResults.isEmpty()) {
 				addActionError(getText("msg.keywordInUse"));
 				return INPUT;

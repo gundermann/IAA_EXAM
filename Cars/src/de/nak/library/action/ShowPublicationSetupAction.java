@@ -38,7 +38,6 @@ public class ShowPublicationSetupAction implements Action {
 	/** The publisher service */
 	private PublisherService publisherService;
 	/** The new publication */
-	//TODO wird das wrklich gebraucht?
 	private Publication publication;
 
 	public List<Publisher> getPublisherList() {
