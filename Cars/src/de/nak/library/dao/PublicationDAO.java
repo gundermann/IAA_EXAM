@@ -244,6 +244,7 @@ public class PublicationDAO {
 	public List<Publication> loadByKeywordId(Long keywordId) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
 				Publication.class);
+		criteria.createAlias("keywords", "keywords");
 		Disjunction res = Restrictions.disjunction();
 		res.add(Restrictions.eq("keywords.id", keywordId));
 		criteria.add(res);
