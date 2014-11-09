@@ -9,6 +9,12 @@
 <s:form>
 	<s:actionerror />
 	<s:hidden name="lendingId" value="0" />
+	
+	<%-- the out go date --%>
+	<s:date name="lending.outgoDate" id="outGoDate"
+		format="dd.MM.yyyy" />
+	<s:textfield key="lending.outgoDate"
+		name="lending.outgoDate" value="%{outGoDate}" requiredLabel="true" />
 
 	<%-- The table of publications--%>
 	<display:table id="publicationTable" name="publicationList"

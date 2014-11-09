@@ -36,7 +36,6 @@ public class LendingAction extends ActionSupport {
 	 */
 	public String save() {
 		if (isSetupValid()) {
-			lending = new Lending();
 			lending = lendingService.initializeLending(lending, lenderId,
 					publicationId);
 			lendingService.saveLending(lending);
