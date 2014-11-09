@@ -35,13 +35,13 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 		return publicationTypeDAO.loadAll();
 	}
 
-	public void setPublicationTypeDAO(PublicationTypeDAO publicationTypeDAO) {
-		this.publicationTypeDAO = publicationTypeDAO;
-	}
-
 	@Override
 	public PublicationType searchByName(String typeName) {
 		return publicationTypeDAO.load(typeName);
+	}
+
+	public void setPublicationTypeDAO(PublicationTypeDAO publicationTypeDAO) {
+		this.publicationTypeDAO = publicationTypeDAO;
 	}
 
 }
