@@ -139,4 +139,5 @@ public interface LendingService {
 	 */
 	AdmonitionProcess createAdmonitionProcess(Long lendingId);
 
+
 }
