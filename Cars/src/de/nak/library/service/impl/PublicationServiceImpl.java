@@ -99,27 +99,36 @@ public class PublicationServiceImpl implements PublicationService {
 	public Publication setupPublication(Publication publication,
 			Long[] authorIds, Long[] keywordIds, Long publicationTypeId,
 			Long publisherId) {
-		addAuthorValues(publication, authorIds);
-		addKeywordValues(publication, keywordIds);
-		addPublicaionTypeValue(publication, publicationTypeId);
-		addPublisherValue(publication, publisherId);
+		addAuthors(publication, authorIds);
+		addKeywords(publication, keywordIds);
+		editPublicationType(publication, publicationTypeId);
+		editPublisher(publication, publisherId);
 		return publication;
 	}
 
 	@Override
 	public void editPublisher(Publication publication, Long newPublisherId) {
-		addPublisherValue(publication, newPublisherId);
+		Publisher publisher = publisherService.loadPublisher(newPublisherId);
+		publication.setPublisher(publisher);
 	}
 
 	@Override
 	public void editPublicationType(Publication publication,
 			Long newPublicationTypeId) {
-		addPublicaionTypeValue(publication, newPublicationTypeId);
+		PublicationType publicationType = publicationTypeService
+				.loadPublicationType(newPublicationTypeId);
+		publication.setPublicationType(publicationType);
 	}
 
 	@Override
 	public void addKeywords(Publication publication, Long[] keywordIds) {
-		addKeywordValues(publication, keywordIds);
+		Set<Keyword> keywords = publication.getKeywords();
+		if (keywords == null)
+			keywords = new HashSet<Keyword>();
+		for (Long keywordId : keywordIds) {
+			keywords.add(keywordService.loadKeyword(keywordId));
+		}
+		publication.setKeywords(keywords);
 	}
 
 	@Override
@@ -135,7 +144,13 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public void addAuthors(Publication publication, Long[] authorIds) {
-		addAuthorValues(publication, authorIds);
+		Set<Author> authors = publication.getAuthors();
+		if (authors == null)
+			authors = new HashSet<Author>();
+		for (Long authorId : authorIds) {
+			authors.add(authorService.loadAuthor(authorId));
+		}
+		publication.setAuthors(authors);
 	}
 
 	@Override
@@ -168,38 +183,6 @@ public class PublicationServiceImpl implements PublicationService {
 
 	public void setPublisherService(PublisherService publisherService) {
 		this.publisherService = publisherService;
-	}
-
-	private void addAuthorValues(Publication publication, Long[] authorIds) {
-		Set<Author> authors = publication.getAuthors();
-		if (authors == null)
-			authors = new HashSet<Author>();
-		for (Long authorId : authorIds) {
-			authors.add(authorService.loadAuthor(authorId));
-		}
-		publication.setAuthors(authors);
-	}
-
-	private void addKeywordValues(Publication publication, Long[] keywordIds) {
-		Set<Keyword> keywords = publication.getKeywords();
-		if (keywords == null)
-			keywords = new HashSet<Keyword>();
-		for (Long keywordId : keywordIds) {
-			keywords.add(keywordService.loadKeyword(keywordId));
-		}
-		publication.setKeywords(keywords);
-	}
-
-	private void addPublicaionTypeValue(Publication publication,
-			Long publicationTypeId) {
-		PublicationType publicationType = publicationTypeService
-				.loadPublicationType(publicationTypeId);
-		publication.setPublicationType(publicationType);
-	}
-
-	private void addPublisherValue(Publication publication, Long publisherId) {
-		Publisher publisher = publisherService.loadPublisher(publisherId);
-		publication.setPublisher(publisher);
 	}
 
 }
