@@ -35,13 +35,13 @@ public class AuthorServiceImpl implements AuthorService {
 		return authorDAO.loadAll();
 	}
 
-	public void setAuthorDAO(AuthorDAO authorDao) {
-		this.authorDAO = authorDao;
-	}
-
 	@Override
 	public Author searchByName(String authorName) {
 		return authorDAO.load(authorName);
+	}
+
+	public void setAuthorDAO(AuthorDAO authorDao) {
+		this.authorDAO = authorDao;
 	}
 
 }

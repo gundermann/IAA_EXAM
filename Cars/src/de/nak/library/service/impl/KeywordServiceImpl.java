@@ -35,13 +35,13 @@ public class KeywordServiceImpl implements KeywordService {
 		return keywordDAO.loadAll();
 	}
 
-	public void setKeywordDAO(KeywordDAO keywordDAO) {
-		this.keywordDAO = keywordDAO;
-	}
-
 	@Override
 	public Keyword searchByName(String keywordName) {
 		return keywordDAO.load(keywordName);
+	}
+
+	public void setKeywordDAO(KeywordDAO keywordDAO) {
+		this.keywordDAO = keywordDAO;
 	}
 
 }

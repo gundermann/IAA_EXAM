@@ -35,13 +35,13 @@ public class PublisherServiceImpl implements PublisherService {
 		return publisherDAO.loadAll();
 	}
 
-	public void setPublisherDAO(PublisherDAO publisherDAO) {
-		this.publisherDAO = publisherDAO;
-	}
-
 	@Override
 	public Publisher searchByName(String publisherName) {
 		return publisherDAO.load(publisherName);
+	}
+
+	public void setPublisherDAO(PublisherDAO publisherDAO) {
+		this.publisherDAO = publisherDAO;
 	}
 
 }
