@@ -8,7 +8,7 @@
 	<s:hidden name="publicationId" />
 
 	<%-- List of authors left in master data management--%>
-	<display:table id="authorTable" name="publication.authorList" 
+	<display:table id="authorTable" name="authorList" 
 		cellpadding="5px;" cellspacing="5px;"
 		style="margin-left:50px;margin-top:20px;" requestURI="#">
 		<display:setProperty name="basic.msg.empty_list" value="Keine Autoren vorhanden" />

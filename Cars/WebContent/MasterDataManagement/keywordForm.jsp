@@ -9,7 +9,7 @@
 <s:actionerror/>
 	<%-- Form fields for the keyword's attributes --%>
 	<s:hidden name="keyword.keywordId"/>
-	<s:textfield name="keyword.keyword" key="keyword" requiredLabel="true" />
+	<s:textfield name="keyword.keyword" key="keyword.keyword" requiredLabel="true" />
 	
 	<%-- The buttons --%>
 	<s:submit key="btn.save" action="SaveKeyword" align="left"/>

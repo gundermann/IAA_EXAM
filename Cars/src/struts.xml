@@ -29,8 +29,6 @@
 			<result type="tiles">admonitionManagement</result>
 		</action>
 
-
-
 		<!-- ADMONITIONPROCESS -->
 		<!-- Action to add an admonition to an admonition process -->
 		<action name="AddAdmonition" class="de.nak.library.action.AdmonitionProcessAction"
@@ -186,13 +184,13 @@
 		<action name="AddAuthorsToPublication" class="de.nak.library.action.PublicationAction"
 			method="addAuthors">
 			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">AddAuthorsForPublication</result>
+			<result type="chain" name="input">ShowAddAuthorsSetup</result>
 		</action>
 		<!-- Action that deletes the authors to publication -->
 		<action name="DeleteAuthorsFromPublication" class="de.nak.library.action.PublicationAction"
 			method="deleteAuthors">
 			<result type="tiles">publicationEditForm</result>
-			<result type="chain" name="input">SetupAuthorsForPublication</result>
+			<result type="chain" name="input">ShowDeleteAuthorsSetup</result>
 		</action>
 		<!-- Action that shows the setup for publisher of a publication -->
 		<action name="SetupPublisherForPublication"
